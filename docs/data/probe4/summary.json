@@ -1,0 +1,1287 @@
+{
+ "uzum.uz": {
+  "robots": {
+   "status": 200,
+   "len": 4773,
+   "server": "istio-envoy",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://uzum.uz/robots.txt"
+  },
+  "robots_txt": "User-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\nDisallow: /category/\nDisallow: /product/\nDisallow: /uz/api\nDisallow: /ru/api\nDisallow: /uz/auth\nDisallow: /ru/auth\nDisallow: /uz/cart\nDisallow: /ru/cart\nDisallow: /uz/checkout\nDisallow: /ru/checkout\nDisallow: /uz/search\nDisallow: /ru/search\nDisallow: /uz/user\nDisallow: /ru/user\nDisallow: /uz/wishes\nDisallow: /ru/wishes\nDisallow: /*?$\nDisallow: /*??\nUser-agent: Yandex\nDisallow: /category/\nDisallow: /product/\nDisallow: /uz/api\nDisallow: /ru/api\nDisallow: /uz/auth\nDisallow: /ru/auth\nDisallow: /uz/cart\nDisallow: /ru/cart\nDisallow: /uz/checkout\nDisallow: /ru/checkout\nDisallow: /uz/search\nDisallow: /ru/search\nDisallow: /uz/user\nDisallow: /ru/user\nDisallow: /uz/wishes\nDisallow: /ru/wishes\nDisallow: /*?$\nDisallow: /*??\nClean-param: _openstat\nClean-param: _route_\nClean-param: added&pos&device\nClean-param: adv\nClean-param: afh\nClean-param: asset-click\nClean-param: baobab_event_id\nClean-param: block\nClean-param: c\nClean-param: click_id\nClean-param: clid\nClean-param: code\nClean-param: compactMode\nClean-param: erid\nClean-param: etext\nClean-param: external_browser_redirect\nClean-param: fbclid\nClean-param: from\nClean-param: frommarket&frommark\nClean-param: gbraid\nClean-param: gref\nClean-param: hcb\nClean-param: isCatalog\nClean-param: mcp_token\nClean-param: model\nClean-param: msclkid\nClean-param: pid\nClean-param: post_type&p\nClean-param: proxy\nClean-param: rb_clickid\nClean-param: rec\nClean-param: ref\nClean-param: referrer\nClean-param: SG&SO&OV\nClean-param: shop_columns&_escaped_fragment_\nClean-param: shortlink\nClean-param: source&source_aid\nClean-param: spm&statusBarHeight&_dognoseId&_currency&_langRU&fromApp\nClean-param: stat-id&test-tag&banner-sizes&format-type&actual-format&pcodever&banner-test-tags&pcode-active-testids&width&height&clickX&clickY\nClean-param: subid\nClean-param: text\nClean-param: theme\nClean-param: tpclid\nClean-param: ts\nClean-param: ttclid\nClean-param: url\nClean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&utm_referrer&utm_banner_type\nClean-param: utm_id\nClean-param: utm_ya_campaign&yabizcmpgn&utm_candidate&utm_product\nClean-param: vk_qr_data\nClean-param: yadclid&yadordid\nClean-param: yclid\nClean-param: yhid\nClean-param: ysclid\nClean-param: query\nUser-agent: OAI-SearchBot\nUser-agent: ChatGPT-User\nUser-agent: OAI-AdsBot\nUser-agent: Claude-SearchBot\nUser-agent: Claude-User\nUser-agent: PerplexityBot\nUser-agent: Perplexity-User\nUser-agent: DuckAssistBot\nUser-agent: MistralAI-User\nUser-agent: MistralAI-Index\nUser-agent: Meta-ExternalFetcher\nUser-agent: Google-CloudVertexBot\nUser-agent: GrokBot\nUser-agent: xAI-Bot\nUser-agent: xAI-Grok\nUser-agent: Grok-DeepSearch\nUser-agent: YouBot\nUser-agent: iaskspider\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\nDisallow: /category/\nDisallow: /product/\nDisallow: /uz/api\nDisallow: /ru/api\nDisallow: /uz/auth\nDisallow: /ru/auth\nDisallow: /uz/cart\nDisallow: /ru/cart\nDisallow: /uz/checkout\nDisallow: /ru/checkout\nDisallow: /",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 200,
+   "len": 3472,
+   "server": "istio-envoy",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://uzum.uz/"
+  },
+  "sitemap": {
+   "status": 200,
+   "len": 3472,
+   "server": "istio-envoy",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://uzum.uz/sitemap.xml"
+  },
+  "sitemap_locs": []
+ },
+ "olcha.uz": {
+  "robots": {
+   "status": 403,
+   "len": 5546,
+   "server": "cloudflare",
+   "prot": [
+    "cloudflare-challenge",
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://olcha.uz/robots.txt"
+  },
+  "robots_txt": "",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 403,
+   "len": 5516,
+   "server": "cloudflare",
+   "prot": [
+    "cloudflare-challenge",
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://olcha.uz/"
+  },
+  "sitemap": {
+   "status": 403,
+   "len": 5549,
+   "server": "cloudflare",
+   "prot": [
+    "cloudflare-challenge",
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://olcha.uz/sitemap.xml"
+  }
+ },
+ "texnomart.uz": {
+  "robots": {
+   "status": 200,
+   "len": 3929,
+   "server": "nginx/1.24.0 (Ubuntu)",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://mini-io-api.texnomart.uz/newcontent/seo-file/robots.txt"
+  },
+  "robots_txt": "User-agent: *\r\n\r\nDisallow: *?q*\r\nDisallow: *=ref\r\nDisallow: *?s=*\r\nDisallow: *user\r\nDisallow: *?c2=*\r\nDisallow: *?geo*\r\nDisallow: *?id=*\r\nDisallow: *login\r\nDisallow: *blog*\r\nDisallow: *shop*\r\nDisallow: *tag=*\r\nDisallow: *?tab=*\r\nDisallow: */news/*\r\nAllow: */ru/news/*\r\nDisallow: *?stik*\r\nDisallow: *?sort=*\r\nDisallow: */site/*\r\nDisallow: *?lang=*\r\nDisallow: *?type=*\r\nDisallow: */jtlc/*\r\nDisallow: *-tumani*\r\nDisallow: *?rtbhc=*\r\nDisallow: *search?*\r\nDisallow: */brand*\r\nDisallow: *compare*\r\nDisallow: */?brid=*\r\nDisallow: *?fbclid*\r\nDisallow: *?region*\r\nDisallow: */search/*\r\nDisallow: *?tgclid=*\r\nDisallow: */thanks/*\r\nDisallow: *?brands=*\r\nDisallow: *wishlist*\r\nDisallow: */reviews*\r\nDisallow: */balance*\r\nDisallow: *?gbraid=*\r\nDisallow: *?filter=*\r\nDisallow: */frontend\r\nDisallow: */profile/*\r\nDisallow: */preorder/*\r\nDisallow: */wish-list/\r\nDisallow: */checkout/*\r\nDisallow: *?store_id=*\r\nDisallow: */fast-order*\r\nDisallow: *?placement=*\r\nDisallow: */promotions/*\r\nDisallow: *?constructor*\r\nDisallow: *?reviews=true\r\nDisallow: *?fromCountry=*\r\nDisallow: *?AttributeValue*\r\nDisallow: *preorder*\r\nDisallow: */samsung-lending/*\r\nDisallow: */favicon.ico\r\nDisallow: */assets/img/appleTouchIcon.png\r\nAllow: *.js\r\nAllow: *.pdf\r\nAllow: *.css\r\nAllow: *.svg\r\nAllow: */min\r\nAllow: *.jpg\r\nAllow: *ajax\r\nAllow: *.webp\r\nAllow: */ru/*\r\nAllow: *images*\r\nAllow: */assets\r\nAllow: */gallery/*\r\n\r\n\r\nUser-agent: Yandex\r\n\r\nDisallow: *?q*\r\nDisallow: *user\r\nDisallow: *shop\r\nDisallow: *login\r\nDisallow: */site/*\r\nDisallow: */jtlc/*\r\nDisallow: */brand*\r\nDisallow: *search*\r\nDisallow: */brand/*\r\nDisallow: *wishlist\r\nDisallow: *compare*\r\nDisallow: */balance\r\nDisallow: */reviews\r\nDisallow: *preorder*\r\nDisallow: *?action=*\r\nDisallow: */thanks/*\r\nDisallow: */frontend\r\nDisallow: */search/*\r\nDisallow: */vacancy/*\r\nDisallow: */profile/*\r\nDisallow: */checkout/*\r\nDisallow: */fast-order\r\nDisallow: */wish-list/*\r\nDisallow: */shops-map/*\r\nDisallow: */check-imei/*\r\nDisallow: *order-status*\r\nDisallow: */promotions/*\r\nDisallow: *select-region*\r\nDisallow: */news/*\r\nAllow: */ru/news/*\r\nDisallow: */akcii-i-skidki/*\r\nDisallow: */buxoro/product/*\r\nDisallow: */nukus/product/*\r\nDisallow: */samar/product/*\r\nDisallow: */margilon/product/*\r\nDisallow: */Yangiyol/product/*\r\nDisallow: */keles/product/*\r\nDisallow: */bekabad/product/*\r\nDisallow: */dzhizak/product/*\r\nDisallow: */termez/product/*\r\nDisallow: */bagdod/product/*\r\nDisallow: */chirchiq/product/*\r\nDisallow: */andijon/product/*\r\nDisallow: */fargona/product/*\r\nDisallow: */naman/product/*\r\nDisallow: */qoqon/product/*\r\nDisallow: */asaka/product/*\r\nDisallow: */termez/product/*\r\nDisallow: */uchkuprik/product/*\r\nDisallow: */urgench/product/*\r\nDisallow: */qarshi/product/*\r\nDisallow: *?AttributeValue*\r\nDisallow: */preorder-dyson/*\r\nDisallow: */samsung-lending/*\r\nDisallow: */favicon.ico\r\nDisallow: */assets/img/appleTouchIcon.png\r\nClean-param: ref\r\nClean-param: ?id=*\r\nClean-param: brid\r\nClean-param: lg_uid\r\nClean-param: placement\r\nClean-param: tgclid\r\nClean-param: gcmes\r\nCle",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 200,
+   "len": 143973,
+   "server": "cloudflare",
+   "prot": [
+    "captcha"
+   ],
+   "jsonld": 2,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://texnomart.uz/"
+  },
+  "sitemap": {
+   "status": 200,
+   "len": 2432,
+   "server": "cloudflare",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://texnomart.uz/sitemap.xml"
+  },
+  "sitemap_locs": [
+   "https://texnomart.uz/sitemap-uz-pages.xml",
+   "https://texnomart.uz/sitemap-ru-pages.xml",
+   "https://texnomart.uz/sitemap-uz-categories.xml",
+   "https://texnomart.uz/sitemap-ru-categories.xml",
+   "https://texnomart.uz/sitemap-uz-brands.xml",
+   "https://texnomart.uz/sitemap-ru-brands.xml",
+   "https://texnomart.uz/sitemap-uz-news.xml",
+   "https://texnomart.uz/sitemap-ru-news.xml",
+   "https://texnomart.uz/sitemap-uz-promotions.xml",
+   "https://texnomart.uz/sitemap-ru-promotions.xml",
+   "https://texnomart.uz/sitemap-uz-products-1.xml",
+   "https://texnomart.uz/sitemap-uz-products-2.xml",
+   "https://texnomart.uz/sitemap-uz-products-3.xml",
+   "https://texnomart.uz/sitemap-uz-products-4.xml",
+   "https://texnomart.uz/sitemap-ru-products-1.xml",
+   "https://texnomart.uz/sitemap-ru-products-2.xml",
+   "https://texnomart.uz/sitemap-ru-products-3.xml",
+   "https://texnomart.uz/sitemap-ru-products-4.xml"
+  ]
+ },
+ "mediapark.uz": {
+  "robots": {
+   "status": 403,
+   "len": 5571,
+   "server": "cloudflare",
+   "prot": [
+    "cloudflare-challenge",
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://mediapark.uz/robots.txt"
+  },
+  "robots_txt": "",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 403,
+   "len": 5520,
+   "server": "cloudflare",
+   "prot": [
+    "cloudflare-challenge",
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://mediapark.uz/"
+  },
+  "sitemap": {
+   "status": 403,
+   "len": 5574,
+   "server": "cloudflare",
+   "prot": [
+    "cloudflare-challenge",
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://mediapark.uz/sitemap.xml"
+  }
+ },
+ "asaxiy.uz": {
+  "robots": {
+   "status": 403,
+   "len": 5572,
+   "server": "cloudflare",
+   "prot": [
+    "cloudflare-challenge",
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://asaxiy.uz/robots.txt"
+  },
+  "robots_txt": "",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 403,
+   "len": 5521,
+   "server": "cloudflare",
+   "prot": [
+    "cloudflare-challenge",
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://asaxiy.uz/"
+  },
+  "sitemap": {
+   "status": 403,
+   "len": 5575,
+   "server": "cloudflare",
+   "prot": [
+    "cloudflare-challenge",
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://asaxiy.uz/sitemap.xml"
+  }
+ },
+ "alifshop.uz": {
+  "robots": {
+   "status": 200,
+   "len": 223,
+   "server": null,
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://alifshop.uz/robots.txt"
+  },
+  "robots_txt": "User-agent: *\nDisallow: /ru/orders\nDisallow: /orders\nDisallow: /ru/profile/\nDisallow: /profile/\nDisallow: /ru/cart\nDisallow: /cart\nDisallow: /ru/checkout/\nDisallow: /checkout/\nSitemap: https://alifshop.uz/sitemap_index.xml\n",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 200,
+   "len": 666149,
+   "server": null,
+   "prot": [],
+   "jsonld": 1,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://alifshop.uz/"
+  },
+  "sitemap": {
+   "status": 200,
+   "len": 6039,
+   "server": null,
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://alifshop.uz/sitemap_index.xml"
+  },
+  "sitemap_locs": [
+   "https://alifshop.uz/0-sitemap.xml",
+   "https://alifshop.uz/1-sitemap.xml",
+   "https://alifshop.uz/2-sitemap.xml",
+   "https://alifshop.uz/3-sitemap.xml",
+   "https://alifshop.uz/4-sitemap.xml",
+   "https://alifshop.uz/5-sitemap.xml",
+   "https://alifshop.uz/6-sitemap.xml",
+   "https://alifshop.uz/7-sitemap.xml",
+   "https://alifshop.uz/8-sitemap.xml",
+   "https://alifshop.uz/9-sitemap.xml",
+   "https://alifshop.uz/10-sitemap.xml",
+   "https://alifshop.uz/11-sitemap.xml",
+   "https://alifshop.uz/12-sitemap.xml",
+   "https://alifshop.uz/13-sitemap.xml",
+   "https://alifshop.uz/14-sitemap.xml",
+   "https://alifshop.uz/15-sitemap.xml",
+   "https://alifshop.uz/16-sitemap.xml",
+   "https://alifshop.uz/17-sitemap.xml",
+   "https://alifshop.uz/18-sitemap.xml",
+   "https://alifshop.uz/19-sitemap.xml",
+   "https://alifshop.uz/20-sitemap.xml",
+   "https://alifshop.uz/21-sitemap.xml",
+   "https://alifshop.uz/22-sitemap.xml",
+   "https://alifshop.uz/23-sitemap.xml",
+   "https://alifshop.uz/24-sitemap.xml",
+   "https://alifshop.uz/25-sitemap.xml",
+   "https://alifshop.uz/26-sitemap.xml",
+   "https://alifshop.uz/27-sitemap.xml",
+   "https://alifshop.uz/28-sitemap.xml",
+   "https://alifshop.uz/29-sitemap.xml",
+   "https://alifshop.uz/30-sitemap.xml",
+   "https://alifshop.uz/31-sitemap.xml",
+   "https://alifshop.uz/32-sitemap.xml",
+   "https://alifshop.uz/33-sitemap.xml",
+   "https://alifshop.uz/34-sitemap.xml",
+   "https://alifshop.uz/35-sitemap.xml",
+   "https://alifshop.uz/36-sitemap.xml",
+   "https://alifshop.uz/37-sitemap.xml",
+   "https://alifshop.uz/38-sitemap.xml",
+   "https://alifshop.uz/39-sitemap.xml"
+  ]
+ },
+ "idea.uz": {
+  "robots": {
+   "status": 200,
+   "len": 42,
+   "server": "nginx/1.25.5",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://idea.uz/robots.txt"
+  },
+  "robots_txt": "User-agent: *\nDisallow:*?\nDisallow:*search",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 200,
+   "len": 178646,
+   "server": "nginx/1.25.5",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": true,
+   "prices": 0,
+   "final": "https://idea.uz/"
+  },
+  "sitemap": {
+   "status": 404,
+   "len": 141556,
+   "server": "nginx/1.25.5",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": true,
+   "prices": 0,
+   "final": "https://idea.uz/sitemap.xml"
+  }
+ },
+ "elmakon.uz": {
+  "robots": {
+   "error": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'elmakon.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationEr"
+  },
+  "home": {
+   "error": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'elmakon.uz\\', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[S"
+  },
+  "sitemap": {
+   "error": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'elmakon.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationE"
+  }
+ },
+ "goodzone.uz": {
+  "robots": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='goodzone.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationErr"
+  },
+  "home": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='goodzone.uz', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SS"
+  },
+  "sitemap": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='goodzone.uz', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationEr"
+  }
+ },
+ "glotr.uz": {
+  "robots": {
+   "status": 200,
+   "len": 1745,
+   "server": "nginx",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://glotr.uz/robots.txt"
+  },
+  "robots_txt": "# ============================================\n# glotr.uz — robots.txt\n# ============================================\n\n# --- Search sahifalarini HAMMA botlardan yopish ---\n# (Sphinx ni himoya qilish uchun eng muhim qism)\nUser-agent: *\nDisallow: /search\nDisallow: /uz/search\nDisallow: /ru/search\nDisallow: /en/search\nDisallow: /*?catid=\nDisallow: /*?term=\nDisallow: /*?page=\nDisallow: /*?region=\nDisallow: /*?sort=\nDisallow: /*?price_type=\nDisallow: /*&term=\nDisallow: /*&page=\nDisallow: /*&catid=\nCrawl-delay: 10\n\n# --- Baidu (asosiy muammo manbai) ---\nUser-agent: Baiduspider\nDisallow: /\n\n# --- Yandex — sekinlashtirish ---\nUser-agent: YandexBot\nDisallow: /search\nDisallow: /uz/search\nDisallow: /ru/search\nCrawl-delay: 15\n\n# --- Keraksiz / agressiv SEO va skraper botlar ---\nUser-agent: AhrefsBot\nDisallow: /\n\nUser-agent: SemrushBot\nDisallow: /\n\nUser-agent: MJ12bot\nDisallow: /\n\nUser-agent: DotBot\nDisallow: /\n\nUser-agent: BLEXBot\nDisallow: /\n\nUser-agent: DataForSeoBot\nDisallow: /\n\nUser-agent: PetalBot\nDisallow: /\n\nUser-agent: Bytespider\nDisallow: /\n\nUser-agent: SeznamBot\nDisallow: /\n\nUser-agent: MojeekBot\nDisallow: /\n\nUser-agent: SerpstatBot\nDisallow: /\n\nUser-agent: ZoominfoBot\nDisallow: /\n\n# --- AI skraperlar (ixtiyoriy — xohlasangiz qoldiring) ---\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: CCBot\nDisallow: /\n\nUser-agent: ClaudeBot\nDisallow: /\n\n# --- Google va Bing — saytni indekslasin, LEKIN search'ga kirmasin ---\nUser-agent: Googlebot\nDisallow: /search\nDisallow: /uz/search\nDisallow: /ru/search\nDisallow: /en/search\nDisallow: /*?term=\nDisallow: /*?page=\n\nUser-agent: Bingbot\nDisallow: /search\nDisallow: /uz/search\nDisallow: /ru/search\nDisallow: /*?term=\nDisallow: /*?page=\n\n# --- Sitemap ---\nSitemap: https://glotr.uz/sitemap.xml\n",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 200,
+   "len": 432169,
+   "server": "nginx",
+   "prot": [],
+   "jsonld": 2,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://glotr.uz/"
+  },
+  "sitemap": {
+   "status": 200,
+   "len": 2095,
+   "server": "nginx",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://glotr.uz/sitemap.xml"
+  },
+  "sitemap_locs": [
+   "https://glotr.uz/sitemap1.xml.gz",
+   "https://glotr.uz/sitemap6.xml.gz",
+   "https://glotr.uz/sitemap7.xml.gz",
+   "https://glotr.uz/sitemap8.xml.gz",
+   "https://glotr.uz/sitemap9.xml.gz",
+   "https://glotr.uz/sitemap100.xml.gz",
+   "https://glotr.uz/sitemap200.xml.gz",
+   "https://glotr.uz/sitemap300.xml.gz",
+   "https://glotr.uz/sitemap301.xml.gz",
+   "https://glotr.uz/sitemap302.xml.gz",
+   "https://glotr.uz/sitemap303.xml.gz",
+   "https://glotr.uz/sitemap304.xml.gz",
+   "https://glotr.uz/sitemap305.xml.gz",
+   "https://glotr.uz/sitemap400.xml.gz",
+   "https://glotr.uz/sitemap401.xml.gz",
+   "https://glotr.uz/sitemap402.xml.gz"
+  ]
+ },
+ "ishonch.uz": {
+  "robots": {
+   "status": 200,
+   "len": 98,
+   "server": "nginx/1.24.0 (Ubuntu)",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://ishonch.uz/robots.txt"
+  },
+  "robots_txt": "User-Agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\n\nSitemap: https://ishonch.uz/sitemap.xml\n",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 200,
+   "len": 260997,
+   "server": "nginx/1.24.0 (Ubuntu)",
+   "prot": [],
+   "jsonld": 2,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://ishonch.uz/"
+  },
+  "sitemap": {
+   "status": 200,
+   "len": 94143,
+   "server": "nginx/1.24.0 (Ubuntu)",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://ishonch.uz/sitemap.xml"
+  },
+  "sitemap_locs": [
+   "https://ishonch.uz",
+   "https://ishonch.uz/newspaper",
+   "https://ishonch.uz/foto",
+   "https://ishonch.uz/video",
+   "https://ishonch.uz/ozbekiston",
+   "https://ishonch.uz/tahlil",
+   "https://ishonch.uz/xorij",
+   "https://ishonch.uz/hodisa",
+   "https://ishonch.uz/intervyu",
+   "https://ishonch.uz/library",
+   "https://ishonch.uz/#",
+   "https://ishonch.uz/news/zbekiston-va-moldova-kasaba-usmalari",
+   "https://ishonch.uz/news/moldova-delegacisi-islom-civilizacisi",
+   "https://ishonch.uz/news/suv-bor-ammo-etarlimi",
+   "https://ishonch.uz/news/afonistonda-2-ming-illik-tarihga-ga",
+   "https://ishonch.uz/news/toskentdagi-irik-media-forumda-ahborot",
+   "https://ishonch.uz/news/savkat-mirziev-davlat-haridlarida-ng-1",
+   "https://ishonch.uz/news/lektrotehnika-korhonalari-halaro-moli",
+   "https://ishonch.uz/news/raobat-mitasi-blogerlarning-reklamasi",
+   "https://ishonch.uz/news/pedagog-hodim-tadbirkorlik-bilan-suulla",
+   "https://ishonch.uz/news/asso-davlatlar-arzni-uzis-ucun-am-a",
+   "https://ishonch.uz/news/turkiston-saroida-kasaba-usmalari-ku",
+   "https://ishonch.uz/news/nergetika-tizimiga-irik-uvvat-sildi",
+   "https://ishonch.uz/news/odan-katta-masadlar-sari-filadelfi",
+   "https://ishonch.uz/news/u-olis-osonlasptimi-ipoteka-kreditlar",
+   "https://ishonch.uz/news/alabadan-keingi-at-va-bundkorlik-ma",
+   "https://ishonch.uz/news/demokrati-istoningni-ecib-sanaga-ci",
+   "https://ishonch.uz/news/iiv-aoliga-gaz-etkazib-berilisini-nazor",
+   "https://ishonch.uz/news/toskentda-burtmalarni-robotlar-etkazib",
+   "https://ishonch.uz/news/tizmand-allar-ucun-erni-adas-teki",
+   "https://ishonch.uz/news/bmw-hitodagi-1-800-nafar-hodimini-isdan",
+   "https://ishonch.uz/news/akademida-salo-hursandcilik",
+   "https://ishonch.uz/news/anarada-mirziev-doktrinasi-tadim-t",
+   "https://ishonch.uz/news/kksimizni-tldirib-nafas-ololmapmiz",
+   "https://ishonch.uz/news/ozarbazon-va-zbekiston-abadi-dstli",
+   "https://ishonch.uz/news/ovatdan-zaarlanisning-oldini-olis-zs",
+   "https://ishonch.uz/news/smartfon-va-noutbuklar-otasi-97-sida",
+   "https://ishonch.uz/news/zbekiston-zaon-savdo-taskilotiga-azo",
+   "https://ishonch.uz/news/talim-va-fan-hodimlari-kasaba-usmasi-r",
+   "https://ishonch.uz/news/tazriba-va-bilim-tutasgan-maktab"
+  ]
+ },
+ "artelstore.uz": {
+  "robots": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'artelstore.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError("
+  },
+  "home": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'artelstore.uz\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConn"
+  },
+  "sitemap": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'artelstore.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionError"
+  }
+ },
+ "artel.uz": {
+  "robots": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'artel.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError(\"HTTP"
+  },
+  "home": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'artel.uz\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnectio"
+  },
+  "sitemap": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'artel.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionError(\"HTT"
+  }
+ },
+ "sello.uz": {
+  "robots": {
+   "status": 522,
+   "len": 7202,
+   "server": "cloudflare",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://sello.uz/robots.txt"
+  },
+  "robots_txt": "",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 522,
+   "len": 7202,
+   "server": "cloudflare",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://sello.uz/"
+  },
+  "sitemap": {
+   "status": 522,
+   "len": 7202,
+   "server": "cloudflare",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://sello.uz/sitemap.xml"
+  }
+ },
+ "zoodmall.uz": {
+  "robots": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'zoodmall.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError(\"H"
+  },
+  "home": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'zoodmall.uz\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnec"
+  },
+  "sitemap": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'zoodmall.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionError(\""
+  }
+ },
+ "bemarket.uz": {
+  "robots": {
+   "error": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'bemarket.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationE"
+  },
+  "home": {
+   "error": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'bemarket.uz\\', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"["
+  },
+  "sitemap": {
+   "error": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'bemarket.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerification"
+  }
+ },
+ "macbro.uz": {
+  "robots": {
+   "status": 200,
+   "len": 475,
+   "server": "cloudflare",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://mcbro.uz/robots.txt"
+  },
+  "robots_txt": "User-agent: *\nAllow: /*.css\nAllow: /*.js\nAllow: /*.jpg\nAllow: /*.png\nDisallow: /*?param=\nDisallow: /*?id=\nDisallow: /*?term=\nDisallow: /?gad_source=1\nDisallow: /?page=\nDisallow: /search?page=\nClean-param: param\nClean-param: id\nClean-param: term\nDisallow: *?s= \nDisallow: /search\nDisallow: /cgi-bin/\nDisallow: /*etext=\n\nSitemap: https://mcbro.uz/sitemap.xml\n\nUser-Agent: Yandex\nSitemap: https://mcbro.uz/sitemap.xml\n\nUser-agent: Googlebot\nSitemap: https://mcbro.uz/sitemap.xml",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 200,
+   "len": 481202,
+   "server": "cloudflare",
+   "prot": [
+    "captcha"
+   ],
+   "jsonld": 2,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 1,
+   "final": "https://mcbro.uz/"
+  },
+  "sitemap": {
+   "status": 200,
+   "len": 1450,
+   "server": "cloudflare",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://mcbro.uz/sitemap.xml"
+  },
+  "sitemap_locs": [
+   "https://mcbro.uz/sitemap_agentic_discovery.xml",
+   "https://mcbro.uz/sitemap_products_1.xml?from=8686166835498&amp;to=10420241760554",
+   "https://mcbro.uz/sitemap_pages_1.xml?from=122287096106&amp;to=167774945578",
+   "https://mcbro.uz/sitemap_collections_1.xml?from=463434809642&amp;to=522117677354",
+   "https://mcbro.uz/sitemap_blogs_1.xml",
+   "https://mcbro.uz/sitemap_articles_1.xml",
+   "https://mcbro.uz/uz/sitemap_products_1.xml?from=8686166835498&amp;to=10420241760554",
+   "https://mcbro.uz/uz/sitemap_pages_1.xml?from=122287096106&amp;to=167774945578",
+   "https://mcbro.uz/uz/sitemap_collections_1.xml?from=463434809642&amp;to=522117677354",
+   "https://mcbro.uz/uz/sitemap_blogs_1.xml",
+   "https://mcbro.uz/uz/sitemap_articles_1.xml"
+  ]
+ },
+ "market.yandex.uz": {
+  "robots": {
+   "status": 200,
+   "len": 7694,
+   "server": null,
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://market.yandex.uz/robots.txt"
+  },
+  "robots_txt": "User-agent: *\nDisallow: /?\nDisallow: /thanks\nDisallow: /export\nDisallow: /allshopsearch\nDisallow: /geo$\nDisallow: /ai.xml\nDisallow: /catalogoffers.xml\nDisallow: /index-media.html\nDisallow: /offers-group.xml\nDisallow: /save-settings.xml\nDisallow: /mail-settings.xml\nDisallow: /partners/agency\nDisallow: /benefits-hub\nDisallow: /1000prizov\nDisallow: /cart\nDisallow: /checkout\nDisallow: /compare\nDisallow: /eats/order\nDisallow: /embed/cart/add\nDisallow: /error\nDisallow: /favourite-category-link\nDisallow: /find-in-other-shop\nDisallow: /gate/routes\nDisallow: /legal/certificates-rules\nDisallow: /mediakit-journal\nDisallow: /mf-checkout\nDisallow: /outlets\nDisallow: /pokupayte-dlya-biznesa\nDisallow: /promocodes\nDisallow: /remote-header-eda\nDisallow: /remote-header-lavka\nDisallow: /shop-info\nDisallow: /shop-law-delivery-info\nDisallow: /similar\nDisallow: /sku\nDisallow: /social\nDisallow: /winner-form\nDisallow: /wishlist\nDisallow: /api/\nDisallow: /old/\nDisallow: /content/\nDisallow: /bundle/\nDisallow: /navigation/\nDisallow: /feedlist/\nDisallow: /my/\nDisallow: /payment/\nDisallow: /suppliers/\nDisallow: /shop*/*/reviews-hidden\nDisallow: /shop*/*/reviews/add\nDisallow: /product*/*/reviews/add\nDisallow: /promo*/*/special\nDisallow: /offer/\nDisallow: /catalog--*/filters\nDisallow: /*/list?text=\nDisallow: /search\nDisallow: /*&rs=\nDisallow: /*?rs=\nDisallow: /*grade=\nDisallow: /*=$\nDisallow: /*=&\nDisallow: /shop--*=\nDisallow: /shop--*?page=*=\nDisallow: /product--*/reviews?page=*=\nDisallow: /product--*/questions*=\nDisallow: /product--*/questions?page=*=\nDisallow: /product--*/question--*=\nDisallow: /card/documents\nDisallow: /taxi-tablet\nDisallow: /test-journal\nDisallow: /ecom-assistant\nDisallow: /alice/snippets\nAllow: /product--*/questions?page=\nAllow: /product--*/reviews?page=\nAllow: /shop--*?page=\n\n\nUser-agent: AdsBot-Google\nDisallow: /offer/*\nDisallow: /content/*\n\n\nUser-agent: AdsBot-Google-Mobile\nDisallow: /offer/*\nDisallow: /content/*\n\n\nUser-agent: Googlebot\nDisallow: /?\nDisallow: /thanks\nDisallow: /export\nDisallow: /allshopsearch\nDisallow: /geo$\nDisallow: /ai.xml\nDisallow: /catalogoffers.xml\nDisallow: /index-media.html\nDisallow: /offers-group.xml\nDisallow: /save-settings.xml\nDisallow: /mail-settings.xml\nDisallow: /partners/agency\nDisallow: /benefits-hub\nDisallow: /1000prizov\nDisallow: /cart\nDisallow: /checkout\nDisallow: /compare\nDisallow: /eats/order\nDisallow: /embed/cart/add\nDisallow: /error\nDisallow: /favourite-category-link\nDisallow: /find-in-other-shop\nDisallow: /gate/routes\nDisallow: /legal/certificates-rules\nDisallow: /mediakit-journal\nDisallow: /mf-checkout\nDisallow: /outlets\nDisallow: /pokupayte-dlya-biznesa\nDisallow: /promocodes\nDisallow: /remote-header-eda\nDisallow: /remote-header-lavka\nDisallow: /shop-info\nDisallow: /shop-law-delivery-info\nDisallow: /similar\nDisallow: /sku\nDisallow: /social\nDisallow: /winner-form\nDisallow: /wishlist\nDisallow: /api/\nDisallow: /old/\nDisallow: /content/\nDisallow: /bundle/\nDisallow: /navigation/\nDisallow: /feedlist/\nDisallow: /my/\n",
+  "allow_root": false,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 200,
+   "len": 1158940,
+   "server": null,
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://market.yandex.uz/"
+  },
+  "sitemap": {
+   "status": 200,
+   "len": 837,
+   "server": null,
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://market.yandex.uz/sitemap.xml"
+  },
+  "sitemap_locs": [
+   "https://market.yandex.uz/sitemap/sitemap-fake-categories-pages.xml",
+   "https://market.yandex.uz/sitemap/sitemap-model-pages.xml",
+   "https://market.yandex.uz/sitemap/sitemap-nid-pages.xml",
+   "https://market.yandex.uz/sitemap/sitemap-uz-fake-categories-pages.xml",
+   "https://market.yandex.uz/sitemap/sitemap-uz-model-pages.xml",
+   "https://market.yandex.uz/sitemap/sitemap-uz-nid-pages.xml"
+  ]
+ },
+ "wildberries.uz": {
+  "robots": {
+   "status": 498,
+   "len": 1135,
+   "server": "Angie",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://www.wildberries.uz/robots.txt"
+  },
+  "robots_txt": "",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 498,
+   "len": 1135,
+   "server": "Angie",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://www.wildberries.uz/"
+  },
+  "sitemap": {
+   "status": 498,
+   "len": 1135,
+   "server": "Angie",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://www.wildberries.uz/sitemap.xml"
+  }
+ },
+ "ozon.uz": {
+  "robots": {
+   "status": 200,
+   "len": 16589,
+   "server": "nginx",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://www.ozon.uz/robots.txt?__rr=1"
+  },
+  "robots_txt": "User-agent: Yandex\n## lang ##\nDisallow: /*?hl=\n## Custom_rules ##\nAllow: /category/*/?miniapp=supermarket\nDisallow: /search/\nAllow: /app/ozon\nAllow: /app/seller_ozon\nAllow: /app/pvz_ozon\nAllow: /app/vozi_ozon\nAllow: /app/ozon_select\nAllow: /app/ozon_courier_express\nDisallow: /ai/share*\nDisallow: /aiConversation*\nDisallow: /app/\nDisallow: /info/appspromo/\nDisallow: /category/ustanovit-prilozhenie/\nDisallow: /achievements/\nDisallow: /%\nDisallow: /*.aspx\nDisallow: /*.cfm\nDisallow: /*.html\nDisallow: /*catalog_select\nDisallow: /*_catalog/\nDisallow: /*?context=\nDisallow: /action/*/?\nDisallow: /auth/\nDisallow: /amp/\nDisallow: /brand/*/category\nDisallow: /collection/\nDisallow: /category/*/sub$\nDisallow: /category/*/product$\nDisallow: /category/smt-\nDisallow: /my/set\nDisallow: /my/chat\nDisallow: /club/\nDisallow: /special/\nDisallow: /live/\nDisallow: /category/*/?page=\nDisallow: /*/?tab=reviews\nDisallow: /context/client_opinion/\nDisallow: /flashsale\nDisallow: /ozonid\nDisallow: /o\nDisallow: /series/\nDisallow: /seller/*/profile\nDisallow: /seller/*/*text=\nDisallow: /reviews/*/*text=\nDisallow: /nuxt\nDisallow: /webapi/\nDisallow: /ozonid/account\nDisallow: /travel/\nDisallow: */href/\nDisallow: */buyAgain/\nDisallow: /social/tags/\n## Single_pages ##\nDisallow: /context/cart\nDisallow: /context/compare\nDisallow: /context/favourites\nDisallow: /context/login\nDisallow: /context/myadvice\nDisallow: /context/orderdone\nDisallow: /context/orderlist\nDisallow: /highlight/*?*\n##Delete##\nDisallow: /club/article/trendy-pitaniya-segodnya-i-zavtra-1619960/\nDisallow: /club/article/papy-v-instagrame-5-blogov-ob-ottsovstve-bez-filtrov-359628/\nDisallow: /club/article/kak-otkryt-punkt-vydachi-zakazov-ozon-48321/\nDisallow: /club/article/rassrochka-na-ozon-kak-oformit-46908/\nDisallow: /brand/sdelano-v-respublike-belarus-100096910/\n## Global ##\nDisallow: /brand/global-27923354\nDisallow: /series/global-136263489\nDisallow: /seller/global-4279\nDisallow: /brand/global-87313963\nDisallow: /seller/ozon-global-shop-140981\nDisallow: /category/sertifikat-ozon1000/\nDisallow: /category/sertifikat-ozon1500/\nDisallow: /category/sertifikat-ozon10000/\nDisallow: /category/sertifikat-ozon4000/\nDisallow: /category/podarochnyy-sertifikat-ozon500/\nDisallow: /category/sertifikat-ozon20000/\nDisallow: /category/sertifikat-ozon25000/\nDisallow: /category/sertifikat-ozon50000/\nDisallow: /category/sertifikat-ozon2000/\nDisallow: /category/sertifikat-ozon1000/\nDisallow: /category/podarochnye-karty-ozon-500r/\nDisallow: /category/podarochnyy-sertifikat-ozon500/\nDisallow: /category/elektronnyy-podarochnyy-sertifikat-ozon-na-10000-rub/\nDisallow: /category/aktivirovat-sertifikat-ozon/\nDisallow: /category/plastikovyy-podarochnyy-sertifikat-ozon/\nDisallow: /category/ozon-podarochnyy-sertifikat/\nDisallow: /category/podarochnyy-sertifikat-ozon/\nDisallow: /category/elektronnye-sertifikaty-ozon/\nDisallow: /category/podarochnye-karty-ozon/\nDisallow: /category/kak-podarit-sertifikat-ozon/\nDisallow: /category/ozon-sertifikat/\nDisallow:",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 403,
+   "len": 10153,
+   "server": "nginx",
+   "prot": [
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://ozon.uz/?__rr=1"
+  },
+  "sitemap": {
+   "status": 403,
+   "len": 10237,
+   "server": "nginx",
+   "prot": [
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://ozon.uz/sitemap.xml?__rr=1"
+  }
+ },
+ "technopark.uz": {
+  "robots": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'technopark.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError("
+  },
+  "home": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'technopark.uz\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConn"
+  },
+  "sitemap": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'technopark.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionError"
+  }
+ },
+ "allgood.uz": {
+  "robots": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='allgood.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPS"
+  },
+  "home": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='allgood.uz', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection"
+  },
+  "sitemap": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='allgood.uz', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<HTTP"
+  }
+ },
+ "imac.uz": {
+  "robots": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='imac.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPSCon"
+  },
+  "home": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='imac.uz', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(ho"
+  },
+  "sitemap": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='imac.uz', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<HTTPSCo"
+  }
+ },
+ "mimax.uz": {
+  "robots": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'mimax.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError(\"HTTP"
+  },
+  "home": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'mimax.uz\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnectio"
+  },
+  "sitemap": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'mimax.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionError(\"HTT"
+  }
+ },
+ "xiaomi-store.uz": {
+  "robots": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'xiaomi-store.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionErro"
+  },
+  "home": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'xiaomi-store.uz\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSCo"
+  },
+  "sitemap": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'xiaomi-store.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionErr"
+  }
+ },
+ "samsungstore.uz": {
+  "robots": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'samsungstore.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionErro"
+  },
+  "home": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'samsungstore.uz\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSCo"
+  },
+  "sitemap": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'samsungstore.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionErr"
+  }
+ },
+ "birbir.uz": {
+  "robots": {
+   "status": 200,
+   "len": 187,
+   "server": "cloudflare",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://birbir.uz/robots.txt"
+  },
+  "robots_txt": "User-agent: *\nDisallow: *?\nDisallow: *search\nDisallow: *favorites\nDisallow: /cdn-cgi/\nDisallow: /ru/similar/\nDisallow: /uz/similar/\n\nSitemap: https://birbir.uz/sitemap.xml\nHost: birbir.uz",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 403,
+   "len": 5517,
+   "server": "cloudflare",
+   "prot": [
+    "cloudflare-challenge",
+    "http403"
+   ],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://birbir.uz/"
+  },
+  "sitemap": {
+   "status": 200,
+   "len": 50976,
+   "server": "cloudflare",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://birbir.uz/sitemap.xml"
+  },
+  "sitemap_locs": [
+   "https://birbir.uz/sitemap/region.ru.xml",
+   "https://birbir.uz/sitemap/region.uz.xml",
+   "https://birbir.uz/sitemap/misc.ru.xml",
+   "https://birbir.uz/sitemap/misc.uz.xml",
+   "https://birbir.uz/sitemap/category.tashkentskaya-oblast.ru.xml",
+   "https://birbir.uz/sitemap/category.tashkentskaya-oblast.uz.xml",
+   "https://birbir.uz/sitemap/category.tashkent.ru.xml",
+   "https://birbir.uz/sitemap/category.tashkent.uz.xml",
+   "https://birbir.uz/sitemap/category.akkurgan.ru.xml",
+   "https://birbir.uz/sitemap/category.akkurgan.uz.xml",
+   "https://birbir.uz/sitemap/category.almalyk.ru.xml",
+   "https://birbir.uz/sitemap/category.almalyk.uz.xml",
+   "https://birbir.uz/sitemap/category.angren.ru.xml",
+   "https://birbir.uz/sitemap/category.angren.uz.xml",
+   "https://birbir.uz/sitemap/category.akhangaran.ru.xml",
+   "https://birbir.uz/sitemap/category.akhangaran.uz.xml",
+   "https://birbir.uz/sitemap/category.bekabad.ru.xml",
+   "https://birbir.uz/sitemap/category.bekabad.uz.xml",
+   "https://birbir.uz/sitemap/category.buka.ru.xml",
+   "https://birbir.uz/sitemap/category.buka.uz.xml",
+   "https://birbir.uz/sitemap/category.gazalkent.ru.xml",
+   "https://birbir.uz/sitemap/category.gazalkent.uz.xml",
+   "https://birbir.uz/sitemap/category.gulbakhor.ru.xml",
+   "https://birbir.uz/sitemap/category.gulbakhor.uz.xml",
+   "https://birbir.uz/sitemap/category.dustabad.ru.xml",
+   "https://birbir.uz/sitemap/category.dustabad.uz.xml",
+   "https://birbir.uz/sitemap/category.zafar.ru.xml",
+   "https://birbir.uz/sitemap/category.zafar.uz.xml",
+   "https://birbir.uz/sitemap/category.keles.ru.xml",
+   "https://birbir.uz/sitemap/category.keles.uz.xml",
+   "https://birbir.uz/sitemap/category.kibray.ru.xml",
+   "https://birbir.uz/sitemap/category.kibray.uz.xml",
+   "https://birbir.uz/sitemap/category.kyzyltog.ru.xml",
+   "https://birbir.uz/sitemap/category.kyzyltog.uz.xml",
+   "https://birbir.uz/sitemap/category.parkent.ru.xml",
+   "https://birbir.uz/sitemap/category.parkent.uz.xml",
+   "https://birbir.uz/sitemap/category.pskent.ru.xml",
+   "https://birbir.uz/sitemap/category.pskent.uz.xml",
+   "https://birbir.uz/sitemap/category.nurafshan.ru.xml",
+   "https://birbir.uz/sitemap/category.nurafshan.uz.xml"
+  ]
+ },
+ "tovar.uz": {
+  "robots": {
+   "status": 200,
+   "len": 2043,
+   "server": "nginx",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://tovar.uz/robots.txt"
+  },
+  "robots_txt": "User-agent: *\n\nDisallow: *=on\nDisallow: */en/*\nDisallow: */cart\nDisallow: *&rgn=*\nDisallow: *?rgn=*\nDisallow: */help*\nDisallow: */login\nDisallow: */oferta/*\nDisallow: */*del=1$\nDisallow: */signup\nDisallow: */search\nDisallow: *&search=\nDisallow: *?search=*\nDisallow: */compare\nDisallow: */orders/*\nDisallow: */orders?*\nDisallow: *sale_type*\nDisallow: */favorites\nDisallow: */promotions?*\nDisallow: */user/profile\nDisallow: */private/user/*\nDisallow: */not-found-404\nDisallow: *?t=service*\nDisallow: *?t=simple_goods*\nDisallow: *?t=industrial_goods*\nDisallow: *&sort-viewed=*\nDisallow: *?CategoriesSearch*\nDisallow: */private/company/*\nDisallow: *&/merchant/stat*\nDisallow: */merchant/option/*\nDisallow: */requestPasswordReset\nDisallow: */yandex/map/show-me-map/*\nAllow: */images/*\nAllow: *.jpg\nAllow: *.png\nAllow: *.svg\nAllow: *.jpeg\nAllow: *.css\nAllow: *.js\n\nUser-agent: Yandex\n\nDisallow: *=on\nDisallow: */en/*\nDisallow: */cart\nDisallow: *rgn=*\nDisallow: */login\nDisallow: */*del=1$\nDisallow: */signup\nDisallow: */search\nDisallow: *search=*\nDisallow: */compare/*\nDisallow: */orders/*\nDisallow: *sale_type*\nDisallow: */favorites\nDisallow: */user/profile\nDisallow: */private/user/*\nDisallow: */not-found-404\nDisallow: *&sort-viewed=*\nDisallow: *?t=service*\nDisallow: *?t=simple_goods*\nDisallow: *?t=industrial_goods*\nDisallow: *?CategoriesSearch*\nDisallow: */private/company/*\nDisallow: *&/merchant/stat*\nDisallow: */merchant/option/*\nDisallow: */requestPasswordReset\nAllow: */images/*\nAllow: *.jpg\nAllow: *.png\nAllow: *.svg\nAllow: *.webp\nAllow: *.jpeg\nAllow: *.css\nAllow: *.js\n\nClean-param: industrial_goods&simple_goods&t=service&page&tagid */categories/*\n\nUser-agent: Adsbot-Google\nAllow: /\n\nUser-agent: AhrefsBot\nDisallow: /\n\nUser-agent: MJ12bot\nDisallow: /\n\nUser-agent: Serpstatbot\nDisallow: /\n\nUser-agent: petalbot\nDisallow: /\n\nUser-agent: ZoominfoBot\nDisallow: /\n\nUser-agent: SemrushBot\nDisallow: /\n\nUser-agent: Vkrobot\nDisallow: /\n\nUser-agent: dotbot\nDisallow: /\n\nUser-agent: SeznamBot\nDisallow: /\n\nSitemap: https://tovar.uz/sitemap.xml\n",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 200,
+   "len": 87701,
+   "server": "nginx",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://tovar.uz/"
+  },
+  "sitemap": {
+   "status": 200,
+   "len": 6574,
+   "server": "nginx",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://tovar.uz/sitemap.xml"
+  },
+  "sitemap_locs": [
+   "https://tovar.uz/sitemap/products_1.xml",
+   "https://tovar.uz/sitemap/products-uz_1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_namangane-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_navoi-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_samarkande-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_termeze-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_gulistane-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_fergane-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_andijane-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_buhare-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_karshi-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_urgenche-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_nukuse-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_taskentskoy_oblasti-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_uzbekistane-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_tashkente-1.xml",
+   "https://tovar.uz/sitemap/category-keywords-v_djizake-1.xml",
+   "https://tovar.uz/sitemap/services.xml",
+   "https://tovar.uz/sitemap/companies.xml",
+   "https://tovar.uz/sitemap/brands.xml",
+   "https://tovar.uz/sitemap/brands-items.xml",
+   "https://tovar.uz/sitemap/categories-v_namangane.xml",
+   "https://tovar.uz/sitemap/categories-v_navoi.xml",
+   "https://tovar.uz/sitemap/categories-v_samarkande.xml",
+   "https://tovar.uz/sitemap/categories-v_termeze.xml",
+   "https://tovar.uz/sitemap/categories-v_gulistane.xml",
+   "https://tovar.uz/sitemap/categories-v_fergane.xml",
+   "https://tovar.uz/sitemap/categories-v_andijane.xml",
+   "https://tovar.uz/sitemap/categories-v_buhare.xml",
+   "https://tovar.uz/sitemap/categories-v_karshi.xml",
+   "https://tovar.uz/sitemap/categories-v_urgenche.xml",
+   "https://tovar.uz/sitemap/categories-v_nukuse.xml",
+   "https://tovar.uz/sitemap/categories-v_taskentskoy_oblasti.xml",
+   "https://tovar.uz/sitemap/categories-v_uzbekistane.xml",
+   "https://tovar.uz/sitemap/categories-v_tashkente.xml",
+   "https://tovar.uz/sitemap/categories-v_djizake.xml"
+  ]
+ },
+ "mobilestore.uz": {
+  "robots": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'mobilestore.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError"
+  },
+  "home": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'mobilestore.uz\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSCon"
+  },
+  "sitemap": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'mobilestore.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionErro"
+  }
+ },
+ "smartmarket.uz": {
+  "robots": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'smartmarket.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError"
+  },
+  "home": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'smartmarket.uz\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSCon"
+  },
+  "sitemap": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'smartmarket.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionErro"
+  }
+ },
+ "savdo.uz": {
+  "robots": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='savdo.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError("
+  },
+  "home": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='savdo.uz', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: "
+  },
+  "sitemap": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='savdo.uz', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationError"
+  }
+ },
+ "shop.uz": {
+  "robots": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='shop.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1"
+  },
+  "home": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='shop.uz', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: C"
+  },
+  "sitemap": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='shop.uz', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationError("
+  }
+ },
+ "planeta.uz": {
+  "robots": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='planeta.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPS"
+  },
+  "home": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='planeta.uz', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection"
+  },
+  "sitemap": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='planeta.uz', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<HTTP"
+  }
+ },
+ "gold-store.uz": {
+  "robots": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'gold-store.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError("
+  },
+  "home": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'gold-store.uz\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConn"
+  },
+  "sitemap": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'gold-store.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionError"
+  }
+ },
+ "uzexpress.uz": {
+  "robots": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='uzexpress.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTT"
+  },
+  "home": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='uzexpress.uz', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnecti"
+  },
+  "sitemap": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='uzexpress.uz', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<HT"
+  }
+ },
+ "next.uz": {
+  "robots": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='next.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPSCon"
+  },
+  "home": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='next.uz', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(ho"
+  },
+  "sitemap": {
+   "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='next.uz', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<HTTPSCo"
+  }
+ },
+ "oltin.uz": {
+  "robots": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'oltin.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError(\"HTTP"
+  },
+  "home": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'oltin.uz\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnectio"
+  },
+  "sitemap": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'oltin.uz\\', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionError(\"HTT"
+  }
+ },
+ "telefon.uz": {
+  "robots": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='telefon.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationErro"
+  },
+  "home": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='telefon.uz', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL"
+  },
+  "sitemap": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='telefon.uz', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationErr"
+  }
+ },
+ "beemarket.uz": {
+  "robots": {
+   "status": 200,
+   "len": 546241,
+   "server": "nginx",
+   "prot": [],
+   "jsonld": 1,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 74,
+   "final": "https://market.beeline.uz/"
+  },
+  "robots_txt": "<!DOCTYPE html><html  lang=\"ru\" data-theme=\"light\" prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>BeeMarket - сравни цены и найди лучшее предложение!</title><script type=\"importmap\">{\"imports\":{\"#entry\":\"/_nuxt/cWblsGbl.js\"}}</script><link rel=\"stylesheet\" href=\"/_nuxt/entry.-QpHChKa.css\" crossorigin><link rel=\"stylesheet\" href=\"/_nuxt/AppHeader.CgsiVit-.css\" crossorigin><link rel=\"stylesheet\" href=\"/_nuxt/AppHeaderUserBody.BnAY7eof.css\" crossorigin><link rel=\"stylesheet\" href=\"/_nuxt/AuthForm.-yM7ZSEU.css\" crossorigin><link rel=\"stylesheet\" href=\"/_nuxt/AppCircleTimer.Dy_dm5rD.css\" crossorigin><link rel=\"stylesheet\" href=\"/_nuxt/AppButton.DTBC-36v.css\" crossorigin><link rel=\"stylesheet\" href=\"/_nuxt/AppModalDialog.DacjyyTa.css\" crossorigin><link rel=\"stylesheet\" href=\"/_nuxt/AppToast.DqpeY2WM.css\" crossorigin><link rel=\"stylesheet\" href=\"/_nuxt/pages.-JwQF-zq.css\" crossorigin><link rel=\"stylesheet\" href=\"/_nuxt/ProductCard.9XDnxKtt.css\" crossorigin><link rel=\"stylesheet\" href=\"/_nuxt/ProductsSlider.CzeZj5hN.css\" crossorigin><link rel=\"stylesheet\" href=\"/_nuxt/TopBrands.Brfy-7lz.css\" crossorigin><link rel=\"preload\" as=\"font\" type=\"font/woff2\" href=\"/_nuxt/Montserrat-Regular.DgArj94w.woff2\" crossorigin=\"anonymous\"><link rel=\"preload\" as=\"font\" type=\"font/woff2\" href=\"/_nuxt/druk_wide_cyr_medium.DRvRKX_O.woff2\" crossorigin=\"anonymous\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/cWblsGbl.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/BujP3dhO.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/C45r7qnN.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/BhTsH8PN.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/6s-QixZE.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/Bhyqpwgz.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/CVglJPJ2.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/CRzLMJPS.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/BV35NrVs.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/DcEY9B2E.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/Dte3bR0X.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/B4i3hY9d.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/BhBgM8rF.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/Cez4REwG.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/Dr0Be1Fj.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/Cou1qTR-.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/BDNMzG2s.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/DyhJetAw.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href=\"/_nuxt/XCiOnUvu.js\"><link rel=\"modulepreload\" as=\"script\" crossorigin href",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 200,
+   "len": 546241,
+   "server": "nginx",
+   "prot": [],
+   "jsonld": 1,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 74,
+   "final": "https://market.beeline.uz/"
+  },
+  "sitemap": {
+   "status": 200,
+   "len": 546241,
+   "server": "nginx",
+   "prot": [],
+   "jsonld": 1,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 74,
+   "final": "https://market.beeline.uz/"
+  },
+  "sitemap_locs": []
+ },
+ "avtech.uz": {
+  "robots": {
+   "status": 200,
+   "len": 455,
+   "server": "nginx/1.24.0",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://avtech.uz/robots.txt"
+  },
+  "robots_txt": "User-agent: *\nDisallow: \nDisallow: /404\nDisallow: /profile\nDisallow: /login\nDisallow: /contact\nDisallow: *search?param=\nDisallow: *?search=\nDisallow: /registration\nDisallow: /cabinet\nDisallow: /favourites\nDisallow: /cart\nDisallow: /compare\nDisallow: /changePassword\nDisallow: *?phone=\nDisallow: *?tpclid=\nDisallow: *?placement=\nDisallow: *?etext=\nDisallow: *?brand_ids=\nDisallow: *?feature_value_ids=\nDisallow: *utm=\nSitemap: https://avtech.uz/sitemap.xml",
+  "allow_root": true,
+  "allow_all_ua_disallowed": false,
+  "home": {
+   "status": 200,
+   "len": 139804,
+   "server": "nginx/1.24.0",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": true,
+   "prices": 15,
+   "final": "https://avtech.uz/"
+  },
+  "sitemap": {
+   "status": 200,
+   "len": 605772,
+   "server": "nginx/1.24.0",
+   "prot": [],
+   "jsonld": 0,
+   "product_ld": 0,
+   "nuxt": false,
+   "next": false,
+   "prices": 0,
+   "final": "https://avtech.uz/sitemap.xml"
+  },
+  "sitemap_locs": [
+   "https://avtech.uz",
+   "https://avtech.uz/about",
+   "https://avtech.uz/discount",
+   "https://avtech.uz/services",
+   "https://avtech.uz/contacts",
+   "https://avtech.uz/payment",
+   "https://avtech.uz/catalog/planshety",
+   "https://avtech.uz/catalog/komplektuyushchie",
+   "https://avtech.uz/catalog/orgtekhnika",
+   "https://avtech.uz/catalog/programmnoe-obespechenie",
+   "https://avtech.uz/catalog/setevoe-oborudovanie",
+   "https://avtech.uz/catalog/servernoe-oborudovanie",
+   "https://avtech.uz/catalog/operatsionnye-sistemy",
+   "https://avtech.uz/catalog/videokarty",
+   "https://avtech.uz/catalog/zhestkie-diski",
+   "https://avtech.uz/catalog/printery",
+   "https://avtech.uz/catalog/dlya-geymerov",
+   "https://avtech.uz/catalog/igrovye-kresla",
+   "https://avtech.uz/catalog/bloki-pitaniya",
+   "https://avtech.uz/catalog/materinskie-platy",
+   "https://avtech.uz/catalog/istochniki-bespereboynogo-pitaniya",
+   "https://avtech.uz/catalog/periferiynye-ustroystva",
+   "https://avtech.uz/catalog/garnitury",
+   "https://avtech.uz/catalog/monobloki",
+   "https://avtech.uz/catalog/igrovye-klaviatury",
+   "https://avtech.uz/catalog/igrovye-myshi",
+   "https://avtech.uz/catalog/kartridzhi-i-tonery",
+   "https://avtech.uz/catalog/kommutatory",
+   "https://avtech.uz/catalog/tochki-dostupa-wi-fi",
+   "https://avtech.uz/catalog/opticheskie-privody",
+   "https://avtech.uz/catalog/akusticheskie-sistemy",
+   "https://avtech.uz/catalog/flesh-nakopiteli",
+   "https://avtech.uz/catalog/mezhsetevye-ekrany",
+   "https://avtech.uz/catalog/mediakonvertory",
+   "https://avtech.uz/catalog/dsl-modemy",
+   "https://avtech.uz/catalog/protsessory",
+   "https://avtech.uz/catalog/transivery",
+   "https://avtech.uz/catalog/setevye-filtry",
+   "https://avtech.uz/catalog/kamery",
+   "https://avtech.uz/catalog/line-interactive"
+  ]
+ }
+}
