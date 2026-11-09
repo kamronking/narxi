@@ -1,0 +1,81 @@
+{
+ "started": "2026-11-10T01:21:40.534765+05:00",
+ "stores": {
+  "texnomart": {
+   "pages": 16,
+   "items": 286,
+   "errors": [],
+   "sample": [
+    "Samsung Galaxy A27 5G 8/256GB Черный",
+    "OPPO A6s Pro 8/256GB Лес Люмина",
+    "Samsung Galaxy A27 5G 8/256GB Синий",
+    "Samsung Galaxy A27 5G 6/128GB Синий",
+    "Samsung Galaxy A27 5G 6/128GB Черный",
+    "OPPO A6s Pro 8/256GB Синий эклипс",
+    "Xiaomi Redmi 17 8/256GB Глубокий синий",
+    "Xiaomi Redmi Note 17 Pro 5G 8/256GB Оранжевый атлас"
+   ]
+  },
+  "olcha": {
+   "pages": 27,
+   "items": 273,
+   "errors": [],
+   "sample": [
+    "Iphone 17",
+    "Iphone Air",
+    "iPhone 17 Pro",
+    "Apple iPhone 15 Pro",
+    "iPhone 17 Pro Max",
+    "Смартфон Apple iPhone Duo",
+    "Apple Iphone 13 128GB",
+    "Apple iPhone 15 Pro Max"
+   ]
+  }
+ },
+ "products": 164,
+ "matched_2plus": 52,
+ "unkeyed_sample": [
+  "Керамическое защитное стекло Xiaomi Redmi Note 9T",
+  "Iphone 17",
+  "Iphone Air",
+  "iPhone 17 Pro",
+  "Apple iPhone 15 Pro",
+  "iPhone 17 Pro Max",
+  "Смартфон Apple iPhone Duo",
+  "Apple iPhone 15 Pro Max",
+  "Apple iPhone 16 Pro Max",
+  "Смартфон Apple iPhone 18 Pro",
+  "Смартфон Apple iPhone 18 Pro Max",
+  "Samsung Galaxy A55",
+  "Samsung Galaxy S25",
+  "Samsung Galaxy A07",
+  "Samsung Galaxy A17"
+ ],
+ "keys_sample": [
+  "iphone 18 pro 256gb :: texnomart 19999000 | olcha 20545000",
+  "iphone 18 pro 512gb :: texnomart 23499000 | olcha 24999000",
+  "iphone 18 pro max 256gb :: texnomart 22790000 | olcha 23257000",
+  "iphone 18 pro max 512gb :: texnomart 25999000 | olcha 30728000",
+  "iphone duo 256gb :: olcha 24100000 | texnomart 34799000",
+  "iphone duo 512gb :: olcha 24100000 | texnomart 39199000",
+  "honor 600 256gb :: olcha 6242487 | texnomart 6999000",
+  "honor 600 lite 256gb :: olcha 4860601 | texnomart 5230000",
+  "honor 600 pro 512gb :: texnomart 9999000 | olcha 10194126",
+  "honor x5es 64gb :: texnomart 1860000 | olcha 1878000",
+  "honor x6e 256gb :: olcha 2799000 | texnomart 3099000",
+  "honor x7e 128gb :: olcha 2945666 | texnomart 3273000",
+  "honor x7e 256gb :: olcha 3304400 | texnomart 3706000",
+  "honor x8e 128gb :: olcha 3236190 | texnomart 3405000",
+  "honor x8e 256gb :: texnomart 3774000 | olcha 3852000",
+  "honor x9d 256gb :: olcha 5175000 | texnomart 5199000",
+  "honor x9e pro 256gb :: texnomart 5816000 | olcha 5850000",
+  "iphone 17 256gb :: texnomart 13699000 | olcha 13999000",
+  "iphone air 256gb :: olcha 13199000 | texnomart 13993000",
+  "samsung galaxy a07s 128gb :: olcha 2111987 | texnomart 2479000",
+  "samsung galaxy a07s 64gb :: texnomart 1808000 | olcha 1865000",
+  "samsung galaxy a08 128gb :: olcha 2425000 | texnomart 2548000",
+  "samsung galaxy a17 256gb :: texnomart 3119600 | olcha 4199000",
+  "samsung galaxy a18 128gb :: texnomart 2999000 | olcha 3045648",
+  "samsung galaxy a26 128gb :: olcha 3600000 | texnomart 3681700"
+ ]
+}
