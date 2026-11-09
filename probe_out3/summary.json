@@ -1,0 +1,101 @@
+[
+ {
+  "name": "olcha_mobile_robots",
+  "url": "https://mobile.olcha.uz/robots.txt",
+  "final": "https://mobile.olcha.uz/robots.txt",
+  "status": 200,
+  "len": 24,
+  "jsonld": 0,
+  "cards": 0,
+  "detail_links": 0,
+  "sum": 0
+ },
+ {
+  "name": "uzum_sm_categories",
+  "url": "https://uzum.uz/ru/sitemaps/categories.xml",
+  "final": "https://uzum.uz/ru/sitemaps/categories.xml",
+  "status": 200,
+  "len": 692064,
+  "jsonld": 0,
+  "cards": 0,
+  "detail_links": 0,
+  "sum": 0
+ },
+ {
+  "name": "uzum_cat0",
+  "url": "https://uzum.uz/ru/category/vosstanovlennye-smartfony-17523",
+  "final": "https://uzum.uz/ru/category/vosstanovlennye-smartfony-17523",
+  "status": 200,
+  "len": 3472,
+  "jsonld": 0,
+  "cards": 0,
+  "detail_links": 0,
+  "sum": 0
+ },
+ {
+  "name": "uzum_cat1",
+  "url": "https://uzum.uz/ru/category/smartfony-android-15271",
+  "final": "https://uzum.uz/ru/category/smartfony-android-15271",
+  "status": 200,
+  "len": 3472,
+  "jsonld": 0,
+  "cards": 0,
+  "detail_links": 0,
+  "sum": 0
+ },
+ {
+  "name": "uzum_cat2",
+  "url": "https://uzum.uz/ru/category/smartfony-apple-iphoneios-15272",
+  "final": "https://uzum.uz/ru/category/smartfony-apple-iphoneios-15272",
+  "status": 200,
+  "len": 3472,
+  "jsonld": 0,
+  "cards": 0,
+  "detail_links": 0,
+  "sum": 0
+ },
+ {
+  "name": "tm_katalog",
+  "url": "https://texnomart.uz/ru/katalog/smartfony",
+  "final": "https://texnomart.uz/ru/katalog/smartfony/",
+  "status": 200,
+  "len": 519454,
+  "jsonld": 6,
+  "cards": 0,
+  "detail_links": 20,
+  "sum": 107
+ },
+ {
+  "name": "tm_detail0",
+  "url": "https://texnomart.uz/ru/product/detail/359935/",
+  "final": "https://texnomart.uz/ru/product/detail/359935/",
+  "status": 200,
+  "len": 205135,
+  "jsonld": 3,
+  "cards": 0,
+  "detail_links": 10,
+  "sum": 46
+ },
+ {
+  "name": "tm_detail1",
+  "url": "https://texnomart.uz/ru/product/detail/359936/",
+  "final": "https://texnomart.uz/ru/product/detail/359936/",
+  "status": 200,
+  "len": 206284,
+  "jsonld": 3,
+  "cards": 0,
+  "detail_links": 10,
+  "sum": 46
+ },
+ {
+  "name": "tm_katalog_apple",
+  "url": "https://texnomart.uz/ru/katalog/smartfony-apple",
+  "final": "https://texnomart.uz/ru/katalog/smartfony-apple/",
+  "status": 200,
+  "len": 358132,
+  "jsonld": 6,
+  "cards": 0,
+  "detail_links": 20,
+  "sum": 83
+ }
+]

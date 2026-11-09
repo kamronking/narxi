@@ -1,0 +1,4 @@
+{"name": "olcha_mobile_robots", "url": "https://mobile.olcha.uz/robots.txt", "final": "https://mobile.olcha.uz/robots.txt", "status": 200, "len": 24, "jsonld": 0, "cards": 0, "detail_links": 0, "sum": 0}
+
+User-agent: *
+Disallow:
