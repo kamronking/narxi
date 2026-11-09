@@ -199,14 +199,17 @@ nav button[aria-current="page"]::after{content:"";position:absolute;top:0;width:
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
 import {getAuth,signInAnonymously,onAuthStateChanged,signOut} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 import {getFirestore,doc,setDoc,getDoc,serverTimestamp} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
-const app=initializeApp({apiKey:"AIzaSyDEYJSizAw2-y-GWOMB6rv-9qo3I7WATr0",authDomain:"narxi-e5d33.firebaseapp.com",projectId:"narxi-e5d33",storageBucket:"narxi-e5d33.firebasestorage.app",messagingSenderId:"883970808369",appId:"1:883970808369:web:5977a9ee5f6b8852841310"});
+import {getAnalytics,logEvent,isSupported} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js';
+const app=initializeApp({apiKey:"AIzaSyDEYJSizAw2-y-GWOMB6rv-9qo3I7WATr0",authDomain:"narxi-e5d33.firebaseapp.com",projectId:"narxi-e5d33",storageBucket:"narxi-e5d33.firebasestorage.app",messagingSenderId:"883970808369",appId:"1:883970808369:web:5977a9ee5f6b8852841310",measurementId:"G-N60WD8MVL1"});
+let GA=null;isSupported().then(ok=>{if(ok)GA=getAnalytics(app)}).catch(()=>{});
 const auth=getAuth(app),db=getFirestore(app);
 async function uid(){if(auth.currentUser)return auth.currentUser.uid;const c=await signInAnonymously(auth);return c.user.uid}
 window.NX={
   async saveUser(u,watch,lang){console.log('[narxi] saveUser');try{const id=await uid();await setDoc(doc(db,'users',id),{name:u.name,phone:u.phone,city:u.city,brands:u.brands||[],since:u.since,lang,watch:watch||{},updated:serverTimestamp()},{merge:true});return true}catch(e){console.warn('[narxi] saveUser failed',e&&e.code,e&&e.message);return false}},
   async saveWatch(watch){try{if(!auth.currentUser)return;await setDoc(doc(db,'users',auth.currentUser.uid),{watch,updated:serverTimestamp()},{merge:true})}catch(e){console.warn('saveWatch',e)}},
   async load(){try{const id=await new Promise(r=>{const un=onAuthStateChanged(auth,x=>{un();r(x?x.uid:null)})});if(!id)return null;const s=await getDoc(doc(db,'users',id));return s.exists()?s.data():null}catch(e){return null}},
-  async logout(){try{await signOut(auth)}catch(e){}}
+  async logout(){try{await signOut(auth)}catch(e){}},
+  ev(name,params){try{if(GA)logEvent(GA,name,params||{})}catch(e){}}
 };
 window.NX_READY=1;window.dispatchEvent(new Event('nx-ready'));
 </script>
@@ -300,7 +303,7 @@ function countUp(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)ret
 function chart(p){const s=series(p.key);if(s.length<2)return '';const W=320,H=110,pt=8,pb=18;const vs=s.map(x=>x.v),mn=Math.min(...vs),mx=Math.max(...vs),sp=mx-mn||1;
   const x=i=>4+(W-8)*i/(s.length-1),y=v=>pt+(H-pt-pb)*(1-(v-mn)/sp);const d=s.map((o,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(o.v).toFixed(1)}`).join('');
   return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t('history')}"><path d="${d}L${x(s.length-1)},${H-pb}L${x(0)},${H-pb}Z" fill="var(--brand2)" opacity=".12"/><path class="ln" d="${d}" fill="none" stroke="var(--brand2)" stroke-width="2"/><circle cx="${x(s.length-1)}" cy="${y(vs[vs.length-1])}" r="4" fill="var(--brand2)"/><text x="4" y="${H-3}" font-size="10" fill="var(--muted)">${s[0].d.slice(5)}</text><text x="${W-4}" y="${H-3}" font-size="10" fill="var(--muted)" text-anchor="end">${s[s.length-1].d.slice(5)}</text></svg>`}
-function renderProduct(p){if(!p){go('home');return}const b=best(p),w=worst(p),v=verdict(p),wt=WATCH[p.key];const u=url=>url+(url.includes('?')?'&':'?')+'utm_source=narxi';
+function renderProduct(p){if(!p){go('home');return}window.NX&&NX.ev('view_item',{item_name:p.name});const b=best(p),w=worst(p),v=verdict(p),wt=WATCH[p.key];const u=url=>url+(url.includes('?')?'&':'?')+'utm_source=narxi';
   const offs=[...p.offers].sort((a,c)=>(a.stock!=='ok')-(c.stock!=='ok')||a.price-c.price);const mxp=Math.max(...offs.map(o=>o.price));
   view.innerHTML=`<button class="back" id="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>${t('back')}</button>
    ${img(p.img,'pimg in-up')}</div><h1 class="ptitle in-up" style="--i:1">${esc(p.name)}</h1>
@@ -311,7 +314,7 @@ function renderProduct(p){if(!p){go('home');return}const b=best(p),w=worst(p),v=
    <section class="card in-up" style="--i:4"><h2>${t('history')}</h2>${chart(p)}${v.n!==undefined?`<div class="progress"><i style="width:${Math.max(4,Math.min(100,v.n/7*100))}%"></i></div>`:''}<div class="verdict ${v.cls}">${v.txt}</div></section>
    <section class="card in-up" style="--i:5"><span class="small muted">${t('watchT')}</span><div class="watch"><input id="wv" inputmode="numeric" placeholder="${t('watchPh')}" value="${fmt(wt||Math.round(b.price*.95/1000)*1000)}" aria-label="${t('watchPh')}"><button class="btn sm press" id="wb">${wt?t('watching'):t('watchBtn')}</button></div></section>`;
   document.getElementById('back').onclick=goBack;
-  document.getElementById('wb').onclick=()=>{const val=parseInt(document.getElementById('wv').value.replace(/\D/g,''),10);if(!val)return;WATCH[p.key]=val;store.set('watch',WATCH);USER&&window.NX&&NX.saveWatch(WATCH);toast(t('watchSet'));renderTabs();document.getElementById('wb').textContent=t('watching')}}
+  document.getElementById('wb').onclick=()=>{const val=parseInt(document.getElementById('wv').value.replace(/\D/g,''),10);if(!val)return;WATCH[p.key]=val;store.set('watch',WATCH);window.NX&&NX.ev('add_to_wishlist',{item_name:p.name});USER&&window.NX&&NX.saveWatch(WATCH);toast(t('watchSet'));renderTabs();document.getElementById('wb').textContent=t('watching')}}
 function renderWatch(){const ks=Object.keys(WATCH).filter(k=>DATA.products.find(p=>p.key===k));
   view.innerHTML=`<h1 class="ptitle">${t('watch')}</h1>${ks.length?`<div class="grid">${ks.map((k,i)=>{const p=DATA.products.find(x=>x.key===k),hit=best(p).price<=WATCH[k];return `<div style="display:flex;flex-direction:column;gap:6px">${pcard(p,i)}<div class="small">${t('watchPh')}: <b>${fmt(WATCH[k])}</b> ${hit?`<span class="tag save">${t('reached')}</span>`:''}</div><button class="btn ghost sm" data-rm="${esc(k)}">${t('remove')}</button></div>`}).join('')}</div>`:`<div class="empty">${t('wEmpty')}</div>`}`;
   bind();view.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{delete WATCH[b.dataset.rm];store.set('watch',WATCH);USER&&window.NX&&NX.saveWatch(WATCH);renderTabs();renderWatch()})}
@@ -369,7 +372,7 @@ function drawOB(){if(obStep<3){obw.innerHTML=`<div class="obtop">${obStep>0?`<bu
   document.getElementById('rLater').onclick=closeOB;document.getElementById('obBack').onclick=()=>{if(USER&&regFromProfile){closeOB()}else{obStep=2;drawOB()}};
   document.getElementById('regF').onsubmit=e=>{e.preventDefault();const name=document.getElementById('rName').value.trim(),phone=ph.value.trim(),city=document.getElementById('rCity').value;const er=document.getElementById('rErr');
     if(name.length<2){er.textContent=t('errName');return}if(phone.replace(/\D/g,'').length!==12){er.textContent=t('errPhone');return}
-    const isNew=!USER;USER={name,phone,city,brands:[...picked],since:USER?.since||Date.now()};store.set('user',USER);closeOB();toast(isNew?t('welcome',{n:name.split(' ')[0]}):t('saved'));window.NX&&NX.saveUser(USER,WATCH,LANG).then(ok=>{store.set('synced',ok?1:0);if(!ok)toast('⚠️ Internet?')});}}
+    const isNew=!USER;USER={name,phone,city,brands:[...picked],since:USER?.since||Date.now()};store.set('user',USER);closeOB();toast(isNew?t('welcome',{n:name.split(' ')[0]}):t('saved'));window.NX&&isNew&&NX.ev('sign_up',{method:'form'});window.NX&&NX.saveUser(USER,WATCH,LANG).then(ok=>{store.set('synced',ok?1:0);if(!ok)toast('⚠️ Internet?')});}}
 /* ---------- boot ---------- */
 Promise.all([fetch('data/latest.json',{cache:'no-cache'}).then(r=>r.json()),fetch('data/history.json',{cache:'no-cache'}).then(r=>r.json()).catch(()=>({}))]).then(([d,h])=>{DATA=d;HIST=h;DATA.products=DATA.products.filter(p=>live(p).length);render();
   const hits=Object.keys(WATCH).map(k=>DATA.products.find(p=>p.key===k)).filter(p=>p&&best(p).price<=WATCH[p.key]);if(hits.length)toast(`${t('watchHit')} ${hits.map(p=>p.name).join(', ')}`)}).catch(()=>{view.innerHTML=`<div class="empty">${t('loadErr')}</div>`});
