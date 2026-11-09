@@ -169,13 +169,39 @@ def tm_list(slug, rep, cap=80):
         items += got
     return items
 
+TM_RE = {
+ 'phones': r'smartfon', 'laptops': r'noutbu', 'tablets': r'planshet', 'tv': r'televizor|qled-tel|oled-tel',
+ 'monitors': r'monitor', 'audio': r'naushnik|kolonk', 'watches': r'smart-chas|umnye-chas|umnyj-smart',
+ 'fridges': r'holodil|morozil', 'washers': r'stiral|sushilnye-mash', 'ac': r'kondicion', 'home': r'pylesos|utyug',
+ 'kitchen': r'mikrovoln|multivar|chainik|blender|kofemash|kofevar|kofemol|myasoru|toster|mikser|sokovyzh|gril|hlebopech|parovar|aerogril|fritur',
+ 'stoves': r'plit|duhov|varochn|vytyazh|posudomo', 'climate': r'obogrev|ventilyator|vodonagrev|uvlazhn',
+ 'care': r'^fen|feny|vypryamit|trimmer|britv', 'printers': r'printer'}
+TM_EXCL = r'aksessuar|chehl|derzhatel|sumk|remesh|filtr|kronsht|ramk|prochie|klaviatur|dlya-posudo|dlya-belya|sadovye|kofe$|prigotovlenie|nasadk|kabel|zaryad|steklo|plenk|chashk|kruzhk|monitor-i|ugolnyj|drovyan|pelletn|gril-ugol|skovorod|mashiny-dlya-obzharki'
+def tm_slugs():
+    r = get('https://texnomart.uz/sitemap-ru-categories.xml')
+    slugs = sorted(set(re.findall(r'/ru/katalog/([^/<]+)/', r.text)))
+    out = {}
+    for sl in slugs:
+        low = sl.lower()
+        if re.search(TM_EXCL, low):
+            continue
+        for cid, rx in TM_RE.items():
+            if re.search(rx, low):
+                out.setdefault(cid, []).append(sl); break
+    return out
+
 def texnomart():
-    rep = {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}}
+    rep = {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}, 'slugs': {}}
     items, seen = [], set()
-    for cid, (_, _, slugs, _) in CATS.items():
-        n0 = len(items)
+    try:
+        bycat = tm_slugs()
+    except Exception as e:
+        rep['errors'].append(f'sitemap: {e!r}'); bycat = {c: v[2] for c, v in CATS.items()}
+    for cid in CATS:
+        n0 = len(items); slugs = bycat.get(cid, []) or CATS[cid][2]
+        rep['slugs'][cid] = len(slugs)
         for slug in slugs:
-            for it in tm_list(slug, rep):
+            for it in tm_list(slug, rep, cap=40):
                 if it['url'] in seen:
                     continue
                 seen.add(it['url']); it['cat'] = cid; items.append(it)
@@ -222,6 +248,13 @@ def olcha():
     return items, rep
 
 STORES = {'texnomart': texnomart, 'olcha': olcha}
+
+OTHER_CHUNKS = 8
+def khash(k):
+    h = 0
+    for ch in k:
+        h = (h * 31 + ord(ch)) % 1000003
+    return h
 
 def key_for(it):
     if it['cat'] == 'phones':
@@ -296,7 +329,13 @@ def main():
             hist[k] = {d: v for d, v in hist[k].items() if d >= cutoff}
             if not hist[k]: del hist[k]
         hp.write_text(json.dumps(hist, ensure_ascii=False, separators=(',', ':')))
-        (V2 / 'c' / f'{cid}.json').write_text(json.dumps(ps, ensure_ascii=False, separators=(',', ':')))
+        if cid == 'other':
+            for i in range(OTHER_CHUNKS):
+                part = [p for p in ps if khash(p['key']) % OTHER_CHUNKS == i]
+                (V2 / 'c' / f'other-{i}.json').write_text(json.dumps(part, ensure_ascii=False, separators=(',', ':')))
+                (V2 / 'h' / f'other-{i}.json').write_text(json.dumps({k: v for k, v in hist.items() if khash(k) % OTHER_CHUNKS == i}, ensure_ascii=False, separators=(',', ':')))
+        else:
+            (V2 / 'c' / f'{cid}.json').write_text(json.dumps(ps, ensure_ascii=False, separators=(',', ':')))
         uz, ru = (CATS[cid][0], CATS[cid][1]) if cid in CATS else ("Boshqa", "Другое")
         top = max(ps, key=lambda p: (len(live_of(p)), bool(p['img'])))
         cats_meta.append({'id': cid, 'uz': uz, 'ru': ru, 'n': len(ps), 'n2': sum(1 for p in ps if len(live_of(p)) > 1), 'img': top['img']})
