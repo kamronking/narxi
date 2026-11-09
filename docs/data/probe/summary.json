@@ -1,0 +1,154 @@
+[
+ {
+  "domain": "mediapark.uz",
+  "robots": 403,
+  "sitemaps": [],
+  "home": 403,
+  "home_len": 5520,
+  "cat_links": []
+ },
+ {
+  "domain": "asaxiy.uz",
+  "robots": 403,
+  "sitemaps": [],
+  "home": 403,
+  "home_len": 5521,
+  "cat_links": []
+ },
+ {
+  "domain": "idea.uz",
+  "robots": 200,
+  "sitemaps": [],
+  "home": 200,
+  "home_len": 178646,
+  "cat_links": []
+ },
+ {
+  "domain": "elmakon.uz",
+  "error": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'elmakon.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED]"
+ },
+ {
+  "domain": "goodzone.uz",
+  "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='goodzone.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] "
+ },
+ {
+  "domain": "alifshop.uz",
+  "robots": 200,
+  "sitemaps": [
+   "https://alifshop.uz/sitemap_index.xml"
+  ],
+  "home": 200,
+  "home_len": 666152,
+  "cat_links": [
+   "https://alifshop.uz/categories/smartfoni-i-gadzheti",
+   "https://alifshop.uz/categories/smartfoni-i-telefoni",
+   "https://alifshop.uz/categories/smartfoni-apple",
+   "https://alifshop.uz/categories/smartfoni-tecno",
+   "https://alifshop.uz/categories/smartfoni-xiaomi"
+  ],
+  "cat_allowed": true,
+  "cat_url": "https://alifshop.uz/categories/smartfoni-i-gadzheti",
+  "cat_status": 200,
+  "cat_len": 485378,
+  "jsonld": 1,
+  "itemlist": false,
+  "offers_price": 24,
+  "next": false,
+  "nuxt": true,
+  "sum": 1
+ },
+ {
+  "domain": "sello.uz",
+  "robots": 522,
+  "sitemaps": [],
+  "home": 522,
+  "home_len": 7207,
+  "cat_links": []
+ },
+ {
+  "domain": "zoodmall.uz",
+  "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'zoodmall.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError(\"HTTPSConnection(host=\\'zoodmall.uz\\', por"
+ },
+ {
+  "domain": "glotr.uz",
+  "robots": 200,
+  "sitemaps": [
+   "https://glotr.uz/sitemap.xml"
+  ],
+  "home": 200,
+  "home_len": 434275,
+  "cat_links": [
+   "https://glotr.uz/telefoni-i-plansheti/",
+   "https://glotr.uz/smartfon-tecno-pop-5-lte-p-698815/",
+   "https://glotr.uz/smartfon-tecno-camon-19-neo-ch6i-6128gb-nfc-eco-black-p-743945/",
+   "https://glotr.uz/smartfon-apple-iphone-11-pro-max-64gb-gold-green-silver-p-415113/",
+   "https://glotr.uz/smartfon-tecno-spark-6-go-2021-232gb-red-p-682691/"
+  ],
+  "cat_allowed": true,
+  "cat_url": "https://glotr.uz/telefoni-i-plansheti/",
+  "cat_status": 200,
+  "cat_len": 599690,
+  "jsonld": 3,
+  "itemlist": false,
+  "offers_price": 0,
+  "next": false,
+  "nuxt": false,
+  "sum": 61
+ },
+ {
+  "domain": "ishonch.uz",
+  "robots": 200,
+  "sitemaps": [
+   "https://ishonch.uz/sitemap.xml"
+  ],
+  "home": 200,
+  "home_len": 260997,
+  "cat_links": [
+   "https://ishonch.uz/news/smartfon-va-noutbuklar-otasi-97-sida"
+  ],
+  "cat_allowed": true,
+  "cat_url": "https://ishonch.uz/news/smartfon-va-noutbuklar-otasi-97-sida",
+  "cat_status": 200,
+  "cat_len": 170648,
+  "jsonld": 4,
+  "itemlist": false,
+  "offers_price": 0,
+  "next": false,
+  "nuxt": false,
+  "sum": 3
+ },
+ {
+  "domain": "artelstore.uz",
+  "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'artelstore.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError(\"HTTPSConnection(host=\\'artelstore.uz\\',"
+ },
+ {
+  "domain": "uzum.uz",
+  "robots": 200,
+  "sitemaps": [
+   "https://uzum.uz/ru/static_sitemaps/sitemap.xml",
+   "https://uzum.uz/uz/static_sitemaps/sitemap.xml",
+   "https://uzum.uz/media/sitemap_index.xml"
+  ],
+  "home": 200,
+  "home_len": 3472,
+  "cat_links": []
+ },
+ {
+  "domain": "bemarket.uz",
+  "error": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'bemarket.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED"
+ },
+ {
+  "domain": "smartupshop.uz",
+  "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'smartupshop.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError(\"HTTPSConnection(host=\\'smartupshop.uz\\"
+ },
+ {
+  "domain": "texnomart.uz",
+  "robots": 200,
+  "sitemaps": [
+   "https://texnomart.uz/sitemap.xml"
+  ],
+  "home": 200,
+  "home_len": 143968,
+  "cat_links": []
+ }
+]
