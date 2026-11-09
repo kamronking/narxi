@@ -1,5 +1,5 @@
 {
- "started": "2026-11-10T01:39:35.170738+05:00",
+ "started": "2026-11-10T02:59:40.244105+05:00",
  "stores": {
   "texnomart": {
    "pages": 16,
@@ -33,9 +33,10 @@
    "in_stock": 273
   }
  },
- "products": 207,
- "matched_2plus": 52,
+ "products": 202,
+ "matched_2plus": 51,
  "unkeyed_sample": [
+  "Керамическое защитное стекло Xiaomi Redmi Note 9T",
   "Керамическое защитное стекло Xiaomi Redmi Note 9T",
   "Iphone 17",
   "Iphone Air",
@@ -49,8 +50,7 @@
   "Смартфон Apple iPhone 18 Pro Max",
   "Samsung Galaxy A55",
   "Samsung Galaxy S25",
-  "Samsung Galaxy A07",
-  "Samsung Galaxy A17"
+  "Samsung Galaxy A07"
  ],
  "keys_sample": [
   "iphone 17 pro 256gb :: olcha 17232000 | texnomart 17999000",
@@ -66,17 +66,17 @@
   "honor 600 lite 256gb :: olcha 4860601 | texnomart 5230000",
   "honor 600 pro 512gb :: texnomart 9999000 | olcha 10194126",
   "honor x5es 64gb :: texnomart 1860000 | olcha 1878000",
-  "honor x6e 256gb :: olcha 2799000 | texnomart 3099000",
   "honor x7e 128gb :: olcha 2945666 | texnomart 3273000",
   "honor x7e 256gb :: olcha 3304400 | texnomart 3706000",
   "honor x8e 128gb :: olcha 3236190 | texnomart 3405000",
   "honor x8e 256gb :: texnomart 3774000 | olcha 3852000",
   "honor x9d 256gb :: olcha 4799000 | texnomart 5199000",
   "honor x9e pro 256gb :: olcha 5103126 | texnomart 5816000",
-  "iphone 17 256gb :: texnomart 13699000 | olcha 13999000",
+  "iphone 17 256gb :: olcha 13999000 | texnomart 14299000",
   "samsung galaxy a07s 128gb :: olcha 2111987 | texnomart 2479000",
   "samsung galaxy a07s 64gb :: texnomart 1808000 | olcha 1865000",
   "samsung galaxy a08 128gb :: olcha 2425000 | texnomart 2548000",
-  "samsung galaxy a17 256gb :: texnomart 3119600 | olcha 4199000"
+  "samsung galaxy a17 256gb :: texnomart 3119600 | olcha 4199000",
+  "samsung galaxy a18 128gb :: olcha 2659000 | texnomart 2999000"
  ]
 }
