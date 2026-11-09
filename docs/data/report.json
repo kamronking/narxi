@@ -1,82 +1,246 @@
 {
- "started": "2026-11-10T02:59:40.244105+05:00",
+ "started": "2026-11-10T03:08:35.050793+05:00",
  "stores": {
   "texnomart": {
-   "pages": 16,
-   "items": 286,
+   "pages": 150,
+   "items": 1652,
    "errors": [],
-   "sample": [
-    "Samsung Galaxy A27 5G 8/256GB Черный",
-    "OPPO A6s Pro 8/256GB Лес Люмина",
-    "Samsung Galaxy A27 5G 8/256GB Синий",
-    "Samsung Galaxy A27 5G 6/128GB Синий",
-    "Samsung Galaxy A27 5G 6/128GB Черный",
-    "OPPO A6s Pro 8/256GB Синий эклипс",
-    "Xiaomi Redmi 17 8/256GB Глубокий синий",
-    "Xiaomi Redmi Note 17 Pro 5G 8/256GB Оранжевый атлас"
-   ]
+   "per_cat": {
+    "phones": 286,
+    "laptops": 23,
+    "tablets": 36,
+    "tv": 128,
+    "monitors": 7,
+    "audio": 150,
+    "watches": 90,
+    "fridges": 97,
+    "washers": 99,
+    "ac": 25,
+    "home": 128,
+    "kitchen": 356,
+    "stoves": 104,
+    "climate": 54,
+    "care": 69,
+    "printers": 0
+   }
   },
   "olcha": {
-   "pages": 27,
-   "items": 273,
+   "pages": 599,
+   "items": 11980,
    "errors": [],
-   "sample": [
-    "Iphone 17",
-    "Iphone Air",
-    "iPhone 17 Pro",
-    "Apple iPhone 15 Pro",
-    "iPhone 17 Pro Max",
-    "Смартфон Apple iPhone Duo",
-    "Apple Iphone 13 128GB",
-    "Apple iPhone 15 Pro Max"
-   ],
-   "in_stock": 273
+   "per_cat": {
+    "other": 9312,
+    "care": 132,
+    "phones": 289,
+    "kitchen": 359,
+    "laptops": 198,
+    "climate": 204,
+    "home": 191,
+    "audio": 241,
+    "fridges": 173,
+    "washers": 135,
+    "monitors": 16,
+    "ac": 156,
+    "tablets": 123,
+    "tv": 136,
+    "stoves": 242,
+    "printers": 73
+   },
+   "in_stock": 11980
   }
  },
- "products": 202,
- "matched_2plus": 51,
+ "products": 10530,
+ "matched_2plus": 133,
+ "cats": {
+  "phones": [
+   210,
+   53
+  ],
+  "laptops": [
+   204,
+   0
+  ],
+  "tablets": [
+   126,
+   0
+  ],
+  "tv": [
+   251,
+   7
+  ],
+  "monitors": [
+   23,
+   0
+  ],
+  "audio": [
+   296,
+   6
+  ],
+  "watches": [
+   65,
+   0
+  ],
+  "fridges": [
+   208,
+   8
+  ],
+  "washers": [
+   206,
+   8
+  ],
+  "ac": [
+   162,
+   2
+  ],
+  "home": [
+   289,
+   12
+  ],
+  "kitchen": [
+   660,
+   28
+  ],
+  "stoves": [
+   290,
+   1
+  ],
+  "climate": [
+   230,
+   0
+  ],
+  "care": [
+   166,
+   8
+  ],
+  "printers": [
+   72,
+   0
+  ],
+  "other": [
+   7072,
+   0
+  ]
+ },
  "unkeyed_sample": [
   "Керамическое защитное стекло Xiaomi Redmi Note 9T",
-  "Керамическое защитное стекло Xiaomi Redmi Note 9T",
-  "Iphone 17",
-  "Iphone Air",
-  "iPhone 17 Pro",
-  "Apple iPhone 15 Pro",
-  "iPhone 17 Pro Max",
-  "Смартфон Apple iPhone Duo",
-  "Apple iPhone 15 Pro Max",
-  "Apple iPhone 16 Pro Max",
-  "Смартфон Apple iPhone 18 Pro",
-  "Смартфон Apple iPhone 18 Pro Max",
-  "Samsung Galaxy A55",
-  "Samsung Galaxy S25",
-  "Samsung Galaxy A07"
+  "Наушники вставные беспроводные Green Earbuds",
+  "Смарт часы Green Ultra Black",
+  "Смарт часы Green Active Pro Black",
+  "Мясорубка Аксион М41.01",
+  "Мясорубка Аксион М21.01",
+  "Мясорубка Аксион М12.11",
+  "Мясорубка Аксион М321.01",
+  "Мясорубка Аксион М61.02",
+  "Мясорубка Аксион М41.00",
+  "Соковыжималка Аксион СЦ32.02 Джус",
+  "Соковыжималка Аксион СЦ32.01",
+  "Соковыжималка Аксион СЦ32.01 Чёрная",
+  "Медная бутылка для воды с декоративным узором, 600 мл",
+  "Медная бутылка для воды с восточным узором. 600 мл"
  ],
- "keys_sample": [
-  "iphone 17 pro 256gb :: olcha 17232000 | texnomart 17999000",
-  "iphone 17 pro max 256gb :: olcha 17750000 | texnomart 18999000",
-  "iphone 18 pro 256gb :: texnomart 19999000 | olcha 20545000",
-  "iphone 18 pro 512gb :: texnomart 23499000 | olcha 24999000",
-  "iphone 18 pro max 256gb :: olcha 22100000 | texnomart 22790000",
-  "iphone 18 pro max 512gb :: texnomart 25999000 | olcha 28999000",
-  "iphone air 256gb :: olcha 13199000 | texnomart 13993000",
-  "iphone duo 256gb :: olcha 24100000 | texnomart 34799000",
-  "iphone duo 512gb :: olcha 24100000 | texnomart 39199000",
-  "honor 600 256gb :: olcha 6242487 | texnomart 6999000",
-  "honor 600 lite 256gb :: olcha 4860601 | texnomart 5230000",
-  "honor 600 pro 512gb :: texnomart 9999000 | olcha 10194126",
-  "honor x5es 64gb :: texnomart 1860000 | olcha 1878000",
-  "honor x7e 128gb :: olcha 2945666 | texnomart 3273000",
-  "honor x7e 256gb :: olcha 3304400 | texnomart 3706000",
-  "honor x8e 128gb :: olcha 3236190 | texnomart 3405000",
-  "honor x8e 256gb :: texnomart 3774000 | olcha 3852000",
-  "honor x9d 256gb :: olcha 4799000 | texnomart 5199000",
-  "honor x9e pro 256gb :: olcha 5103126 | texnomart 5816000",
-  "iphone 17 256gb :: olcha 13999000 | texnomart 14299000",
-  "samsung galaxy a07s 128gb :: olcha 2111987 | texnomart 2479000",
-  "samsung galaxy a07s 64gb :: texnomart 1808000 | olcha 1865000",
-  "samsung galaxy a08 128gb :: olcha 2425000 | texnomart 2548000",
-  "samsung galaxy a17 256gb :: texnomart 3119600 | olcha 4199000",
-  "samsung galaxy a18 128gb :: olcha 2659000 | texnomart 2999000"
- ]
+ "keys_sample": {
+  "phones": [
+   "phones:iphone 17 pro max 256gb :: olcha 17750000 iPhone 17 Pro Max Deep Blue 256 GB | texnomart 18999000 Apple iPhone 17 Pro Max 12/256GB Оранжевый",
+   "phones:iphone 18 pro 256gb :: texnomart 19999000 Apple iPhone 18 Pro 12/256GB Серебристый | olcha 20545000 Смартфон Apple iPhone 18 Pro 256 GB Burgundy",
+   "phones:iphone 18 pro 512gb :: texnomart 23499000 Apple iPhone 18 Pro 12/512GB Голубой | olcha 24999000 Смартфон Apple iPhone 18 Pro 512 GB Glacier",
+   "phones:iphone 18 pro max 256gb :: olcha 22100000 Смартфон Apple iPhone 18 Pro Max Black 256 GB | texnomart 22790000 Apple iPhone 18 Pro Max 12/256GB Голубой",
+   "phones:iphone 18 pro max 512gb :: texnomart 25999000 Apple iPhone 18 Pro Max 12/512GB Голубой | olcha 28999000 Смартфон Apple iPhone 18 Pro Max 512 GB Silver",
+   "phones:iphone duo 256gb :: olcha 24100000 Смартфон Apple iPhone Duo 256 ГБ Звёздный белый | texnomart 34799000 Apple iPhone Duo 12/256GB Night Sky",
+   "phones:iphone duo 512gb :: olcha 24100000 Смартфон Apple iPhone Duo 512 ГБ Звёздный белый | texnomart 39199000 Apple iPhone Duo 12/512GB Night Sky",
+   "phones:honor 600 256gb :: olcha 6242487 Смартфон Honor 600 8/256GB Golden White | texnomart 6269000 Honor 600 8/256GB Золотисто-белый",
+   "phones:honor 600 lite 256gb :: olcha 4860601 Смартфон Honor 600 Lite 8/256GB Desert Gold | texnomart 5230000 Honor 600 Lite 8/256GB Черный Бархат",
+   "phones:honor 600 pro 512gb :: texnomart 9999000 Honor 600 Pro 12/512GB Белое золото | olcha 10194126 Смартфон Honor 600 Pro Black 12/512GB",
+   "phones:honor x5es 64gb :: texnomart 1759000 Honor X5es 4/64GB Звёздный фиолетовый | olcha 1878000 Смартфон Honor X5es Purple 4/64GB",
+   "phones:honor x6e 256gb :: texnomart 2699000 Honor X6e 4/256GB Черный | olcha 2799000 Смартфон Honor X6e 4/256GB Black"
+  ],
+  "kitchen": [
+   "kitchen:tefal:ey801d15 :: olcha 2458000 Аэрогриль TEFAL EY801D15 | texnomart 3090000 Аэрогриль Tefal EY801D15",
+   "kitchen:bosch:mmb6172s :: olcha 1567000 Блендер Bosch MMB6172S | texnomart 1978000 Блендер Bosch MMB6172S",
+   "kitchen:braun:jb3150bk :: texnomart 1199000 Блендер Braun JB3150BK | olcha 1326000 Блендер Braun JB3150BK BL",
+   "kitchen:braun:jb3272si :: texnomart 1349000 Блендер Braun JB3272SI | olcha 1627000 Блендер Braun JB3272SI BL",
+   "kitchen:braun:mq9195xli :: texnomart 2499000 Блендер погружной Braun MQ9195XLI | olcha 2711000 Погружной блендер Braun MQ9195XLI",
+   "kitchen:philips:hr2545 :: olcha 1024000 Блендер Philips HR2545/01 | texnomart 1119000 Блендер погружной Philips HR2545/00",
+   "kitchen:bosch:tcg4215 :: olcha 2012000 Электрогриль Bosch TCG4215 | texnomart 2181000 Гриль Bosch TCG4215",
+   "kitchen:delonghi:ecam29061b :: texnomart 6499000 Кофемашина DeLonghi ECAM290.61.B | olcha 6748000 Кофемашина DeLonghi ECAM290.61B",
+   "kitchen:delonghi:ecam32070tb :: texnomart 8399000 Кофемашина DeLonghi ECAM320.70.TB | olcha 9038000 Кофемашина DeLonghi ECAM320.70.TB Magnifica Plus",
+   "kitchen:delonghi:ecam45065g :: olcha 11327000 Кофемашина DeLonghi Eletta Explore ECAM450.65.G | texnomart 13199000 Кофемашина DeLonghi ECAM450.65.G",
+   "kitchen:delonghi:ecam45086t :: olcha 11568000 Рожковая кофеварка DeLonghi ECAM450.86.T | texnomart 12239000 Кофемашина DeLonghi ECAM450.86.T",
+   "kitchen:delonghi:ecam61074mb :: texnomart 12499000 Кофемашина DeLonghi ECAM610.74.MB | olcha 13496000 Кофемашина DeLonghi ECAM610.74.MB 2.2 л"
+  ],
+  "care": [
+   "care:philips:bhh880 :: olcha 723000 Расческа-выпрямитель Philips StyleCare Essential B | texnomart 1099000 Выпрямитель для волос Philips BHH880/00",
+   "care:philips:bhs378 :: olcha 783000 Выпрямитель Philips BHS378 StraightCare Essential | texnomart 959000 Выпрямитель для волос Philips BHS378/00",
+   "care:philips:mg7920 :: olcha 1128000 Триммер Philips MG7920 | texnomart 1699000 Мультитриммер Philips MG7920/15",
+   "care:philips:qp210 :: texnomart 290000 Сменная насадка Philips QP210/51 | olcha 362000 Электробритва Насадка PHILIPS QP210",
+   "care:dyson:hd16 :: olcha 6109000 Фен Dyson Supersonic Nural HD16 Kanzan Pink | texnomart 6430000 Фен Dyson HD16 Ceramic Pink",
+   "care:philips:bhd350 :: olcha 639000 Фен Philips ThermoProtect BHD350/10 | texnomart 776000 Фен Philips BHD350/10",
+   "care:philips:bha530 :: olcha 988000 Фен-щетка Philips BHA530 | texnomart 1299000 Фен щетка Philips BHA530/00",
+   "care:philips:bha710 :: olcha 1217000 Фен-щетка PHILIPS BHA710 | texnomart 1399000 Фен щетка Philips BHA710/00"
+  ],
+  "stoves": [
+   "stoves:t:artel 1190 rapido touch :: olcha 2161458 Вытяжка Artel 1190 Rapido Touch Black | texnomart 2254000 Вытяжка Artel 1190 Rapido Touch Белая"
+  ],
+  "audio": [
+   "audio:t:hyperx cloud iii :: texnomart 1399000 Игровые наушники HyperX Cloud III Black/Red | olcha 1965580 Наушники HyperX Cloud III Wireless Red",
+   "audio:t:apple airpods 4 :: texnomart 2258000 Наушники вставные беспроводные Apple AirPods 4 Whi | olcha 2300000 Беспроводные наушники Apple Airpods 4",
+   "audio:sony:wfc510 :: olcha 795000 Беспроводные наушники SONY WF-C510 Чёрный | texnomart 847000 Наушники вставные беспроводные Sony WF-C510 Black",
+   "audio:edifier:w800bt :: texnomart 385000 Наушники накладные беспроводные Edifier W800BT SE  | olcha 499000 Наушники Edifier W800BT Plus 40 мм",
+   "audio:sony:wh1000xm5 :: olcha 2892000 Беспроводные накладные наушники Sony WH-1000XM5 | texnomart 4199000 Наушники накладные беспроводные Sony WH-1000XM5 Si",
+   "audio:sony:mdrzx110ap :: texnomart 229000 Наушники накладные проводные Sony MDR-ZX110AP Whit | olcha 277000 Наушники Sony MDR-ZX110AP белый"
+  ],
+  "ac": [
+   "ac:lg:d12tt :: olcha 6905000 Кондиционер LG Mega Dual Plus 12 Inverter (D12TT) | texnomart 8114000 Кондиционер LG D12TT",
+   "ac:premier:prmzn18sdna5f :: olcha 8095313 Кондиционер Premier PRMZN-18SDNA5F | texnomart 9499000 Кондиционер Premier PRMZN-18SDNA5F"
+  ],
+  "home": [
+   "home:lg:vc83209uha :: texnomart 2549000 Пылесос LG VC83209UHA | olcha 2821000 Пылесос LG VC83209UHA",
+   "home:lg:vk89309h :: texnomart 2299000 Пылесос LG VK89309H | olcha 2538000 Пылесос LG VK89309H",
+   "home:premier:md2520rd :: texnomart 989000 Пылесос Premier PRM-VC/MD2520RD | olcha 1015625 Пылесосы Premier PRM-VC/MD2520RD",
+   "home:samsung:vc18m3125vb :: texnomart 1549000 Пылесос Samsung VC18M3125VB/UZ | olcha 1635000 Пылесос Samsung VC18M3125VB/UZ",
+   "home:samsung:vcc5377c3k :: texnomart 1599000 Пылесос Samsung VCC5377C3K/UZ | olcha 1868000 Пылесос Samsung VCC5377C3K/UZ",
+   "home:t:karcher ds 6 :: texnomart 6660000 Пылесос с аквафильтром Karcher DS 6 *EU | olcha 7864583 Пылесос Karcher DS 6",
+   "home:t:karcher cvh 2 :: texnomart 990000 Ручной аккумуляторный пылесос Karcher CVH 2 | olcha 1666667 Ручной пылесос Karcher CVH 2",
+   "home:braun:si5277gr :: texnomart 784000 Утюг Braun SI5277GR | olcha 964000 Утюг Braun SI5277GR",
+   "home:braun:si9682db :: olcha 1446000 Паровой утюг Braun SI9682DB | texnomart 1683000 Утюг Braun SI9682DB",
+   "home:philips:dst5030 :: texnomart 949000 Утюг Philips DST5030/20 | olcha 964000 Утюг Philips 5000 Series DST5030/20",
+   "home:philips:dst7040 :: olcha 1067708 Утюг Philips DST7040 | texnomart 1699000 Утюг Philips DST7040/80",
+   "home:tefal:fv9848e0 :: olcha 1506000 Утюг Tefal FV9848E0 | texnomart 1999000 Утюг Tefal FV9848E0"
+  ],
+  "washers": [
+   "washers:lg:f2j3ws1w :: olcha 4712000 Стиральная машина LG F2J3WS1W Inverter | texnomart 6639000 Стиральная машина LG F2J3WS1W",
+   "washers:lg:f2t9gw9p :: olcha 6965000 Стиральная машина LG AI DD F2T9GW9P (8.5 кг) | texnomart 6999000 Стиральная машина LG F2T9GW9P",
+   "washers:lg:f2v3ps6j :: olcha 5150000 Стиральная машина LG F2V3PS6J 8 кг | texnomart 5399000 Стиральная машина LG F2V3PS6J",
+   "washers:lg:f2v7fr2p :: olcha 8411000 Стиральная машина LG F2V7FR2P 9 кг | texnomart 8899000 Стиральная машина LG F2V7FR2P",
+   "washers:lg:f2y1hs5j :: olcha 5206000 Стиральная машина LG 7кг F2Y1HS5J | texnomart 5399000 Стиральная машина LG F2Y1HS5J",
+   "washers:lg:f2y1hs6j :: olcha 5250000 Стиральная машина LG F2Y1HS6J 7 кг | texnomart 5499000 Стиральная машина LG F2Y1HS6J",
+   "washers:premier:prm70f1210sin :: olcha 3333333 Стиральная машина Premier PRM70F1210SIN 7 кг 1200  | texnomart 3999000 Стиральная машина Premier PRM70F1210SIN/G",
+   "washers:artel:tg110fp :: olcha 2460938 Полуавтоматическая стиральная машина Artel TG110FP | texnomart 3176000 Стиральная машина полуавтомат Artel TG110FP Nature"
+  ],
+  "tv": [
+   "tv:artel:a43kf5000 :: olcha 2350000 Телевизоры Artel A43KF5000 norm Чёрный | texnomart 2676000 Телевизор Artel A43KF5000",
+   "tv:hisense:43e7q :: texnomart 3594000 Телевизор Hisense 43E7Q Smart | olcha 4497000 Телевизор Hisense 43E7Q QLED 4K Smart TV",
+   "tv:lg:86qned80t6a :: olcha 27150000 Телевизор LG 86QNED80T6A 86\" | texnomart 35341000 Телевизор LG 86QNED80T6A Smart",
+   "tv:premier:32prm840fsv :: texnomart 1605000 Телевизор Premier 32PRM840FSV Smart | olcha 2005208 Телевизор Premier Smart 32PRM840FSV 32\"",
+   "tv:premier:50prm2020usv :: olcha 3997396 Телевизор Premier 50PRM2020USV Smart | texnomart 5699000 Телевизор Premier 50PRM2020USV Smart",
+   "tv:premier:65prm2030qsv :: olcha 6800000 Телевизор Premier 65PRM2030QSV | texnomart 7680000 Телевизор Premier 65PRM2030QSV Smart",
+   "tv:samsung:qe75qn900fuxuz :: olcha 49000000 Телевизор Samsung QE75QN900FUXUZ NEO QLED | texnomart 54684000 Телевизор Samsung QE75QN900FUXUZ Smart"
+  ],
+  "fridges": [
+   "fridges:artel:hd276fnd :: olcha 3073000 Холодильник Artel HD276FND ECO FROST Белый | texnomart 3460000 Холодильник Artel HD276FND Eco Белый",
+   "fridges:lg:gcb459ftpw :: olcha 8750000 Холодильник LG GC-B459FTPW | texnomart 8790000 Холодильник LG GC-B459FTPW",
+   "fridges:lg:gcb459mlwm :: texnomart 8410000 Холодильник LG GC-B459MLWM | olcha 8556000 Холодильник LG GC-B459MLWM",
+   "fridges:lg:gcb509fnpw :: texnomart 10586000 Холодильник LG GC-B509FNPW | olcha 10749000 Холодильник LG GC-B509FNPW",
+   "fridges:lg:gcb509fnzw :: olcha 12171000 Холодильник LG GC-B509FNZW | texnomart 12195000 Холодильник LG GC-B509FNZW",
+   "fridges:lg:gnb392sbbb :: olcha 9218000 Холодильник LG GN-B392SBBB Inverter | texnomart 9300000 Холодильник LG GN-B392SBBB",
+   "fridges:premier:prm250tfdf :: texnomart 2999000 Холодильник Premier PRM-250TFDF/W | olcha 3502604 Холодильник Premier PRM-250TFDF/W",
+   "fridges:premier:prm317bfnf :: texnomart 5521000 Холодильник Premier PRM-317BFNF/DI | olcha 5859375 Холодильник Premier PRM-317BFNF/W"
+  ],
+  "other": [],
+  "monitors": [],
+  "climate": [],
+  "laptops": [],
+  "tablets": [],
+  "printers": [],
+  "watches": []
+ }
 }
