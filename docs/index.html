@@ -28,6 +28,8 @@ header{position:sticky;top:0;z-index:6;background:color-mix(in srgb,var(--bg) 88
 .logo{font:800 21px/1 var(--disp);letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
 .logo i{width:28px;height:28px;border-radius:9px;background:var(--brand);display:grid;place-items:center;color:var(--lime);font:800 15px var(--disp);font-style:normal}
 .sp{flex:1}
+.hback{width:36px;height:36px;border-radius:12px;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;flex:none;animation:inUp .3s var(--ease)}.hback[hidden]{display:none}
+.obtop{display:flex;justify-content:space-between;align-items:center}.obback{border:0;background:rgba(255,255,255,.14);color:#fff;width:38px;height:38px;border-radius:12px;display:grid;place-items:center}
 .avatar{width:34px;height:34px;border-radius:50%;background:var(--brand);color:var(--lime);display:grid;place-items:center;font:700 13px var(--ui);border:0}
 main{flex:1;padding:0 max(16px,env(safe-area-inset-right)) calc(96px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));display:flex;flex-direction:column;gap:18px;min-width:0}
 h2{font:700 17px/1.25 var(--ui);margin:0;letter-spacing:-.01em}
@@ -186,7 +188,7 @@ nav button[aria-current="page"]::after{content:"";position:absolute;top:0;width:
 </head>
 <body>
 <div class="app">
-  <header><div class="logo"><i>N</i>Narxi</div><div class="sp"></div><button class="avatar" id="hdrAv" aria-label="Profil"></button></header>
+  <header><button class="hback" id="hback" aria-label="Orqaga" hidden><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button><div class="logo"><i>N</i>Narxi</div><div class="sp"></div><button class="avatar" id="hdrAv" aria-label="Profil"></button></header>
   <main id="view"><div class="skel"></div><div class="skel"></div></main>
 </div>
 <nav><div class="in" id="tabs"></div></nav>
@@ -228,8 +230,12 @@ function verdict(p){const s=series(p.key),n=s.length,cur=best(p).price,old=Math.
   const pct=Math.round((1-cur/avg)*100);
   if(pct>=4)return {cls:'ok',txt:t('real',{p:pct,n})};if(pct<=-4)return {cls:'fake',txt:t('up',{p:-pct})};return {cls:'mid',txt:t('stable',{n})}}
 const initials=n=>(n||'?').trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();
-function go(tab,extra={}){Object.assign(S,{tab,key:null},extra);render();scrollTo(0,0)}
-function render(){document.documentElement.lang=LANG;const av=document.getElementById('hdrAv');av.textContent=USER?initials(USER.name):'?';av.onclick=()=>go('profile');
+function nav(push=true){if(push)history.pushState({tab:S.tab,key:S.key},'');render();scrollTo(0,0)}
+function go(tab,extra={}){Object.assign(S,{tab,key:null},extra);nav()}
+function goBack(){if(history.state&&history.length>1)history.back();else go('home')}
+addEventListener('popstate',e=>{if(!ob.hidden&&obStep>0){obStep--;drawOB();history.pushState({tab:S.tab,key:S.key},'');return}if(!ob.hidden){closeOB();return}const st=e.state||{tab:'home',key:null};S.tab=st.tab||'home';S.key=st.key||null;render();scrollTo(0,0)});
+history.replaceState({tab:'home',key:null},'');
+function render(){document.documentElement.lang=LANG;const av=document.getElementById('hdrAv');av.textContent=USER?initials(USER.name):'?';av.onclick=()=>go('profile');const hb=document.getElementById('hback');hb.hidden=!(S.key||S.tab!=='home');hb.onclick=goBack;
   renderTabs();if(!DATA&&S.tab!=='profile')return;
   view.classList.remove('page');void view.offsetWidth;view.classList.add('page');
   if(S.key)return renderProduct(DATA.products.find(p=>p.key===S.key));({home:renderHome,watch:renderWatch,profile:renderProfile,about:renderAbout})[S.tab]()}
@@ -243,7 +249,7 @@ function pcard(p,i=0){const b=best(p),g=gapOf(p);return `<button class="pc press
   <div class="dots">${live(p).map(o=>`<span class="dot" style="background:${STORES[o.store].color}" title="${STORES[o.store].name}"></span>`).join('')}<span>${live(p).length} ${t('storesN')}</span>${WATCH[p.key]?` · ${t('watching')}`:''}</div></button>`}
 function deal(p,i){const b=best(p),w=worst(p);return `<button class="deal press in-up" style="--i:${i}" data-k="${esc(p.key)}"><div class="top">${img(p.img,'ph','width:64px;flex:none')}</div><div style="min-width:0"><div class="gap" data-count="${gapOf(p)}">−${mln(gapOf(p))}</div><div class="nm">${esc(p.name)}</div></div></div>
   <div class="pricepair"><div><span><span class="dot" style="background:${STORES[b.store].color};margin-right:6px"></span>${STORES[b.store].name}</span><b>${som(b.price)}</b></div><div class="hi"><span><span class="dot" style="background:${STORES[w.store].color};margin-right:6px"></span>${STORES[w.store].name}</span><b>${som(w.price)}</b></div></div></button>`}
-function bind(root=view){root.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{S.key=b.dataset.k;render();scrollTo(0,0)})}
+function bind(root=view){root.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{S.key=b.dataset.k;nav()})}
 let io=null;
 function filtered(){const P=DATA.products;const q=S.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
   let items=P.filter(p=>q.every(w=>(p.name+' '+p.key).toLowerCase().includes(w))&&(S.brand==='all'||brandOf(p)===S.brand)&&(!S.both||live(p).length>1));
@@ -288,7 +294,7 @@ function renderProduct(p){if(!p){go('home');return}const b=best(p),w=worst(p),v=
      <div class="meta"><span>${o.stock==='ok'?t('inStock'):t('out')}${o.inst?` · ${t('inst')} ${fmt(o.inst)} ${t('perMo')}`:''}${o.old?` · <span class="old">${fmt(o.old)}</span>`:''}</span>${o.url?`<a class="btn sm ghost press" href="${esc(u(o.url))}" target="_blank" rel="noopener">${t('open')} ↗</a>`:''}</div></div>`).join('')}</section>
    <section class="card in-up" style="--i:4"><h2>${t('history')}</h2>${chart(p)}${v.n!==undefined?`<div class="progress"><i style="width:${Math.max(4,Math.min(100,v.n/7*100))}%"></i></div>`:''}<div class="verdict ${v.cls}">${v.txt}</div></section>
    <section class="card in-up" style="--i:5"><span class="small muted">${t('watchT')}</span><div class="watch"><input id="wv" inputmode="numeric" placeholder="${t('watchPh')}" value="${fmt(wt||Math.round(b.price*.95/1000)*1000)}" aria-label="${t('watchPh')}"><button class="btn sm press" id="wb">${wt?t('watching'):t('watchBtn')}</button></div></section>`;
-  document.getElementById('back').onclick=()=>go(S.tab);
+  document.getElementById('back').onclick=goBack;
   document.getElementById('wb').onclick=()=>{const val=parseInt(document.getElementById('wv').value.replace(/\D/g,''),10);if(!val)return;WATCH[p.key]=val;store.set('watch',WATCH);toast(t('watchSet'));renderTabs();document.getElementById('wb').textContent=t('watching')}}
 function renderWatch(){const ks=Object.keys(WATCH).filter(k=>DATA.products.find(p=>p.key===k));
   view.innerHTML=`<h1 class="ptitle">${t('watch')}</h1>${ks.length?`<div class="grid">${ks.map((k,i)=>{const p=DATA.products.find(x=>x.key===k),hit=best(p).price<=WATCH[k];return `<div style="display:flex;flex-direction:column;gap:6px">${pcard(p,i)}<div class="small">${t('watchPh')}: <b>${fmt(WATCH[k])}</b> ${hit?`<span class="tag save">${t('reached')}</span>`:''}</div><button class="btn ghost sm" data-rm="${esc(k)}">${t('remove')}</button></div>`}).join('')}</div>`:`<div class="empty">${t('wEmpty')}</div>`}`;
@@ -324,15 +330,15 @@ const ART=[
  `<div class="tags3"><div class="ptag" style="left:0;top:20px">13 300 000<small>Olcha</small></div><div class="ptag" style="right:0;top:0;animation-delay:-1s">15 999 000<small>Texnomart</small></div><div class="ptag win" style="left:50px;bottom:10px;animation-delay:-2s">−2,7 mln<small>Narxi</small></div></div>`,
  `<svg class="chart2" viewBox="0 0 250 170"><path d="M10 120 L60 118 L100 122 L130 60 L160 58 L190 128 L240 126" fill="none" stroke="#c8f169" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="145" cy="58" r="7" fill="#ff8a80"/><text x="120" y="40" fill="#fff" font-size="13" font-weight="700">+17%</text><text x="185" y="152" fill="#fff" font-size="13" font-weight="700">"−15%"</text></svg>`,
  `<div class="tags3"><div class="ptag win" style="left:30px;top:40px">🔔 5 990 000<small>${LANG==='uz'?'Narx tushdi!':'Цена упала!'}</small></div><div class="ptag" style="right:10px;bottom:30px;animation-delay:-1.5s">${LANG==='uz'?'Maqsad':'Цель'}: 6 000 000<small>${LANG==='uz'?'Kuzatuv':'Слежу'}</small></div></div>`];
-function openOB(step=0){obStep=step;ob.hidden=false;drawOB()}
+let regFromProfile=false;function openOB(step=0){obStep=step;regFromProfile=step===3;ob.hidden=false;drawOB()}
 function closeOB(){ob.hidden=true;store.set('seen',1);render()}
-function drawOB(){if(obStep<3){obw.innerHTML=`<button class="skip" id="obSkip">${t('skip')}</button><div class="art in-up" style="--i:0">${ART[obStep]}</div>
+function drawOB(){if(obStep<3){obw.innerHTML=`<div class="obtop">${obStep>0?`<button class="obback" id="obBack" aria-label="${t('back')}">‹</button>`:'<span></span>'}<button class="skip" id="obSkip">${t('skip')}</button></div><div class="art in-up" style="--i:0">${ART[obStep]}</div>
    <div class="steps">${[0,1,2,3].map(i=>`<i class="${i===obStep?'on':''}"></i>`).join('')}</div>
    <h1 class="in-up" style="--i:1">${t('ob'+(obStep+1)+'t')}</h1><p class="in-up" style="--i:2">${t('ob'+(obStep+1)+'p')}</p>
    <button class="btn lime wide press in-up" style="--i:3" id="obNext">${obStep<2?t('next'):t('start')}</button>`;
-   document.getElementById('obNext').onclick=()=>{obStep++;drawOB()};document.getElementById('obSkip').onclick=()=>{obStep=3;drawOB()};return}
+   document.getElementById('obNext').onclick=()=>{obStep++;drawOB()};const bb=document.getElementById('obBack');if(bb)bb.onclick=()=>{obStep--;drawOB()};document.getElementById('obSkip').onclick=()=>{obStep=3;drawOB()};return}
   const regs=t('regions');
-  obw.innerHTML=`<div class="steps" style="margin-top:6px">${[0,1,2,3].map(i=>`<i class="${i===3?'on':''}"></i>`).join('')}</div><h1 class="in-up">${t('regT')}</h1><p class="in-up" style="--i:1">${t('regP')}</p>
+  obw.innerHTML=`<div class="obtop"><button class="obback" id="obBack" aria-label="${t('back')}">‹</button><span></span></div><div class="steps" style="margin-top:6px">${[0,1,2,3].map(i=>`<i class="${i===3?'on':''}"></i>`).join('')}</div><h1 class="in-up">${t('regT')}</h1><p class="in-up" style="--i:1">${t('regP')}</p>
    <form class="reg in-up" style="--i:2" id="regF" novalidate>
     <label class="field">${t('name')}<input id="rName" autocomplete="given-name" value="${esc(USER?.name||'')}" maxlength="40"></label>
     <label class="field">${t('phone')}<input id="rPhone" inputmode="tel" autocomplete="tel" value="${esc(USER?.phone||'+998 ')}" maxlength="17"></label>
@@ -344,7 +350,7 @@ function drawOB(){if(obStep<3){obw.innerHTML=`<button class="skip" id="obSkip">$
   const ph=document.getElementById('rPhone');
   ph.oninput=()=>{let d=ph.value.replace(/\D/g,'');if(!d.startsWith('998'))d='998'+d;d=d.slice(0,12);const p=[d.slice(0,3),d.slice(3,5),d.slice(5,8),d.slice(8,10),d.slice(10,12)].filter(Boolean);ph.value='+'+p.join(' ')};
   obw.querySelectorAll('[data-pb]').forEach(b=>b.onclick=()=>{const k=b.dataset.pb;picked.has(k)?picked.delete(k):picked.add(k);b.setAttribute('aria-pressed',picked.has(k))});
-  document.getElementById('rLater').onclick=closeOB;
+  document.getElementById('rLater').onclick=closeOB;document.getElementById('obBack').onclick=()=>{if(USER&&regFromProfile){closeOB()}else{obStep=2;drawOB()}};
   document.getElementById('regF').onsubmit=e=>{e.preventDefault();const name=document.getElementById('rName').value.trim(),phone=ph.value.trim(),city=document.getElementById('rCity').value;const er=document.getElementById('rErr');
     if(name.length<2){er.textContent=t('errName');return}if(phone.replace(/\D/g,'').length!==12){er.textContent=t('errPhone');return}
     const isNew=!USER;USER={name,phone,city,brands:[...picked],since:USER?.since||Date.now()};store.set('user',USER);closeOB();toast(isNew?t('welcome',{n:name.split(' ')[0]}):t('saved'));}}

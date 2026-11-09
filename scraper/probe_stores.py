@@ -1,27 +1,26 @@
-"""Probe more Uzbek stores: robots rules, whether catalog pages are reachable and carry prices."""
-import re, json, os, requests, urllib.robotparser as rp
+"""Probe round 2: save full catalog pages for alifshop/glotr/ishonch; try elmakon/goodzone (broken TLS chain)."""
+import re, json, os, requests, urllib.robotparser as rp, urllib3
+urllib3.disable_warnings()
 UA='NarxiBot/0.1 (+https://github.com/kamronking/narxi; price comparison)'
 H={'User-Agent':UA,'Accept-Language':'ru-RU,ru;q=0.9'}
-DOMS=['mediapark.uz','asaxiy.uz','idea.uz','elmakon.uz','goodzone.uz','alifshop.uz','sello.uz','zoodmall.uz','glotr.uz','ishonch.uz','artelstore.uz','uzum.uz','bemarket.uz','smartupshop.uz','texnomart.uz']
-os.makedirs('docs/data/probe',exist_ok=True);out=[]
-for d in DOMS:
-    rec={'domain':d}
+os.makedirs('docs/data/probe2',exist_ok=True);out=[]
+def save(name,url,verify=True):
     try:
-        r=requests.get(f'https://{d}/robots.txt',headers=H,timeout=20);rec['robots']=r.status_code
-        robots=rp.RobotFileParser();robots.parse(r.text.splitlines() if r.status_code==200 else [])
-        rec['sitemaps']=re.findall(r'(?im)^sitemap:\s*(\S+)',r.text)[:3] if r.status_code==200 else []
-        h=requests.get(f'https://{d}/',headers=H,timeout=20);rec['home']=h.status_code;rec['home_len']=len(h.text)
-        links=[l for l in re.findall(r'href="([^"#]+)"',h.text) if re.search(r'smartfon|telefon|smartphone|mobiln',l,re.I)]
-        links=[l if l.startswith('http') else f'https://{d}'+('' if l.startswith('/') else '/')+l for l in links]
-        rec['cat_links']=list(dict.fromkeys(links))[:5]
-        if rec['cat_links']:
-            u=rec['cat_links'][0];rec['cat_allowed']=robots.can_fetch(UA,u)
-            if rec['cat_allowed']:
-                c=requests.get(u,headers=H,timeout=25);t=c.text
-                rec.update({'cat_url':u,'cat_status':c.status_code,'cat_len':len(t),'jsonld':t.count('application/ld+json'),'itemlist':'ItemList' in t,
-                    'offers_price':len(re.findall(r'"price"\s*:\s*"?\d',t)),'next':'__NEXT_DATA__' in t,'nuxt':'__NUXT' in t,'sum':len(re.findall(r'сум|so.m|UZS',t,re.I))})
-                open(f'docs/data/probe/{d}.html','w').write(t[:250000])
-    except Exception as e:
-        rec['error']=repr(e)[:200]
-    out.append(rec);print(json.dumps(rec,ensure_ascii=False))
-json.dump(out,open('docs/data/probe/summary.json','w'),ensure_ascii=False,indent=1)
+        r=requests.get(url,headers=H,timeout=30,verify=verify);t=r.text
+        open(f'docs/data/probe2/{name}.html','w').write(t[:1500000])
+        rec={'name':name,'url':url,'status':r.status_code,'len':len(t),'jsonld':t.count('application/ld+json'),'nuxt':'__NUXT' in t,'next':'__NEXT_DATA__' in t,'sum':len(re.findall(r'сум|so.m',t,re.I))}
+    except Exception as e: rec={'name':name,'url':url,'error':repr(e)[:200]};t=''
+    out.append(rec);print(json.dumps(rec,ensure_ascii=False));return t
+save('alif_cat','https://alifshop.uz/ru/categories/smartfoni-i-telefoni')
+g=save('glotr_cat','https://glotr.uz/telefoni-i-plansheti/')
+sub=[l for l in re.findall(r'href="(https://glotr\.uz/[a-z0-9-]+/)"',g) if 'smartfon' in l][:3]
+for i,l in enumerate(sub):save(f'glotr_sub{i}',l)
+save('ishonch_sitemap','https://ishonch.uz/sitemap.xml')
+for d in ['elmakon.uz','goodzone.uz']:
+    h=save(d.split('.')[0]+'_home',f'https://{d}/',verify=False)
+    rb=requests.get(f'https://{d}/robots.txt',headers=H,timeout=20,verify=False).text
+    open(f'docs/data/probe2/{d}_robots.txt','w').write(rb[:20000])
+    links=[l for l in re.findall(r'href="([^"#]+)"',h) if re.search(r'smartfon|telefon|smartphone',l,re.I)]
+    links=[l if l.startswith('http') else f'https://{d}'+('' if l.startswith('/') else '/')+l for l in links]
+    if links:save(d.split('.')[0]+'_cat',links[0],verify=False)
+json.dump(out,open('docs/data/probe2/summary.json','w'),ensure_ascii=False,indent=1)
