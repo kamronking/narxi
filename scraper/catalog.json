@@ -1,0 +1,21 @@
+[
+ {"id":"ip16-128","name":"Apple iPhone 16 128 GB","cat":"phones","q":"iphone 16 128","must":["iphone","16"],"not":["pro","max","plus","16e"],"mem":"128"},
+ {"id":"ip16pro-256","name":"Apple iPhone 16 Pro 256 GB","cat":"phones","q":"iphone 16 pro 256","must":["iphone","16","pro"],"not":["max","plus"],"mem":"256"},
+ {"id":"ip16pm-256","name":"Apple iPhone 16 Pro Max 256 GB","cat":"phones","q":"iphone 16 pro max 256","must":["iphone","16","pro","max"],"not":["plus"],"mem":"256"},
+ {"id":"ip15-128","name":"Apple iPhone 15 128 GB","cat":"phones","q":"iphone 15 128","must":["iphone","15"],"not":["pro","max","plus"],"mem":"128"},
+ {"id":"ip13-128","name":"Apple iPhone 13 128 GB","cat":"phones","q":"iphone 13 128","must":["iphone","13"],"not":["pro","max","mini"],"mem":"128"},
+ {"id":"s25-256","name":"Samsung Galaxy S25 256 GB","cat":"phones","q":"samsung galaxy s25 256","must":["s25"],"not":["ultra","plus","s25+","edge","fe"],"mem":"256"},
+ {"id":"a56-256","name":"Samsung Galaxy A56 8/256 GB","cat":"phones","q":"samsung galaxy a56 256","must":["a56"],"not":[],"mem":"256"},
+ {"id":"a55-256","name":"Samsung Galaxy A55 8/256 GB","cat":"phones","q":"samsung galaxy a55 256","must":["a55"],"not":[],"mem":"256"},
+ {"id":"a36-256","name":"Samsung Galaxy A36 8/256 GB","cat":"phones","q":"samsung galaxy a36 256","must":["a36"],"not":[],"mem":"256"},
+ {"id":"a16-128","name":"Samsung Galaxy A16 4/128 GB","cat":"phones","q":"samsung galaxy a16 128","must":["a16"],"not":[],"mem":"128"},
+ {"id":"rn14p-256","name":"Xiaomi Redmi Note 14 Pro 8/256 GB","cat":"phones","q":"redmi note 14 pro 256","must":["redmi","note","14","pro"],"not":["plus","pro+"],"mem":"256"},
+ {"id":"rn14-128","name":"Xiaomi Redmi Note 14 128 GB","cat":"phones","q":"redmi note 14 128","must":["redmi","note","14"],"not":["pro","plus"],"mem":"128"},
+ {"id":"r14c-128","name":"Xiaomi Redmi 14C 128 GB","cat":"phones","q":"redmi 14c 128","must":["redmi","14c"],"not":["note"],"mem":"128"},
+ {"id":"x7pro-256","name":"Poco X7 Pro 8/256 GB","cat":"phones","q":"poco x7 pro 256","must":["poco","x7","pro"],"not":[],"mem":"256"},
+ {"id":"honorx9c-256","name":"Honor X9c 8/256 GB","cat":"phones","q":"honor x9c 256","must":["honor","x9c"],"not":[],"mem":"256"},
+ {"id":"airpodspro2","name":"Apple AirPods Pro 2","cat":"audio","q":"airpods pro 2","must":["airpods","pro"],"not":["max","чехол","case","кейс","накладк"],"mem":null},
+ {"id":"buds3","name":"Samsung Galaxy Buds3","cat":"audio","q":"galaxy buds3","must":["buds3|buds 3"],"not":["pro","fe","чехол","case"],"mem":null},
+ {"id":"ps5slim","name":"Sony PlayStation 5 Slim","cat":"games","q":"playstation 5 slim","must":["playstation 5|ps5|playstation5","slim"],"not":["pro","джойстик","геймпад","dualsense","чехол","диск игры","игра "],"mem":null},
+ {"id":"mba-m3","name":"Apple MacBook Air 13 M3","cat":"laptops","q":"macbook air m3","must":["macbook","air","m3"],"not":["15","чехол","case","накладк"],"mem":null}
+]
