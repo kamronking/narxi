@@ -107,7 +107,8 @@ def texnomart():
                             if not p.get('name') or not o.get('price'):
                                 continue
                             got.append({'store': 'texnomart', 'title': p['name'], 'price': int(float(o['price'])),
-                                        'old': None, 'url': p.get('url'), 'stock': 'ok' if 'InStock' in str(o.get('availability')) else 'out'})
+                                        'old': None, 'url': p.get('url'), 'stock': 'ok' if 'InStock' in str(o.get('availability')) else 'out',
+                                        'img': (p.get('image')[0] if isinstance(p.get('image'), list) else p.get('image'))})
             rep['pages'] += 1
             if not got:
                 break
@@ -151,7 +152,8 @@ def olcha():
                               'old': old if old and old > price else None,
                               'url': f"https://olcha.uz/ru/product/view/{p.get('alias')}",
                               'stock': 'out' if p.get('out_of_stock') is True else ('ok' if (p.get('in_stock') or int(p.get('quantity') or 0) > 0) else 'out'),
-                              'inst': int(float(p.get('monthly_repayment') or 0)) or None})
+                              'inst': int(float(p.get('monthly_repayment') or 0)) or None,
+                              'img': p.get('main_image')})
             pg = (d.get('data') or {}).get('paginator') or {}
             if page >= int(pg.get('last_page') or 1):
                 break
@@ -196,7 +198,10 @@ def main():
         name = min((o['title'] for o in offers), key=len)
         name = re.sub(COLORS, '', name, flags=re.I)
         name = pretty(re.sub(r'\s+', ' ', name))
-        products.append({'key': g['key'], 'name': name, 'offers': sorted(offers, key=lambda o: o['price'])})
+        imgs = [o.get('img') for o in sorted(offers, key=lambda o: o['store'] != 'texnomart') if o.get('img')]
+        for o in offers:
+            o.pop('img', None)
+        products.append({'key': g['key'], 'name': name, 'img': imgs[0] if imgs else None, 'offers': sorted(offers, key=lambda o: o['price'])})
     products.sort(key=lambda p: (-len(p['offers']), p['name']))
     # history
     hp = OUT / 'history.json'

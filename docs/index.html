@@ -5,157 +5,213 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Narxi — narxlarni solishtirish</title>
 <meta name="description" content="Smartfon narxlarini O'zbekiston do'konlarida solishtiring. Haqiqiy chegirmani tekshiring.">
-<meta name="theme-color" content="#0f6b4f">
+<meta name="theme-color" content="#0c5a43">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon.svg">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#eef1ec;--surface:#fff;--surface2:#f6f8f4;--ink:#0f1f19;--muted:#5d6b64;--line:#dde3dc;--brand:#0f6b4f;--brand-ink:#fff;--save:#13a36b;--save-bg:#e2f5ec;--warn:#b4570e;--warn-bg:#fdf0e3;--bad:#c23a32;--bad-bg:#fbe9e7;--shadow:0 1px 2px rgba(15,31,25,.06),0 6px 20px rgba(15,31,25,.06);--ui:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--disp:'Unbounded','Onest',system-ui,sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#0b1310;--surface:#121d18;--surface2:#17241e;--ink:#e8f0eb;--muted:#93a39a;--line:#24342c;--brand:#2bb487;--brand-ink:#04140e;--save:#35d08f;--save-bg:#123326;--warn:#f0a35c;--warn-bg:#33230f;--bad:#ff7a70;--bad-bg:#3a1714;--shadow:0 1px 2px rgba(0,0,0,.3);color-scheme:dark}}
+/* Layout: phone-width shell; brand hero with search, horizontal deal rail, brand chips, 2-column product grid, bottom tabs */
+:root{--bg:#f1f3ef;--surface:#fff;--surface2:#f5f7f3;--ink:#0d1c16;--muted:#5f6d66;--line:#e1e6df;
+ --brand:#0c5a43;--brand2:#0f7a59;--brand-ink:#fff;--lime:#c8f169;--save:#0f9a63;--save-bg:#e1f5eb;--warn:#b4570e;--warn-bg:#fdf0e3;--bad:#c23a32;--bad-bg:#fbe9e7;
+ --shadow:0 1px 2px rgba(13,28,22,.05),0 8px 24px rgba(13,28,22,.07);--ui:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--disp:'Unbounded','Onest',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#09110e;--surface:#111b17;--surface2:#16231d;--ink:#e9f1ec;--muted:#93a39a;--line:#22322a;--brand:#0f6b4f;--brand2:#2bb487;--brand-ink:#fff;--lime:#c8f169;--save:#3ad696;--save-bg:#11301f;--warn:#f0a35c;--warn-bg:#33230f;--bad:#ff7a70;--bad-bg:#3a1714;--shadow:0 1px 2px rgba(0,0,0,.35);color-scheme:dark}}
 *{box-sizing:border-box}html,body{margin:0;height:100%}
 body{background:var(--bg);color:var(--ink);font:400 15px/1.45 var(--ui);-webkit-tap-highlight-color:transparent}
-button,input{font:inherit;color:inherit}button{cursor:pointer}:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.app{max-width:460px;margin:0 auto;min-height:100%;display:flex;flex-direction:column}
-@media(min-width:520px){.app{border-left:1px solid var(--line);border-right:1px solid var(--line)}}
-header{position:sticky;top:0;z-index:5;background:var(--bg);padding:calc(10px + env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 8px max(16px,env(safe-area-inset-left));display:flex;align-items:center;gap:10px}
-.logo{font:700 22px/1 var(--disp);letter-spacing:-.02em;display:flex;align-items:center;gap:8px}.logo i{width:26px;height:26px;border-radius:8px;background:var(--brand);display:grid;place-items:center;color:var(--brand-ink);font:700 14px var(--disp);font-style:normal}
-.sp{flex:1}.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 10px;font-weight:600;font-size:13px}
-.status{margin:0 16px 6px;padding:7px 12px;border-radius:10px;background:var(--surface);border:1px solid var(--line);font-size:12.5px;color:var(--muted);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.status b{color:var(--ink)}.ok{color:var(--save)}.soon{opacity:.6}
-main{flex:1;padding:4px max(16px,env(safe-area-inset-right)) calc(90px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));display:flex;flex-direction:column;gap:16px;min-width:0}
-h2{font:600 17px/1.25 var(--ui);margin:0}h1{font:700 22px/1.2 var(--disp);letter-spacing:-.02em;margin:0;text-wrap:balance}
+button,input{font:inherit;color:inherit}button{cursor:pointer}:focus-visible{outline:2px solid var(--brand2);outline-offset:2px}
+img{max-width:100%}
+.app{max-width:480px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;background:var(--bg)}
+@media(min-width:540px){.app{border-left:1px solid var(--line);border-right:1px solid var(--line)}}
+header{position:sticky;top:0;z-index:6;background:var(--bg);padding:calc(10px + env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 10px max(16px,env(safe-area-inset-left));display:flex;align-items:center;gap:10px}
+.logo{font:800 21px/1 var(--disp);letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
+.logo i{width:28px;height:28px;border-radius:9px;background:var(--brand);display:grid;place-items:center;color:var(--lime);font:800 15px var(--disp);font-style:normal}
+.sp{flex:1}.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 11px;font-weight:600;font-size:13px}
+main{flex:1;padding:0 max(16px,env(safe-area-inset-right)) calc(92px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));display:flex;flex-direction:column;gap:20px;min-width:0}
+h2{font:700 17px/1.25 var(--ui);margin:0;letter-spacing:-.01em}
 .muted{color:var(--muted)}.small{font-size:12.5px}
-.search{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 12px;box-shadow:var(--shadow)}
-.search input{flex:1;border:0;background:transparent;padding:10px 0;outline:none;min-width:0}
-.btn{border:0;border-radius:11px;padding:10px 14px;font-weight:600;background:var(--brand);color:var(--brand-ink);text-decoration:none;display:inline-block}
-.btn.ghost{background:var(--surface2);color:var(--ink);border:1px solid var(--line)}.btn.sm{padding:7px 11px;font-size:13px;border-radius:9px}
-.seg{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}.seg::-webkit-scrollbar{display:none}
-.seg button{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 13px;font-weight:500;font-size:13.5px}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.list{display:flex;flex-direction:column;gap:10px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;display:flex;gap:12px;align-items:center;text-align:left;width:100%;min-width:0}
-.pic{width:56px;height:56px;border-radius:12px;background:var(--surface2);display:grid;place-items:center;flex:none;overflow:hidden}
-.pic svg{width:34px;height:34px}
-.meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
-.nm{font-weight:600;font-size:14.5px;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.price{font:700 16px var(--ui);font-variant-numeric:tabular-nums;white-space:nowrap}
-.row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.tag{font-size:11.5px;font-weight:600;border-radius:6px;padding:2px 7px;white-space:nowrap}
-.tag.save{background:var(--save-bg);color:var(--save)}.tag.warn{background:var(--warn-bg);color:var(--warn)}.tag.bad{background:var(--bad-bg);color:var(--bad)}.tag.plain{background:var(--surface2);color:var(--muted)}
-.hero{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:8px}
-.gap{font:700 26px var(--disp);color:var(--save);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.back{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:0;color:var(--muted);font-weight:500}
-.best{background:var(--save-bg);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:6px}
-.best .p{font:700 26px var(--disp);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.offers{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
-.offer{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:12px;border-top:1px solid var(--line)}.offer:first-child{border-top:0}.offer.out{opacity:.55}
-.st{font-weight:600;display:flex;align-items:center;gap:8px;min-width:0}.dot{width:10px;height:10px;border-radius:3px;flex:none}
-.sub{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
-.act{grid-column:1/-1;display:flex;justify-content:flex-end}
-.old{text-decoration:line-through;color:var(--muted);font-size:12.5px;font-variant-numeric:tabular-nums}
-.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.secthead{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+/* hero */
+.hero{background:var(--brand);color:var(--brand-ink);border-radius:22px;padding:18px 16px 16px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+.hero h1{font:800 26px/1.08 var(--disp);letter-spacing:-.035em;margin:0;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.hero .facts{display:flex;gap:6px;flex-wrap:wrap;font-size:12.5px}
+.hero .facts span{background:rgba(255,255,255,.12);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.hero .facts .live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lime);margin-right:6px;vertical-align:1px}
+.search{display:flex;align-items:center;gap:8px;background:#fff;color:#0d1c16;border-radius:14px;padding:4px 12px}
+.search input{flex:1;border:0;background:transparent;padding:11px 0;outline:none;min-width:0;color:#0d1c16}
+.search svg{flex:none;color:#5f6d66}
+/* rail */
+.rail{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1*max(16px,env(safe-area-inset-left)));padding:2px max(16px,env(safe-area-inset-left)) 6px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.deal{flex:none;width:236px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px;display:flex;flex-direction:column;gap:8px;text-align:left}
+.deal .top{display:flex;gap:10px;align-items:center}
+.deal .gap{font:800 22px/1 var(--disp);color:var(--save);letter-spacing:-.03em}
+.deal .nm{font-weight:600;font-size:13.5px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pricepair{display:flex;flex-direction:column;gap:3px;font-size:12.5px}
+.pricepair div{display:flex;justify-content:space-between;gap:8px}
+.pricepair b{font-variant-numeric:tabular-nums}
+.pricepair .hi b{color:var(--muted);text-decoration:line-through;font-weight:500}
+/* chips */
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1*max(16px,env(safe-area-inset-left)));padding:0 max(16px,env(safe-area-inset-left))}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 13px;font-weight:600;font-size:13px}
+.chips button small{color:var(--muted);font-weight:500;margin-left:4px}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips button[aria-pressed="true"] small{color:inherit;opacity:.7}
+.sortbar{display:flex;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px}
+.sortbar button{flex:1;border:0;background:none;border-radius:9px;padding:7px 4px;font-weight:600;font-size:12.5px;color:var(--muted)}
+.sortbar button[aria-pressed="true"]{background:var(--surface2);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+/* grid */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pc{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:10px;display:flex;flex-direction:column;gap:7px;text-align:left;min-width:0;position:relative}
+.ph{aspect-ratio:1;border-radius:12px;background:#fff;display:grid;place-items:center;overflow:hidden;position:relative}
+.ph img{width:86%;height:86%;object-fit:contain}
+.ph .fb{display:none;width:44px;height:44px}
+.ph.noimg img{display:none}.ph.noimg .fb{display:block}
+.ph .badge{position:absolute;left:6px;top:6px;background:var(--save);color:#fff;font:700 11px var(--ui);border-radius:7px;padding:3px 7px}
+.pc .nm{font-weight:600;font-size:13.5px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.5em}
+.price{font:800 16px var(--ui);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.01em}
+.price small{font-weight:600;font-size:11.5px;color:var(--muted);margin-left:2px}
+.dots{display:flex;gap:4px;align-items:center;font-size:11.5px;color:var(--muted)}
+.dot{width:9px;height:9px;border-radius:3px;flex:none}
+.more{align-self:center}
+.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:700;background:var(--brand);color:var(--brand-ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px;justify-content:center}
+.btn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}.btn.sm{padding:8px 12px;font-size:13px;border-radius:10px}
+.empty{text-align:center;padding:28px 10px;color:var(--muted)}
+/* product */
+.back{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:0;color:var(--muted);font-weight:600}
+.pimg{background:#fff;border-radius:22px;border:1px solid var(--line);aspect-ratio:4/3;display:grid;place-items:center;overflow:hidden}
+.pimg img{width:72%;height:88%;object-fit:contain}.pimg .fb{display:none;width:80px}.pimg.noimg img{display:none}.pimg.noimg .fb{display:block}
+.ptitle{font:800 22px/1.15 var(--disp);letter-spacing:-.03em;margin:0;text-wrap:balance}
+.bestcard{background:var(--brand);color:var(--brand-ink);border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.bestcard .lbl{font-size:12.5px;font-weight:600;opacity:.8}
+.bestcard .p{font:800 30px/1.1 var(--disp);letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.bestcard .sv{display:inline-flex;align-self:flex-start;background:var(--lime);color:#0d1c16;border-radius:8px;padding:3px 9px;font-weight:700;font-size:13px;margin-top:6px}
+.cmp{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.bar{display:flex;flex-direction:column;gap:6px}
+.bar .h{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:600;font-size:14px}
+.bar .h span:first-child{display:flex;align-items:center;gap:8px;min-width:0}
+.bar .tr{height:10px;background:var(--surface2);border-radius:6px;overflow:hidden}
+.bar .fl{height:100%;border-radius:6px}
+.bar .meta{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--muted);align-items:center;flex-wrap:wrap}
+.bar.out{opacity:.5}
+.tag{font-size:11.5px;font-weight:700;border-radius:6px;padding:2px 7px;white-space:nowrap}
+.tag.save{background:var(--save-bg);color:var(--save)}.tag.plain{background:var(--surface2);color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px}
 .box svg.chart{width:100%;height:auto;display:block}
 .verdict{border-radius:12px;padding:10px 12px;font-weight:500;font-size:14px}.verdict.ok{background:var(--save-bg);color:var(--save)}.verdict.fake{background:var(--bad-bg);color:var(--bad)}.verdict.mid{background:var(--surface2);color:var(--muted)}
+.progress{height:6px;background:var(--surface2);border-radius:4px;overflow:hidden}.progress i{display:block;height:100%;background:var(--brand2);border-radius:4px}
 .watch{display:flex;gap:8px;align-items:center}
-.watch input{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;padding:9px 10px;background:var(--surface2);font-variant-numeric:tabular-nums}
+.watch input{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--surface2);font-variant-numeric:tabular-nums}
+.old{text-decoration:line-through;color:var(--muted);font-variant-numeric:tabular-nums}
 nav{position:fixed;left:0;right:0;bottom:0;z-index:7;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
-nav .in{max-width:460px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);height:62px}
+nav .in{max-width:480px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);height:62px}
 nav button{border:0;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11.5px;font-weight:600;color:var(--muted)}
-nav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8}nav button[aria-current="page"]{color:var(--brand)}
-.empty{text-align:center;padding:24px 10px;color:var(--muted)}
-.more{align-self:center}
+nav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8}nav button[aria-current="page"]{color:var(--brand2)}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(76px + env(safe-area-inset-bottom));background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:12px;font-weight:500;font-size:14px;z-index:30;max-width:92vw}
 .toast[hidden]{display:none}
+.skel{background:linear-gradient(90deg,var(--surface) 0,var(--surface2) 50%,var(--surface) 100%);background-size:200% 100%;animation:sk 1.2s infinite;border-radius:18px;height:220px}
+@keyframes sk{to{background-position:-200% 0}}
+.about p{margin:0}
+.stores{display:flex;flex-direction:column;gap:8px}
+.stores div{display:flex;align-items:center;gap:10px;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){.skel{animation:none}}
 </style>
 </head>
 <body>
 <div class="app">
   <header><div class="logo"><i>N</i>Narxi</div><div class="sp"></div><button class="chip" id="lang"></button></header>
-  <div class="status" id="status">…</div>
-  <main id="view"><div class="empty">…</div></main>
+  <main id="view"><div class="skel"></div><div class="skel"></div></main>
 </div>
 <nav><div class="in" id="tabs"></div></nav>
 <div class="toast" id="toast" hidden></div>
 <script>
 const TX={
-uz:{search:"Smartfon qidiring: iPhone 17, Redmi…",updated:"Narxlar yangilangan",soon:"tez orada",biggest:"Bugungi eng katta farq",same:"Bir xil model, turli do'konlar",from:"dan",stores:"do'kon",all:"Hammasi",both:"2+ do'konda",home:"Bosh sahifa",watch:"Kuzatuv",about:"Qanday ishlaydi",cheapest:"Eng arzon",save:"Tejaysiz",vsMax:"eng qimmatiga nisbatan",offers:"Takliflar",inStock:"Bor",out:"Tugagan",inst:"Muddatli",perMo:"so'm/oy",open:"Do'konda ko'rish",history:"Narx tarixi",collecting:"Narx tarixi yig'ilmoqda: {n} kun. Haqiqiy chegirma 7 kundan keyin ko'rinadi.",real:"Haqiqiy chegirma: hozirgi narx so'nggi {n} kundagi o'rtachadan {p}% past.",fake:"Shubhali chegirma: do'kon eski narxni {old} deb ko'rsatadi, lekin so'nggi {n} kunda narx {max} dan oshmagan.",stable:"Narx barqaror: so'nggi {n} kunda katta o'zgarish yo'q.",up:"Narx ko'tarilgan: o'rtachadan {p}% qimmat. Shoshilmang.",storeOld:"Do'kon ko'rsatgan eski narx",watchT:"Narx shu summaga tushsa, ilovani ochganingizda belgilaymiz",watchPh:"Maqsad narx",watchBtn:"Kuzatish",watching:"Kuzatilmoqda",remove:"O'chirish",wEmpty:"Hali hech narsa kuzatilmayapti.",reached:"Maqsadga yetdi!",back:"Orqaga",more:"Yana ko'rsatish",noRes:"Hech narsa topilmadi",som:"so'm",min:"Eng past",avg:"O'rtacha",now:"Hozir",aboutT:"Narxlar qayerdan olinadi",a1:"Narxi roboti kuniga 3 marta (07:17, 13:17, 19:17) do'konlarning ochiq katalog sahifalaridan narxlarni yig'adi. Saytlarning robots.txt qoidalariga rioya qiladi.",a2:"Bir xil model turli do'konlarda nomi, xotirasi va versiyasi bo'yicha birlashtiriladi. Rang hisobga olinmaydi.",a3:"Har kuni narx tarixga yoziladi. Shu tarix asosida chegirma haqiqiymi yoki yo'qmi tekshiriladi.",a4:"Hozircha: Texnomart va Olcha. Uzum, Mediapark, Asaxiy — hamkorlik orqali qo'shiladi.",a5:"Narxlar ma'lumot uchun. Sotib olishdan oldin do'kon saytida tekshiring.",loadErr:"Narxlarni yuklab bo'lmadi. Keyinroq urinib ko'ring.",models:"model",today:"bugun",daysAgo:"kun oldin",watchSet:"Kuzatuvga qo'shildi",watchHit:"Kuzatuvdagi tovar arzonladi:"},
-ru:{search:"Найти смартфон: iPhone 17, Redmi…",updated:"Цены обновлены",soon:"скоро",biggest:"Самая большая разница сегодня",same:"Одна модель, разные магазины",from:"от",stores:"магаз.",all:"Все",both:"В 2+ магазинах",home:"Главная",watch:"Слежу",about:"Как работает",cheapest:"Дешевле всего",save:"Экономия",vsMax:"по сравнению с самым дорогим",offers:"Предложения",inStock:"Есть",out:"Нет в наличии",inst:"Рассрочка",perMo:"сум/мес",open:"Смотреть в магазине",history:"История цены",collecting:"История цен собирается: {n} дн. Настоящая скидка будет видна через 7 дней.",real:"Настоящая скидка: цена на {p}% ниже средней за {n} дн.",fake:"Подозрительная скидка: магазин пишет старую цену {old}, но за {n} дн. цена не поднималась выше {max}.",stable:"Цена стабильная: за {n} дн. без больших изменений.",up:"Цена выросла: на {p}% выше средней. Не спешите.",storeOld:"Старая цена от магазина",watchT:"Отметим, когда цена опустится до этой суммы (при открытии приложения)",watchPh:"Желаемая цена",watchBtn:"Следить",watching:"Слежу",remove:"Удалить",wEmpty:"Пока ничего не отслеживается.",reached:"Цель достигнута!",back:"Назад",more:"Показать ещё",noRes:"Ничего не найдено",som:"сум",min:"Минимум",avg:"Средняя",now:"Сейчас",aboutT:"Откуда берутся цены",a1:"Робот Narxi 3 раза в день (07:17, 13:17, 19:17) собирает цены с открытых страниц каталога магазинов. Соблюдает правила robots.txt.",a2:"Одна и та же модель в разных магазинах объединяется по названию, памяти и версии. Цвет не учитывается.",a3:"Каждый день цена записывается в историю. По ней проверяется, настоящая скидка или нет.",a4:"Сейчас: Texnomart и Olcha. Uzum, Mediapark, Asaxiy — подключим через партнёрство.",a5:"Цены справочные. Перед покупкой проверьте на сайте магазина.",loadErr:"Не удалось загрузить цены. Попробуйте позже.",models:"моделей",today:"сегодня",daysAgo:"дн. назад",watchSet:"Добавлено в «Слежу»",watchHit:"Подешевел товар из «Слежу»:"}};
+uz:{h1a:"Bitta telefon.",h1b:"Turli narx.",search:"iPhone 17, Galaxy S26, Redmi…",models:"model",storesN:"do'kon",upd:"yangilandi",biggest:"Bugun eng katta farq",bigSub:"Bir xil model",all:"Hammasi",sortCheap:"Arzon avval",sortGap:"Katta farq",sortName:"A–Z",both:"2+ do'kon",home:"Bosh sahifa",watch:"Kuzatuv",about:"Ma'lumot",cheapest:"Eng arzon narx",save:"tejaysiz",at:"da",cmpT:"Do'konlarda narx",inStock:"Bor",out:"Tugagan",inst:"Muddatli",perMo:"so'm/oy",open:"Do'konda ochish",history:"Narx tarixi",collecting:"Tarix yig'ilmoqda: {n}/7 kun. Shundan keyin chegirma haqiqiymi — ko'rsatamiz.",real:"Haqiqiy chegirma: narx so'nggi {n} kundagi o'rtachadan {p}% past.",fake:"Shubhali chegirma: eski narx {old} deb yozilgan, lekin {n} kunda narx {max} dan oshmagan.",stable:"Narx barqaror: {n} kunda katta o'zgarish yo'q.",up:"Narx ko'tarilgan: o'rtachadan {p}% qimmat. Shoshilmang.",watchT:"Narx shu summaga tushsa, ilovani ochganingizda xabar beramiz",watchPh:"Maqsad narx",watchBtn:"Kuzatish",watching:"Kuzatilmoqda",remove:"O'chirish",wEmpty:"Hali hech narsa kuzatilmayapti. Tovar sahifasida maqsad narxni kiriting.",reached:"Maqsadga yetdi!",back:"Orqaga",more:"Yana ko'rsatish",noRes:"Hech narsa topilmadi",som:"so'm",mln:"mln",min:"Eng past",avg:"O'rtacha",now:"Hozir",aboutT:"Narxlar qayerdan olinadi",a1:"Narxi roboti kuniga 3 marta (07:17, 13:17, 19:17) do'konlarning ochiq katalog sahifalaridan narxlarni yig'adi va robots.txt qoidalariga rioya qiladi.",a2:"Bir xil model turli do'konlarda nomi, xotirasi va versiyasi bo'yicha birlashtiriladi. Rang hisobga olinmaydi.",a3:"Har kuni narx tarixga yoziladi — shu tarix asosida chegirma haqiqiymi tekshiriladi.",a5:"Narxlar ma'lumot uchun. Sotib olishdan oldin do'kon saytida tekshiring.",connected:"Ulangan",soon:"Tez orada",loadErr:"Narxlarni yuklab bo'lmadi. Keyinroq urinib ko'ring.",today:"bugun",watchSet:"Kuzatuvga qo'shildi",watchHit:"Kuzatuvdagi tovar arzonladi:",from:"dan"},
+ru:{h1a:"Один телефон.",h1b:"Разные цены.",search:"iPhone 17, Galaxy S26, Redmi…",models:"моделей",storesN:"магазина",upd:"обновлено",biggest:"Самая большая разница сегодня",bigSub:"Одна и та же модель",all:"Все",sortCheap:"Сначала дешёвые",sortGap:"Большая разница",sortName:"А–Я",both:"2+ магазина",home:"Главная",watch:"Слежу",about:"О сервисе",cheapest:"Самая низкая цена",save:"экономия",at:"в",cmpT:"Цена в магазинах",inStock:"Есть",out:"Нет в наличии",inst:"Рассрочка",perMo:"сум/мес",open:"Открыть в магазине",history:"История цены",collecting:"История собирается: {n}/7 дн. Потом покажем, настоящая ли скидка.",real:"Настоящая скидка: цена на {p}% ниже средней за {n} дн.",fake:"Подозрительная скидка: старой ценой указано {old}, но за {n} дн. цена не поднималась выше {max}.",stable:"Цена стабильная: за {n} дн. без больших изменений.",up:"Цена выросла: на {p}% выше средней. Не спешите.",watchT:"Сообщим при открытии приложения, когда цена опустится до этой суммы",watchPh:"Желаемая цена",watchBtn:"Следить",watching:"Слежу",remove:"Удалить",wEmpty:"Пока ничего не отслеживается. Укажи желаемую цену на странице товара.",reached:"Цель достигнута!",back:"Назад",more:"Показать ещё",noRes:"Ничего не найдено",som:"сум",mln:"млн",min:"Минимум",avg:"Средняя",now:"Сейчас",aboutT:"Откуда берутся цены",a1:"Робот Narxi 3 раза в день (07:17, 13:17, 19:17) собирает цены с открытых страниц каталога магазинов и соблюдает правила robots.txt.",a2:"Одна модель в разных магазинах объединяется по названию, памяти и версии. Цвет не учитывается.",a3:"Каждый день цена записывается в историю — по ней проверяем, настоящая ли скидка.",a5:"Цены справочные. Перед покупкой проверьте на сайте магазина.",connected:"Подключён",soon:"Скоро",loadErr:"Не удалось загрузить цены. Попробуйте позже.",today:"сегодня",watchSet:"Добавлено в «Слежу»",watchHit:"Подешевел товар из «Слежу»:",from:"от"}};
 const store={get(k,d){try{const v=localStorage.getItem('narxi_'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('narxi_'+k,JSON.stringify(v))}catch(e){}}};
 let LANG=store.get('lang','uz');const t=(k,o={})=>(TX[LANG][k]??k).replace(/\{(\w+)\}/g,(_,x)=>o[x]);
-const STORES={texnomart:{name:'Texnomart',color:'#e3262c'},olcha:{name:'Olcha',color:'#00a651'},uzum:{name:'Uzum',color:'#7b2ff7'},mediapark:{name:'Mediapark',color:'#f28c00'},asaxiy:{name:'Asaxiy',color:'#0074c8'}};
+const STORES={texnomart:{name:'Texnomart',color:'#e3262c'},olcha:{name:'Olcha',color:'#00a651'}};
+const SOON=['Uzum Market','Mediapark','Asaxiy','Idea'];
 const fmt=n=>new Intl.NumberFormat('ru-RU').format(n).replace(/ /g,' ');
 const som=n=>`${fmt(n)} ${t('som')}`;
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const phone=`<svg viewBox="0 0 40 40"><rect x="11" y="3" width="18" height="34" rx="4" fill="#2f6fd6"/><rect x="13" y="7" width="14" height="25" rx="1.5" fill="#fff" opacity=".85"/><circle cx="20" cy="34.5" r="1.2" fill="#fff"/></svg>`;
+const mln=n=>`${(n/1e6).toLocaleString('ru-RU',{maximumFractionDigits:n>=1e7?1:2})} ${t('mln')}`;
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const FB=`<svg class="fb" viewBox="0 0 40 40"><rect x="11" y="3" width="18" height="34" rx="4" fill="#9fb3aa"/><rect x="13" y="7" width="14" height="25" rx="1.5" fill="#fff"/></svg>`;
+const img=(src,cls,st='')=>`<div class="${cls}${src?'':' noimg'}"${st?` style="${st}"`:''}>${src?`<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg')">`:''}${FB}`;
 let toastT;function toast(s){const e=document.getElementById('toast');e.textContent=s;e.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>e.hidden=true,3200)}
+const BRANDS=[['Apple',/^iphone|^apple/],['Samsung',/^samsung|^galaxy/],['Xiaomi',/^xiaomi|^redmi|^poco|^mi /],['Honor',/^honor/],['Tecno',/^tecno/],['Infinix',/^infinix/],['Realme',/^realme/],['Vivo',/^vivo/],['OPPO',/^oppo/],['Google',/^google|^pixel/],['Nothing',/^nothing/]];
+const brandOf=p=>(BRANDS.find(([,r])=>r.test(p.key))||['Boshqa'])[0];
 let DATA=null,HIST={},WATCH=store.get('watch',{});
-const S={tab:'home',q:'',filter:'all',limit:30,key:null};
+const S={tab:'home',q:'',brand:'all',sort:'cheap',both:false,limit:24,key:null};
 const view=document.getElementById('view');
-
 const live=p=>p.offers.filter(o=>o.stock==='ok');
 const best=p=>live(p).sort((a,b)=>a.price-b.price)[0]||p.offers[0];
 const worst=p=>live(p).sort((a,b)=>b.price-a.price)[0]||p.offers[0];
 const gapOf=p=>live(p).length>1?worst(p).price-best(p).price:0;
 function series(key){const h=HIST[key]||{};return Object.keys(h).sort().map(d=>({d,v:Math.min(...Object.values(h[d]))}))}
-function verdict(p){const s=series(p.key),n=s.length,cur=best(p).price;const old=Math.max(0,...p.offers.map(o=>o.old||0));
-  if(n<7)return {cls:'mid',txt:t('collecting',{n})};
+function verdict(p){const s=series(p.key),n=s.length,cur=best(p).price,old=Math.max(0,...p.offers.map(o=>o.old||0));
+  if(n<7)return {cls:'mid',n,txt:t('collecting',{n})};
   const avg=s.reduce((a,x)=>a+x.v,0)/n,mx=Math.max(...s.map(x=>x.v));
   if(old&&old>mx*1.08)return {cls:'fake',txt:t('fake',{old:som(old),n,max:som(mx)})};
   const pct=Math.round((1-cur/avg)*100);
-  if(pct>=4)return {cls:'ok',txt:t('real',{p:pct,n})};
-  if(pct<=-4)return {cls:'fake',txt:t('up',{p:-pct})};
-  return {cls:'mid',txt:t('stable',{n})}}
-
+  if(pct>=4)return {cls:'ok',txt:t('real',{p:pct,n})};if(pct<=-4)return {cls:'fake',txt:t('up',{p:-pct})};return {cls:'mid',txt:t('stable',{n})}}
 function go(tab,extra={}){Object.assign(S,{tab,key:null},extra);render();scrollTo(0,0)}
-function render(){document.documentElement.lang=LANG;document.getElementById('lang').textContent=LANG==='uz'?"O'zbek · RU":'Русский · UZ';
-  renderTabs();renderStatus();if(!DATA)return;if(S.key)return renderProduct(DATA.products.find(p=>p.key===S.key));({home:renderHome,watch:renderWatch,about:renderAbout})[S.tab]()}
+function render(){document.documentElement.lang=LANG;document.getElementById('lang').textContent=LANG==='uz'?"O'zbek · RU":'Русский · UZ';renderTabs();if(!DATA)return;
+  if(S.key)return renderProduct(DATA.products.find(p=>p.key===S.key));({home:renderHome,watch:renderWatch,about:renderAbout})[S.tab]()}
 function renderTabs(){const T=[['home','M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z'],['watch','M6 9a6 6 0 1 1 12 0c0 6 3 8 3 8H3s3-2 3-8M10 21a2 2 0 0 0 4 0'],['about','M12 8h.01M11 12h1v5h1M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z']];
   document.getElementById('tabs').innerHTML=T.map(([k,d])=>`<button data-t="${k}" ${S.tab===k&&!S.key?'aria-current="page"':''}><svg viewBox="0 0 24 24"><path d="${d}" stroke-linecap="round" stroke-linejoin="round"/></svg>${t(k)}</button>`).join('');
   document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>go(b.dataset.t))}
-function renderStatus(){const el=document.getElementById('status');if(!DATA){el.textContent='…';return}
-  const u=new Date(DATA.updated);const hm=u.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Tashkent'});const days=Math.round((Date.now()-u)/864e5);
-  el.innerHTML=`${t('updated')}: <b>${days<1?t('today'):days+' '+t('daysAgo')} ${hm}</b> · ${Object.entries(DATA.stores).map(([s,v])=>`<span class="${v.ok?'ok':''}">${STORES[s]?.name||s} ✓</span>`).join(' ')} · <span class="soon">Uzum, Mediapark, Asaxiy — ${t('soon')}</span>`}
-function card(p){const b=best(p),g=gapOf(p);return `<button class="card" data-k="${esc(p.key)}"><div class="pic">${phone}</div><div class="meta"><div class="nm">${esc(p.name)}</div><div class="price">${LANG==='ru'?'от ':''}${som(b.price)}${LANG==='uz'?'dan':''}</div><div class="row">${g>0?`<span class="tag save">−${fmt(g)}</span>`:''}<span class="tag plain">${live(p).length} ${t('stores')}</span>${WATCH[p.key]?`<span class="tag warn">${t('watching')}</span>`:''}</div></div></button>`}
+const updTxt=()=>{const u=new Date(DATA.updated);return u.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Tashkent'})};
+function pcard(p){const b=best(p),g=gapOf(p);return `<button class="pc" data-k="${esc(p.key)}">${img(p.img,'ph')}${g>0?`<span class="badge">−${mln(g)}</span>`:''}</div>
+  <div class="nm">${esc(p.name)}</div><div class="price">${LANG==='ru'?`<small>${t('from')}</small> `:''}${fmt(b.price)}<small>${t('som')}</small></div>
+  <div class="dots">${live(p).map(o=>`<span class="dot" style="background:${STORES[o.store].color}" title="${STORES[o.store].name}"></span>`).join('')}<span>${live(p).length} ${t('storesN')}</span>${WATCH[p.key]?' · 🔔':''}</div></button>`}
+function deal(p){const b=best(p),w=worst(p);return `<button class="deal" data-k="${esc(p.key)}"><div class="top">${img(p.img,'ph','width:64px;flex:none')}</div><div style="min-width:0"><div class="gap">−${mln(gapOf(p))}</div><div class="nm">${esc(p.name)}</div></div></div>
+  <div class="pricepair"><div><span><span class="dot" style="background:${STORES[b.store].color};display:inline-block;margin-right:6px"></span>${STORES[b.store].name}</span><b>${som(b.price)}</b></div><div class="hi"><span><span class="dot" style="background:${STORES[w.store].color};display:inline-block;margin-right:6px"></span>${STORES[w.store].name}</span><b>${som(w.price)}</b></div></div></button>`}
 function bind(){view.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{S.key=b.dataset.k;render();scrollTo(0,0)})}
-
-function renderHome(){const q=S.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
-  let items=DATA.products.filter(p=>q.every(w=>(p.name+' '+p.key).toLowerCase().includes(w)));
-  if(S.filter==='both')items=items.filter(p=>live(p).length>1);
-  const top=[...DATA.products].sort((a,b)=>gapOf(b)-gapOf(a))[0];
-  view.innerHTML=`<label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--muted)"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="${t('search')}" value="${esc(S.q)}" aria-label="${t('search')}"></label>
-   ${!q.length&&top&&gapOf(top)>0?`<section class="hero"><h2>${t('biggest')}</h2><div class="gap">−${som(gapOf(top))}</div><div class="small muted">${esc(top.name)}: ${STORES[best(top).store].name} ${som(best(top).price)} · ${STORES[worst(top).store].name} ${som(worst(top).price)}</div>${card(top)}</section>`:''}
-   <div class="seg"><button data-f="all" aria-pressed="${S.filter==='all'}">${t('all')} · ${DATA.products.length}</button><button data-f="both" aria-pressed="${S.filter==='both'}">${t('both')} · ${DATA.products.filter(p=>live(p).length>1).length}</button></div>
-   <section class="list">${items.slice(0,S.limit).map(card).join('')||`<div class="empty">${t('noRes')}</div>`}</section>
-   ${items.length>S.limit?`<button class="btn ghost more" id="more">${t('more')}</button>`:''}`;
-  const qi=document.getElementById('q');qi.oninput=()=>{S.q=qi.value;S.limit=30;const pos=qi.selectionStart;renderHome();const n=document.getElementById('q');n.focus();n.setSelectionRange(pos,pos)};
-  view.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{S.filter=b.dataset.f;S.limit=30;renderHome()});
-  const m=document.getElementById('more');if(m)m.onclick=()=>{S.limit+=30;renderHome()};bind()}
-
+function renderHome(){const P=DATA.products;const q=S.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const counts={};P.forEach(p=>{const b=brandOf(p);counts[b]=(counts[b]||0)+1});
+  let items=P.filter(p=>q.every(w=>(p.name+' '+p.key).toLowerCase().includes(w))&&(S.brand==='all'||brandOf(p)===S.brand)&&(!S.both||live(p).length>1));
+  items.sort(S.sort==='gap'?(a,b)=>gapOf(b)-gapOf(a)||best(a).price-best(b).price:S.sort==='name'?(a,b)=>a.name.localeCompare(b.name):(a,b)=>best(a).price-best(b).price);
+  const deals=[...P].filter(p=>gapOf(p)>0).sort((a,b)=>gapOf(b)-gapOf(a)).slice(0,8);
+  const brands=Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  view.innerHTML=`<section class="hero"><h1>${t('h1a')} <em>${t('h1b')}</em></h1>
+    <div class="facts"><span class="live">${t('upd')} ${updTxt()}</span><span>${P.length} ${t('models')}</span><span>${Object.keys(DATA.stores).length} ${t('storesN')}</span></div>
+    <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="${t('search')}" value="${esc(S.q)}" aria-label="${t('search')}"></label></section>
+   ${!q.length&&deals.length?`<section style="display:flex;flex-direction:column;gap:10px"><div class="secthead"><h2>${t('biggest')}</h2><span class="small muted">${t('bigSub')}</span></div><div class="rail">${deals.map(deal).join('')}</div></section>`:''}
+   <div class="chips" role="group"><button data-b="all" aria-pressed="${S.brand==='all'}">${t('all')}<small>${P.length}</small></button>${brands.map(([b,c])=>`<button data-b="${b}" aria-pressed="${S.brand===b}">${b}<small>${c}</small></button>`).join('')}</div>
+   <div class="sortbar" role="group"><button data-s="cheap" aria-pressed="${S.sort==='cheap'}">${t('sortCheap')}</button><button data-s="gap" aria-pressed="${S.sort==='gap'}">${t('sortGap')}</button><button data-s="both" aria-pressed="${S.both}">${t('both')}</button></div>
+   <section class="grid">${items.slice(0,S.limit).map(pcard).join('')}</section>${!items.length?`<div class="empty">${t('noRes')}</div>`:''}
+   ${items.length>S.limit?`<button class="btn ghost more" id="more">${t('more')} · ${items.length-S.limit}</button>`:''}`;
+  const qi=document.getElementById('q');qi.oninput=()=>{S.q=qi.value;S.limit=24;const pos=qi.selectionStart;renderHome();const n=document.getElementById('q');n.focus();n.setSelectionRange(pos,pos)};
+  view.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{S.brand=b.dataset.b;S.limit=24;renderHome()});
+  view.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{if(b.dataset.s==='both')S.both=!S.both;else S.sort=b.dataset.s;S.limit=24;renderHome()});
+  const m=document.getElementById('more');if(m)m.onclick=()=>{S.limit+=24;renderHome()};bind()}
 function chart(p){const s=series(p.key);if(s.length<2)return '';const W=320,H=110,pt=8,pb=18;const vs=s.map(x=>x.v),mn=Math.min(...vs),mx=Math.max(...vs),sp=mx-mn||1;
   const x=i=>4+(W-8)*i/(s.length-1),y=v=>pt+(H-pt-pb)*(1-(v-mn)/sp);const d=s.map((o,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(o.v).toFixed(1)}`).join('');
-  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t('history')}"><path d="${d}L${x(s.length-1)},${H-pb}L${x(0)},${H-pb}Z" fill="var(--brand)" opacity=".1"/><path d="${d}" fill="none" stroke="var(--brand)" stroke-width="2"/><circle cx="${x(s.length-1)}" cy="${y(vs[vs.length-1])}" r="4" fill="var(--brand)"/><text x="4" y="${H-3}" font-size="10" fill="var(--muted)">${s[0].d.slice(5)}</text><text x="${W-4}" y="${H-3}" font-size="10" fill="var(--muted)" text-anchor="end">${s[s.length-1].d.slice(5)}</text></svg>
-   <div class="row small"><span class="tag plain">${t('min')} ${fmt(mn)}</span><span class="tag plain">${t('avg')} ${fmt(Math.round(vs.reduce((a,b)=>a+b,0)/vs.length/1000)*1000)}</span><span class="tag plain">${t('now')} ${fmt(vs[vs.length-1])}</span></div>`}
-function renderProduct(p){if(!p){go('home');return}const b=best(p),w=worst(p),v=verdict(p),wt=WATCH[p.key];
-  const u=url=>url+(url.includes('?')?'&':'?')+'utm_source=narxi';
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t('history')}"><path d="${d}L${x(s.length-1)},${H-pb}L${x(0)},${H-pb}Z" fill="var(--brand2)" opacity=".12"/><path d="${d}" fill="none" stroke="var(--brand2)" stroke-width="2"/><circle cx="${x(s.length-1)}" cy="${y(vs[vs.length-1])}" r="4" fill="var(--brand2)"/><text x="4" y="${H-3}" font-size="10" fill="var(--muted)">${s[0].d.slice(5)}</text><text x="${W-4}" y="${H-3}" font-size="10" fill="var(--muted)" text-anchor="end">${s[s.length-1].d.slice(5)}</text></svg>`}
+function renderProduct(p){if(!p){go('home');return}const b=best(p),w=worst(p),v=verdict(p),wt=WATCH[p.key];const u=url=>url+(url.includes('?')?'&':'?')+'utm_source=narxi';
+  const offs=[...p.offers].sort((a,c)=>(a.stock!=='ok')-(c.stock!=='ok')||a.price-c.price);const mxp=Math.max(...offs.map(o=>o.price));
   view.innerHTML=`<button class="back" id="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>${t('back')}</button>
-   <h1>${esc(p.name)}</h1>
-   <section class="best"><div class="small" style="font-weight:600;color:var(--save)">${t('cheapest')} · ${STORES[b.store].name}</div><div class="p">${som(b.price)}</div>${w.price>b.price?`<div class="small">${t('save')} <b>${som(w.price-b.price)}</b> ${t('vsMax')} (${STORES[w.store].name})</div>`:''}</section>
-   <section class="box"><h2>${t('history')}</h2>${chart(p)}<div class="verdict ${v.cls}">${v.txt}</div></section>
-   <section class="box"><span class="small muted">${t('watchT')}</span><div class="watch"><input id="wv" inputmode="numeric" placeholder="${t('watchPh')}" value="${fmt(wt||Math.round(b.price*.95/1000)*1000)}" aria-label="${t('watchPh')}"><button class="btn sm" id="wb">${wt?t('watching'):t('watchBtn')}</button></div></section>
-   <section style="display:flex;flex-direction:column;gap:10px"><h2>${t('offers')}</h2><div class="offers">${[...p.offers].sort((a,c)=>(a.stock!=='ok')-(c.stock!=='ok')||a.price-c.price).map(o=>`<div class="offer ${o.stock==='ok'?'':'out'}"><div class="st"><span class="dot" style="background:${STORES[o.store].color}"></span>${STORES[o.store].name}${o===b?` <span class="tag save">${t('cheapest')}</span>`:''}</div><div style="text-align:right"><div class="price">${som(o.price)}</div>${o.old?`<div class="old" title="${t('storeOld')}">${fmt(o.old)}</div>`:''}</div>
-     <div class="sub"><span>${o.stock==='ok'?t('inStock'):t('out')}</span>${o.inst?`<span>· ${t('inst')} ${fmt(o.inst)} ${t('perMo')}</span>`:''}<span>· ${esc(o.title)}</span></div>
-     <div class="act">${o.url?`<a class="btn sm" href="${esc(u(o.url))}" target="_blank" rel="noopener">${t('open')}</a>`:''}</div></div>`).join('')}</div></section>`;
+   ${img(p.img,'pimg')}</div><h1 class="ptitle">${esc(p.name)}</h1>
+   <section class="bestcard"><span class="lbl">${t('cheapest')} · ${STORES[b.store].name}</span><span class="p">${som(b.price)}</span>${w.price>b.price?`<span class="sv">−${som(w.price-b.price)} ${t('save')}</span>`:''}</section>
+   <section class="cmp"><h2>${t('cmpT')}</h2>${offs.map(o=>`<div class="bar ${o.stock==='ok'?'':'out'}"><div class="h"><span><span class="dot" style="background:${STORES[o.store].color}"></span>${STORES[o.store].name}${o===b?' <span class="tag save">✓</span>':''}</span><span class="price">${fmt(o.price)}</span></div>
+     <div class="tr"><div class="fl" style="width:${Math.max(8,o.price/mxp*100)}%;background:${o===b?'var(--save)':STORES[o.store].color}"></div></div>
+     <div class="meta"><span>${o.stock==='ok'?t('inStock'):t('out')}${o.inst?` · ${t('inst')} ${fmt(o.inst)} ${t('perMo')}`:''}${o.old?` · <span class="old">${fmt(o.old)}</span>`:''}</span>${o.url?`<a class="btn sm ghost" href="${esc(u(o.url))}" target="_blank" rel="noopener">${t('open')} ↗</a>`:''}</div></div>`).join('')}</section>
+   <section class="box"><h2>${t('history')}</h2>${chart(p)}${v.n!==undefined?`<div class="progress"><i style="width:${Math.min(100,v.n/7*100)}%"></i></div>`:''}<div class="verdict ${v.cls}">${v.txt}</div></section>
+   <section class="box"><span class="small muted">${t('watchT')}</span><div class="watch"><input id="wv" inputmode="numeric" placeholder="${t('watchPh')}" value="${fmt(wt||Math.round(b.price*.95/1000)*1000)}" aria-label="${t('watchPh')}"><button class="btn sm" id="wb">${wt?t('watching'):t('watchBtn')}</button></div></section>`;
   document.getElementById('back').onclick=()=>go(S.tab);
   document.getElementById('wb').onclick=()=>{const val=parseInt(document.getElementById('wv').value.replace(/\D/g,''),10);if(!val)return;WATCH[p.key]=val;store.set('watch',WATCH);toast(t('watchSet'));renderProduct(p)}}
 function renderWatch(){const ks=Object.keys(WATCH).filter(k=>DATA.products.find(p=>p.key===k));
-  view.innerHTML=`<h1>${t('watch')}</h1>${ks.length?`<div class="list">${ks.map(k=>{const p=DATA.products.find(x=>x.key===k),hit=best(p).price<=WATCH[k];return `<div class="box" style="gap:8px">${card(p)}<div class="row" style="justify-content:space-between"><span class="small">${t('watchPh')}: <b>${som(WATCH[k])}</b></span>${hit?`<span class="tag save">${t('reached')}</span>`:''}<button class="btn ghost sm" data-rm="${esc(k)}">${t('remove')}</button></div></div>`}).join('')}</div>`:`<div class="empty">${t('wEmpty')}</div>`}`;
+  view.innerHTML=`<h1 class="ptitle">${t('watch')}</h1>${ks.length?`<div class="grid">${ks.map(k=>{const p=DATA.products.find(x=>x.key===k),hit=best(p).price<=WATCH[k];return `<div style="display:flex;flex-direction:column;gap:6px">${pcard(p)}<div class="small">${t('watchPh')}: <b>${fmt(WATCH[k])}</b> ${hit?`<span class="tag save">${t('reached')}</span>`:''}</div><button class="btn ghost sm" data-rm="${esc(k)}">${t('remove')}</button></div>`}).join('')}</div>`:`<div class="empty">${t('wEmpty')}</div>`}`;
   bind();view.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{delete WATCH[b.dataset.rm];store.set('watch',WATCH);renderWatch()})}
-function renderAbout(){view.innerHTML=`<h1>${t('aboutT')}</h1>${[1,2,3,4,5].map(i=>`<div class="box"><span>${t('a'+i)}</span></div>`).join('')}`}
+function renderAbout(){view.innerHTML=`<h1 class="ptitle">${t('aboutT')}</h1><section class="box about"><p>${t('a1')}</p><p>${t('a2')}</p><p>${t('a3')}</p></section>
+  <section class="box"><div class="stores">${Object.entries(DATA.stores).map(([s,v])=>`<div><span><span class="dot" style="background:${STORES[s].color};display:inline-block;margin-right:8px"></span><b>${STORES[s].name}</b></span><span class="tag save">${t('connected')} · ${v.items}</span></div>`).join('')}${SOON.map(s=>`<div><span class="muted">${s}</span><span class="tag plain">${t('soon')}</span></div>`).join('')}</div></section>
+  <p class="small muted" style="margin:0">${t('a5')}</p>`}
 document.getElementById('lang').onclick=()=>{LANG=LANG==='uz'?'ru':'uz';store.set('lang',LANG);render()};
-Promise.all([fetch('data/latest.json',{cache:'no-cache'}).then(r=>r.json()),fetch('data/history.json',{cache:'no-cache'}).then(r=>r.json()).catch(()=>({}))]).then(([d,h])=>{DATA=d;HIST=h;render();
+Promise.all([fetch('data/latest.json',{cache:'no-cache'}).then(r=>r.json()),fetch('data/history.json',{cache:'no-cache'}).then(r=>r.json()).catch(()=>({}))]).then(([d,h])=>{DATA=d;HIST=h;DATA.products=DATA.products.filter(p=>live(p).length);render();
   const hits=Object.keys(WATCH).map(k=>DATA.products.find(p=>p.key===k)).filter(p=>p&&best(p).price<=WATCH[p.key]);if(hits.length)toast(`${t('watchHit')} ${hits.map(p=>p.name).join(', ')}`)}).catch(()=>{view.innerHTML=`<div class="empty">${t('loadErr')}</div>`});
 render();
 </script>
