@@ -1,0 +1,69 @@
+{
+ "tm_cats_status": 200,
+ "tm_cats_n": 1805,
+ "tm_televizory": {
+  "st": 200,
+  "items": 26,
+  "pages": []
+ },
+ "tm_noutbuki": {
+  "st": 200,
+  "items": 26,
+  "pages": []
+ },
+ "tm_holodilniki": {
+  "st": 200,
+  "items": 28,
+  "pages": []
+ },
+ "ol_cat_id": {
+  "st": 200,
+  "total": 12387,
+  "cats": [
+   "Кабели",
+   "Выпрямители волос",
+   "Смартфоны"
+  ]
+ },
+ "ol_cat": {
+  "st": 200,
+  "total": 158,
+  "cats": [
+   "Телевизоры",
+   "Телевизоры",
+   "Телевизоры"
+  ]
+ },
+ "ol_cat_alias": {
+  "st": 200,
+  "total": 158,
+  "cats": [
+   "Телевизоры",
+   "Телевизоры",
+   "Телевизоры"
+  ]
+ },
+ "ol_cats_arr": {
+  "st": 200,
+  "total": 12387,
+  "cats": [
+   "Кабели",
+   "Выпрямители волос",
+   "Смартфоны"
+  ]
+ },
+ "ol_cat_path": {
+  "st": 404,
+  "err": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+  "body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found</title>\n\n        <!-- "
+ },
+ "ol_all": {
+  "st": 200,
+  "total": 12387,
+  "cats": [
+   "Кабели",
+   "Выпрямители волос",
+   "Смартфоны"
+  ]
+ }
+}
