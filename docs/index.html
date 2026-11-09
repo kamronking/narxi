@@ -203,12 +203,12 @@ const app=initializeApp({apiKey:"AIzaSyDEYJSizAw2-y-GWOMB6rv-9qo3I7WATr0",authDo
 const auth=getAuth(app),db=getFirestore(app);
 async function uid(){if(auth.currentUser)return auth.currentUser.uid;const c=await signInAnonymously(auth);return c.user.uid}
 window.NX={
-  async saveUser(u,watch,lang){try{const id=await uid();await setDoc(doc(db,'users',id),{name:u.name,phone:u.phone,city:u.city,brands:u.brands||[],since:u.since,lang,watch:watch||{},updated:serverTimestamp()},{merge:true});return true}catch(e){console.warn('saveUser',e);return false}},
+  async saveUser(u,watch,lang){console.log('[narxi] saveUser');try{const id=await uid();await setDoc(doc(db,'users',id),{name:u.name,phone:u.phone,city:u.city,brands:u.brands||[],since:u.since,lang,watch:watch||{},updated:serverTimestamp()},{merge:true});return true}catch(e){console.warn('[narxi] saveUser failed',e&&e.code,e&&e.message);return false}},
   async saveWatch(watch){try{if(!auth.currentUser)return;await setDoc(doc(db,'users',auth.currentUser.uid),{watch,updated:serverTimestamp()},{merge:true})}catch(e){console.warn('saveWatch',e)}},
   async load(){try{const id=await new Promise(r=>{const un=onAuthStateChanged(auth,x=>{un();r(x?x.uid:null)})});if(!id)return null;const s=await getDoc(doc(db,'users',id));return s.exists()?s.data():null}catch(e){return null}},
   async logout(){try{await signOut(auth)}catch(e){}}
 };
-window.dispatchEvent(new Event('nx-ready'));
+window.NX_READY=1;window.dispatchEvent(new Event('nx-ready'));
 </script>
 <script>
 const TX={
@@ -369,13 +369,13 @@ function drawOB(){if(obStep<3){obw.innerHTML=`<div class="obtop">${obStep>0?`<bu
   document.getElementById('rLater').onclick=closeOB;document.getElementById('obBack').onclick=()=>{if(USER&&regFromProfile){closeOB()}else{obStep=2;drawOB()}};
   document.getElementById('regF').onsubmit=e=>{e.preventDefault();const name=document.getElementById('rName').value.trim(),phone=ph.value.trim(),city=document.getElementById('rCity').value;const er=document.getElementById('rErr');
     if(name.length<2){er.textContent=t('errName');return}if(phone.replace(/\D/g,'').length!==12){er.textContent=t('errPhone');return}
-    const isNew=!USER;USER={name,phone,city,brands:[...picked],since:USER?.since||Date.now()};store.set('user',USER);closeOB();toast(isNew?t('welcome',{n:name.split(' ')[0]}):t('saved'));window.NX&&NX.saveUser(USER,WATCH,LANG);}}
+    const isNew=!USER;USER={name,phone,city,brands:[...picked],since:USER?.since||Date.now()};store.set('user',USER);closeOB();toast(isNew?t('welcome',{n:name.split(' ')[0]}):t('saved'));window.NX&&NX.saveUser(USER,WATCH,LANG).then(ok=>{store.set('synced',ok?1:0);if(!ok)toast('⚠️ Internet?')});}}
 /* ---------- boot ---------- */
 Promise.all([fetch('data/latest.json',{cache:'no-cache'}).then(r=>r.json()),fetch('data/history.json',{cache:'no-cache'}).then(r=>r.json()).catch(()=>({}))]).then(([d,h])=>{DATA=d;HIST=h;DATA.products=DATA.products.filter(p=>live(p).length);render();
   const hits=Object.keys(WATCH).map(k=>DATA.products.find(p=>p.key===k)).filter(p=>p&&best(p).price<=WATCH[p.key]);if(hits.length)toast(`${t('watchHit')} ${hits.map(p=>p.name).join(', ')}`)}).catch(()=>{view.innerHTML=`<div class="empty">${t('loadErr')}</div>`});
 render();
 if(!store.get('seen',0))openOB(0);
-addEventListener('nx-ready',async()=>{if(USER)return;const d=await NX.load();if(d&&d.name){USER={name:d.name,phone:d.phone,city:d.city,brands:d.brands||[],since:d.since||Date.now()};store.set('user',USER);if(d.watch){WATCH={...d.watch,...WATCH};store.set('watch',WATCH)}store.set('seen',1);if(!ob.hidden)ob.hidden=true;render()}});
+const nxBoot=async()=>{if(USER){if(!store.get('synced',0)){const ok=await NX.saveUser(USER,WATCH,LANG);if(ok){store.set('synced',1);toast('☁️ '+t('saved'))}}return}const d=await NX.load();if(d&&d.name){USER={name:d.name,phone:d.phone,city:d.city,brands:d.brands||[],since:d.since||Date.now()};store.set('user',USER);if(d.watch){WATCH={...d.watch,...WATCH};store.set('watch',WATCH)}store.set('seen',1);if(!ob.hidden)ob.hidden=true;render()}};if(window.NX_READY)nxBoot();else addEventListener('nx-ready',nxBoot);
 </script>
 </body>
 </html>
