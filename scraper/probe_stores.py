@@ -17,10 +17,13 @@ sub=[l for l in re.findall(r'href="(https://glotr\.uz/[a-z0-9-]+/)"',g) if 'smar
 for i,l in enumerate(sub):save(f'glotr_sub{i}',l)
 save('ishonch_sitemap','https://ishonch.uz/sitemap.xml')
 for d in ['elmakon.uz','goodzone.uz']:
-    h=save(d.split('.')[0]+'_home',f'https://{d}/',verify=False)
-    rb=requests.get(f'https://{d}/robots.txt',headers=H,timeout=20,verify=False).text
-    open(f'docs/data/probe2/{d}_robots.txt','w').write(rb[:20000])
-    links=[l for l in re.findall(r'href="([^"#]+)"',h) if re.search(r'smartfon|telefon|smartphone',l,re.I)]
-    links=[l if l.startswith('http') else f'https://{d}'+('' if l.startswith('/') else '/')+l for l in links]
-    if links:save(d.split('.')[0]+'_cat',links[0],verify=False)
+  try:
+      h=save(d.split('.')[0]+'_home',f'https://{d}/',verify=False)
+      rb=requests.get(f'https://{d}/robots.txt',headers=H,timeout=20,verify=False).text
+      open(f'docs/data/probe2/{d}_robots.txt','w').write(rb[:20000])
+      links=[l for l in re.findall(r'href="([^"#]+)"',h) if re.search(r'smartfon|telefon|smartphone',l,re.I)]
+      links=[l if l.startswith('http') else f'https://{d}'+('' if l.startswith('/') else '/')+l for l in links]
+      if links:save(d.split('.')[0]+'_cat',links[0],verify=False)
+  except Exception as e:
+    out.append({'name':d,'error':repr(e)[:200]})
 json.dump(out,open('docs/data/probe2/summary.json','w'),ensure_ascii=False,indent=1)
