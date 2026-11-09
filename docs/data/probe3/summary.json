@@ -1,0 +1,80 @@
+{
+ "tm_home": {
+  "url": "https://texnomart.uz/ru/",
+  "allowed": true,
+  "status": 200,
+  "len": 142455
+ },
+ "tm_home_cats": [],
+ "tm_sitemap.xml": {
+  "url": "https://texnomart.uz/sitemap.xml",
+  "allowed": true,
+  "status": 200,
+  "len": 2432
+ },
+ "tm_sitemap.xml_cats": [],
+ "tm_sitemap.xml_locs": [
+  "https://texnomart.uz/sitemap-uz-pages.xml",
+  "https://texnomart.uz/sitemap-ru-pages.xml",
+  "https://texnomart.uz/sitemap-uz-categories.xml",
+  "https://texnomart.uz/sitemap-ru-categories.xml",
+  "https://texnomart.uz/sitemap-uz-brands.xml",
+  "https://texnomart.uz/sitemap-ru-brands.xml",
+  "https://texnomart.uz/sitemap-uz-news.xml",
+  "https://texnomart.uz/sitemap-ru-news.xml",
+  "https://texnomart.uz/sitemap-uz-promotions.xml",
+  "https://texnomart.uz/sitemap-ru-promotions.xml",
+  "https://texnomart.uz/sitemap-uz-products-1.xml",
+  "https://texnomart.uz/sitemap-uz-products-2.xml",
+  "https://texnomart.uz/sitemap-uz-products-3.xml",
+  "https://texnomart.uz/sitemap-uz-products-4.xml",
+  "https://texnomart.uz/sitemap-ru-products-1.xml",
+  "https://texnomart.uz/sitemap-ru-products-2.xml",
+  "https://texnomart.uz/sitemap-ru-products-3.xml",
+  "https://texnomart.uz/sitemap-ru-products-4.xml"
+ ],
+ "tm_robots.txt": {
+  "url": "https://texnomart.uz/robots.txt",
+  "allowed": true,
+  "status": 200,
+  "len": 3929
+ },
+ "tm_robots.txt_cats": [],
+ "tm_robots.txt_locs": [],
+ "ol_cats": {
+  "url": "https://mobile.olcha.uz/api/v2/categories",
+  "allowed": true,
+  "status": 200,
+  "len": 552423
+ },
+ "ol_cats2": {
+  "url": "https://mobile.olcha.uz/api/v1/categories",
+  "allowed": true,
+  "status": null,
+  "len": 0
+ },
+ "ol_menu": {
+  "url": "https://mobile.olcha.uz/api/v2/categories/tree",
+  "allowed": true,
+  "status": null,
+  "len": 0
+ },
+ "ol_robots": {
+  "url": "https://mobile.olcha.uz/robots.txt",
+  "allowed": true,
+  "status": 200,
+  "len": 24
+ },
+ "ol_prod_tv": {
+  "url": "https://mobile.olcha.uz/api/v2/products?q=televizor&page=1&per_page=5",
+  "allowed": true,
+  "status": 200,
+  "len": 17188
+ },
+ "ol_prod_lap": {
+  "url": "https://mobile.olcha.uz/api/v2/products?q=noutbuk&page=1&per_page=5",
+  "allowed": true,
+  "status": 200,
+  "len": 21103
+ }
+}
