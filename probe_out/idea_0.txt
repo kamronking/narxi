@@ -1,0 +1,5 @@
+{"store": "idea", "url": "https://idea.uz/robots.txt", "final": "https://idea.uz/robots.txt", "status": 200, "ctype": "text/plain; charset=UTF-8", "len": 42, "has_next_data": false, "has_nuxt": false, "jsonld": 0, "price_hits": 0}
+
+User-agent: *
+Disallow:*?
+Disallow:*search
