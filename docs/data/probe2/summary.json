@@ -1,0 +1,51 @@
+[
+ {
+  "name": "alif_cat",
+  "url": "https://alifshop.uz/ru/categories/smartfoni-i-telefoni",
+  "status": 200,
+  "len": 464777,
+  "jsonld": 1,
+  "nuxt": true,
+  "next": false,
+  "sum": 25
+ },
+ {
+  "name": "glotr_cat",
+  "url": "https://glotr.uz/telefoni-i-plansheti/",
+  "status": 200,
+  "len": 604501,
+  "jsonld": 3,
+  "nuxt": false,
+  "next": false,
+  "sum": 60
+ },
+ {
+  "name": "ishonch_sitemap",
+  "url": "https://ishonch.uz/sitemap.xml",
+  "status": 200,
+  "len": 94143,
+  "jsonld": 0,
+  "nuxt": false,
+  "next": false,
+  "sum": 0
+ },
+ {
+  "name": "elmakon_home",
+  "url": "https://elmakon.uz/",
+  "error": "ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))"
+ },
+ {
+  "name": "elmakon.uz",
+  "error": "ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))"
+ },
+ {
+  "name": "goodzone_home",
+  "url": "https://goodzone.uz/",
+  "status": 200,
+  "len": 1965,
+  "jsonld": 0,
+  "nuxt": false,
+  "next": false,
+  "sum": 0
+ }
+]
