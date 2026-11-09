@@ -85,89 +85,149 @@ def pretty(name):
     n = re.sub(r'(?i)^смартфон\s+', '', n)
     return n
 
+# ---------------- categories ----------------
+# id: (uz, ru, texnomart parent slugs, olcha category-name regex)
+CATS = {
+ 'phones':   ("Smartfonlar", "Смартфоны", ['smartfony'], r'смартфон'),
+ 'laptops':  ("Noutbuklar", "Ноутбуки", ['noutbuki'], r'ноутбук'),
+ 'tablets':  ("Planshetlar", "Планшеты", ['planshety'], r'планшет'),
+ 'tv':       ("Televizorlar", "Телевизоры", ['televizory'], r'телевизор'),
+ 'monitors': ("Monitorlar", "Мониторы", ['monitory'], r'монитор'),
+ 'audio':    ("Quloqchin va kolonkalar", "Наушники и колонки", ['naushniki', 'bluetooth-kolonki', 'kompyuternye-kolonki'], r'наушник|колонк|гарнитур|саундбар'),
+ 'watches':  ("Smart soatlar", "Смарт-часы", ['smart-chasy'], r'смарт.?час|умные час|фитнес'),
+ 'fridges':  ("Muzlatgichlar", "Холодильники", ['holodilniki', 'morozilniki'], r'холодильн|морозил'),
+ 'washers':  ("Kir yuvish mashinalari", "Стиральные машины", ['stiralnaja-mashina', 'sushilnye-mashiny'], r'стиральн|сушильн'),
+ 'ac':       ("Konditsionerlar", "Кондиционеры", ['kondicionery'], r'кондиционер'),
+ 'home':     ("Changyutgich va dazmollar", "Пылесосы и утюги", ['pylesosy', 'utyugi'], r'пылесос|утюг|отпаривател|парогенератор'),
+ 'kitchen':  ("Kichik oshxona texnikasi", "Техника для кухни", ['mikrovolnovye-pechi', 'multivarki', 'elektrochainiki', 'blender', 'kofemashiny-i-kofevarki', 'myasorubki', 'tostery', 'miksery', 'sokovyzhimalki', 'gril', 'hlebopechi', 'parovarki'],
+              r'микроволн|мультивар|чайник|блендер|кофе|мясоруб|тостер|миксер|соковыжим|гриль|хлебопеч|пароварк|аэрогрил|фритюр|кухонн\w* комбайн'),
+ 'stoves':   ("Plita va o'rnatiladigan", "Плиты и встройка", ['gazovye-plity', 'duhovki', 'varochnye-paneli', 'vytyazhki', 'posudomoechnye-mashiny'], r'плит|духов|варочн|вытяжк|посудомо'),
+ 'climate':  ("Isitgich va ventilyatorlar", "Климат", ['obogrevateli', 'ventilyatory', 'vodonagrevateli', 'uvlazhniteli-vozduha'], r'обогрев|вентилятор|водонагрев|увлажн|очистител'),
+ 'care':     ("Go'zallik texnikasi", "Красота и уход", ['feny', 'vypryamiteli-dlya-volos', 'trimmeri', 'elektrobritvy'], r'\bфен|выпрями|триммер|бритв|эпилят|стайлер|плойк'),
+ 'printers': ("Printerlar", "Принтеры", ['printery-i-mfu'], r'принтер|мфу'),
+}
+CAT_RE = [(cid, re.compile(v[3], re.I)) for cid, v in CATS.items()]
+def cat_of_name(n):
+    n = (n or '').lower()
+    for cid, r in CAT_RE:
+        if r.search(n):
+            return cid
+    return 'other'
+
+LATIN_COLORS = r'^(black|white|blue|green|red|pink|purple|gold|silver|gray|grey|graphite|titanium|beige|brown|navy|mint|cream|ivory|inox|dark|light|matte)$'
+GENERIC = r'^(smart|tv|led|qled|oled|uhd|hd|fhd|full|ultra|4k|8k|wifi|wi|fi|android|google|webos|tizen|inverter|new|black|white|series|pro|plus|max|mini|lite|air|nfc|bt|bluetooth|wireless|eu|ru|uz|global|version|edition|dual|sim|the|and|for|with|in|led|lcd)$'
+def gen_key(cat, title):
+    t = title.lower().replace('ё', 'е')
+    toks = re.findall(r'[a-z0-9]+(?:[-.][a-z0-9]+)*', t)
+    toks = [x for x in toks if not re.match(LATIN_COLORS, x)]
+    codes = sorted({re.sub(r'[-/.]', '', x) for x in toks if re.search(r'[a-z]', x) and re.search(r'\d', x) and len(re.sub(r'[-/.]', '', x)) >= 4 and not re.match(r'^(\d+(gb|tb|w|l|kg|hz|mah|btu|mm|cm|inch|ssd|hdd|ddr\d?))+$', re.sub(r'[-/.]', '', x))})
+    mem = sorted(set(re.findall(r'(?<![a-z0-9])(\d+)\s*(?:gb|tb|гб|тб)', t)))
+    brand = next((x for x in toks if re.match(r'^[a-z]{2,}$', x) and not re.match(GENERIC, x)), '')
+    if codes:
+        return f"{cat}:{brand}:{'+'.join(codes)}" + (':' + '-'.join(mem) if mem else '')
+    words = [x for x in toks if not re.match(GENERIC, x)]
+    if len(words) < 2:
+        return None
+    return f"{cat}:t:" + ' '.join(words)
+
+def clean_name(title):
+    n = re.sub(r'\s+', ' ', title).strip()
+    n = re.sub(COLORS, '', n, flags=re.I)
+    return re.sub(r'\s+', ' ', n).strip(' ,-')
+
 # ---------------- stores ----------------
-def texnomart():
-    rep = {'pages': 0, 'items': 0, 'errors': []}
-    items = []
-    for cat in ['smartfony']:
-        seen_first = None
-        for page in range(1, 60):
-            url = f'https://texnomart.uz/ru/katalog/{cat}/' + (f'?page={page}' if page > 1 else '')
+def tm_list(slug, rep, cap=80):
+    items = []; seen_first = None
+    for page in range(1, cap):
+        url = f'https://texnomart.uz/ru/katalog/{slug}/' + (f'?page={page}' if page > 1 else '')
+        try:
+            r = get(url)
+        except Exception as e:
+            rep['errors'].append(f'{url}: {e!r}'[:200]); break
+        if r.status_code != 200:
+            rep['errors'].append(f'{url}: HTTP {r.status_code}'); break
+        got = []
+        for block in re.findall(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', r.text, re.S):
             try:
-                r = get(url)
-            except Exception as e:
-                rep['errors'].append(f'{url}: {e!r}'); break
-            if r.status_code != 200:
-                rep['errors'].append(f'{url}: HTTP {r.status_code}'); break
-            got = []
-            for block in re.findall(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', r.text, re.S):
-                try:
-                    d = json.loads(block)
-                except Exception:
+                d = json.loads(block)
+            except Exception:
+                continue
+            for x in (d if isinstance(d, list) else [d]):
+                if isinstance(x, dict) and x.get('@type') == 'ItemList':
+                    for it in x.get('itemListElement', []):
+                        p = it.get('item', {}); o = p.get('offers') or {}
+                        if not p.get('name') or not o.get('price'):
+                            continue
+                        got.append({'store': 'texnomart', 'title': p['name'], 'price': int(float(o['price'])),
+                                    'old': None, 'url': p.get('url'), 'stock': 'ok' if 'InStock' in str(o.get('availability')) else 'out',
+                                    'img': (p.get('image')[0] if isinstance(p.get('image'), list) else p.get('image'))})
+        rep['pages'] += 1
+        if not got or seen_first == got[0]['url']:
+            break
+        if page == 1:
+            seen_first = got[0]['url']
+        items += got
+    return items
+
+def texnomart():
+    rep = {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}}
+    items, seen = [], set()
+    for cid, (_, _, slugs, _) in CATS.items():
+        n0 = len(items)
+        for slug in slugs:
+            for it in tm_list(slug, rep):
+                if it['url'] in seen:
                     continue
-                for x in (d if isinstance(d, list) else [d]):
-                    if isinstance(x, dict) and x.get('@type') == 'ItemList':
-                        for it in x.get('itemListElement', []):
-                            p = it.get('item', {}); o = p.get('offers') or {}
-                            if not p.get('name') or not o.get('price'):
-                                continue
-                            got.append({'store': 'texnomart', 'title': p['name'], 'price': int(float(o['price'])),
-                                        'old': None, 'url': p.get('url'), 'stock': 'ok' if 'InStock' in str(o.get('availability')) else 'out',
-                                        'img': (p.get('image')[0] if isinstance(p.get('image'), list) else p.get('image'))})
-            rep['pages'] += 1
-            if not got:
-                break
-            if seen_first == got[0]['url']:
-                break  # page param ignored -> same list again
-            if page == 1:
-                seen_first = got[0]['url']
-            items += got
+                seen.add(it['url']); it['cat'] = cid; items.append(it)
+        rep['per_cat'][cid] = len(items) - n0
     rep['items'] = len(items)
-    rep['sample'] = [i['title'] for i in items[:8]]
+    rep['errors'] = rep['errors'][:30]
     return items, rep
 
 def olcha():
-    rep = {'pages': 0, 'items': 0, 'errors': []}
+    rep = {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}}
     items, seen = [], set()
-    for q in ['iphone', 'samsung galaxy', 'xiaomi redmi', 'poco', 'honor', 'tecno', 'realme', 'infinix', 'vivo', 'oppo', 'google pixel', 'nothing phone']:
-        for page in range(1, 8):
-            url = f'https://mobile.olcha.uz/api/v2/products?q={requests.utils.quote(q)}&page={page}&per_page=50'
-            try:
-                r = get(url); d = r.json()
-            except Exception as e:
-                rep['errors'].append(f'{q} p{page}: {e!r}'); break
-            rep['pages'] += 1
-            prods = (d.get('data') or {}).get('products') or []
-            if not prods:
-                break
-            for p in prods:
-                if p['id'] in seen:
-                    continue
-                seen.add(p['id'])
-                catname = ((p.get('category') or {}).get('name_ru') or '').lower()
-                if 'смартфон' not in catname and 'телефон' not in catname:
-                    continue
-                price = int(float(p.get('total_price') or 0))
-                if not price:
-                    continue
-                old = int(float(p.get('max_price') or 0)) or None
-                if p.get('discount') and float(p.get('discount_value') or 0) > 0 and not old:
-                    old = None
-                items.append({'store': 'olcha', 'title': p.get('name_ru') or p.get('name'), 'price': price,
-                              'old': old if old and old > price else None,
-                              'url': f"https://olcha.uz/ru/product/view/{p.get('alias')}",
-                              'stock': 'out' if p.get('out_of_stock') is True else ('ok' if (p.get('in_stock') or int(p.get('quantity') or 0) > 0) else 'out'),
-                              'inst': int(float(p.get('monthly_repayment') or 0)) or None,
-                              'img': p.get('main_image')})
-            pg = (d.get('data') or {}).get('paginator') or {}
-            if page >= int(pg.get('last_page') or 1):
-                break
+    page, last = 1, 1
+    while page <= last and page < 600:
+        url = f'https://mobile.olcha.uz/api/v2/products?page={page}&per_page=50'
+        try:
+            r = get(url); d = r.json()
+        except Exception as e:
+            rep['errors'].append(f'p{page}: {e!r}'[:200])
+            if len(rep['errors']) > 8: break
+            page += 1; continue
+        rep['pages'] += 1
+        data = d.get('data') or {}
+        last = int((data.get('paginator') or {}).get('last_page') or last)
+        for p in data.get('products') or []:
+            if p['id'] in seen:
+                continue
+            seen.add(p['id'])
+            price = int(float(p.get('total_price') or 0))
+            if not price:
+                continue
+            catname = (p.get('category') or {}).get('name_ru') or ''
+            old = int(float(p.get('max_price') or 0)) or None
+            items.append({'store': 'olcha', 'title': p.get('name_ru') or p.get('name'), 'price': price,
+                          'old': old if old and old > price else None, 'cat': cat_of_name(catname), 'ocat': catname,
+                          'url': f"https://olcha.uz/ru/product/view/{p.get('alias')}",
+                          'stock': 'out' if p.get('out_of_stock') is True else ('ok' if (p.get('in_stock') or int(p.get('quantity') or 0) > 0) else 'out'),
+                          'inst': int(float(p.get('monthly_repayment') or 0)) or None,
+                          'img': p.get('main_image')})
+        page += 1
+    for it in items:
+        rep['per_cat'][it['cat']] = rep['per_cat'].get(it['cat'], 0) + 1
     rep['items'] = len(items)
-    rep['sample'] = [i['title'] for i in items[:8]]
     rep['in_stock'] = sum(1 for i in items if i['stock'] == 'ok')
     return items, rep
 
 STORES = {'texnomart': texnomart, 'olcha': olcha}
+
+def key_for(it):
+    if it['cat'] == 'phones':
+        k = model_key(it['title'])
+        return ('phones:' + k) if k else None
+    return gen_key(it['cat'], it['title'])
 
 def main():
     all_items = []
@@ -178,13 +238,12 @@ def main():
             items, rep = [], {'fatal': repr(e)}
         REPORT['stores'][sid] = rep
         all_items += items
-    # group
     groups, unkeyed = {}, []
     for it in all_items:
-        k = model_key(it['title'])
+        k = key_for(it)
         if not k:
             unkeyed.append(it['title']); continue
-        g = groups.setdefault(k, {'key': k, 'name': pretty(it['title']), 'offers': {}})
+        g = groups.setdefault(k, {'key': k, 'cat': it['cat'], 'offers': {}})
         best = g['offers'].get(it['store'])
         if it['stock'] == 'ok' and (not best or best['stock'] != 'ok' or it['price'] < best['price']):
             g['offers'][it['store']] = it
@@ -198,39 +257,69 @@ def main():
             continue
         if len(live) > 1:
             hi = max(o['price'] for o in live)
-            offers = [o for o in offers if o['price'] >= hi * 0.55]  # far cheaper = probably another product
-        # prefer the cleanest name (texnomart style), drop colour words
-        name = min((cut_name(o['title']) for o in offers), key=len)
-        name = re.sub(COLORS, '', name, flags=re.I)
-        name = pretty(re.sub(r'\s+', ' ', name))
+            offers = [o for o in offers if o['price'] >= hi * 0.55]
+        if g['cat'] == 'phones':
+            name = min((cut_name(o['title']) for o in offers), key=len)
+            name = pretty(re.sub(r'\s+', ' ', re.sub(COLORS, '', name, flags=re.I)))
+        else:
+            name = clean_name(sorted(offers, key=lambda o: (o['store'] != 'texnomart', len(o['title'])))[0]['title'])
         imgs = [o.get('img') for o in sorted(offers, key=lambda o: o['store'] != 'texnomart') if o.get('img')]
         for o in offers:
-            o.pop('img', None)
-        products.append({'key': g['key'], 'name': name, 'img': imgs[0] if imgs else None, 'offers': sorted(offers, key=lambda o: o['price'])})
+            for f in ('img', 'cat', 'ocat'):
+                o.pop(f, None)
+        products.append({'key': g['key'], 'cat': g['cat'], 'name': name, 'img': imgs[0] if imgs else None, 'offers': sorted(offers, key=lambda o: o['price'])})
     products.sort(key=lambda p: (-len(p['offers']), p['name']))
-    # history
-    hp = OUT / 'history.json'
-    hist = json.loads(hp.read_text()) if hp.exists() else {}
-    for p in products:
-        day = hist.setdefault(p['key'], {}).setdefault(TODAY, {})
-        for o in p['offers']:
-            if o['stock'] == 'ok':
-                day[o['store']] = min(o['price'], day.get(o['store'], 10**12))
+    V2 = OUT / 'v2'; (V2 / 'c').mkdir(parents=True, exist_ok=True); (V2 / 'h').mkdir(parents=True, exist_ok=True)
     cutoff = (NOW - dt.timedelta(days=150)).strftime('%Y-%m-%d')
-    for k in list(hist):
-        hist[k] = {d: v for d, v in hist[k].items() if d >= cutoff}
-        if not hist[k]:
-            del hist[k]
-    hp.write_text(json.dumps(hist, ensure_ascii=False, separators=(',', ':')))
-    latest = {'updated': NOW.isoformat(timespec='minutes'), 'stores': {s: {'items': r.get('items', 0), 'ok': bool(r.get('items'))} for s, r in REPORT['stores'].items()},
-              'products': products}
-    (OUT / 'latest.json').write_text(json.dumps(latest, ensure_ascii=False, separators=(',', ':')))
+    def live_of(p): return [o for o in p['offers'] if o['stock'] == 'ok']
+    def gap(p):
+        l = live_of(p)
+        if len(l) < 2: return 0
+        hi, lo = max(o['price'] for o in l), min(o['price'] for o in l)
+        return hi - lo if hi - lo < hi * 0.3 else 0
+    bycat = {}
+    for p in products:
+        bycat.setdefault(p['cat'], []).append(p)
+    # old phone history migration
+    oldh = json.loads((OUT / 'history.json').read_text()) if (OUT / 'history.json').exists() else {}
+    cats_meta, idx = [], []
+    for cid, ps in bycat.items():
+        hp = V2 / 'h' / f'{cid}.json'
+        hist = json.loads(hp.read_text()) if hp.exists() else {}
+        if cid == 'phones' and not hist:
+            hist = {'phones:' + k: v for k, v in oldh.items()}
+        for p in ps:
+            day = hist.setdefault(p['key'], {}).setdefault(TODAY, {})
+            for o in live_of(p):
+                day[o['store']] = min(o['price'], day.get(o['store'], 10**12))
+        for k in list(hist):
+            hist[k] = {d: v for d, v in hist[k].items() if d >= cutoff}
+            if not hist[k]: del hist[k]
+        hp.write_text(json.dumps(hist, ensure_ascii=False, separators=(',', ':')))
+        (V2 / 'c' / f'{cid}.json').write_text(json.dumps(ps, ensure_ascii=False, separators=(',', ':')))
+        uz, ru = (CATS[cid][0], CATS[cid][1]) if cid in CATS else ("Boshqa", "Другое")
+        top = max(ps, key=lambda p: (len(live_of(p)), bool(p['img'])))
+        cats_meta.append({'id': cid, 'uz': uz, 'ru': ru, 'n': len(ps), 'n2': sum(1 for p in ps if len(live_of(p)) > 1), 'img': top['img']})
+        for p in ps:
+            l = live_of(p)
+            idx.append([p['key'], p['name'], cid, min(o['price'] for o in l), len(l), gap(p)])
+    order = list(CATS) + ['other']
+    cats_meta.sort(key=lambda c: order.index(c['id']) if c['id'] in order else 99)
+    deals = sorted([p for p in products if gap(p) > 0], key=lambda p: -gap(p))[:60]
+    meta = {'updated': NOW.isoformat(timespec='minutes'),
+            'stores': {s: {'items': r.get('items', 0), 'ok': bool(r.get('items'))} for s, r in REPORT['stores'].items()},
+            'cats': cats_meta, 'deals': deals, 'idx': idx}
+    (V2 / 'meta.json').write_text(json.dumps(meta, ensure_ascii=False, separators=(',', ':')))
+    # legacy phone files (old app versions)
+    phones = [dict(p, key=p['key'][7:]) for p in bycat.get('phones', [])]
+    (OUT / 'latest.json').write_text(json.dumps({'updated': meta['updated'], 'stores': meta['stores'], 'products': phones}, ensure_ascii=False, separators=(',', ':')))
     REPORT['products'] = len(products)
-    REPORT['matched_2plus'] = sum(1 for p in products if len(p['offers']) > 1)
+    REPORT['matched_2plus'] = sum(1 for p in products if len(live_of(p)) > 1)
+    REPORT['cats'] = {c['id']: [c['n'], c['n2']] for c in cats_meta}
     REPORT['unkeyed_sample'] = unkeyed[:15]
-    REPORT['keys_sample'] = [p['key'] + ' :: ' + ' | '.join(f"{o['store']} {o['price']}" for o in p['offers']) for p in products[:25]]
+    REPORT['keys_sample'] = {cid: [p['key'] + ' :: ' + ' | '.join(f"{o['store']} {o['price']} {o['title'][:50]}" for o in p['offers']) for p in ps if len(p['offers']) > 1][:12] for cid, ps in bycat.items()}
     (OUT / 'report.json').write_text(json.dumps(REPORT, ensure_ascii=False, indent=1))
-    print(json.dumps({k: v for k, v in REPORT.items() if k != 'keys_sample'}, ensure_ascii=False)[:2000])
+    print(json.dumps({k: v for k, v in REPORT.items() if k != 'keys_sample'}, ensure_ascii=False)[:3000])
 
 if __name__ == '__main__':
     main()
