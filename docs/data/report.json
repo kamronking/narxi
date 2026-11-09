@@ -1,27 +1,47 @@
 {
- "started": "2026-11-10T03:08:35.050793+05:00",
+ "started": "2026-11-10T03:34:22.591217+05:00",
  "stores": {
   "texnomart": {
-   "pages": 150,
-   "items": 1652,
-   "errors": [],
+   "pages": 1281,
+   "items": 1840,
+   "errors": [
+    "https://texnomart.uz/ru/katalog/aerogrili-tefal/: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))"
+   ],
    "per_cat": {
     "phones": 286,
-    "laptops": 23,
+    "laptops": 25,
     "tablets": 36,
-    "tv": 128,
-    "monitors": 7,
-    "audio": 150,
+    "tv": 194,
+    "monitors": 5,
+    "audio": 146,
     "watches": 90,
     "fridges": 97,
     "washers": 99,
     "ac": 25,
-    "home": 128,
-    "kitchen": 356,
-    "stoves": 104,
+    "home": 171,
+    "kitchen": 398,
+    "stoves": 123,
     "climate": 54,
-    "care": 69,
-    "printers": 0
+    "care": 75,
+    "printers": 16
+   },
+   "slugs": {
+    "phones": 14,
+    "laptops": 27,
+    "tablets": 6,
+    "tv": 25,
+    "monitors": 78,
+    "audio": 60,
+    "watches": 12,
+    "fridges": 31,
+    "washers": 32,
+    "ac": 38,
+    "home": 54,
+    "kitchen": 191,
+    "stoves": 68,
+    "climate": 36,
+    "care": 54,
+    "printers": 8
    }
   },
   "olcha": {
@@ -49,15 +69,15 @@
    "in_stock": 11980
   }
  },
- "products": 10530,
- "matched_2plus": 133,
+ "products": 10693,
+ "matched_2plus": 140,
  "cats": {
   "phones": [
    210,
    53
   ],
   "laptops": [
-   204,
+   206,
    0
   ],
   "tablets": [
@@ -65,15 +85,15 @@
    0
   ],
   "tv": [
-   251,
+   303,
    7
   ],
   "monitors": [
-   23,
+   21,
    0
   ],
   "audio": [
-   296,
+   292,
    6
   ],
   "watches": [
@@ -93,15 +113,15 @@
    2
   ],
   "home": [
-   289,
-   12
+   328,
+   14
   ],
   "kitchen": [
-   660,
-   28
+   701,
+   29
   ],
   "stoves": [
-   290,
+   307,
    1
   ],
   "climate": [
@@ -109,12 +129,12 @@
    0
   ],
   "care": [
-   166,
-   8
+   170,
+   10
   ],
   "printers": [
-   72,
-   0
+   86,
+   2
   ],
   "other": [
    7072,
@@ -123,20 +143,20 @@
  },
  "unkeyed_sample": [
   "Керамическое защитное стекло Xiaomi Redmi Note 9T",
+  "Умная колонка Яндекс Станция Мини с часами с Алисой, Черный, 10Вт",
+  "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
+  "Умная колонка Яндекс Станция Лайт 2 Графитовый",
+  "Умная портативная колонка Яндекс Станция Стрит с Алисой, 30 Вт Grey",
+  "Умная портативная колонка Яндекс Станция Стрит с Алисой, 30 Вт Green",
+  "Умная портативная колонка Яндекс Станция Стрит с Алисой, 30 Вт Black",
   "Наушники вставные беспроводные Green Earbuds",
   "Смарт часы Green Ultra Black",
   "Смарт часы Green Active Pro Black",
-  "Мясорубка Аксион М41.01",
   "Мясорубка Аксион М21.01",
   "Мясорубка Аксион М12.11",
-  "Мясорубка Аксион М321.01",
   "Мясорубка Аксион М61.02",
   "Мясорубка Аксион М41.00",
-  "Соковыжималка Аксион СЦ32.02 Джус",
-  "Соковыжималка Аксион СЦ32.01",
-  "Соковыжималка Аксион СЦ32.01 Чёрная",
-  "Медная бутылка для воды с декоративным узором, 600 мл",
-  "Медная бутылка для воды с восточным узором. 600 мл"
+  "Мясорубка Аксион М321.01"
  ],
  "keys_sample": {
   "phones": [
@@ -167,9 +187,25 @@
    "kitchen:delonghi:ecam45086t :: olcha 11568000 Рожковая кофеварка DeLonghi ECAM450.86.T | texnomart 12239000 Кофемашина DeLonghi ECAM450.86.T",
    "kitchen:delonghi:ecam61074mb :: texnomart 12499000 Кофемашина DeLonghi ECAM610.74.MB | olcha 13496000 Кофемашина DeLonghi ECAM610.74.MB 2.2 л"
   ],
+  "home": [
+   "home:t:xiaomi truclean w20 wet dry vacuum :: olcha 2700000 Пылесос Xiaomi Truclean W20 Wet Dry Vacuum | texnomart 3439000 Вертикальный пылесос Xiaomi Truclean W20 Wet Dry V",
+   "home:lg:vc83209uha :: texnomart 2549000 Пылесос LG VC83209UHA | olcha 2821000 Пылесос LG VC83209UHA",
+   "home:lg:vk89309h :: texnomart 2299000 Пылесос LG VK89309H | olcha 2538000 Пылесос LG VK89309H",
+   "home:premier:md2520rd :: texnomart 989000 Пылесос Premier PRM-VC/MD2520RD | olcha 1015625 Пылесосы Premier PRM-VC/MD2520RD",
+   "home:samsung:vc18m3125vb :: texnomart 1549000 Пылесос Samsung VC18M3125VB/UZ | olcha 1635000 Пылесос Samsung VC18M3125VB/UZ",
+   "home:samsung:vcc5377c3k :: texnomart 1599000 Пылесос Samsung VCC5377C3K/UZ | olcha 1868000 Пылесос Samsung VCC5377C3K/UZ",
+   "home:t:karcher ds 6 :: texnomart 6660000 Пылесос с аквафильтром Karcher DS 6 *EU | olcha 7864583 Пылесос Karcher DS 6",
+   "home:samsung:vr30t80313w :: olcha 5000000 Робот пылесос Samsung VR30T80313W | texnomart 6429000 Робот пылесос Samsung VR30T80313W/EV",
+   "home:t:karcher cvh 2 :: texnomart 990000 Ручной аккумуляторный пылесос Karcher CVH 2 | olcha 1666667 Ручной пылесос Karcher CVH 2",
+   "home:braun:si5277gr :: texnomart 784000 Утюг Braun SI5277GR | olcha 964000 Утюг Braun SI5277GR",
+   "home:braun:si9682db :: olcha 1446000 Паровой утюг Braun SI9682DB | texnomart 1683000 Утюг Braun SI9682DB",
+   "home:philips:dst5030 :: texnomart 949000 Утюг Philips DST5030/20 | olcha 964000 Утюг Philips 5000 Series DST5030/20"
+  ],
   "care": [
+   "care:dyson:ht01 :: olcha 4772000 Выпрямитель Dyson Airstrait HT01 Ceramic Pink | texnomart 7349000 Выпрямитель для волос Dyson HT01 Prussian Blue",
    "care:philips:bhh880 :: olcha 723000 Расческа-выпрямитель Philips StyleCare Essential B | texnomart 1099000 Выпрямитель для волос Philips BHH880/00",
    "care:philips:bhs378 :: olcha 783000 Выпрямитель Philips BHS378 StraightCare Essential | texnomart 959000 Выпрямитель для волос Philips BHS378/00",
+   "care:philips:bhs510 :: olcha 1100000 Выпрямитель для волос Philips BHS510/00 | texnomart 1275000 Выпрямитель для волос Philips BHS510/00",
    "care:philips:mg7920 :: olcha 1128000 Триммер Philips MG7920 | texnomart 1699000 Мультитриммер Philips MG7920/15",
    "care:philips:qp210 :: texnomart 290000 Сменная насадка Philips QP210/51 | olcha 362000 Электробритва Насадка PHILIPS QP210",
    "care:dyson:hd16 :: olcha 6109000 Фен Dyson Supersonic Nural HD16 Kanzan Pink | texnomart 6430000 Фен Dyson HD16 Ceramic Pink",
@@ -183,7 +219,7 @@
   "audio": [
    "audio:t:hyperx cloud iii :: texnomart 1399000 Игровые наушники HyperX Cloud III Black/Red | olcha 1965580 Наушники HyperX Cloud III Wireless Red",
    "audio:t:apple airpods 4 :: texnomart 2258000 Наушники вставные беспроводные Apple AirPods 4 Whi | olcha 2300000 Беспроводные наушники Apple Airpods 4",
-   "audio:sony:wfc510 :: olcha 795000 Беспроводные наушники SONY WF-C510 Чёрный | texnomart 847000 Наушники вставные беспроводные Sony WF-C510 Black",
+   "audio:sony:wfc510 :: olcha 795000 Беспроводные наушники SONY WF-C510 Чёрный | texnomart 847000 Наушники вставные беспроводные Sony WF-C510 White",
    "audio:edifier:w800bt :: texnomart 385000 Наушники накладные беспроводные Edifier W800BT SE  | olcha 499000 Наушники Edifier W800BT Plus 40 мм",
    "audio:sony:wh1000xm5 :: olcha 2892000 Беспроводные накладные наушники Sony WH-1000XM5 | texnomart 4199000 Наушники накладные беспроводные Sony WH-1000XM5 Si",
    "audio:sony:mdrzx110ap :: texnomart 229000 Наушники накладные проводные Sony MDR-ZX110AP Whit | olcha 277000 Наушники Sony MDR-ZX110AP белый"
@@ -192,19 +228,9 @@
    "ac:lg:d12tt :: olcha 6905000 Кондиционер LG Mega Dual Plus 12 Inverter (D12TT) | texnomart 8114000 Кондиционер LG D12TT",
    "ac:premier:prmzn18sdna5f :: olcha 8095313 Кондиционер Premier PRMZN-18SDNA5F | texnomart 9499000 Кондиционер Premier PRMZN-18SDNA5F"
   ],
-  "home": [
-   "home:lg:vc83209uha :: texnomart 2549000 Пылесос LG VC83209UHA | olcha 2821000 Пылесос LG VC83209UHA",
-   "home:lg:vk89309h :: texnomart 2299000 Пылесос LG VK89309H | olcha 2538000 Пылесос LG VK89309H",
-   "home:premier:md2520rd :: texnomart 989000 Пылесос Premier PRM-VC/MD2520RD | olcha 1015625 Пылесосы Premier PRM-VC/MD2520RD",
-   "home:samsung:vc18m3125vb :: texnomart 1549000 Пылесос Samsung VC18M3125VB/UZ | olcha 1635000 Пылесос Samsung VC18M3125VB/UZ",
-   "home:samsung:vcc5377c3k :: texnomart 1599000 Пылесос Samsung VCC5377C3K/UZ | olcha 1868000 Пылесос Samsung VCC5377C3K/UZ",
-   "home:t:karcher ds 6 :: texnomart 6660000 Пылесос с аквафильтром Karcher DS 6 *EU | olcha 7864583 Пылесос Karcher DS 6",
-   "home:t:karcher cvh 2 :: texnomart 990000 Ручной аккумуляторный пылесос Karcher CVH 2 | olcha 1666667 Ручной пылесос Karcher CVH 2",
-   "home:braun:si5277gr :: texnomart 784000 Утюг Braun SI5277GR | olcha 964000 Утюг Braun SI5277GR",
-   "home:braun:si9682db :: olcha 1446000 Паровой утюг Braun SI9682DB | texnomart 1683000 Утюг Braun SI9682DB",
-   "home:philips:dst5030 :: texnomart 949000 Утюг Philips DST5030/20 | olcha 964000 Утюг Philips 5000 Series DST5030/20",
-   "home:philips:dst7040 :: olcha 1067708 Утюг Philips DST7040 | texnomart 1699000 Утюг Philips DST7040/80",
-   "home:tefal:fv9848e0 :: olcha 1506000 Утюг Tefal FV9848E0 | texnomart 1999000 Утюг Tefal FV9848E0"
+  "printers": [
+   "printers:canon:g3430 :: texnomart 1999000 Принтер Canon IJ MFP PIXMA G3430 МФУ 3в1 Черный | olcha 2145000 Принтер МФУ Canon Pixma G3430",
+   "printers:xerox:3020bi :: texnomart 1299000 Принтер Xerox Phaser 3020BI Wi-Fi | olcha 1573750 Принтер Xerox Phaser 3020BI А4 ч/б (Wi-Fi)"
   ],
   "washers": [
    "washers:lg:f2j3ws1w :: olcha 4712000 Стиральная машина LG F2J3WS1W Inverter | texnomart 6639000 Стиральная машина LG F2J3WS1W",
@@ -240,7 +266,6 @@
   "climate": [],
   "laptops": [],
   "tablets": [],
-  "printers": [],
   "watches": []
  }
 }
