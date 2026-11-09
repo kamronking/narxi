@@ -145,7 +145,7 @@ let toastT;function toast(s){const e=document.getElementById('toast');e.textCont
 const BRANDS=[['Apple',/^iphone|^apple/],['Samsung',/^samsung|^galaxy/],['Xiaomi',/^xiaomi|^redmi|^poco|^mi /],['Honor',/^honor/],['Tecno',/^tecno/],['Infinix',/^infinix/],['Realme',/^realme/],['Vivo',/^vivo/],['OPPO',/^oppo/],['Google',/^google|^pixel/],['Nothing',/^nothing/]];
 const brandOf=p=>(BRANDS.find(([,r])=>r.test(p.key))||['Boshqa'])[0];
 let DATA=null,HIST={},WATCH=store.get('watch',{});
-const S={tab:'home',q:'',brand:'all',sort:'cheap',both:false,limit:24,key:null};
+const S={tab:'home',q:'',brand:'all',sort:'gap',both:false,limit:24,key:null};
 const view=document.getElementById('view');
 const live=p=>p.offers.filter(o=>o.stock==='ok');
 const best=p=>live(p).sort((a,b)=>a.price-b.price)[0]||p.offers[0];
@@ -175,7 +175,7 @@ function renderHome(){const P=DATA.products;const q=S.q.trim().toLowerCase().spl
   const counts={};P.forEach(p=>{const b=brandOf(p);counts[b]=(counts[b]||0)+1});
   let items=P.filter(p=>q.every(w=>(p.name+' '+p.key).toLowerCase().includes(w))&&(S.brand==='all'||brandOf(p)===S.brand)&&(!S.both||live(p).length>1));
   items.sort(S.sort==='gap'?(a,b)=>gapOf(b)-gapOf(a)||best(a).price-best(b).price:S.sort==='name'?(a,b)=>a.name.localeCompare(b.name):(a,b)=>best(a).price-best(b).price);
-  const deals=[...P].filter(p=>gapOf(p)>0).sort((a,b)=>gapOf(b)-gapOf(a)).slice(0,8);
+  const deals=[...P].filter(p=>gapOf(p)>0&&gapOf(p)<worst(p).price*.3).sort((a,b)=>gapOf(b)-gapOf(a)).slice(0,8);
   const brands=Object.entries(counts).sort((a,b)=>b[1]-a[1]);
   view.innerHTML=`<section class="hero"><h1>${t('h1a')} <em>${t('h1b')}</em></h1>
     <div class="facts"><span class="live">${t('upd')} ${updTxt()}</span><span>${P.length} ${t('models')}</span><span>${Object.keys(DATA.stores).length} ${t('storesN')}</span></div>

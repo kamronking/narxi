@@ -75,6 +75,11 @@ def model_key(name):
         return None
     return f'{base} {st}gb'
 
+def cut_name(title):
+    low = re.sub(r'[“”"«»(),]', ' ', title.lower().replace('ё', 'е')).replace('тб', 'tb').replace('гб', 'gb')
+    _, st, a, b = storage(low)
+    return title[:b].strip() if st and b > 0 else title
+
 def pretty(name):
     n = re.sub(r'\s+', ' ', name).strip()
     n = re.sub(r'(?i)^смартфон\s+', '', n)
@@ -195,7 +200,7 @@ def main():
             hi = max(o['price'] for o in live)
             offers = [o for o in offers if o['price'] >= hi * 0.55]  # far cheaper = probably another product
         # prefer the cleanest name (texnomart style), drop colour words
-        name = min((o['title'] for o in offers), key=len)
+        name = min((cut_name(o['title']) for o in offers), key=len)
         name = re.sub(COLORS, '', name, flags=re.I)
         name = pretty(re.sub(r'\s+', ' ', name))
         imgs = [o.get('img') for o in sorted(offers, key=lambda o: o['store'] != 'texnomart') if o.get('img')]
