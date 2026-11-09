@@ -150,13 +150,14 @@ def olcha():
                 items.append({'store': 'olcha', 'title': p.get('name_ru') or p.get('name'), 'price': price,
                               'old': old if old and old > price else None,
                               'url': f"https://olcha.uz/ru/product/view/{p.get('alias')}",
-                              'stock': 'ok' if p.get('in_stock') else 'out',
+                              'stock': 'out' if p.get('out_of_stock') is True else ('ok' if (p.get('in_stock') or int(p.get('quantity') or 0) > 0) else 'out'),
                               'inst': int(float(p.get('monthly_repayment') or 0)) or None})
             pg = (d.get('data') or {}).get('paginator') or {}
             if page >= int(pg.get('last_page') or 1):
                 break
     rep['items'] = len(items)
     rep['sample'] = [i['title'] for i in items[:8]]
+    rep['in_stock'] = sum(1 for i in items if i['stock'] == 'ok')
     return items, rep
 
 STORES = {'texnomart': texnomart, 'olcha': olcha}
