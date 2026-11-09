@@ -1,3 +1,0 @@
-{"store": "uzum", "url": "https://api.uzum.uz/api/main/search/suggestions?text=iphone", "final": "https://api.uzum.uz/api/main/search/suggestions?text=iphone", "status": 404, "ctype": "application/json", "len": 98, "has_next_data": false, "has_nuxt": false, "jsonld": 0, "price_hits": 0}
-
-{"timestamp":1794255311993,"status":404,"error":"Not Found","path":"/api/main/search/suggestions"}
