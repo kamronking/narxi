@@ -1,5 +1,5 @@
 {
- "started": "2026-11-10T01:25:27.757182+05:00",
+ "started": "2026-11-10T01:27:53.232787+05:00",
  "stores": {
   "texnomart": {
    "pages": 16,
@@ -29,10 +29,11 @@
     "Смартфон Apple iPhone Duo",
     "Apple Iphone 13 128GB",
     "Apple iPhone 15 Pro Max"
-   ]
+   ],
+   "in_stock": 273
   }
  },
- "products": 164,
+ "products": 207,
  "matched_2plus": 52,
  "unkeyed_sample": [
   "Керамическое защитное стекло Xiaomi Redmi Note 9T",
@@ -54,8 +55,8 @@
  "keys_sample": [
   "iphone 18 pro 256gb :: texnomart 19999000 | olcha 20545000",
   "iphone 18 pro 512gb :: texnomart 23499000 | olcha 24999000",
-  "iphone 18 pro max 256gb :: texnomart 22790000 | olcha 23257000",
-  "iphone 18 pro max 512gb :: texnomart 25999000 | olcha 30728000",
+  "iphone 18 pro max 256gb :: olcha 22100000 | texnomart 22790000",
+  "iphone 18 pro max 512gb :: texnomart 25999000 | olcha 28999000",
   "iphone duo 256gb :: olcha 24100000 | texnomart 34799000",
   "iphone duo 512gb :: olcha 24100000 | texnomart 39199000",
   "honor 600 256gb :: olcha 6242487 | texnomart 6999000",
@@ -67,15 +68,15 @@
   "honor x7e 256gb :: olcha 3304400 | texnomart 3706000",
   "honor x8e 128gb :: olcha 3236190 | texnomart 3405000",
   "honor x8e 256gb :: texnomart 3774000 | olcha 3852000",
-  "honor x9d 256gb :: olcha 5175000 | texnomart 5199000",
-  "honor x9e pro 256gb :: texnomart 5816000 | olcha 5850000",
+  "honor x9d 256gb :: olcha 4799000 | texnomart 5199000",
+  "honor x9e pro 256gb :: olcha 5103126 | texnomart 5816000",
   "iphone 17 256gb :: texnomart 13699000 | olcha 13999000",
   "iphone air 256gb :: olcha 13199000 | texnomart 13993000",
   "samsung galaxy a07s 128gb :: olcha 2111987 | texnomart 2479000",
   "samsung galaxy a07s 64gb :: texnomart 1808000 | olcha 1865000",
   "samsung galaxy a08 128gb :: olcha 2425000 | texnomart 2548000",
   "samsung galaxy a17 256gb :: texnomart 3119600 | olcha 4199000",
-  "samsung galaxy a18 128gb :: texnomart 2999000 | olcha 3045648",
+  "samsung galaxy a18 128gb :: olcha 2659000 | texnomart 2999000",
   "samsung galaxy a26 128gb :: olcha 3600000 | texnomart 3681700"
  ]
 }
