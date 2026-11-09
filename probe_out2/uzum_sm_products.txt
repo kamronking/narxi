@@ -1,0 +1,4 @@
+{"name": "uzum_sm_products", "url": "https://uzum.uz/ru/sitemaps/products_in_stock.xml", "status": 404, "ctype": "text/xml,text/xml", "len": 204, "jsonld": 0, "next": false}
+
+<?xml version="1.0" encoding="utf-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Resource>/s1-prd-sitemaps-data/ru/sitemaps/products_in_stock.xml</Resource></Error>

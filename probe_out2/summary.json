@@ -1,0 +1,224 @@
+[
+ {
+  "name": "olcha_q",
+  "url": "https://mobile.olcha.uz/api/v2/products?q=iphone%2016",
+  "status": 200,
+  "ctype": "application/json",
+  "len": 34029,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "olcha_query",
+  "url": "https://mobile.olcha.uz/api/v2/products?query=iphone%2016",
+  "status": 200,
+  "ctype": "application/json",
+  "len": 48679,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "olcha_keyword",
+  "url": "https://mobile.olcha.uz/api/v2/products?keyword=iphone%2016",
+  "status": 200,
+  "ctype": "application/json",
+  "len": 48679,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "olcha_search_text",
+  "url": "https://mobile.olcha.uz/api/v2/products?search_text=iphone%2016",
+  "status": 200,
+  "ctype": "application/json",
+  "len": 48679,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "olcha_name",
+  "url": "https://mobile.olcha.uz/api/v2/products?name=iphone%2016",
+  "status": 200,
+  "ctype": "application/json",
+  "len": 48679,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "olcha_text",
+  "url": "https://mobile.olcha.uz/api/v2/products?text=iphone%2016",
+  "status": 200,
+  "ctype": "application/json",
+  "len": 48679,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "olcha_s",
+  "url": "https://mobile.olcha.uz/api/v2/products?s=iphone%2016",
+  "status": 200,
+  "ctype": "application/json",
+  "len": 48679,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "olcha__v2_search_q_iphone_2016",
+  "url": "https://mobile.olcha.uz/api/v2/search?q=iphone%2016",
+  "status": 404,
+  "ctype": "text/html; charset=UTF-8",
+  "len": 7723,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "olcha__v2_search_products_q_iphone_2016",
+  "url": "https://mobile.olcha.uz/api/v2/search/products?q=iphone%2016",
+  "status": 405,
+  "ctype": "text/html; charset=UTF-8",
+  "len": 1949,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "olcha__v1_search_q_iphone_2016",
+  "url": "https://mobile.olcha.uz/api/v1/search?q=iphone%2016",
+  "status": 404,
+  "ctype": "text/html; charset=UTF-8",
+  "len": 7723,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "olcha__v2_products_search_q_iphone_2016",
+  "url": "https://mobile.olcha.uz/api/v2/products/search?q=iphone%2016",
+  "status": 404,
+  "ctype": "text/html; charset=UTF-8",
+  "len": 7723,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "uzum_sm_products",
+  "url": "https://uzum.uz/ru/sitemaps/products_in_stock.xml",
+  "status": 404,
+  "ctype": "text/xml,text/xml",
+  "len": 204,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "uzum_search_bot",
+  "url": "https://uzum.uz/ru/search?query=iphone%2016",
+  "status": 200,
+  "ctype": "text/html; charset=utf-8",
+  "len": 704200,
+  "jsonld": 1,
+  "next": false
+ },
+ {
+  "name": "tm_sm_products",
+  "url": "https://texnomart.uz/sitemap-ru-products-1.xml",
+  "status": 200,
+  "ctype": "application/xml; charset=UTF-8",
+  "len": 905110,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "tm_page0",
+  "url": "https://texnomart.uz/ru/product/detail/80149/",
+  "status": 200,
+  "ctype": "text/html; charset=utf-8",
+  "len": 182667,
+  "jsonld": 3,
+  "next": false
+ },
+ {
+  "name": "tm_page1",
+  "url": "https://texnomart.uz/ru/product/detail/80150/",
+  "status": 200,
+  "ctype": "text/html; charset=utf-8",
+  "len": 182733,
+  "jsonld": 3,
+  "next": false
+ },
+ {
+  "name": "tm_gateway_texnomart_uz_api_web_v1_search_full_q_iphone_2016",
+  "url": "https://gateway.texnomart.uz/api/web/v1/search/full?q=iphone%2016",
+  "status": 404,
+  "ctype": "text/html; charset=utf-8",
+  "len": 8061,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "tm_gateway_texnomart_uz_api_common_v1_search_result_q_iphone_2016",
+  "url": "https://gateway.texnomart.uz/api/common/v1/search/result?q=iphone%2016",
+  "status": 404,
+  "ctype": "application/json",
+  "len": 5832,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "tm_texnomart_uz_ru_search_search_iphone_2016",
+  "url": "https://texnomart.uz/ru/search?search=iphone%2016",
+  "status": 404,
+  "ctype": "text/html; charset=utf-8",
+  "len": 120032,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "tm_texnomart_uz_ru_katalog_search_q_iphone_2016",
+  "url": "https://texnomart.uz/ru/katalog/search?q=iphone%2016",
+  "status": 404,
+  "ctype": "text/html; charset=utf-8",
+  "len": 138040,
+  "jsonld": 2,
+  "next": false
+ },
+ {
+  "name": "idea_search",
+  "url": "https://idea.uz/search?q=iphone%2016",
+  "status": 200,
+  "ctype": "text/html; charset=utf-8",
+  "len": 174091,
+  "jsonld": 0,
+  "next": true
+ },
+ {
+  "name": "idea__api_v2_products_search_q_iphone_2016",
+  "url": "https://api.idea.inweb.uz/api/v2/products/search?q=iphone%2016",
+  "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='api.idea.inweb.uz', port=443): Max retries exceeded with url: /api/v2/products/search?q=iphone%2016 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1011)')))\"))"
+ },
+ {
+  "name": "idea__api_v1_search_q_iphone_2016",
+  "url": "https://api.idea.inweb.uz/api/v1/search?q=iphone%2016",
+  "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='api.idea.inweb.uz', port=443): Max retries exceeded with url: /api/v1/search?q=iphone%2016 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1011)')))\"))"
+ },
+ {
+  "name": "idea__api_v2_search_q_iphone_2016",
+  "url": "https://api.idea.inweb.uz/api/v2/search?q=iphone%2016",
+  "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='api.idea.inweb.uz', port=443): Max retries exceeded with url: /api/v2/search?q=iphone%2016 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1011)')))\"))"
+ },
+ {
+  "name": "mp_bot",
+  "url": "https://mediapark.uz/",
+  "status": 403,
+  "ctype": "text/html; charset=UTF-8",
+  "len": 5520,
+  "jsonld": 0,
+  "next": false
+ },
+ {
+  "name": "asx_bot",
+  "url": "https://asaxiy.uz/",
+  "status": 403,
+  "ctype": "text/html; charset=UTF-8",
+  "len": 5521,
+  "jsonld": 0,
+  "next": false
+ }
+]
