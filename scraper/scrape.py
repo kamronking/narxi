@@ -41,12 +41,15 @@ def get(url, **kw):
     return requests.get(url, headers=H, timeout=30, **kw)
 
 # ---------------- model key normalisation ----------------
-COLORS = r'(черн\w*|бел\w*|сер\w*|сини\w*|син\w*|голуб\w*|зел\w*|красн\w*|розов\w*|фиолет\w*|золот\w*|желт\w*|оранж\w*|бирюз\w*|graphite|black|white|blue|green|red|pink|purple|gold|silver|gray|grey|titanium|natural|desert|teal|ultramarine|midnight|starlight|space|cosmic|deep|sky|night|star|lavender|mint|cream|coral|navy|violet|yellow|orange|космическ\w*|глубок\w*|небесн\w*|натурал\w*|титан\w*|пустын\w*)'
+COLORS = r'(?<![a-zа-я0-9])(черн\w*|бел\w*|сер\w*|сини\w*|син\w*|голуб\w*|зел\w*|красн\w*|розов\w*|фиолет\w*|золот\w*|желт\w*|оранж\w*|бирюз\w*|graphite|black|white|blue|green|red|pink|purple|gold|silver|gray|grey|titanium|natural|desert|teal|ultramarine|midnight|starlight|space|cosmic|deep|sky|night|star|lavender|mint|cream|coral|navy|violet|yellow|orange|космическ\w*|глубок\w*|небесн\w*|натурал\w*|титан\w*|пустын\w*)(?![a-zа-я0-9])'
 DROP = r'\b(смартфон|телефон|мобильный|сотовый|apple|global|version|ru|eac|esim|sim|dual|nfc|new|новый)\b'
 
 def storage(t):
     t = t.replace('тб', 'tb').replace('гб', 'gb')
-    m = re.search(r'(\d{1,2})\s*/\s*(\d{2,4}|1)\s*(gb|tb)?', t)
+    sizes = {x for x in re.findall(r'(?<!\d)(32|64|128|256|512|1024)(?!\d)', t)}
+    if re.search(r'(?<!\d)(64|128|256|512)\s*/\s*(128|256|512|1)\s*(gb|tb)', t) or len(sizes) > 1:
+        return None, None, -1, -1  # several storage options in one title -> ambiguous
+    m = re.search(r'(?<!\d)(\d{1,2})\s*/\s*(\d{2,4}|1)\s*(gb|tb)?', t)
     if m:
         ram, st = m.group(1), m.group(2)
         st = '1024' if (m.group(3) == 'tb' or st == '1') else st
@@ -185,6 +188,9 @@ def main():
         live = [o for o in offers if o['stock'] == 'ok']
         if not live:
             continue
+        if len(live) > 1:
+            hi = max(o['price'] for o in live)
+            offers = [o for o in offers if o['price'] >= hi * 0.55]  # far cheaper = probably another product
         # prefer the cleanest name (texnomart style), drop colour words
         name = min((o['title'] for o in offers), key=len)
         name = re.sub(COLORS, '', name, flags=re.I)
