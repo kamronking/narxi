@@ -1,0 +1,201 @@
+{
+ "alif_sm0": {
+  "url": "https://alifshop.uz/0-sitemap.xml",
+  "st": 200,
+  "len": 471755,
+  "ct": "text/xml; charset=UTF-8"
+ },
+ "alif_sm0_locs": [
+  "https://alifshop.uz",
+  "https://alifshop.uz/ru/",
+  "https://alifshop.uz/terms",
+  "https://alifshop.uz/events",
+  "https://alifshop.uz/delivery",
+  "https://alifshop.uz/partners",
+  "https://alifshop.uz/ru/terms",
+  "https://alifshop.uz/ru/events",
+  "https://alifshop.uz/events/50",
+  "https://alifshop.uz/events/17",
+  "https://alifshop.uz/categories",
+  "https://alifshop.uz/events/Sim",
+  "https://alifshop.uz/installment",
+  "https://alifshop.uz/ru/delivery",
+  "https://alifshop.uz/ru/partners",
+  "https://alifshop.uz/reject-cases",
+  "https://alifshop.uz/prayer-times",
+  "https://alifshop.uz/ru/events/50",
+  "https://alifshop.uz/ru/events/17",
+  "https://alifshop.uz/partners/jbl",
+  "https://alifshop.uz/partners/gsm",
+  "https://alifshop.uz/partners/dsg",
+  "https://alifshop.uz/ru/categories",
+  "https://alifshop.uz/ru/events/Sim",
+  "https://alifshop.uz/events/Rieker",
+  "https://alifshop.uz/partners/bq-1",
+  "https://alifshop.uz/partners/elvo",
+  "https://alifshop.uz/partners/zoko",
+  "https://alifshop.uz/partners/ergo",
+  "https://alifshop.uz/partners/mobs"
+ ],
+ "alif_sm1": {
+  "url": "https://alifshop.uz/1-sitemap.xml",
+  "st": 200,
+  "len": 535231,
+  "ct": "text/xml; charset=UTF-8"
+ },
+ "alif_sm1_locs": [
+  "https://alifshop.uz/ru/categories/hranenie-dannih",
+  "https://alifshop.uz/categories/stirka-i-glazhenie",
+  "https://alifshop.uz/ru/categories/bitovaya-himiya",
+  "https://alifshop.uz/ru/categories/naruchnie-chasi",
+  "https://alifshop.uz/categories/chasi-i-aksessuari",
+  "https://alifshop.uz/categories/nabor-instrumentov",
+  "https://alifshop.uz/ru/categories/filjtr-kuvshini",
+  "https://alifshop.uz/ru/categories/radar-detektori",
+  "https://alifshop.uz/categories/muzikaljnie-centri",
+  "https://alifshop.uz/categories/akustika-i-kolonki"
+ ],
+ "alif_sm1_n": 1000,
+ "alif_cat_p2": {
+  "url": "https://alifshop.uz/ru/categories/smartfoni-i-telefoni?page=2",
+  "st": 200,
+  "len": 460854,
+  "ct": "text/html;charset=utf-8"
+ },
+ "alif_p2_offers": 24,
+ "bee_cat": {
+  "url": "https://market.beeline.uz/smartfony",
+  "st": 200,
+  "len": 280122,
+  "ct": "text/html;charset=utf-8"
+ },
+ "bee_cat_names": [
+  "ZTE Nubia A57, Dusk Black, 4/64 GB",
+  "Redmi Note 17 Pro, Satin Orange, 8/256 GB",
+  "Honor X9e Pro, Dawn Gold, 6/256 GB",
+  "Honor X9e Pro, Midnight Black, 6/256 GB",
+  "Honor X9e Pro, Reddish Brown, 6/256 GB"
+ ],
+ "bee_cat_n": 16,
+ "bee_cat_p2": {
+  "url": "https://market.beeline.uz/smartfony?page=2",
+  "st": 200,
+  "len": 225425,
+  "ct": "text/html;charset=utf-8"
+ },
+ "bee_p2_names": [
+  "Samsung Galaxy A18, Light Blue, 6/128 GB",
+  "Samsung Galaxy A18, Silver, 6/128 GB",
+  "Samsung Galaxy A18, Black, 4/128 GB"
+ ],
+ "bee_links": [
+  "//connect.facebook.net",
+  "//mc.yandex.ru",
+  "//www.googletagmanager.com",
+  "/_nuxt/3NVJgGBc.js",
+  "/_nuxt/6s-QixZE.js",
+  "/_nuxt/91_o_1xO.js",
+  "/_nuxt/AppBottomNavigationBar.Cjbd7ClD.css",
+  "/_nuxt/AppBreadcrumbs.0kQeNim2.css",
+  "/_nuxt/AppButton.DTBC-36v.css",
+  "/_nuxt/AppCircleTimer.Dy_dm5rD.css",
+  "/_nuxt/AppExpander.DJ2utsNT.css",
+  "/_nuxt/AppFooter.BKGOysSg.css",
+  "/_nuxt/AppHeader.CgsiVit-.css",
+  "/_nuxt/AppHeaderUserBody.BnAY7eof.css",
+  "/_nuxt/AppModalDialog.DacjyyTa.css",
+  "/_nuxt/AppPagination.BmPhQHUc.css",
+  "/_nuxt/AppPlaceholder.DZwoqqP5.css",
+  "/_nuxt/AppToast.DqpeY2WM.css",
+  "/_nuxt/AuthForm.-yM7ZSEU.css",
+  "/_nuxt/B4aErZfh.js",
+  "/_nuxt/B4i3hY9d.js",
+  "/_nuxt/BDNMzG2s.js",
+  "/_nuxt/BJjSyKFY.js",
+  "/_nuxt/BLlC6HSv.js",
+  "/_nuxt/BNxHhgNf.js",
+  "/_nuxt/BSY7Dflu.js",
+  "/_nuxt/BV35NrVs.js",
+  "/_nuxt/BV4ssOqc.js",
+  "/_nuxt/BVxnhaXL.js",
+  "/_nuxt/BYcRB_l3.js",
+  "/_nuxt/B_5D1WH-.js",
+  "/_nuxt/BcEdGUmG.js",
+  "/_nuxt/BhBgM8rF.js",
+  "/_nuxt/BhTsH8PN.js",
+  "/_nuxt/Bhyqpwgz.js",
+  "/_nuxt/BiV5ay1p.js",
+  "/_nuxt/BluLweVD.js",
+  "/_nuxt/BnkcUCNy.js",
+  "/_nuxt/BpGBVsIh.js",
+  "/_nuxt/BujP3dhO.js",
+  "/_nuxt/BzbNzuTj.js",
+  "/_nuxt/C06xwlVv.js",
+  "/_nuxt/C1RC8f-X.js",
+  "/_nuxt/C45r7qnN.js",
+  "/_nuxt/C4hXOEjl.js",
+  "/_nuxt/C5DcM_wg.js",
+  "/_nuxt/C7kxkG4f.js",
+  "/_nuxt/C9sCzf4w.js",
+  "/_nuxt/CCayhtpf.js",
+  "/_nuxt/CGJzhJ_g.js",
+  "/_nuxt/CIW-vN3T.js",
+  "/_nuxt/CMG0Gylh.js",
+  "/_nuxt/CO5XdKlD.js",
+  "/_nuxt/COf6E-tA.js",
+  "/_nuxt/CRzLMJPS.js",
+  "/_nuxt/CVglJPJ2.js",
+  "/_nuxt/CYW4hn-E.js",
+  "/_nuxt/CYjhWkmp.js",
+  "/_nuxt/Cez4REwG.js",
+  "/_nuxt/Cou1qTR-.js"
+ ],
+ "mcbro_products": {
+  "url": "https://mcbro.uz/products.json?limit=3",
+  "st": 200,
+  "len": 11678,
+  "ct": "application/json; charset=utf-8"
+ },
+ "mcbro_robots": {
+  "url": "https://mcbro.uz/robots.txt",
+  "st": 200,
+  "len": 475,
+  "ct": "text/plain; charset=utf-8"
+ },
+ "idea_home": {
+  "url": "https://idea.uz/",
+  "st": 200,
+  "len": 178646,
+  "ct": "text/html; charset=utf-8"
+ },
+ "idea_srcs": 8,
+ "idea_hosts": [
+  "https://api.idea.inweb.uz",
+  "https://api.idea.uz/api/v2",
+  "https://idea.uz"
+ ],
+ "robots_https://api.idea.inweb.uz": {
+  "url": "https://api.idea.inweb.uz/robots.txt",
+  "err": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='api.idea.inweb.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FA"
+ },
+ "robots_https://api.idea.uz": {
+  "url": "https://api.idea.uz/robots.txt",
+  "st": 200,
+  "len": 13,
+  "ct": "text/plain"
+ },
+ "robots_https://idea.uz": {
+  "url": "https://idea.uz/robots.txt",
+  "st": 200,
+  "len": 42,
+  "ct": "text/plain; charset=UTF-8"
+ },
+ "avtech_cat": {
+  "url": "https://avtech.uz/catalog/naushniki",
+  "st": 200,
+  "len": 125760,
+  "ct": "text/html; charset=utf-8"
+ },
+ "avtech_props": "{\"props\":{\"pageProps\":{\"category\":{\"id\":102,\"name\":\"Игровые наушники\",\"level_depth\":1,\"product_count\":16,\"slug\":\"naushniki\",\"image\":\"https://testingback.avtech.uz/storage/categories/102/mtYIjTsog0sFRcxmoQcX-category_default.jpg\",\"ad\":null,\"icon\":\"https://testingback.avtech.uz/storage/categories/102/RHU7IYmbv9uAjaBqW8eA.jpg\",\"wicon\":\"https://testingback.avtech.uz/storage/categories/102/AZuloc3e3rMVIbPfm7mp.jpg\",\"img\":{\"id\":15322,\"url\":\"https://testingback.avtech.uz/storage/categories/102/mtYIjTsog0sFRcxmoQcX.jpg\",\"types\":{\"medium_default\":\"https://testingback.avtech.uz/storage/categories/102/mtYIjTsog0sFRcxmoQcX-medium_default.jpg\",\"category_default\":\"https://testingback.avtech.uz/storage/categories/102/mtYIjTsog0sFRcxmoQcX-category_default.jpg\"}},\"description\":\"\\u003ch1\\u003eИгровые наушники в Ташкенте\\u003c/h1\\u003e\",\"meta_description\":\"Игровые наушники - купить в Ташкенте по доступной цене. Проводные модели с микрофоном, RGB-подсветкой и чистым звуком. Гарантия, быстрая доставка по Узбекистану.\",\"meta_keywords\":\"купить игровые наушники в ташкенте, игровые наушники ташкент цена, купить игровые наушники узбекистан\",\"meta_title\":\"Игровые наушники в Ташкенте | Купить\",\"childs\":[],\"parent\":{\"id\":20,\"name\":\"GAMING\",\"slug\":\"dlya-geymerov\",\"parent\":null},\"preview\":\"https://testingback.avtech.uz/storage/categories/102/odP1ygtiGw5ccENXnpOM.jpg\"},\"featuresData\":{\"price\":{\"min\":0,\"max\":2913750},\"brands\":[{\"id\":22,\"name\":\"ASUS\",\"product_count\":7},{\"id\":153,\"name\":\"Corsair\",\"product_coun",
+ "avtech_prices": 15
+}

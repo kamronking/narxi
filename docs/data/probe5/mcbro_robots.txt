@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.png
+Disallow: /*?param=
+Disallow: /*?id=
+Disallow: /*?term=
+Disallow: /?gad_source=1
+Disallow: /?page=
+Disallow: /search?page=
+Clean-param: param
+Clean-param: id
+Clean-param: term
+Disallow: *?s= 
+Disallow: /search
+Disallow: /cgi-bin/
+Disallow: /*etext=
+
+Sitemap: https://mcbro.uz/sitemap.xml
+
+User-Agent: Yandex
+Sitemap: https://mcbro.uz/sitemap.xml
+
+User-agent: Googlebot
+Sitemap: https://mcbro.uz/sitemap.xml
