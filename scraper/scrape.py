@@ -247,7 +247,137 @@ def olcha():
     rep['in_stock'] = sum(1 for i in items if i['stock'] == 'ok')
     return items, rep
 
-STORES = {'texnomart': texnomart, 'olcha': olcha}
+# ---------- Alif Shop (Nuxt SSR category pages; robots allow /ru/categories) ----------
+ALIF_RE = {'phones': r'smartfon', 'laptops': r'noutbuk', 'tablets': r'planshet', 'tv': r'televizor', 'monitors': r'monitor',
+ 'audio': r'naushnik|kolonk|akustik|saundbar', 'watches': r'smart-chas|umnie-chas|fitnes-braslet', 'fridges': r'holodil|morozil',
+ 'washers': r'stiraljn|sushiljn', 'ac': r'kondicion', 'home': r'pilesos|utyug|otparivatel',
+ 'kitchen': r'mikrovoln|multivar|chaynik|chaynik|elektrochay|blender|kofemash|kofevar|myasoruk|toster|mikser|sokovizh|gril|hlebopech|parovar|aerogril|frityur',
+ 'stoves': r'plit|duhov|varochn|vityazh|posudomo', 'climate': r'obogrev|ventilyator|vodonagrev|uvlazhn|ochistitel', 'care': r'^fen|-fen|vipryamit|trimmer|britv|epilyator',
+ 'printers': r'printer|mfu'}
+ALIF_EXCL = r'aksessuar|chehl|zaryad|kabel|plenk|stekl|derzhatel|remesh|sumk|filjtr|zapchast|komplektu|chasti|detskie-chasi|nasadk'
+def nuxt_revive(html):
+    m = re.search(r'<script[^>]*id="__NUXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
+    if not m:
+        return None, []
+    arr = json.loads(m.group(1))
+    def rev(i, depth=0):
+        v = arr[i]
+        if depth > 8: return None
+        if isinstance(v, dict): return {k: rev(x, depth + 1) if isinstance(x, int) else x for k, x in v.items()}
+        if isinstance(v, list):
+            if len(v) == 2 and v[0] in ('Reactive', 'ShallowReactive', 'Ref', 'ShallowRef', 'EmptyRef'): return rev(v[1], depth)
+            return [rev(x, depth + 1) if isinstance(x, int) else x for x in v]
+        return v
+    return rev, arr
+
+def alif():
+    rep = {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}, 'cats': 0}
+    slugs = set()
+    for n in (1, 2, 3):
+        try:
+            r = get(f'https://alifshop.uz/{n}-sitemap.xml')
+            slugs |= set(re.findall(r'https://alifshop.uz/ru/categories/([^<\s/?]+)', r.text))
+        except Exception as e:
+            rep['errors'].append(f'sitemap{n}: {e!r}'[:160])
+    bycat = {}
+    for sl in sorted(slugs):
+        if re.search(ALIF_EXCL, sl): continue
+        for cid, rx in ALIF_RE.items():
+            if re.search(rx, sl): bycat.setdefault(cid, []).append(sl); break
+    rep['cats'] = sum(map(len, bycat.values()))
+    items, seen, budget = [], set(), 900
+    for cid, sls in bycat.items():
+        n0 = len(items)
+        for sl in sls:
+            for page in range(1, 12):
+                if budget <= 0: break
+                url = f'https://alifshop.uz/ru/categories/{sl}' + (f'?page={page}' if page > 1 else '')
+                try:
+                    r = get(url); budget -= 1; rep['pages'] += 1
+                    rev, arr = nuxt_revive(r.text)
+                except Exception as e:
+                    rep['errors'].append(f'{url}: {e!r}'[:160]); break
+                if not rev: break
+                offs = [i for i, v in enumerate(arr) if isinstance(v, dict) and 'moderated_offer_id' in v and 'price' in v and 'slug' in v]
+                for i in offs:
+                    o = rev(i)
+                    if not o or not o.get('slug') or o['slug'] in seen or not o.get('price'): continue
+                    seen.add(o['slug'])
+                    old = int(o['old_price'] or 0) // 100 if o.get('old_price') else None
+                    items.append({'store': 'alif', 'title': o['name'], 'price': int(o['price']) // 100, 'old': old if old and old > int(o['price']) // 100 else None,
+                                  'url': f"https://alifshop.uz/ru/moderated-offer/{o['slug']}", 'stock': 'ok' if (o.get('quantity') or 0) > 0 else 'out',
+                                  'img': o.get('image_path'), 'cat': cid})
+                last = 1
+                for v in arr:
+                    if isinstance(v, dict) and 'last_page' in v and 'current_page' in v:
+                        lp = arr[v['last_page']] if isinstance(v['last_page'], int) else v['last_page']
+                        last = lp if isinstance(lp, int) else 1; break
+                if page >= last or not offs: break
+        rep['per_cat'][cid] = len(items) - n0
+    rep['items'] = len(items); rep['budget_left'] = budget; rep['errors'] = rep['errors'][:20]
+    return items, rep
+
+# ---------- Beeline Market (SSR HTML cards) ----------
+BEE = {'smartfony': 'phones', 'tablets': 'tablets', 'smart-watches': 'watches', 'laptops': 'laptops', 'headphones': 'audio',
+       'smart-speakers': 'audio', 'air-purifiers-and-humidifiers': 'climate', 'heaters': 'climate', 'aerogrills-fryers': 'kitchen'}
+def beeline():
+    rep = {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}}
+    items, seen = [], set()
+    for slug, cid in BEE.items():
+        n0 = len(items)
+        for page in range(1, 60):
+            url = f'https://market.beeline.uz/{slug}' + (f'?page={page}' if page > 1 else '')
+            try:
+                r = get(url); rep['pages'] += 1
+            except Exception as e:
+                rep['errors'].append(f'{url}: {e!r}'[:160]); break
+            new = 0
+            for card in r.text.split('class="product-card ')[1:]:
+                m_url = re.search(r'<a href="(/[^"]+)" class="absolute inset-0', card)
+                m_nm = re.search(r'product-card__name[^>]*>([^<]+)</h3>', card)
+                m_pr = re.search(r'font-bold[^>]*>([\d\s  ]+)\s*сум', card)
+                if not (m_url and m_nm and m_pr): continue
+                u = 'https://market.beeline.uz' + m_url.group(1)
+                if u in seen: continue
+                seen.add(u); new += 1
+                m_img = re.search(r'src="(https://[^"]+)"', card)
+                import html as _h
+                items.append({'store': 'beeline', 'title': re.sub(r',\s*[^,\d]+,', ',', _h.unescape(m_nm.group(1)).strip()), 'price': int(re.sub(r'\D', '', m_pr.group(1))),
+                              'old': None, 'url': u, 'stock': 'ok', 'img': m_img.group(1) if m_img else None, 'cat': cid})
+            if not new: break
+        rep['per_cat'][cid] = rep['per_cat'].get(cid, 0) + len(items) - n0
+    rep['items'] = len(items); rep['errors'] = rep['errors'][:20]
+    return items, rep
+
+# ---------- Macbro (Shopify public products.json) ----------
+def macbro():
+    rep = {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}}
+    items = []
+    for page in range(1, 40):
+        url = f'https://mcbro.uz/products.json?limit=250&page={page}'
+        try:
+            r = get(url); rep['pages'] += 1; prods = r.json().get('products') or []
+        except Exception as e:
+            rep['errors'].append(f'{url}: {e!r}'[:160]); break
+        if not prods: break
+        for p in prods:
+            cid = cat_of_name(p.get('title', '') + ' ' + (p.get('product_type') or ''))
+            img = (p.get('images') or [{}])[0].get('src')
+            for v in p.get('variants') or []:
+                vt = v.get('title') or ''
+                title = p['title'] + ('' if vt.lower() == 'default title' else ' ' + vt.replace(' / ', ' '))
+                price = int(float(v.get('price') or 0))
+                if not price: continue
+                cmp = int(float(v.get('compare_at_price') or 0))
+                items.append({'store': 'macbro', 'title': title, 'price': price, 'old': cmp if cmp > price else None,
+                              'url': f"https://mcbro.uz/products/{p['handle']}?variant={v['id']}", 'stock': 'ok' if v.get('available') else 'out',
+                              'img': img, 'cat': cid})
+    for it in items:
+        rep['per_cat'][it['cat']] = rep['per_cat'].get(it['cat'], 0) + 1
+    rep['items'] = len(items); rep['errors'] = rep['errors'][:20]
+    return items, rep
+
+STORES = {'texnomart': texnomart, 'olcha': olcha, 'alif': alif, 'beeline': beeline, 'macbro': macbro}
 
 OTHER_CHUNKS = 8
 def khash(k):
