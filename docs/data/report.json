@@ -1,5 +1,5 @@
 {
- "started": "2026-11-10T01:37:27.522358+05:00",
+ "started": "2026-11-10T01:39:35.170738+05:00",
  "stores": {
   "texnomart": {
    "pages": 16,
@@ -53,10 +53,13 @@
   "Samsung Galaxy A17"
  ],
  "keys_sample": [
+  "iphone 17 pro 256gb :: olcha 17232000 | texnomart 17999000",
+  "iphone 17 pro max 256gb :: olcha 17750000 | texnomart 18999000",
   "iphone 18 pro 256gb :: texnomart 19999000 | olcha 20545000",
   "iphone 18 pro 512gb :: texnomart 23499000 | olcha 24999000",
   "iphone 18 pro max 256gb :: olcha 22100000 | texnomart 22790000",
   "iphone 18 pro max 512gb :: texnomart 25999000 | olcha 28999000",
+  "iphone air 256gb :: olcha 13199000 | texnomart 13993000",
   "iphone duo 256gb :: olcha 24100000 | texnomart 34799000",
   "iphone duo 512gb :: olcha 24100000 | texnomart 39199000",
   "honor 600 256gb :: olcha 6242487 | texnomart 6999000",
@@ -71,12 +74,9 @@
   "honor x9d 256gb :: olcha 4799000 | texnomart 5199000",
   "honor x9e pro 256gb :: olcha 5103126 | texnomart 5816000",
   "iphone 17 256gb :: texnomart 13699000 | olcha 13999000",
-  "iphone air 256gb :: olcha 13199000 | texnomart 13993000",
   "samsung galaxy a07s 128gb :: olcha 2111987 | texnomart 2479000",
   "samsung galaxy a07s 64gb :: texnomart 1808000 | olcha 1865000",
   "samsung galaxy a08 128gb :: olcha 2425000 | texnomart 2548000",
-  "samsung galaxy a17 256gb :: texnomart 3119600 | olcha 4199000",
-  "samsung galaxy a18 128gb :: olcha 2659000 | texnomart 2999000",
-  "samsung galaxy a26 128gb :: olcha 3600000 | texnomart 3681700"
+  "samsung galaxy a17 256gb :: texnomart 3119600 | olcha 4199000"
  ]
 }
