@@ -276,7 +276,7 @@ def alif():
     for n in (1, 2, 3):
         try:
             r = get(f'https://alifshop.uz/{n}-sitemap.xml')
-            slugs |= set(re.findall(r'https://alifshop.uz/ru/categories/([^<\s/?]+)', r.text))
+            slugs |= set(re.findall(r'https://alifshop.uz/ru/categories/([a-z0-9-]+)', r.text))
         except Exception as e:
             rep['errors'].append(f'sitemap{n}: {e!r}'[:160])
     bycat = {}
@@ -299,21 +299,27 @@ def alif():
                 except Exception as e:
                     rep['errors'].append(f'{url}: {e!r}'[:160]); break
                 if not rev: break
-                offs = [i for i, v in enumerate(arr) if isinstance(v, dict) and 'moderated_offer_id' in v and 'price' in v and 'slug' in v]
+                offs = [i for i, v in enumerate(arr) if isinstance(v, dict) and 'price' in v and 'slug' in v and ('moderated_offer_id' in v or 'product' in v)]
+                n1 = len(items)
                 for i in offs:
                     o = rev(i)
                     if not o or not o.get('slug') or o['slug'] in seen or not o.get('price'): continue
+                    pr = o.get('product') if isinstance(o.get('product'), dict) else {}
+                    name = o.get('name') or pr.get('name')
+                    if not name: continue
+                    img = o.get('image_path') or ((pr.get('title_image') or {}).get('sm_path') if isinstance(pr.get('title_image'), dict) else None)
                     seen.add(o['slug'])
                     old = int(o['old_price'] or 0) // 100 if o.get('old_price') else None
-                    items.append({'store': 'alif', 'title': o['name'], 'price': int(o['price']) // 100, 'old': old if old and old > int(o['price']) // 100 else None,
+                    items.append({'store': 'alif', 'title': name, 'price': int(o['price']) // 100, 'old': old if old and old > int(o['price']) // 100 else None,
                                   'url': f"https://alifshop.uz/ru/moderated-offer/{o['slug']}", 'stock': 'ok' if (o.get('quantity') or 0) > 0 else 'out',
-                                  'img': o.get('image_path'), 'cat': cid})
+                                  'img': img, 'cat': cid})
                 last = 1
                 for v in arr:
-                    if isinstance(v, dict) and 'last_page' in v and 'current_page' in v:
-                        lp = arr[v['last_page']] if isinstance(v['last_page'], int) else v['last_page']
+                    if isinstance(v, dict) and 'current_page' in v and ('last_page' in v or 'n_pages' in v):
+                        x = v.get('last_page', v.get('n_pages'))
+                        lp = arr[x] if isinstance(x, int) else x
                         last = lp if isinstance(lp, int) else 1; break
-                if page >= last or not offs: break
+                if page >= last or not offs or len(items) == n1: break
         rep['per_cat'][cid] = len(items) - n0
     rep['items'] = len(items); rep['budget_left'] = budget; rep['errors'] = rep['errors'][:20]
     return items, rep
