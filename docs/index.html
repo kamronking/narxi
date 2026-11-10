@@ -306,6 +306,7 @@ nav button[aria-current="page"]::after{content:"";position:absolute;top:0;width:
 }
 @media(min-width:1400px){.grid{grid-template-columns:repeat(5,1fr)}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.ph img,.pimg img{opacity:1;transform:none}svg.chart path.ln,.chart2 path{stroke-dashoffset:0}}
+#appsplash[hidden]{display:none!important}
 #appsplash{position:fixed;inset:0;z-index:9999;background:#0f6b4f;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .5s ease,transform .5s ease}
 #appsplash .t{width:108px;height:108px;border-radius:30px;background:#c8f169;color:#0f6b4f;font:900 74px/1 var(--disp,sans-serif);display:grid;place-items:center;animation:spl .7s cubic-bezier(.2,.8,.2,1)}
 #appsplash .w{color:#fff;font:900 44px/1 var(--disp,sans-serif);letter-spacing:-1px}
@@ -320,7 +321,7 @@ nav button[aria-current="page"]::after{content:"";position:absolute;top:0;width:
 <nav><div class="in" id="tabs"></div></nav>
 <div id="ptr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v5h-5"/></svg></div>
 <div id="appsplash" hidden><div class="t">N</div><div class="w">Narxi</div></div>
-<script>(function(){const sa=matchMedia('(display-mode: standalone)').matches||navigator.standalone;if(!sa)return;const e=document.getElementById('appsplash');e.hidden=false;
+<script>(function(){const sa=matchMedia('(display-mode: standalone)').matches||navigator.standalone;const e=document.getElementById('appsplash');if(!sa){e.remove();return}e.hidden=false;
 let done=0;const hide=()=>{if(done++)return;e.classList.add('out');setTimeout(()=>e.remove(),600)};
 /* never wait for full page load: slow shop images could keep the splash forever */
 if(document.readyState!=='loading')setTimeout(hide,500);else document.addEventListener('DOMContentLoaded',()=>setTimeout(hide,500));setTimeout(hide,1500)})()</script>
