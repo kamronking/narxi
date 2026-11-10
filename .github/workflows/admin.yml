@@ -1,0 +1,19 @@
+name: admin users
+on:
+  workflow_dispatch:
+    inputs:
+      mode: {description: 'count or wipe', required: true, default: 'count'}
+permissions:
+  contents: read
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install firebase-admin
+      - run: python scraper/admin_users.py "${{ inputs.mode }}"
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SA }}
