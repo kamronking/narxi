@@ -321,7 +321,9 @@ nav button[aria-current="page"]::after{content:"";position:absolute;top:0;width:
 <div id="ptr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v5h-5"/></svg></div>
 <div id="appsplash" hidden><div class="t">N</div><div class="w">Narxi</div></div>
 <script>(function(){const sa=matchMedia('(display-mode: standalone)').matches||navigator.standalone;if(!sa)return;const e=document.getElementById('appsplash');e.hidden=false;
-addEventListener('load',()=>setTimeout(()=>{e.classList.add('out');setTimeout(()=>e.remove(),600)},450))})()</script>
+let done=0;const hide=()=>{if(done++)return;e.classList.add('out');setTimeout(()=>e.remove(),600)};
+/* never wait for full page load: slow shop images could keep the splash forever */
+if(document.readyState!=='loading')setTimeout(hide,500);else document.addEventListener('DOMContentLoaded',()=>setTimeout(hide,500));setTimeout(hide,1500)})()</script>
 <div class="toast" id="toast" hidden></div>
 <div class="ob" id="ob" hidden><div class="wrap" id="obw"></div></div>
 <script type="module">
