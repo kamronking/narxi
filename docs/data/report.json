@@ -1,9 +1,9 @@
 {
- "started": "2026-11-10T19:12:58.026342+05:00",
+ "started": "2026-11-10T22:04:28.270011+05:00",
  "stores": {
   "texnomart": {
    "pages": 1283,
-   "items": 1845,
+   "items": 1843,
    "errors": [],
    "per_cat": {
     "phones": 284,
@@ -15,7 +15,7 @@
     "watches": 90,
     "fridges": 97,
     "washers": 102,
-    "ac": 25,
+    "ac": 23,
     "home": 172,
     "kitchen": 399,
     "stoves": 123,
@@ -42,11 +42,11 @@
     "printers": 8
    },
    "inst": {
-    "exact": 1449,
-    "est": 396,
+    "exact": 1457,
+    "est": 386,
     "factor": 1.7,
     "months": 24,
-    "known": 1633
+    "known": 1631
    }
   },
   "olcha": {
@@ -75,7 +75,7 @@
   },
   "alif": {
    "pages": 386,
-   "items": 7712,
+   "items": 7711,
    "errors": [],
    "per_cat": {
     "tv": 548,
@@ -84,14 +84,14 @@
     "washers": 719,
     "phones": 590,
     "stoves": 591,
-    "care": 222,
-    "watches": 337,
+    "care": 221,
+    "watches": 338,
     "fridges": 599,
     "ac": 599,
     "printers": 261,
     "monitors": 47,
     "laptops": 720,
-    "climate": 523,
+    "climate": 522,
     "home": 685,
     "tablets": 177
    },
@@ -100,7 +100,7 @@
   },
   "beeline": {
    "pages": 42,
-   "items": 420,
+   "items": 419,
    "errors": [],
    "per_cat": {
     "phones": 300,
@@ -108,7 +108,7 @@
     "watches": 34,
     "laptops": 7,
     "audio": 57,
-    "climate": 8,
+    "climate": 7,
     "kitchen": 4
    }
   },
@@ -131,7 +131,7 @@
   },
   "idea": {
    "pages": 53,
-   "items": 1891,
+   "items": 1893,
    "errors": [],
    "per_cat": {
     "other": 413,
@@ -145,7 +145,7 @@
     "watches": 46,
     "tablets": 21,
     "climate": 33,
-    "stoves": 125,
+    "stoves": 127,
     "monitors": 10,
     "washers": 74,
     "printers": 16,
@@ -259,11 +259,11 @@
  },
  "ram_split": 26,
  "merged": 126,
- "products": 22708,
- "matched_2plus": 1533,
+ "products": 22710,
+ "matched_2plus": 1532,
  "cats": {
   "phones": [
-   548,
+   549,
    152
   ],
   "laptops": [
@@ -299,11 +299,11 @@
    100
   ],
   "ac": [
-   763,
+   761,
    85
   ],
   "home": [
-   1111,
+   1112,
    164
   ],
   "kitchen": [
@@ -311,12 +311,12 @@
    244
   ],
   "stoves": [
-   658,
+   660,
    69
   ],
   "climate": [
    579,
-   61
+   60
   ],
   "care": [
    486,
@@ -336,17 +336,17 @@
   "Умная портативная колонка Яндекс Станция Стрит с Алисой, 30 Вт Green",
   "Умная портативная колонка Яндекс Станция Стрит с Алисой, 30 Вт Grey",
   "Умная колонка Яндекс Станция Лайт 2 Графитовый",
-  "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
   "Умная портативная колонка Яндекс Станция Стрит с Алисой, 30 Вт Black",
   "Умная колонка Яндекс Станция Мини с часами с Алисой, Черный, 10Вт",
+  "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
   "Наушники вставные беспроводные Green Earbuds",
   "Смарт часы Green Active Pro Black",
   "Смарт часы Green Ultra Black",
-  "Мясорубка Аксион М41.01",
   "Мясорубка Аксион М21.01",
   "Мясорубка Аксион М12.11",
-  "Мясорубка Аксион М321.01",
-  "Мясорубка Аксион М61.02"
+  "Мясорубка Аксион М41.00",
+  "Мясорубка Аксион М41.01",
+  "Мясорубка Аксион М321.01"
  ],
  "keys_sample": {
   "phones": [
@@ -356,9 +356,9 @@
    "phones:iphone 17 pro 256gb :: macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | alif 16999000 Смартфон Apple iPhone 17 Pro 256 ГБ eSIM, Cosmic O | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | beeline 17399000 Apple iPhone 17 Pro, 256 GB, SIM+eSIM | texnomart 17999000 Apple iPhone 17 Pro 12/256GB Серебристый | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver",
    "phones:iphone 18 pro 256gb :: beeline 19195000 Apple IPhone 18 Pro, 256 GB SIM+eSIM | alif 19889000 Смартфон Apple iPhone 18 Pro 256 ГБ (nanoSim+eSim) | texnomart 19999000 Apple iPhone 18 Pro 12/256GB Серебристый | olcha 20540000 Смартфон Apple iPhone 18 Pro 256 GB Silver | idea 20999000 Смартфон iPhone 18 Pro 256GB Glacier | macbro 22385000 iPhone 18 Pro Black 256GB Single SIM",
    "phones:iphone 18 pro 512gb :: beeline 22899000 Apple IPhone 18 Pro, 512 GB SIM+eSIM | texnomart 23499000 Apple iPhone 18 Pro 12/512GB Голубой | alif 23999000 Смартфон Apple iPhone 18 Pro 512 ГБ (nanoSim+eSim) | idea 24799000 Смартфон iPhone 18 Pro 512GB Black | olcha 24899000 Смартфон Apple iPhone 18 Pro 512 GB Glacier | macbro 25990000 iPhone 18 Pro Black 512GB Single SIM",
-   "phones:iphone 18 pro max 256gb :: beeline 20995000 Apple IPhone 18 Pro Max, 256 GB SIM+eSIM | olcha 22100000 Смартфон Apple iPhone 18 Pro Max Black 256 GB | alif 22389000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | texnomart 22790000 Apple iPhone 18 Pro Max 12/256GB Голубой | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier | macbro 24200000 iPhone 18 Pro Max Silver 256GB Single SIM",
+   "phones:iphone 18 pro max 256gb :: beeline 20995000 Apple IPhone 18 Pro Max, 256 GB SIM+eSIM | olcha 22100000 Смартфон Apple iPhone 18 Pro Max Black 256 GB | alif 22300000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | texnomart 22790000 Apple iPhone 18 Pro Max 12/256GB Голубой | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier | macbro 24200000 iPhone 18 Pro Max Silver 256GB Single SIM",
    "phones:iphone 18 pro max 512gb :: beeline 24499000 Apple IPhone 18 Pro Max, 512 GB SIM+eSIM | texnomart 25999000 Apple iPhone 18 Pro Max 12/512GB Голубой | idea 25999000 Смартфон iPhone 18 Pro Max 512GB Black | alif 26730000 Смартфон Apple iPhone 18 Pro Max 512 ГБ (nanoSim+e | macbro 27346000 iPhone 18 Pro Max Silver 512GB Single SIM | olcha 30728000 Смартфон Apple iPhone 18 Pro Max 512 GB Burgundy",
-   "phones:iphone 17 256gb :: alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Черный | idea 14299000 Смартфон iPhone 17 256GB Black",
+   "phones:iphone 17 256gb :: alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Фиолетовый | idea 14299000 Смартфон iPhone 17 256GB Black",
    "phones:honor x9d 256gb:r8 :: beeline 4789000 Honor X9d, 8/256 GB | olcha 4868000 Honor X9d 5G Red 8/256 GB | texnomart 5199000 Honor X9d 8/256GB Золотистый рассвет | idea 5199000 Смартфон Honor X9d 8/256 Midnight Black | alif 5299000 Смартфон Honor X9D 8/256 ГБ, Midnight",
    "phones:samsung galaxy a27 128gb :: beeline 3550000 Samsung Galaxy A27 5G, 6/128 GB | olcha 3645000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4699000 Samsung Galaxy A27 5G 6/128GB Синий",
    "phones:samsung galaxy a27 256gb :: beeline 3989000 Samsung Galaxy A27 5G, 8/256 GB | olcha 4189000 Смартфон Samsung Galaxy A27 5G 8/256GB Black | texnomart 4299000 Samsung Galaxy A27 5G 8/256GB Черный | alif 4705000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black"
@@ -402,7 +402,7 @@
    "care:dyson:hs09 :: macbro 8296000 Мультистайлер Dyson Airwrap HS09 Red Velvet | olcha 9074000 Стайлер Dyson Airwrap Coanda 2x HS09 Amber Silk | alif 9339000 Стайлер Dyson Airwrap HS09,  розовый",
    "care:panasonic:ergd61k520 :: alif 785000 Триммер Panasonic ER-GD61-K520, чёрный | woot 933000 Триммер Panasonic ER-GD61-K520 | idea 1290000 Триммер Panasonic ER-GD61-K520",
    "care:dyson:hd18 :: olcha 6278000 Фен Dyson Supersonic r HD18 Professional Vinca blu | alif 7140000 Фен Dyson Supersonic HD18 Professional R, Prussian | macbro 7450000 Фен Dyson HD18 Supersonic R Pro, Vinca Blue/Topaz ",
-   "care:xiaomi:h101 :: alif 249000 Фен Xiaomi Compact Hair Dryer H101, белый | texnomart 299000 Фен Xiaomi H101 (Pink) | woot 352000 Фен Xiaomi Compact Hair Dryer H101 White EU",
+   "care:xiaomi:h101 :: alif 259000 Фен Xiaomi Compact Hair Dryer H101, белый | texnomart 299000 Фен Xiaomi H101 (Pink) | woot 352000 Фен Xiaomi Compact Hair Dryer H101 White EU",
    "care:xiaomi:h500 :: alif 780000 Фен  Xiaomi Water Ionic Hair Dryer H500 , белый | woot 783000 Фен Xiaomi Water Ionic Hair Dryer H500 EU | idea 799000 Фен Xiaomi Mi Water Ionic Hair Dryer H500 EU"
   ],
   "printers": [
@@ -485,7 +485,7 @@
    "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Graphite",
    "watches:t:xiaomi mibro color :: mionline 449000 Умные часы Xiaomi Mibro Color (EU, черный) | texnomart 522000 Смарт часы Xiaomi Mibro Color",
    "watches:t:xiaomi redmi watch 4 :: idea 1599000 Умные часы Xiaomi Redmi Watch 4 Silver Gray | texnomart 1926000 Смарт часы Xiaomi Redmi Watch 4 Silver Gray",
-   "watches:t:xiaomi watch s3 :: mionline 1590000 Умные часы Xiaomi Smart Watch S3 (EU, Белый) | texnomart 2748000 Смарт часы Xiaomi Watch S3 Black",
+   "watches:t:xiaomi watch s3 :: mionline 1590000 Умные часы Xiaomi Smart Watch S3 (EU, Белый) | texnomart 2748000 Смарт часы Xiaomi Watch S3 Silver",
    "watches:t:xiaomi watch s4 :: mionline 1990000 Умные часы Xiaomi Smart Watch S4 (EU, Белый) | texnomart 2540000 Смарт часы Xiaomi Watch S4 Black",
    "watches:t:amazfit cheetah :: mionline 1990000 Умные часы Amazfit Cheetah (бело-зеленый) | alif 2798000 Смарт-часы Amazfit Cheetah , серый"
   ],
@@ -504,7 +504,7 @@
    "tv:lg:55nu900b6la :: alif 7099000 Телевизор LG 55NU900B6LA Smart Tv 55\", Черный | idea 7199000 Телевизор LG 55NU900B6LA | texnomart 8399000 Телевизор LG 55NU900B6LA Smart"
   ],
   "climate": [
-   "climate:t:xiaomi humidifier 2 :: alif 450000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite, белы | mionline 499000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite EU | beeline 599000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite | texnomart 649000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite EU",
+   "climate:t:xiaomi humidifier 2 :: alif 450000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite, белы | mionline 499000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite EU | beeline 599000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite | texnomart 649000 Увлажнитель воздуха Xiaomi Humidifier 2 Smart",
    "climate:dyson:ph05 :: macbro 11295000 Увлажнитель - очиститель воздуха Dyson Humidify+Co | olcha 11930000 Dyson PH05 Purifier Humidify + Cool PH2 De-NOx | alif 12859000 Очиститель воздуха Dyson Purifier Humidify+Cool PH",
    "climate:dyson:bp04 :: mionline 12390000 Dyson очиститель воздуха BP04 | macbro 15440000 Очиститель воздуха Dyson Big+Quiet Formaldehyde BP | alif 16429000 Очиститель воздуха Dyson Big + Quiet Formaldehyde ",
    "climate:ardesto:chb2000mbd :: alif 509000 Обогреватель Ardesto CHB-2000MBD, черный | beeline 549000 Конвекторный обогреватель Ardesto CHB-2000MBD | olcha 750000 Конвектор электрический ARDESTO CHB-2000MBD",
