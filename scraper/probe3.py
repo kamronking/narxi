@@ -1,74 +1,64 @@
-"""Survey candidate stores: robots, protection, platform, product data availability. Honest UA, no circumvention."""
-import json, re, os, sys, ssl, socket, tempfile, requests, certifi, urllib.robotparser as rp
+"""Deep probe of 7 candidate stores: sample category/product pages, sitemaps, JSON APIs. Honest UA, robots respected."""
+import json, re, os, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from scrape import H, UA
-OUT = 'docs/data/probe8'; os.makedirs(OUT, exist_ok=True)
-C = ['maxcom.uz', 'woot.uz', 'mionline.uz', 'sitronic.uz', 'karcher.uz', 'alishop.uz', 'tezz.uz', 'kattabozor.uz', 'elmakon.uz',
-     'goodzone.uz', 'bemarket.uz', 'idea.uz', 'api.idea.uz', 'avtech.uz', 'sello.uz', 'allgood.uz', 'ubuy.uz', 'gammatech.uz',
-     'artelshop.uz', 'shop.artel.uz', 'samsung.com', 'istore.uz', 'texnohome.uz', 'smartup.uz']
-def aia_bundle(host):
-    """Broken chain fix the way browsers do: fetch the missing intermediate via AIA, then verify normally."""
-    try:
-        from cryptography import x509
-        from cryptography.x509.oid import AuthorityInformationAccessOID, ExtensionOID
-        pem = ssl.get_server_certificate((host, 443), timeout=15)
-        cert = x509.load_pem_x509_certificate(pem.encode())
-        aia = cert.extensions.get_extension_for_oid(ExtensionOID.AUTHORITY_INFORMATION_ACCESS).value
-        url = [d.access_location.value for d in aia if d.access_method == AuthorityInformationAccessOID.CA_ISSUERS][0]
-        der = requests.get(url, timeout=15).content
-        try: inter = x509.load_der_x509_certificate(der)
-        except Exception: inter = x509.load_pem_x509_certificate(der)
-        from cryptography.hazmat.primitives.serialization import Encoding
-        f = tempfile.NamedTemporaryFile('w', delete=False, suffix='.pem')
-        f.write(open(certifi.where()).read() + '\n' + inter.public_bytes(Encoding.PEM).decode()); f.close()
-        return f.name
-    except Exception as e:
-        return None
-VER = {}
-def fetch(url, **kw):
-    host = re.match(r'https?://([^/]+)', url).group(1)
-    try:
-        return requests.get(url, headers=H, timeout=25, verify=VER.get(host, True), **kw)
-    except requests.exceptions.SSLError:
-        b = aia_bundle(host)
-        if b:
-            VER[host] = b
-            return requests.get(url, headers=H, timeout=25, verify=b, **kw)
-        raise
-def prot(r):
-    t = r.text[:20000].lower(); p = []
-    if 'cf-chl' in t or 'challenge-platform' in t or 'just a moment' in t: p.append('cloudflare-challenge')
-    if 'ddos-guard' in t: p.append('ddos-guard')
-    if 'captcha' in t: p.append('captcha')
-    if r.status_code in (401, 403, 429, 498, 503): p.append(f'http{r.status_code}')
-    return p
+from scrape import get, allowed
+OUT = 'docs/data/probe9'; os.makedirs(OUT, exist_ok=True)
 res = {}
-for d in C:
-    base = 'https://' + (d if d != 'samsung.com' else 'www.samsung.com')
-    rec = {}
+def g(k, url, n=1500000):
     try:
-        r = fetch(base + '/robots.txt'); rec['robots_status'] = r.status_code; rt = r.text if r.status_code == 200 and 'html' not in r.headers.get('content-type', '') else ''
-        rec['robots'] = rt[:1500]; rec['tls_fixed'] = bool(VER.get(re.match(r'https://([^/]+)', base).group(1)))
-        P = rp.RobotFileParser(); P.parse(rt.splitlines())
-        home = base + ('/uz/' if d == 'samsung.com' else '/')
-        rec['allow_home'] = P.can_fetch(UA, home)
-        h = fetch(home); t = h.text
-        rec.update(home_status=h.status_code, final=h.url, server=h.headers.get('server'), prot=prot(h), len=len(t),
-                   title=(re.search(r'<title[^>]*>([^<]{0,120})', t, re.I) or [None, None])[1],
-                   platform=[k for k, w in {'shopify': 'cdn.shopify', 'bitrix': 'bitrix', 'woocommerce': 'woocommerce', 'nuxt': '__NUXT', 'next': '__NEXT_DATA__', 'opencart': 'route=product', 'tilda': 'tilda', 'insales': 'insales'}.items() if w.lower() in t.lower()],
-                   jsonld=t.count('application/ld+json'), sum=len(re.findall(r'сум|so.m|uzs', t, re.I)))
-        sm = re.findall(r'(?im)^sitemap:\s*(\S+)', rt) or [base + '/sitemap.xml']
-        try:
-            s = fetch(sm[0]); rec['sitemap'] = {'url': sm[0], 'status': s.status_code, 'locs': s.text.count('<loc>'), 'sample': re.findall(r'<loc>([^<]+)', s.text)[:6]}
-        except Exception as e: rec['sitemap'] = repr(e)[:150]
-        if 'shopify' in rec['platform']:
-            try: s = fetch(base + '/products.json?limit=2'); rec['shopify_json'] = s.status_code
-            except Exception as e: rec['shopify_json'] = repr(e)[:100]
-        if 'woocommerce' in rec['platform']:
-            try: s = fetch(base + '/wp-json/wc/store/v1/products?per_page=2'); rec['wc_api'] = [s.status_code, s.text[:300]]
-            except Exception as e: rec['wc_api'] = repr(e)[:100]
-        open(f'{OUT}/{d}.html', 'w').write(t[:800000])
+        if not allowed(url): res[k] = {'url': url, 'robots': 'disallow'}; return ''
+        r = get(url); t = r.text
+        open(f'{OUT}/{k}', 'w').write(t[:n])
+        res[k] = {'url': url, 'st': r.status_code, 'len': len(t), 'ct': r.headers.get('content-type'), 'ld': t.count('application/ld+json'),
+                  'next': '__NEXT_DATA__' in t, 'nuxt': '__NUXT' in t, 'locs': t.count('<loc>'), 'sum': len(re.findall(r'сум|so.m|UZS', t))}
+        return t if r.status_code == 200 else ''
     except Exception as e:
-        rec['error'] = repr(e)[:220]
-    res[d] = rec; print(d, json.dumps(rec, ensure_ascii=False)[:300])
+        res[k] = {'url': url, 'err': repr(e)[:200]}; return ''
+locs = lambda t: re.findall(r'<loc>\s*([^<\s]+)', t)
+# maxcom
+t = g('maxcom_sm_products.xml', 'https://maxcom.uz/sitemap/products'); L = locs(t); res['maxcom_n'] = len(L); res['maxcom_sample'] = L[:5]
+t = g('maxcom_sm_categories.xml', 'https://maxcom.uz/sitemap/categories'); C = locs(t); res['maxcom_cats'] = C[:40]
+if L: g('maxcom_product.html', L[len(L) // 2])
+if C: g('maxcom_cat.html', C[min(5, len(C) - 1)])
+# woot
+h = open('docs/data/probe8/woot.uz.html').read()
+wl = sorted(set(re.findall(r'href="(https://(?:www\.)?woot\.uz/[a-z0-9\-/]+/)"', h)))
+res['woot_links'] = wl[:80]
+cat = next((l for l in wl if re.search(r'smartfon|telefon|televiz|noutbuk', l)), wl[0] if wl else None)
+if cat:
+    t = g('woot_cat.html', cat); pl = sorted(set(re.findall(r'href="(https://(?:www\.)?woot\.uz/[a-z0-9\-/]+\.html)"', t)))[:5]; res['woot_prod_links'] = pl
+    if pl: g('woot_product.html', pl[0])
+# avtech
+t = g('avtech_sm.xml', 'https://avtech.uz/sitemap.xml'); L = locs(t)
+from collections import Counter
+res['avtech_patterns'] = Counter(re.sub(r'https://avtech\.uz/([^/]+).*', r'\1', u) for u in L).most_common(15)
+prod = next((u for u in L if '/product' in u), None); catu = next((u for u in L if '/catalog' in u or '/category' in u), None)
+res['avtech_samples'] = [prod, catu]
+if prod: g('avtech_product.html', prod)
+if catu: g('avtech_cat.html', catu)
+# mionline
+t = g('mi_sm_products.xml', 'https://mionline.uz/jetsitemap-products-lang-ru.xml'); L = locs(t); res['mi_n'] = len(L); res['mi_sample'] = L[:4]
+if L: g('mi_product.html', L[3])
+t = g('mi_sm_cats.xml', 'https://mionline.uz/jetsitemap-categories-lang-ru.xml'); C = locs(t); res['mi_cats'] = C[:30]
+if C: g('mi_cat.html', C[0])
+# tezz
+for k, u in [('tezz_map.xml', 'https://tezz.uz/map.xml'), ('tezz_ddd.xml', 'https://tezz.uz/ddd.php?sitemap.xml')]:
+    t = g(k, u); res[k + '_sample'] = locs(t)[:8]
+h = g('tezz_home.html', 'https://tezz.uz/')
+res['tezz_api_hints'] = sorted(set(re.findall(r'["\'](https?://[^"\']*api[^"\']*|/api/[^"\']+)["\']', h)))[:30]
+res['tezz_scripts'] = re.findall(r'<script[^>]+src="([^"]+)"', h)[:20]
+# idea
+h = g('idea_home.html', 'https://idea.uz/')
+js = [s for s in re.findall(r'src="(/_next/static/[^"]+\.js)"', h)][:30]; hits = set()
+for s in js:
+    try:
+        t = get('https://idea.uz' + s).text
+        hits |= set(re.findall(r'["`](https://api\.idea\.uz[^"`]*|/api/v\d[^"`]{0,80})["`]', t))
+    except Exception as e: pass
+res['idea_api_hints'] = sorted(hits)[:80]
+nd = re.search(r'__NEXT_DATA__[^>]*>(.*?)</script>', h, re.S); res['idea_next_keys'] = list(json.loads(nd.group(1)).get('props', {}).get('pageProps', {}).keys())[:30] if nd else None
+for k, u in [('idea_api_products', 'https://api.idea.uz/api/v2/products?page=1'), ('idea_api_categories', 'https://api.idea.uz/api/v2/categories')]:
+    g(k, u, 300000)
+# karcher (Shopify)
+g('karcher_products.json', 'https://karcher.uz/products.json?limit=3', 200000)
 json.dump(res, open(f'{OUT}/summary.json', 'w'), ensure_ascii=False, indent=1)
