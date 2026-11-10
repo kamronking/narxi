@@ -3,8 +3,8 @@
 // After deploying, open once:  https://<your-worker>.workers.dev/setup?key=<WEBHOOK_SECRET>
 // Price-drop notifications are still sent by GitHub Actions (scraper/bot.py notify) after every price update.
 
-const SITE = 'https://narxiapp.uz/';
-const ORIGINS = ['https://narxiapp.uz', 'https://www.narxiapp.uz', 'https://kamronking.github.io'];
+const SITE = 'https://narxi.site/';
+const ORIGINS = ['https://narxi.site', 'https://www.narxi.site', 'https://kamronking.github.io'];
 const STORE = { texnomart: 'Texnomart', olcha: 'Olcha', alif: 'Alif Shop', beeline: 'Beeline Market', macbro: 'Macbro', idea: 'Idea',
   maxcom: 'Maxcom', woot: 'Woot', avtech: 'Avtech', mionline: 'Mi Online', tezz: 'Tezz', karcher: 'Kärcher' };
 const T = {

@@ -11,7 +11,7 @@ import json, os, re, glob, sys, time, pathlib, requests
 
 TOKEN = os.environ.get('TG_BOT_TOKEN', '').strip()
 SA = os.environ.get('FIREBASE_SA', '').strip()
-SITE = 'https://narxiapp.uz/'
+SITE = 'https://narxi.site/'
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 API = f'https://api.telegram.org/bot{TOKEN}/'
 
