@@ -760,8 +760,26 @@ def main():
             REPORT['stores'][sid] = rep
             all_items += items
     groups, unkeyed = {}, []
-    for it in all_items:
-        k = key_for(it)
+    # phones: same model+storage but different RAM (e.g. 4/64 vs 3/64) must not be one product.
+    # If a model shows 2+ different RAM values across offers, split by RAM; offers without RAM stay separate.
+    keys = [key_for(it) for it in all_items]
+    def ram_of(t):
+        m = re.search(r'(?<![\d.])(\d{1,2})\s*(?:gb|гб)?\s*/\s*(\d{2,4})\s*(?:gb|гб|tb|тб)?', t.lower())
+        if m and int(m.group(1)) <= 24 and int(m.group(2)) >= 32: return m.group(1)
+        m = re.search(r'(\d{1,2})\s*(?:gb|гб)\s*(?:ram|оперативн|ozu|озу)', t.lower())
+        return m.group(1) if m else None
+    rams = {}
+    for it, k in zip(all_items, keys):
+        if k and k.startswith('phones:'):
+            r = ram_of(it['title'])
+            if r: rams.setdefault(k, set()).add(r)
+    split = {k for k, v in rams.items() if len(v) > 1}
+    REPORT['ram_split'] = len(split)
+    for i, (it, k) in enumerate(zip(all_items, keys)):
+        if k in split:
+            r = ram_of(it['title'])
+            keys[i] = f'{k}:r{r}' if r else k
+    for it, k in zip(all_items, keys):
         if not k:
             unkeyed.append(it['title']); continue
         g = groups.setdefault(k, {'key': k, 'cat': it['cat'], 'offers': {}})
