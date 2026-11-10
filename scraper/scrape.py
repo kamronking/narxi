@@ -285,12 +285,13 @@ def alif():
         for cid, rx in ALIF_RE.items():
             if re.search(rx, sl): bycat.setdefault(cid, []).append(sl); break
     rep['cats'] = sum(map(len, bycat.values()))
-    items, seen, budget = [], set(), 900
+    items, seen, budget = [], set(), 450
     for cid, sls in bycat.items():
-        n0 = len(items)
+        n0, cb = len(items), 30
         for sl in sls:
-            for page in range(1, 12):
-                if budget <= 0: break
+            for page in range(1, 40):
+                if budget <= 0 or cb <= 0: break
+                cb -= 1
                 url = f'https://alifshop.uz/ru/categories/{sl}' + (f'?page={page}' if page > 1 else '')
                 try:
                     r = get(url); budget -= 1; rep['pages'] += 1
