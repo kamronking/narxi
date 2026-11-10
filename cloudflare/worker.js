@@ -13,15 +13,16 @@ const T = {
     hello: 'Привет! Я бот Narxi. Откройте товар на сайте и нажмите «Уведомить в Telegram» — я сообщу, когда цена упадёт.\n\n' + SITE,
     list: 'Вы следите за:\n{items}\n\nОтписаться от всего: /stop', empty: 'Пока ничего не отслеживается.', stopped: 'Готово, уведомления отключены.',
     nf: 'Товар не найден — возможно, он больше не продаётся.',
-    reg: '📱 Регистрация в Narxi\n\nЧтобы завершить регистрацию, нажмите кнопку «📱 Поделиться номером» внизу. Без номера регистрация невозможна.', notOwn: '⚠️ Это не ваш номер. Нажмите кнопку «📱 Поделиться номером» внизу — нужен номер именно вашего Telegram-аккаунта.', needBtn: '👇 Пожалуйста, нажмите кнопку «📱 Поделиться номером» внизу экрана. Номер вручную вводить не нужно — Telegram отправит его сам.', regok: '✅ Готово! Вы зарегистрированы в Narxi. Вернитесь на сайт: ' + SITE },
+    back: '↩ Вернуться на сайт Narxi', reg: '📱 Регистрация в Narxi\n\nЧтобы завершить регистрацию, нажмите кнопку «📱 Поделиться номером» внизу. Без номера регистрация невозможна.', notOwn: '⚠️ Это не ваш номер. Нажмите кнопку «📱 Поделиться номером» внизу — нужен номер именно вашего Telegram-аккаунта.', needBtn: '👇 Пожалуйста, нажмите кнопку «📱 Поделиться номером» внизу экрана. Номер вручную вводить не нужно — Telegram отправит его сам.', regok: '✅ Готово! Вы зарегистрированы в Narxi. Вернитесь на сайт: ' + SITE },
   uz: { set: "✅ Narxni kuzatyapman\n\n{name}\nHozir: {now} so'm ({store})\nNarx {target} so'm yoki undan past bo'lsa xabar beraman.",
     phone: "Narxi'da ro'yxatdan o'tish uchun pastdagi tugmani bosing — Telegram raqamingizni yuboradi. Bu majburiy emas.",
     btn: '📱 Raqamni yuborish', thanks: "🙏 Rahmat! Raqam tasdiqlandi, siz Narxi'da ro'yxatdan o'tdingiz.",
     hello: "Salom! Men Narxi botiman. Saytda tovarni oching va «Telegram'da xabar berish» tugmasini bosing — narx tushganda yozaman.\n\n" + SITE,
     list: "Kuzatuvdagi tovarlar:\n{items}\n\nHammasini o'chirish: /stop", empty: 'Hozircha hech narsa kuzatilmayapti.', stopped: "Tayyor, xabarlar o'chirildi.",
     nf: 'Tovar topilmadi — balki endi sotilmayapti.',
-    reg: "📱 Narxi'da ro'yxatdan o'tish\n\nRo'yxatdan o'tishni yakunlash uchun pastdagi «📱 Raqamni yuborish» tugmasini bosing. Raqamsiz ro'yxatdan o'tib bo'lmaydi.", notOwn: "⚠️ Bu sizning raqamingiz emas. Pastdagi «📱 Raqamni yuborish» tugmasini bosing — aynan sizning Telegram raqamingiz kerak.", needBtn: "👇 Iltimos, ekran pastidagi «📱 Raqamni yuborish» tugmasini bosing. Raqamni qo'lda yozish shart emas — Telegram o'zi yuboradi.", regok: "✅ Tayyor! Siz Narxi'da ro'yxatdan o'tdingiz. Saytga qayting: " + SITE },
+    back: "↩ Narxi saytiga qaytish", reg: "📱 Narxi'da ro'yxatdan o'tish\n\nRo'yxatdan o'tishni yakunlash uchun pastdagi «📱 Raqamni yuborish» tugmasini bosing. Raqamsiz ro'yxatdan o'tib bo'lmaydi.", notOwn: "⚠️ Bu sizning raqamingiz emas. Pastdagi «📱 Raqamni yuborish» tugmasini bosing — aynan sizning Telegram raqamingiz kerak.", needBtn: "👇 Iltimos, ekran pastidagi «📱 Raqamni yuborish» tugmasini bosing. Raqamni qo'lda yozish shart emas — Telegram o'zi yuboradi.", regok: "✅ Tayyor! Siz Narxi'da ro'yxatdan o'tdingiz. Saytga qayting: " + SITE },
 };
+const backBtn = (L, id) => ({ inline_keyboard: [[{ text: L.back, url: SITE + '?reg=' + id }]] });
 const fill = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k]);
 const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 const pid = k => { let h = 0x811c9dc5; for (let i = 0; i < k.length; i++) { h ^= k.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0 } return h.toString(36) };
@@ -115,6 +116,7 @@ async function handle(env, u) {
         await tg(env, 'sendMessage', { chat_id: env.ADMIN_CHAT, text: `🆕 Новый пользователь Narxi\n\n👤 ${frm.first_name || ''} ${frm.last_name || ''}${frm.username ? ' (@' + frm.username + ')' : ''}\n📱 ${m.contact.phone_number}\n🌐 язык: ${lang}${prev && prev.site_uid ? '\n✅ с сайта' : ''}` });
       }
       await tg(env, 'sendMessage', { chat_id: chat, text: prev && prev.site_uid ? L.regok : L.thanks, reply_markup: { remove_keyboard: true } });
+      if (prev && prev.site_uid) await tg(env, 'sendMessage', { chat_id: chat, text: '👇', reply_markup: backBtn(L, prev.site_uid) });
     }
     return;
   }
@@ -128,7 +130,7 @@ async function handle(env, u) {
     const u = await db.get(`tg_users/${chat}`);
     if (u && u.phone) {
       await db.set(`site_reg/${rg[1]}`, { chat, phone: u.phone, first_name: frm.first_name || null, at: now });
-      await tg(env, 'sendMessage', { chat_id: chat, text: L.regok }); return;
+      await tg(env, 'sendMessage', { chat_id: chat, text: L.regok, reply_markup: backBtn(L, rg[1]) }); return;
     }
     await tg(env, 'sendMessage', { chat_id: chat, text: L.reg, reply_markup: askKb });
     return;

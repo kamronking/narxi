@@ -573,10 +573,11 @@ function parseQ(raw){let q=raw.toLowerCase().replace(/ё/g,'е').replace(/,/g,'.
 
 /* ===== Registration nudge (every visit until registered) ===== */
 const WORKER='https://narxi-bot.numonjonovkamron.workers.dev';
-async function regStatus(){if(store.get('reg_ok',false))return true;if(!WORKER||!window.NX)return false;
-  try{const id=await NX.uid();if(!id)return false;const r=await fetch(`${WORKER}/reg?id=${encodeURIComponent(id)}`);const j=await r.json();if(j.ok){store.set('reg_ok',true);if(j.name&&(!USER||!USER.name)){USER={name:j.name,phone:'',city:'',brands:[],since:Date.now()};store.set('user',USER);window.NX&&NX.saveUser&&NX.saveUser(USER,WATCH,LANG);render()}window.NX&&NX.ev('sign_up',{method:'telegram'});return true}}catch(e){}return false}
+async function regStatus(){if(store.get('reg_ok',false))return true;if(!WORKER)return false;
+  const ids=[...new Set([store.get('reg_id',null),window.NX?await NX.uid():null].filter(Boolean))];
+  for(const id of ids)try{const r=await fetch(`${WORKER}/reg?id=${encodeURIComponent(id)}`);const j=await r.json();if(j.ok){store.set('reg_id',id);store.set('reg_ok',true);if(j.name&&(!USER||!USER.name)){USER={name:j.name,phone:'',city:'',brands:[],since:Date.now()};store.set('user',USER);window.NX&&NX.saveUser&&NX.saveUser(USER,WATCH,LANG);render()}window.NX&&NX.ev('sign_up',{method:'telegram'});return true}}catch(e){}return false}
 async function regNudge(force){if(await regStatus())return;if(!force&&sessionStorage.getItem('reg_shown'))return;try{sessionStorage.setItem('reg_shown','1')}catch(e){}
-  if(document.getElementById('regsheet'))return;const id=window.NX?await NX.uid():null;if(!id)return;
+  if(document.getElementById('regsheet'))return;const id=store.get('reg_id',null)||(window.NX?await NX.uid():null);if(!id)return;store.set('reg_id',id);
   const el=document.createElement('div');el.id='regsheet';el.className='regwrap';
   el.innerHTML=`<div class="regsheet in-up" role="dialog" aria-modal="true"><div class="aispark" style="width:48px;height:48px;background:#229ED9">✈</div><h2>${t('rgT')}</h2><p class="muted">${t('rgP')}</p>
    <ul><li>${t('rg1')}</li><li>${t('rg2')}</li><li>${t('rg3')}</li></ul>
@@ -694,10 +695,12 @@ async function refresh(manual){if(busy||!DATA)return;busy=true;const rf=document
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&DATA&&Date.now()-lastRf>15*60e3){lastRf=Date.now();refresh('auto')}})})();
 let lastRf=Date.now();
 render();
-(function(){const q=new URLSearchParams(location.search);if(q.has('reset')){try{['user','watch','seen','reg_ok','synced','cmp','seenp'].forEach(k=>localStorage.removeItem('narxi_'+k));sessionStorage.clear()}catch(e){}
+(function(){const q=new URLSearchParams(location.search);if(q.has('reset')){try{['user','watch','seen','reg_ok','reg_id','synced','cmp','seenp'].forEach(k=>localStorage.removeItem('narxi_'+k));sessionStorage.clear()}catch(e){}
   window.__resetting=true;const go2=()=>{try{sessionStorage.clear()}catch(e){}location.replace(location.pathname)};if(window.NX&&NX.signOut)NX.signOut().then(go2,go2);else setTimeout(()=>{(window.NX&&NX.signOut?NX.signOut():Promise.resolve()).then(go2,go2)},1500)}})();
 const firstVisitOfSession=!sessionStorage.getItem('ob_shown');
-if(!window.__resetting&&!store.get('reg_ok',false)&&firstVisitOfSession){try{sessionStorage.setItem('ob_shown','1');sessionStorage.setItem('reg_shown','1')}catch(e){}openOB(0)}
+(function(){const q=new URLSearchParams(location.search);const rid=q.get('reg');if(rid&&/^[A-Za-z0-9]{10,40}$/.test(rid)){store.set('reg_id',rid);history.replaceState(null,'',location.pathname)}})();
+if(!window.__resetting&&!store.get('reg_ok',false)&&firstVisitOfSession){try{sessionStorage.setItem('ob_shown','1');sessionStorage.setItem('reg_shown','1')}catch(e){}
+  if(store.get('reg_id',null)){regStatus().then(ok=>{if(ok){toast(t('rgOk'));render()}else openOB(0)})}else openOB(0)}
 setTimeout(function waitNX(n){if(!window.NX&&n<20)return setTimeout(()=>waitNX(n+1),500);regStatus().then(ok=>{if(ok&&!ob.hidden&&!regFromProfile){ob.hidden=true;render()}})},1500,0);
 const nxBoot=async()=>{if(USER){if(!store.get('synced',0)){const ok=await NX.saveUser(USER,WATCH,LANG);if(ok){store.set('synced',1);toast('☁️ '+t('saved'))}}return}const d=await NX.load();if(d&&d.name){USER={name:d.name,phone:d.phone,city:d.city,brands:d.brands||[],since:d.since||Date.now()};store.set('user',USER);if(d.watch){WATCH={...d.watch,...WATCH};store.set('watch',WATCH)}store.set('seen',1);if(!ob.hidden)ob.hidden=true;render()}};if(window.NX_READY)nxBoot();else addEventListener('nx-ready',nxBoot);
 </script>
