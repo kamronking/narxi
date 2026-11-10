@@ -286,9 +286,9 @@ const store={get(k,d){try{const v=localStorage.getItem('narxi_'+k);return v?JSON
 let LANG=store.get('lang','uz');const t=(k,o={})=>{const v=TX[LANG][k]??k;return typeof v==='string'?v.replace(/\{(\w+)\}/g,(_,x)=>o[x]):v};
 let THEME=store.get('theme','auto');const applyTheme=()=>{if(THEME==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.dataset.theme=THEME};applyTheme();
 let USER=store.get('user',null);
-const STORES={texnomart:{name:'Texnomart',color:'#e3262c'},olcha:{name:'Olcha',color:'#00a651'},alif:{name:'Alif Shop',color:'#14b8a6'},beeline:{name:'Beeline Market',color:'#f5b700'},macbro:{name:'Macbro',color:'#7c8591'}};
+const STORES={texnomart:{name:'Texnomart',color:'#e3262c'},olcha:{name:'Olcha',color:'#00a651'},alif:{name:'Alif Shop',color:'#14b8a6'},beeline:{name:'Beeline Market',color:'#f5b700'},macbro:{name:'Macbro',color:'#7c8591'},idea:{name:'Idea',color:'#ff6a13'},maxcom:{name:'Maxcom',color:'#fcb800'},woot:{name:'Woot',color:'#2a6df4'},avtech:{name:'Avtech',color:'#1e2a78'},mionline:{name:'Mi Online',color:'#ff6900'},tezz:{name:'Tezz',color:'#d61f69'},karcher:{name:'Kärcher',color:'#ffd200'}};
 const CONTACT='https://t.me/numanovk';
-const SOON=['Uzum Market','Mediapark','Asaxiy','Idea','Elmakon','Goodzone'];
+const SOON=['Uzum Market','Mediapark','Asaxiy','Elmakon','Goodzone'];
 const fmt=n=>new Intl.NumberFormat('ru-RU').format(n).replace(/ /g,' ');
 const som=n=>`${fmt(n)} ${t('som')}`;
 const mln=n=>`${(n/1e6).toLocaleString('ru-RU',{maximumFractionDigits:n>=1e7?1:2})} ${t('mln')}`;

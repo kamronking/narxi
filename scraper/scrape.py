@@ -418,7 +418,260 @@ def macbro():
     rep['items'] = len(items); rep['errors'] = rep['errors'][:20]
     return items, rep
 
-STORES = {'texnomart': texnomart, 'olcha': olcha, 'alif': alif, 'beeline': beeline, 'macbro': macbro}
+
+# ================= stores added Nov 2026 =================
+import html as _html
+from concurrent.futures import ThreadPoolExecutor
+CRAWL_DELAY = {'maxcom.uz': 5.0}
+def sget(url, **kw):
+    """get() plus the site's own Crawl-delay where it asks for one."""
+    host = re.match(r'https?://(?:www\.)?([^/]+)', url).group(1)
+    extra = CRAWL_DELAY.get(host, 0) - DELAY
+    if extra > 0: time.sleep(extra)
+    return get(url, **kw)
+def num(s):
+    s = re.sub(r'[^\d]', '', str(s or ''))
+    return int(s) if s else 0
+def _rep(): return {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}}
+def _fin(items, rep):
+    for it in items: rep['per_cat'][it['cat']] = rep['per_cat'].get(it['cat'], 0) + 1
+    rep['items'] = len(items); rep['errors'] = rep['errors'][:20]
+    return items, rep
+REL = r'smartfon|telefon|phone|noutbuk|laptop|planshet|tablet|televiz|tv|monitor|naushnik|kolonk|akustik|audio|chas|watch|holodil|morozil|stiral|sushil|kondic|pylesos|utyug|otparivat|mikrovoln|multivar|chain|chayn|blender|kofe|myasoru|toster|mikser|sokovyzh|gril|hlebopech|parovar|aerogril|plit|duhov|varochn|vytyazh|posudomo|obogrev|ventilyator|vodonagrev|uvlazhn|ochistit|fen|vypryamit|trimmer|britv|epilyat|printer|mfu|bytov|tehnik|klimat|krasot|kuhn|gadzhet|igrov|konsol|monoblok|monoblock|photo|projector|proektor'
+def shopify(sid, base):
+    rep, items = _rep(), []
+    for page in range(1, 40):
+        url = f'{base}/products.json?limit=250&page={page}'
+        try:
+            r = get(url); rep['pages'] += 1; prods = r.json().get('products') or []
+        except Exception as e:
+            rep['errors'].append(f'{url}: {e!r}'[:160]); break
+        if not prods: break
+        for p in prods:
+            cid = cat_of_name(p.get('title', '') + ' ' + (p.get('product_type') or ''))
+            img = (p.get('images') or [{}])[0].get('src')
+            for v in p.get('variants') or []:
+                vt = v.get('title') or ''
+                title = p['title'] + ('' if vt.lower() == 'default title' else ' ' + vt.replace(' / ', ' '))
+                price = int(float(v.get('price') or 0))
+                if not price: continue
+                cmp = int(float(v.get('compare_at_price') or 0))
+                items.append({'store': sid, 'title': title, 'price': price, 'old': cmp if cmp > price else None,
+                              'url': f"{base}/products/{p['handle']}?variant={v['id']}", 'stock': 'ok' if v.get('available') else 'out',
+                              'img': img, 'cat': cid})
+    return _fin(items, rep)
+def karcher(): return shopify('karcher', 'https://karcher.uz')
+
+def idea():
+    rep, items = _rep(), []
+    last = 1; page = 1
+    while page <= last and page <= 120:
+        url = f'https://api.idea.uz/api/v2/products?page={page}'
+        try:
+            d = get(url).json(); rep['pages'] += 1
+        except Exception as e:
+            rep['errors'].append(f'{url}: {e!r}'[:160]); break
+        last = int((d.get('meta') or {}).get('last_page') or last)
+        for p in d.get('data') or []:
+            price = num(p.get('current_price'))
+            if not price: continue
+            c = p.get('category') or {}
+            cname = ' '.join(filter(None, [c.get('name'), (c.get('parent') or {}).get('name')]))
+            title = p.get('title_name') or p.get('name')
+            cid = cat_of_name(title)
+            if cid == 'other': cid = cat_of_name(cname)
+            old = num(p.get('old_price'))
+            ins = sorted(p.get('installment_prices') or [], key=lambda x: -int(x.get('duration') or 0))
+            it = {'store': 'idea', 'title': title, 'price': price, 'old': old if old > price else None, 'url': p.get('url'),
+                  'stock': 'ok' if int(p.get('in_stock') or 0) > 0 else 'out', 'img': p.get('medium_img') or p.get('img'), 'cat': cid}
+            if ins and ins[0].get('price_per_month'):
+                it['inst'], it['instm'] = int(ins[0]['price_per_month']), int(ins[0]['duration'])
+            items.append(it)
+        page += 1
+    return _fin(items, rep)
+
+def maxcom():
+    rep, items, seen = _rep(), [], set()
+    try:
+        cats = re.findall(r'<loc>\s*(https://maxcom\.uz/catalog/[^<\s]+)', sget('https://maxcom.uz/sitemap/categories').text)
+    except Exception as e:
+        rep['errors'].append(f'sitemap: {e!r}'[:160]); cats = []
+    cats = [c for c in cats if re.search(REL, c.rsplit('/', 1)[-1])]
+    rep['cats'] = len(cats); budget = 170
+    for c in cats:
+        for page in range(1, 30):
+            if budget <= 0: break
+            url = c + (f'?page={page}' if page > 1 else '')
+            try:
+                t = sget(url).text; budget -= 1; rep['pages'] += 1
+            except Exception as e:
+                rep['errors'].append(f'{url}: {e!r}'[:160]); break
+            new = 0
+            for blk in t.split('class="ps-product"')[1:]:
+                m = re.search(r'class="ps-product__title" href="([^"]+)">([^<]+)</a>', blk)
+                pr = re.search(r'ps-product__price[^>]*>\s*(?:<del>[^<]*</del>)?\s*([\d,\s]+)\s*UZS', blk)
+                if not m or not pr: continue
+                u = m.group(1)
+                if u in seen: continue
+                seen.add(u); new += 1
+                old = re.search(r'<del>\s*([\d,\s]+)\s*UZS', blk)
+                img = re.search(r'<img src="([^"]+)"', blk)
+                title = _html.unescape(m.group(2)).strip()
+                price = num(pr.group(1))
+                items.append({'store': 'maxcom', 'title': title, 'price': price, 'old': (num(old.group(1)) if old and num(old.group(1)) > price else None),
+                              'url': u, 'stock': 'out' if re.search(r'нет в наличии', blk, re.I) else 'ok', 'img': img.group(1) if img else None, 'cat': cat_of_name(title)})
+            if not new or f'page={page + 1}' not in t: break
+    rep['budget_left'] = budget
+    return _fin(items, rep)
+
+def woot():
+    rep, items, seen = _rep(), [], set()
+    try:
+        h = get('https://www.woot.uz/').text
+    except Exception as e:
+        rep['errors'].append(f'home: {e!r}'); return _fin(items, rep)
+    menu = re.findall(r'href="(https://www\.woot\.uz/[a-z0-9\-]+/)" class="ty-menu__submenu-link">\s*<(?:bdi|span)>([^<]+)<', h)
+    cats = []
+    for u, name in menu:
+        if u not in cats and cat_of_name(name) != 'other': cats.append(u)
+    rep['cats'] = len(cats); budget = 160
+    for c in cats:
+        for page in range(1, 25):
+            if budget <= 0: break
+            url = c + (f'page-{page}/' if page > 1 else '')
+            try:
+                r = get(url); budget -= 1; rep['pages'] += 1
+                if r.status_code != 200: break
+                t = r.text
+            except Exception as e:
+                rep['errors'].append(f'{url}: {e!r}'[:160]); break
+            new = 0
+            for blk in t.split('ut2-gl__item')[1:]:
+                m = re.search(r'<a href="(https://www\.woot\.uz/[^"]+)">\s*<img[^>]*alt="([^"]+)"', blk)
+                pr = re.search(r'sec_discounted_price_\d+" class="ty-price-num">([\d\s\xa0]+)<', blk)
+                if not m or not pr: continue
+                u = m.group(1)
+                if u in seen: continue
+                seen.add(u); new += 1
+                title = re.sub(r',\s*фото \d+$', '', _html.unescape(_html.unescape(m.group(2)))).strip()
+                price = num(pr.group(1))
+                old = re.search(r'sec_list_price_\d+" class="ty-list-price ty-nowrap">([\d\s\xa0]+)<', blk)
+                img = re.search(r'src="(https://www\.woot\.uz/images/[^"]+)"', blk)
+                items.append({'store': 'woot', 'title': title, 'price': price, 'old': (num(old.group(1)) if old and num(old.group(1)) > price else None),
+                              'url': u, 'stock': 'out' if re.search(r'Нет в наличии|ty-qty-out-of-stock', blk) else 'ok', 'img': img.group(1) if img else None, 'cat': cat_of_name(title)})
+            if not new or f'page-{page + 1}/' not in t: break
+    rep['budget_left'] = budget
+    return _fin(items, rep)
+
+def avtech():
+    rep, items, seen = _rep(), [], set()
+    try:
+        cats = [u for u in re.findall(r'<loc>\s*([^<\s]+)', get('https://avtech.uz/sitemap.xml').text) if '/catalog/' in u]
+    except Exception as e:
+        rep['errors'].append(f'sitemap: {e!r}'); cats = []
+    rep['cats'] = len(cats); budget = 320
+    for c in cats:
+        page, last = 1, 1
+        while page <= last and budget > 0:
+            url = c + (f'?page={page}' if page > 1 else '')
+            try:
+                r = get(url); budget -= 1; rep['pages'] += 1
+                if r.status_code != 200: break
+                nd = re.search(r'__NEXT_DATA__[^>]*>(.*?)</script>', r.text, re.S)
+                P = json.loads(nd.group(1))['props']['pageProps'].get('products') or {}
+            except Exception as e:
+                rep['errors'].append(f'{url}: {e!r}'[:160]); break
+            last = int((P.get('meta') or {}).get('last_page') or 1)
+            for d in P.get('data') or []:
+                sh = d.get('random_shop') or {}
+                price = num(sh.get('price'))
+                if not price or d.get('id') in seen: continue
+                seen.add(d.get('id'))
+                img = (d.get('images') or [{}])[0].get('url') if isinstance(d.get('images'), list) else None
+                it = {'store': 'avtech', 'title': d.get('name'), 'price': price, 'old': None, 'url': d.get('web_url'),
+                      'stock': 'ok' if num(sh.get('quantity')) > 0 else 'out', 'img': img, 'cat': cat_of_name(d.get('name'))}
+                items.append(it)
+            page += 1
+    rep['budget_left'] = budget
+    return _fin(items, rep)
+
+def mionline():
+    rep, items, seen = _rep(), [], set()
+    try:
+        cats = re.findall(r'<loc>\s*([^<\s]+)', get('https://mionline.uz/jetsitemap-categories-lang-ru.xml').text)
+    except Exception as e:
+        rep['errors'].append(f'sitemap: {e!r}'); cats = []
+    cats = [c for c in cats if re.search(REL, c) and not re.search(r'aksessuar|chehl|zaryad|kabel|remesh|plenk|stekl|filtr|zapchast', c)]
+    rep['cats'] = len(cats); budget = 200
+    for c in cats:
+        for page in range(1, 20):
+            if budget <= 0: break
+            url = c + (f'?page={page}' if page > 1 else '')
+            try:
+                r = get(url); budget -= 1; rep['pages'] += 1; t = r.text
+            except Exception as e:
+                rep['errors'].append(f'{url}: {e!r}'[:160]); break
+            new = 0
+            for blk in t.split('product-thumb')[1:]:
+                m = re.search(r'class="product-name"><a href="([^"]+)">([^<]+)</a>', blk)
+                pv = re.search(r'data-price-value="(\d+(?:\.\d+)?)"(?:\s+data-special-value="(\d+(?:\.\d+)?)")?', blk)
+                if not m or not pv: continue
+                u = m.group(1)
+                if u in seen: continue
+                seen.add(u); new += 1
+                base_p, sp = int(float(pv.group(1))), int(float(pv.group(2) or 0))
+                price = sp if sp and sp < base_p else base_p
+                img = re.search(r'<img[^>]+src="([^"]+)"', blk)
+                title = _html.unescape(m.group(2)).strip()
+                items.append({'store': 'mionline', 'title': title, 'price': price, 'old': base_p if price < base_p else None, 'url': u,
+                              'stock': 'out' if re.search(r'Нет в наличии|Предзаказ', blk) else 'ok', 'img': img.group(1) if img else None, 'cat': cat_of_name(title)})
+            if not new or f'page={page + 1}' not in t: break
+    rep['budget_left'] = budget
+    return _fin(items, rep)
+
+def tezz():
+    rep, items, seen = _rep(), [], set()
+    try:
+        h = get('https://tezz.uz/').text
+    except Exception as e:
+        rep['errors'].append(f'home: {e!r}'); return _fin(items, rep)
+    links = sorted(set(re.findall(r'href="(/catalog/[a-z0-9\-/]+)"', h)))
+    leaves = [l for l in links if not any(o != l and o.startswith(l + '/') for o in links)]
+    cats = ['https://tezz.uz' + l for l in leaves if re.search(REL, l) or l.count('/') >= 3]
+    rep['cats'] = len(cats); budget = 200
+    for c in cats:
+        for page in range(1, 30):
+            if budget <= 0: break
+            url = c + (f'?page={page}' if page > 1 else '')
+            try:
+                r = get(url); budget -= 1; rep['pages'] += 1; t = r.text
+            except Exception as e:
+                rep['errors'].append(f'{url}: {e!r}'[:160]); break
+            new = 0
+            for blk in t.split('products-list__item"')[1:]:
+                m = re.search(r'class="products-list__title"><a href="(/product/[^"]+)">([^<]+)</a>', blk)
+                d = re.search(r"data-tobasket='([^']+)'", blk)
+                if not m or not d: continue
+                try:
+                    pd = json.loads(_html.unescape(d.group(1)))['price']
+                except Exception:
+                    continue
+                u = 'https://tezz.uz' + m.group(1)
+                if u in seen: continue
+                price = int(float(pd.get('priceWithDiscounts') or 0)) or int(float(pd.get('price') or 0))
+                if not price: continue
+                seen.add(u); new += 1
+                base_p = int(float(pd.get('price') or 0))
+                img = re.search(r'<img src="(/uploads/[^"]+)"', blk)
+                title = _html.unescape(m.group(2)).strip()
+                items.append({'store': 'tezz', 'title': title, 'price': price, 'old': base_p if base_p > price else None, 'url': u,
+                              'stock': 'ok' if 'В наличии' in blk else 'out', 'img': 'https://tezz.uz' + img.group(1) if img else None, 'cat': cat_of_name(title)})
+            if not new: break
+    rep['budget_left'] = budget
+    return _fin(items, rep)
+
+STORES = {'texnomart': texnomart, 'olcha': olcha, 'alif': alif, 'beeline': beeline, 'macbro': macbro,
+          'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'mionline': mionline, 'tezz': tezz, 'karcher': karcher}
 
 OTHER_CHUNKS = 8
 def khash(k):
@@ -495,13 +748,16 @@ def merge_groups(groups):
 
 def main():
     all_items = []
-    for sid, fn in STORES.items():
+    def run(sid):
         try:
-            items, rep = fn()
+            return sid, *STORES[sid]()
         except Exception as e:
-            items, rep = [], {'fatal': repr(e)}
-        REPORT['stores'][sid] = rep
-        all_items += items
+            return sid, [], {'fatal': repr(e)}
+    # different hosts in parallel; each store stays sequential and polite
+    with ThreadPoolExecutor(max_workers=6) as ex:
+        for sid, items, rep in ex.map(run, list(STORES)):
+            REPORT['stores'][sid] = rep
+            all_items += items
     groups, unkeyed = {}, []
     for it in all_items:
         k = key_for(it)
