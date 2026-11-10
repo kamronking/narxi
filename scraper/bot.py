@@ -11,7 +11,7 @@ import json, os, re, glob, sys, time, pathlib, requests
 
 TOKEN = os.environ.get('TG_BOT_TOKEN', '').strip()
 SA = os.environ.get('FIREBASE_SA', '').strip()
-SITE = 'https://kamronking.github.io/narxi/'
+SITE = 'https://narxiapp.uz/'
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 API = f'https://api.telegram.org/bot{TOKEN}/'
 
@@ -156,11 +156,11 @@ if __name__ == '__main__':
     me = tg('getMe'); print('telegram getMe ok:', me.get('ok'), (me.get('result') or {}).get('username'))
     D, P = db(), products()
     st = D.collection('bot').document('state')
-    if not (st.get().to_dict() or {}).get('setup_v1'):
+    if not (st.get().to_dict() or {}).get('setup_v2'):
         tg('setMyCommands', commands=[{'command': 'list', 'description': 'Kuzatuvdagi tovarlar / Мои товары'}, {'command': 'stop', 'description': "Xabarlarni o'chirish / Отключить уведомления"}])
         tg('setMyDescription', description="Narxi — O'zbekiston do'konlaridagi narxlarni solishtirish. Narx tushsa xabar beraman.\nNarxi — сравнение цен в магазинах Узбекистана. Сообщу, когда цена упадёт.\n\n" + SITE)
         tg('setMyShortDescription', short_description="Narx tushsa xabar beraman · Сообщу, когда цена упадёт")
-        st.set({'setup_v1': True}, merge=True)
+        st.set({'setup_v2': True}, merge=True)
     handle_updates(D, P)
     if 'notify' in sys.argv:
         notify(D, P)
