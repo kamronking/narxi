@@ -650,7 +650,7 @@ function renderProfile(){const REG=store.get('reg_ok',false);const ks=Object.key
   view.querySelectorAll('[data-th]').forEach(b=>b.onclick=()=>{THEME=b.dataset.th;store.set('theme',THEME);applyTheme();renderProfile()});
   const rg=document.getElementById('regGo');if(rg)rg.onclick=()=>regNudge(true);
   document.getElementById('toAbout').onclick=()=>go('about');document.getElementById('obAgain').onclick=()=>openOB(0);
-  const lo=document.getElementById('logout');if(lo)lo.onclick=()=>{USER=null;store.del('user');store.del('reg_ok');window.NX&&NX.logout();render()}}
+  const lo=document.getElementById('logout');if(lo)lo.onclick=()=>{USER=null;store.del('user');store.del('reg_ok');store.del('reg_id');try{sessionStorage.setItem('reg_shown','1')}catch(e){}window.NX&&NX.logout();render()}}
 function renderContact(){view.innerHTML=`<h1 class="ptitle in-up">${t('cT')}</h1>
   <section class="card in-up" style="--i:1;align-items:flex-start;max-width:640px"><div class="tgav">N</div><b style="font-size:18px">@numanovk</b><p style="margin:0">${t('cP1')}</p><p style="margin:0" class="muted">${t('cP2')}</p><a class="btn press" href="${CONTACT+'?text='+encodeURIComponent(t('hiMsg'))}" target="_blank" rel="noopener">${t('cBtn')} ↗</a></section>
   <button class="btn ghost press" id="cAbout" style="align-self:flex-start">${t('aboutT')} ›</button>`;document.getElementById('cAbout').onclick=()=>go('about')}
