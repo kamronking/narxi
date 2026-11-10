@@ -68,6 +68,17 @@ function fs(env) {
       const d = await r.json(); return Object.fromEntries(Object.entries(d.fields || {}).map(([k, v]) => [k, unval(v)]));
     },
     async del(path) { return fetch(`${base}/${path}`, { method: 'DELETE', headers: await h() }) },
+    async count(col, since) {
+      const q = { from: [{ collectionId: col }] };
+      if (since) q.where = { fieldFilter: { field: { fieldPath: 'at' }, op: 'GREATER_THAN_OR_EQUAL', value: val(since) } };
+      const r = await fetch(`${base}:runAggregationQuery`, { method: 'POST', headers: await h(), body: JSON.stringify({ structuredAggregationQuery: { structuredQuery: q, aggregations: [{ alias: 'n', count: {} }] } }) });
+      const j = await r.json(); return +((j[0] && j[0].result && j[0].result.aggregateFields.n.integerValue) || 0);
+    },
+    async recent(col, n) {
+      const r = await fetch(`${base}:runQuery`, { method: 'POST', headers: await h(), body: JSON.stringify({ structuredQuery: { from: [{ collectionId: col }], orderBy: [{ field: { fieldPath: 'at' }, direction: 'DESCENDING' }], limit: n } }) });
+      const rows = await r.json();
+      return rows.filter(x => x.document).map(x => Object.fromEntries(Object.entries(x.document.fields).map(([k, v]) => [k, unval(v)])));
+    },
     async byChat(chat) {
       const r = await fetch(`${base}:runQuery`, { method: 'POST', headers: await h(), body: JSON.stringify({ structuredQuery: {
         from: [{ collectionId: 'tg_alerts' }], where: { fieldFilter: { field: { fieldPath: 'chat' }, op: 'EQUAL', value: val(chat) } } } }) });
@@ -100,6 +111,9 @@ async function handle(env, u) {
       const prev = await db.get(`tg_users/${chat}`);
       await db.set(`tg_users/${chat}`, { phone: m.contact.phone_number, first_name: frm.first_name || null, username: frm.username || null, lang, verified_at: now });
       if (prev && prev.site_uid) await db.set(`site_reg/${prev.site_uid}`, { chat, phone: m.contact.phone_number, first_name: frm.first_name || null, at: now });
+      if (env.ADMIN_CHAT && !(prev && prev.phone)) {
+        await tg(env, 'sendMessage', { chat_id: env.ADMIN_CHAT, text: `🆕 Новый пользователь Narxi\n\n👤 ${frm.first_name || ''} ${frm.last_name || ''}${frm.username ? ' (@' + frm.username + ')' : ''}\n📱 ${m.contact.phone_number}\n🌐 язык: ${lang}${prev && prev.site_uid ? '\n✅ с сайта' : ''}` });
+      }
       await tg(env, 'sendMessage', { chat_id: chat, text: prev && prev.site_uid ? L.regok : L.thanks, reply_markup: { remove_keyboard: true } });
     }
     return;
@@ -132,6 +146,13 @@ async function handle(env, u) {
     await tg(env, 'sendMessage', { chat_id: chat, text: fill(L.set, { name: p.name, now: fmt(b.price), store: STORE[b.store] || b.store, target: fmt(target) }) });
     if (!user || !user.phone) await tg(env, 'sendMessage', { chat_id: chat, text: L.phone,
       reply_markup: { keyboard: [[{ text: L.btn, request_contact: true }]], resize_keyboard: true, one_time_keyboard: true } });
+  } else if (text === '/myid') {
+    await tg(env, 'sendMessage', { chat_id: chat, text: `Ваш chat id: ${chat}` });
+  } else if (text.startsWith('/stats') && env.ADMIN_CHAT && String(chat) === String(env.ADMIN_CHAT)) {
+    const day = Math.floor(Date.now() / 1000) - 86400, week = Math.floor(Date.now() / 1000) - 7 * 86400;
+    const [all, d1, d7, last] = await Promise.all([db.count('site_reg'), db.count('site_reg', day), db.count('site_reg', week), db.recent('site_reg', 10)]);
+    const fmtT = ts => new Date(ts * 1000).toLocaleString('ru-RU', { timeZone: 'Asia/Tashkent', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+    await tg(env, 'sendMessage', { chat_id: chat, text: `📊 Регистрации Narxi\n\nВсего: ${all}\nЗа 24 часа: ${d1}\nЗа 7 дней: ${d7}\n\nПоследние:\n` + (last.map(r => `• ${fmtT(r.at)} — ${r.first_name || '—'} ${r.phone || ''}`).join('\n') || '—') });
   } else if (text.startsWith('/list')) {
     const al = await db.byChat(chat);
     await tg(env, 'sendMessage', { chat_id: chat, text: al.length ? fill(L.list, { items: al.map(a => `• ${a.name} — ≤ ${fmt(a.target)}`).join('\n') }) : L.empty });
