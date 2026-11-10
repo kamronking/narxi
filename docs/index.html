@@ -697,9 +697,9 @@ async function refresh(manual){if(busy||!DATA)return;busy=true;const rf=document
 let lastRf=Date.now();
 render();
 (function(){const q=new URLSearchParams(location.search);if(q.has('reset')){try{['user','watch','seen','reg_ok','synced','cmp','seenp'].forEach(k=>localStorage.removeItem('narxi_'+k));sessionStorage.clear()}catch(e){}
-  const go2=()=>{location.replace(location.pathname)};if(window.NX&&NX.signOut)NX.signOut().then(go2,go2);else setTimeout(()=>{(window.NX&&NX.signOut?NX.signOut():Promise.resolve()).then(go2,go2)},1500)}})();
+  window.__resetting=true;const go2=()=>{try{sessionStorage.clear()}catch(e){}location.replace(location.pathname)};if(window.NX&&NX.signOut)NX.signOut().then(go2,go2);else setTimeout(()=>{(window.NX&&NX.signOut?NX.signOut():Promise.resolve()).then(go2,go2)},1500)}})();
 const firstVisitOfSession=!sessionStorage.getItem('ob_shown');
-if(!store.get('reg_ok',false)&&firstVisitOfSession){try{sessionStorage.setItem('ob_shown','1');sessionStorage.setItem('reg_shown','1')}catch(e){}openOB(0)}
+if(!window.__resetting&&!store.get('reg_ok',false)&&firstVisitOfSession){try{sessionStorage.setItem('ob_shown','1');sessionStorage.setItem('reg_shown','1')}catch(e){}openOB(0)}
 setTimeout(function waitNX(n){if(!window.NX&&n<20)return setTimeout(()=>waitNX(n+1),500);regStatus().then(ok=>{if(ok&&!ob.hidden&&!regFromProfile){ob.hidden=true;render()}})},1500,0);
 const nxBoot=async()=>{if(USER){if(!store.get('synced',0)){const ok=await NX.saveUser(USER,WATCH,LANG);if(ok){store.set('synced',1);toast('☁️ '+t('saved'))}}return}const d=await NX.load();if(d&&d.name){USER={name:d.name,phone:d.phone,city:d.city,brands:d.brands||[],since:d.since||Date.now()};store.set('user',USER);if(d.watch){WATCH={...d.watch,...WATCH};store.set('watch',WATCH)}store.set('seen',1);if(!ob.hidden)ob.hidden=true;render()}};if(window.NX_READY)nxBoot();else addEventListener('nx-ready',nxBoot);
 </script>
