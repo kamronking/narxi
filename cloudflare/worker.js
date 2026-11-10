@@ -12,13 +12,15 @@ const T = {
     btn: '📱 Поделиться номером', thanks: '🙏 Спасибо! Номер подтверждён, вы зарегистрированы в Narxi.',
     hello: 'Привет! Я бот Narxi. Откройте товар на сайте и нажмите «Уведомить в Telegram» — я сообщу, когда цена упадёт.\n\n' + SITE,
     list: 'Вы следите за:\n{items}\n\nОтписаться от всего: /stop', empty: 'Пока ничего не отслеживается.', stopped: 'Готово, уведомления отключены.',
-    nf: 'Товар не найден — возможно, он больше не продаётся.' },
+    nf: 'Товар не найден — возможно, он больше не продаётся.',
+    reg: 'Регистрация в Narxi: нажмите кнопку ниже — Telegram передаст ваш номер, и всё готово.', regok: '✅ Готово! Вы зарегистрированы в Narxi. Вернитесь на сайт: ' + SITE },
   uz: { set: "✅ Narxni kuzatyapman\n\n{name}\nHozir: {now} so'm ({store})\nNarx {target} so'm yoki undan past bo'lsa xabar beraman.",
     phone: "Narxi'da ro'yxatdan o'tish uchun pastdagi tugmani bosing — Telegram raqamingizni yuboradi. Bu majburiy emas.",
     btn: '📱 Raqamni yuborish', thanks: "🙏 Rahmat! Raqam tasdiqlandi, siz Narxi'da ro'yxatdan o'tdingiz.",
     hello: "Salom! Men Narxi botiman. Saytda tovarni oching va «Telegram'da xabar berish» tugmasini bosing — narx tushganda yozaman.\n\n" + SITE,
     list: "Kuzatuvdagi tovarlar:\n{items}\n\nHammasini o'chirish: /stop", empty: 'Hozircha hech narsa kuzatilmayapti.', stopped: "Tayyor, xabarlar o'chirildi.",
-    nf: 'Tovar topilmadi — balki endi sotilmayapti.' },
+    nf: 'Tovar topilmadi — balki endi sotilmayapti.',
+    reg: "Narxi'da ro'yxatdan o'tish: pastdagi tugmani bosing — Telegram raqamingizni yuboradi va tayyor.", regok: "✅ Tayyor! Siz Narxi'da ro'yxatdan o'tdingiz. Saytga qayting: " + SITE },
 };
 const fill = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k]);
 const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -91,9 +93,22 @@ async function handle(env, u) {
   const text = (m.text || '').trim(), now = Math.floor(Date.now() / 1000);
   if (m.contact) {
     if (m.contact.user_id === frm.id) {
+      const prev = await db.get(`tg_users/${chat}`);
       await db.set(`tg_users/${chat}`, { phone: m.contact.phone_number, first_name: frm.first_name || null, username: frm.username || null, lang, verified_at: now });
-      await tg(env, 'sendMessage', { chat_id: chat, text: L.thanks, reply_markup: { remove_keyboard: true } });
+      if (prev && prev.site_uid) await db.set(`site_reg/${prev.site_uid}`, { chat, phone: m.contact.phone_number, first_name: frm.first_name || null, at: now });
+      await tg(env, 'sendMessage', { chat_id: chat, text: prev && prev.site_uid ? L.regok : L.thanks, reply_markup: { remove_keyboard: true } });
     }
+    return;
+  }
+  const rg = text.match(/^\/start\s+reg_([A-Za-z0-9]{10,40})$/);
+  if (rg) {
+    await db.set(`tg_users/${chat}`, { site_uid: rg[1], first_name: frm.first_name || null, username: frm.username || null, lang, seen_at: now });
+    const u = await db.get(`tg_users/${chat}`);
+    if (u && u.phone) {
+      await db.set(`site_reg/${rg[1]}`, { chat, phone: u.phone, first_name: frm.first_name || null, at: now });
+      await tg(env, 'sendMessage', { chat_id: chat, text: L.regok }); return;
+    }
+    await tg(env, 'sendMessage', { chat_id: chat, text: L.reg, reply_markup: { keyboard: [[{ text: L.btn, request_contact: true }]], resize_keyboard: true, one_time_keyboard: true } });
     return;
   }
   const mm = text.match(/^\/start\s+(?:(uz|ru)_)?w([0-9a-z]{1,8})_(\d{1,7})(?:_([a-z0-9-]{2,12}))?$/);
@@ -127,6 +142,11 @@ export default {
       if (url.searchParams.get('key') !== env.WEBHOOK_SECRET) return new Response('forbidden', { status: 403 });
       const r = await tg(env, 'setWebhook', { url: `${url.origin}/hook`, secret_token: env.WEBHOOK_SECRET, allowed_updates: ['message'], drop_pending_updates: false });
       return new Response(JSON.stringify(r), { headers: { 'content-type': 'application/json' } });
+    }
+    if (url.pathname === '/reg') {  // site asks: is this visitor registered? (yes/no only, no personal data)
+      const id = url.searchParams.get('id') || '';
+      const ok = /^[A-Za-z0-9]{10,40}$/.test(id) && !!(await fs(env).get(`site_reg/${id}`));
+      return new Response(JSON.stringify({ ok }), { headers: { 'content-type': 'application/json', 'access-control-allow-origin': 'https://kamronking.github.io', 'cache-control': 'no-store' } });
     }
     if (url.pathname === '/hook' && req.method === 'POST') {
       if (req.headers.get('x-telegram-bot-api-secret-token') !== env.WEBHOOK_SECRET) return new Response('forbidden', { status: 403 });

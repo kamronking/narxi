@@ -57,14 +57,16 @@ T = {
         'btn': '📱 Поделиться номером', 'thanks': '🙏 Спасибо! Номер подтверждён, вы зарегистрированы в Narxi.',
         'hello': 'Привет! Я бот Narxi. Откройте товар на сайте и нажмите «Уведомить в Telegram» — я сообщу, когда цена упадёт.\n\n' + SITE,
         'list': 'Вы следите за:\n{items}\n\nОтписаться от всего: /stop', 'empty': 'Пока ничего не отслеживается.', 'stopped': 'Готово, уведомления отключены.',
-        'nf': 'Товар не найден — возможно, он больше не продаётся.'},
+        'nf': 'Товар не найден — возможно, он больше не продаётся.',
+        'reg': 'Регистрация в Narxi: нажмите кнопку ниже — Telegram передаст ваш номер, и всё готово.', 'regok': '✅ Готово! Вы зарегистрированы в Narxi. Вернитесь на сайт: ' + SITE},
  'uz': {'set': "✅ Narxni kuzatyapman\n\n{name}\nHozir: {now} so'm ({store})\nNarx {target} so'm yoki undan past bo'lsa xabar beraman.",
         'reached': "🔔 Narx tushdi!\n\n{name}\nHozir: {now} so'm — {store}\nSizning maqsadingiz: {target} so'm\n\n{url}",
         'phone': "Narxi'da ro'yxatdan o'tish uchun pastdagi tugmani bosing — Telegram raqamingizni yuboradi. Bu majburiy emas.",
         'btn': '📱 Raqamni yuborish', 'thanks': "🙏 Rahmat! Raqam tasdiqlandi, siz Narxi'da ro'yxatdan o'tdingiz.",
         'hello': "Salom! Men Narxi botiman. Saytda tovarni oching va «Telegram'da xabar berish» tugmasini bosing — narx tushganda yozaman.\n\n" + SITE,
         'list': "Kuzatuvdagi tovarlar:\n{items}\n\nHammasini o'chirish: /stop", 'empty': 'Hozircha hech narsa kuzatilmayapti.', 'stopped': "Tayyor, xabarlar o'chirildi.",
-        'nf': 'Tovar topilmadi — balki endi sotilmayapti.'},
+        'nf': 'Tovar topilmadi — balki endi sotilmayapti.',
+        'reg': "Narxi'da ro'yxatdan o'tish: pastdagi tugmani bosing — Telegram raqamingizni yuboradi va tayyor.", 'regok': "✅ Tayyor! Siz Narxi'da ro'yxatdan o'tdingiz. Saytga qayting: " + SITE},
 }
 
 def db():
@@ -88,9 +90,22 @@ def handle_updates(D, P):
         if m.get('contact'):
             c = m['contact']
             if c.get('user_id') == frm.get('id'):  # only the sender's own number counts as verified
+                prev = D.collection('tg_users').document(str(chat)).get().to_dict() or {}
                 D.collection('tg_users').document(str(chat)).set({'phone': c.get('phone_number'), 'first_name': frm.get('first_name'),
                     'username': frm.get('username'), 'lang': lang, 'verified_at': int(time.time())}, merge=True)
-                tg('sendMessage', chat_id=chat, text=L['thanks'], reply_markup={'remove_keyboard': True})
+                if prev.get('site_uid'):
+                    D.collection('site_reg').document(prev['site_uid']).set({'chat': chat, 'phone': c.get('phone_number'), 'first_name': frm.get('first_name'), 'at': int(time.time())})
+                tg('sendMessage', chat_id=chat, text=L['regok'] if prev.get('site_uid') else L['thanks'], reply_markup={'remove_keyboard': True})
+            continue
+        rg = re.match(r'/start\s+reg_([A-Za-z0-9]{10,40})$', text)
+        if rg:
+            ref = D.collection('tg_users').document(str(chat)); u = ref.get().to_dict() or {}
+            ref.set({'site_uid': rg.group(1), 'first_name': frm.get('first_name'), 'username': frm.get('username'), 'lang': lang, 'seen_at': int(time.time())}, merge=True)
+            if u.get('phone'):
+                D.collection('site_reg').document(rg.group(1)).set({'chat': chat, 'phone': u['phone'], 'first_name': frm.get('first_name'), 'at': int(time.time())})
+                tg('sendMessage', chat_id=chat, text=L['regok'])
+            else:
+                tg('sendMessage', chat_id=chat, text=L['reg'], reply_markup={'keyboard': [[{'text': L['btn'], 'request_contact': True}]], 'resize_keyboard': True, 'one_time_keyboard': True})
             continue
         mm = re.match(r'/start\s+(?:(uz|ru)_)?w([0-9a-z]{1,8})_(\d{1,7})(?:_[a-z0-9-]{2,12})?$', text)
         if mm:
