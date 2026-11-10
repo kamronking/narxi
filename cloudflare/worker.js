@@ -81,6 +81,11 @@ function fs(env) {
       const rows = await r.json();
       return rows.filter(x => x.document).map(x => Object.fromEntries(Object.entries(x.document.fields).map(([k, v]) => [k, unval(v)])));
     },
+    async all(col) {
+      const r = await fetch(`${base}:runQuery`, { method: 'POST', headers: await h(), body: JSON.stringify({ structuredQuery: { from: [{ collectionId: col }], limit: 2000 } }) });
+      const rows = await r.json();
+      return rows.filter(x => x.document).map(x => ({ id: x.document.name.split('/').pop(), ...Object.fromEntries(Object.entries(x.document.fields || {}).map(([k, v]) => [k, unval(v)])) }));
+    },
     async byChat(chat) {
       const r = await fetch(`${base}:runQuery`, { method: 'POST', headers: await h(), body: JSON.stringify({ structuredQuery: {
         from: [{ collectionId: 'tg_alerts' }], where: { fieldFilter: { field: { fieldPath: 'chat' }, op: 'EQUAL', value: val(chat) } } } }) });
@@ -160,6 +165,29 @@ async function handle(env, u) {
     const [all, d1, d7, last] = await Promise.all([db.count('site_reg'), db.count('site_reg', day), db.count('site_reg', week), db.recent('site_reg', 10)]);
     const fmtT = ts => new Date(ts * 1000).toLocaleString('ru-RU', { timeZone: 'Asia/Tashkent', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
     await tg(env, 'sendMessage', { chat_id: chat, text: `📊 Регистрации Narxi\n\nВсего: ${all}\nЗа 24 часа: ${d1}\nЗа 7 дней: ${d7}\n\nПоследние:\n` + (last.map(r => `• ${fmtT(r.at)} — ${r.first_name || '—'} ${r.phone || ''}`).join('\n') || '—') });
+  } else if ((text.startsWith('/broadcast') || text === '/send_broadcast' || text === '/cancel_broadcast') && env.ADMIN_CHAT && String(chat) === String(env.ADMIN_CHAT)) {
+    // admin-only mass message: /broadcast <text> -> preview; /send_broadcast -> send to everyone; /cancel_broadcast -> drop
+    if (text === '/cancel_broadcast') { await db.del('bot/broadcast'); await tg(env, 'sendMessage', { chat_id: chat, text: 'Рассылка отменена.' }); return }
+    if (text.startsWith('/broadcast')) {
+      const body = text.replace(/^\/broadcast(@\w+)?\s*/, '').trim();
+      if (!body) { await tg(env, 'sendMessage', { chat_id: chat, text: 'Напишите так:\n/broadcast Текст сообщения\n\nСсылки в тексте можно вставлять как есть.' }); return }
+      const users = await db.all('tg_users');
+      await db.set('bot/broadcast', { text: body, at: Math.floor(Date.now() / 1000) }, false);
+      await tg(env, 'sendMessage', { chat_id: chat, text: `👀 Предпросмотр рассылки (получат ${users.length} чел.):` });
+      await tg(env, 'sendMessage', { chat_id: chat, text: body, disable_web_page_preview: false });
+      await tg(env, 'sendMessage', { chat_id: chat, text: 'Отправить всем? Нажмите /send_broadcast\nОтменить: /cancel_broadcast' });
+      return;
+    }
+    const bc = await db.get('bot/broadcast');
+    if (!bc || !bc.text) { await tg(env, 'sendMessage', { chat_id: chat, text: 'Нет подготовленной рассылки. Сначала /broadcast Текст' }); return }
+    await db.del('bot/broadcast');
+    const users = (await db.all('tg_users')).slice(0, 40);  // Workers free plan: ~50 outgoing requests per message
+    let ok = 0, fail = 0;
+    for (const u of users) {
+      const r = await tg(env, 'sendMessage', { chat_id: u.id, text: bc.text });
+      (r && r.ok) ? ok++ : fail++;
+    }
+    await tg(env, 'sendMessage', { chat_id: chat, text: `✅ Рассылка отправлена: ${ok}\n❌ Не доставлено: ${fail} (заблокировали бота)` });
   } else if (text.startsWith('/list')) {
     const al = await db.byChat(chat);
     await tg(env, 'sendMessage', { chat_id: chat, text: al.length ? fill(L.list, { items: al.map(a => `• ${a.name} — ≤ ${fmt(a.target)}`).join('\n') }) : L.empty });
