@@ -244,7 +244,7 @@ let LANG=store.get('lang','uz');const t=(k,o={})=>{const v=TX[LANG][k]??k;return
 let THEME=store.get('theme','auto');const applyTheme=()=>{if(THEME==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.dataset.theme=THEME};applyTheme();
 let USER=store.get('user',null);
 const STORES={texnomart:{name:'Texnomart',color:'#e3262c'},olcha:{name:'Olcha',color:'#00a651'},alif:{name:'Alif Shop',color:'#14b8a6'},beeline:{name:'Beeline Market',color:'#f5b700'},macbro:{name:'Macbro',color:'#7c8591'}};
-const CONTACT='https://github.com/kamronking/narxi/issues/new?title='+encodeURIComponent('Do\'kon / Магазин: ');
+const CONTACT='https://t.me/numanovk';
 const SOON=['Uzum Market','Mediapark','Asaxiy','Idea','Elmakon','Goodzone'];
 const fmt=n=>new Intl.NumberFormat('ru-RU').format(n).replace(/ /g,' ');
 const som=n=>`${fmt(n)} ${t('som')}`;
@@ -406,7 +406,7 @@ function renderProfile(){const ks=Object.keys(WATCH);const prods=DATA?ks.map(k=>
   const lo=document.getElementById('logout');if(lo)lo.onclick=()=>{USER=null;store.del('user');window.NX&&NX.logout();render()}}
 function renderAbout(){view.innerHTML=`<h1 class="ptitle in-up">${t('aboutT')}</h1><section class="card in-up" style="--i:1"><p style="margin:0">${t('a1')}</p><p style="margin:0">${t('a2')}</p><p style="margin:0">${t('a3')}</p></section>
   <section class="card in-up" style="--i:2">${Object.entries(DATA.stores).map(([s,v])=>`<div style="display:flex;justify-content:space-between;align-items:center"><span><span class="dot" style="background:${STORES[s].color};margin-right:8px"></span><b>${STORES[s].name}</b></span><span class="tag save">${t('connected')} · ${v.items}</span></div>`).join('')}${SOON.map(s=>`<div style="display:flex;justify-content:space-between"><span class="muted">${s}</span><span class="tag plain">${t('soon')}</span></div>`).join('')}</section>
-  <section class="card in-up" style="--i:3"><h2 style="margin:0">${t('shopT')}</h2><p style="margin:0">${t('shopP')}</p><a class="btn sm press" href="${CONTACT}" target="_blank" rel="noopener" style="align-self:flex-start">${t('shopBtn')} ↗</a></section>
+  <section class="card in-up" style="--i:3"><h2 style="margin:0">${t('shopT')}</h2><p style="margin:0">${t('shopP')}</p><a class="btn sm press" href="${CONTACT}" target="_blank" rel="noopener" style="align-self:flex-start">Telegram: @numanovk ↗</a></section>
   <p class="small muted" style="margin:0">${t('a5')}</p>`}
 /* ---------- onboarding + registration ---------- */
 const ob=document.getElementById('ob'),obw=document.getElementById('obw');let obStep=0,picked=new Set(USER?.brands||[]);
