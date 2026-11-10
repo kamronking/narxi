@@ -8,8 +8,23 @@
 <meta name="theme-color" content="#0c5a43">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icon.svg">
+<link rel="apple-touch-icon" href="app/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Narxi">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-startup-image" href="app/splash-1320x2868.png" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="app/splash-1290x2796.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="app/splash-1206x2622.png" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="app/splash-1179x2556.png" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="app/splash-1284x2778.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="app/splash-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="app/splash-1080x2340.png" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="app/splash-1242x2688.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="app/splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="app/splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="app/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="app/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -291,6 +306,10 @@ nav button[aria-current="page"]::after{content:"";position:absolute;top:0;width:
 }
 @media(min-width:1400px){.grid{grid-template-columns:repeat(5,1fr)}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.ph img,.pimg img{opacity:1;transform:none}svg.chart path.ln,.chart2 path{stroke-dashoffset:0}}
+#appsplash{position:fixed;inset:0;z-index:9999;background:#0f6b4f;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .5s ease,transform .5s ease}
+#appsplash .t{width:108px;height:108px;border-radius:30px;background:#c8f169;color:#0f6b4f;font:900 74px/1 var(--disp,sans-serif);display:grid;place-items:center;animation:spl .7s cubic-bezier(.2,.8,.2,1)}
+#appsplash .w{color:#fff;font:900 44px/1 var(--disp,sans-serif);letter-spacing:-1px}
+#appsplash.out{opacity:0;transform:scale(1.04)}@keyframes spl{from{transform:scale(.7);opacity:0}to{transform:none;opacity:1}}
 </style>
 </head>
 <body>
@@ -300,6 +319,9 @@ nav button[aria-current="page"]::after{content:"";position:absolute;top:0;width:
 </div>
 <nav><div class="in" id="tabs"></div></nav>
 <div id="ptr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v5h-5"/></svg></div>
+<div id="appsplash" hidden><div class="t">N</div><div class="w">Narxi</div></div>
+<script>(function(){const sa=matchMedia('(display-mode: standalone)').matches||navigator.standalone;if(!sa)return;const e=document.getElementById('appsplash');e.hidden=false;
+addEventListener('load',()=>setTimeout(()=>{e.classList.add('out');setTimeout(()=>e.remove(),600)},450))})()</script>
 <div class="toast" id="toast" hidden></div>
 <div class="ob" id="ob" hidden><div class="wrap" id="obw"></div></div>
 <script type="module">
