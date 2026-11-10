@@ -1,7 +1,5 @@
 name: telegram bot
 on:
-  schedule:
-    - cron: '*/5 * * * *'   # read new bot messages (GitHub may delay scheduled runs)
   workflow_run:
     workflows: ['collect prices']
     types: [completed]

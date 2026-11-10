@@ -571,7 +571,7 @@ function parseQ(raw){let q=raw.toLowerCase().replace(/ё/g,'е').replace(/,/g,'.
   return {words,min,max,cat}}
 
 /* ===== Registration nudge (every visit until registered) ===== */
-const WORKER='';
+const WORKER='https://narxi-bot.numonjonovkamron.workers.dev';
 async function regStatus(){if(store.get('reg_ok',false))return true;if(!WORKER||!window.NX)return false;
   try{const id=await NX.uid();if(!id)return false;const r=await fetch(`${WORKER}/reg?id=${encodeURIComponent(id)}`);const j=await r.json();if(j.ok){store.set('reg_ok',true);return true}}catch(e){}return false}
 async function regNudge(force){if(await regStatus())return;if(!force&&sessionStorage.getItem('reg_shown'))return;try{sessionStorage.setItem('reg_shown','1')}catch(e){}
