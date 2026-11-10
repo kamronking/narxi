@@ -140,6 +140,12 @@ if __name__ == '__main__':
         print('bot is idle; TG_BOT_TOKEN set:', bool(TOKEN), '| FIREBASE_SA set:', bool(SA)); sys.exit(0)
     me = tg('getMe'); print('telegram getMe ok:', me.get('ok'), (me.get('result') or {}).get('username'))
     D, P = db(), products()
+    st = D.collection('bot').document('state')
+    if not (st.get().to_dict() or {}).get('setup_v1'):
+        tg('setMyCommands', commands=[{'command': 'list', 'description': 'Kuzatuvdagi tovarlar / Мои товары'}, {'command': 'stop', 'description': "Xabarlarni o'chirish / Отключить уведомления"}])
+        tg('setMyDescription', description="Narxi — O'zbekiston do'konlaridagi narxlarni solishtirish. Narx tushsa xabar beraman.\nNarxi — сравнение цен в магазинах Узбекистана. Сообщу, когда цена упадёт.\n\n" + SITE)
+        tg('setMyShortDescription', short_description="Narx tushsa xabar beraman · Сообщу, когда цена упадёт")
+        st.set({'setup_v1': True}, merge=True)
     handle_updates(D, P)
     if 'notify' in sys.argv:
         notify(D, P)
