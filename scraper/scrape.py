@@ -136,6 +136,14 @@ def clean_name(title):
     return re.sub(r'\s+', ' ', n).strip(' ,-')
 
 # ---------------- stores ----------------
+TM_INST = {}
+def tm_inst(html):
+    """Texnomart page data carries 'от X сум / N мес.' for some products (by id). Collect exact values."""
+    for m in re.finditer(r'axiom_monthly_price:"[^"]*?([\d][\d\s\xa0\u202f]*\d)\s*сум[^"]*?(\d+)\s*мес', html):
+        idm = re.search(r',id:(\d+),', html[m.end():m.end() + 900])
+        sp = re.search(r'sale_price:(\d+)', html[m.end():m.end() + 1500])
+        if idm:
+            TM_INST[idm.group(1)] = (int(re.sub(r'\D', '', m.group(1))), int(m.group(2)), int(sp.group(1)) if sp else None)
 def tm_list(slug, rep, cap=80):
     items = []; seen_first = None
     for page in range(1, cap):
@@ -161,6 +169,7 @@ def tm_list(slug, rep, cap=80):
                         got.append({'store': 'texnomart', 'title': p['name'], 'price': int(float(o['price'])),
                                     'old': None, 'url': p.get('url'), 'stock': 'ok' if 'InStock' in str(o.get('availability')) else 'out',
                                     'img': (p.get('image')[0] if isinstance(p.get('image'), list) else p.get('image'))})
+        tm_inst(r.text)
         rep['pages'] += 1
         if not got or seen_first == got[0]['url']:
             break
@@ -206,6 +215,20 @@ def texnomart():
                     continue
                 seen.add(it['url']); it['cat'] = cid; items.append(it)
         rep['per_cat'][cid] = len(items) - n0
+    # installments: exact where Texnomart exposes it; otherwise estimate with the store's typical markup (marked est)
+    facs = sorted(round(m * n / sp, 2) for m, n, sp in TM_INST.values() if sp)
+    mode = max(set(facs), key=facs.count) if len(facs) >= 10 else None
+    months = [n for _, n, _ in TM_INST.values()]
+    mn = max(set(months), key=months.count) if months else None
+    ex = es = 0
+    for it in items:
+        m = re.search(r'/detail/(\d+)', it.get('url') or '')
+        v = TM_INST.get(m.group(1)) if m else None
+        if v and (not v[2] or v[2] == it['price']):
+            it['inst'], it['instm'] = v[0], v[1]; ex += 1
+        elif mode and mn and 1.0 <= mode <= 2.5:
+            it['inst'], it['instm'], it['inst_est'] = round(it['price'] * mode / mn), mn, 1; es += 1
+    rep['inst'] = {'exact': ex, 'est': es, 'factor': mode, 'months': mn, 'known': len(TM_INST)}
     rep['items'] = len(items)
     rep['errors'] = rep['errors'][:30]
     return items, rep
@@ -239,6 +262,8 @@ def olcha():
                           'url': f"https://olcha.uz/ru/product/view/{p.get('alias')}",
                           'stock': 'out' if p.get('out_of_stock') is True else ('ok' if (p.get('in_stock') or int(p.get('quantity') or 0) > 0) else 'out'),
                           'inst': int(float(p.get('monthly_repayment') or 0)) or None,
+                          'instm': int(float((p.get('plan') or {}).get('max_period') or 0)) or None,
+                          'inst0': int(float(p.get('initial_fee') or 0)) or None,
                           'img': p.get('main_image')})
         page += 1
     for it in items:
@@ -270,6 +295,15 @@ def nuxt_revive(html):
         return v
     return rev, arr
 
+def alif_inst(o):
+    c = o.get('condition') if isinstance(o.get('condition'), dict) else {}
+    try:
+        d, com, pre = int(c.get('duration') or 0), float(c.get('commission') or 0), int(c.get('prepayment') or 0)
+    except Exception:
+        return {}
+    if not d: return {}
+    price = int(o['price']) // 100
+    return {'inst': round(price * (1 + com / 100) / d), 'instm': d, **({'inst0': pre // 100} if pre else {})}
 def alif():
     rep = {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}, 'cats': 0}
     slugs = set()
@@ -312,7 +346,7 @@ def alif():
                     old = int(o['old_price'] or 0) // 100 if o.get('old_price') else None
                     items.append({'store': 'alif', 'title': name, 'price': int(o['price']) // 100, 'old': old if old and old > int(o['price']) // 100 else None,
                                   'url': f"https://alifshop.uz/ru/moderated-offer/{o['slug']}", 'stock': 'ok' if (o.get('quantity') or 0) > 0 else 'out',
-                                  'img': img, 'cat': cid})
+                                  'img': img, 'cat': cid, **alif_inst(o)})
                 last = 1
                 for v in arr:
                     if isinstance(v, dict) and 'current_page' in v and ('last_page' in v or 'n_pages' in v):
