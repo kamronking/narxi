@@ -1,0 +1,284 @@
+{
+ "bycat": {
+  "tv": [
+   "4k-uhd-televizori",
+   "4k-uhd-televizori\"",
+   "smart-televizori",
+   "smart-televizori\"",
+   "televizori-i-proektori",
+   "televizori-i-proektori\""
+  ],
+  "audio": [
+   "akustika-i-kolonki",
+   "akustika-i-kolonki\"",
+   "avtoelektronika-i-avto-akustika",
+   "avtoelektronika-i-avto-akustika\"",
+   "kolonki-avtomobiljnie",
+   "kolonki-avtomobiljnie\"",
+   "nakladnie-i-polnorazmernie-naushniki",
+   "nakladnie-i-polnorazmernie-naushniki\"",
+   "naushniki-true-wireless",
+   "naushniki-true-wireless\"",
+   "portativnaya-akustika",
+   "portativnaya-akustika\"",
+   "portativnie-kolonki",
+   "portativnie-kolonki\""
+  ],
+  "fridges": [
+   "avtoholodiljniki",
+   "avtoholodiljniki\"",
+   "holodiljniki-i-moroziljnie-kameri",
+   "holodiljniki-i-moroziljnie-kameri\"",
+   "side-by-side-holodiljniki-i-mnogodvernie",
+   "side-by-side-holodiljniki-i-mnogodvernie\""
+  ],
+  "kitchen": [
+   "avtomaticheskie-kofemashini",
+   "avtomaticheskie-kofemashini\"",
+   "chayniki-i-kofeyniki",
+   "chayniki-i-kofeyniki\"",
+   "elektrochayniki",
+   "elektrochayniki\"",
+   "frityurnici-i-aerogrili",
+   "frityurnici-i-aerogrili\"",
+   "mikrovolnovie-pechi",
+   "mikrovolnovie-pechi\"",
+   "stroiteljnie-mikseri",
+   "stroiteljnie-mikseri\"",
+   "tosteri-i-rosteri",
+   "tosteri-i-rosteri\"",
+   "vstraivaemie-mikrovolnovie-pechi",
+   "vstraivaemie-mikrovolnovie-pechi\""
+  ],
+  "climate": [
+   "ctekloochistiteli",
+   "ctekloochistiteli\"",
+   "ochistiteli-vozduha",
+   "ochistiteli-vozduha\"",
+   "uvlazhnenie-i-pitanie",
+   "uvlazhnenie-i-pitanie\"",
+   "uvlazhniteli-vozduha",
+   "uvlazhniteli-vozduha\"",
+   "vodonagrevateli",
+   "vodonagrevateli\""
+  ],
+  "washers": [
+   "ctiraljnie-i-sushiljnie-mashini",
+   "ctiraljnie-i-sushiljnie-mashini\"",
+   "detskie-stiraljnie-poroshki",
+   "detskie-stiraljnie-poroshki\"",
+   "stiraljnie-mashini",
+   "stiraljnie-mashini\"",
+   "stiraljnie-poroshki",
+   "stiraljnie-poroshki\"",
+   "sushiljnie-mashini",
+   "sushiljnie-mashini\""
+  ],
+  "ac": [
+   "detskie-kondicioneri-i-opolaskivateli",
+   "detskie-kondicioneri-i-opolaskivateli\""
+  ],
+  "tablets": [
+   "detskie-plansheti",
+   "detskie-plansheti\"",
+   "graficheskie-plansheti",
+   "graficheskie-plansheti\"",
+   "plansheti-i-elektronnie-knigi",
+   "plansheti-i-elektronnie-knigi\""
+  ],
+  "home": [
+   "distillirovannaya-voda-dlya-utyuga-i-glazhki\"",
+   "pilesosi-s-konteynerom-dlya-pili",
+   "pilesosi-s-konteynerom-dlya-pili\"",
+   "vozduhoduvki-i-sadovie-pilesosi",
+   "vozduhoduvki-i-sadovie-pilesosi\""
+  ],
+  "phones": [
+   "drugie-smartfoni",
+   "drugie-smartfoni\"",
+   "smartfoni-i-gadzheti",
+   "smartfoni-i-gadzheti\"",
+   "smartfoni-i-telefoni",
+   "smartfoni-i-telefoni\"",
+   "smartfoni-samsung",
+   "smartfoni-samsung\"",
+   "smartfoni-xiaomi",
+   "smartfoni-xiaomi\""
+  ],
+  "care": [
+   "feni-i-fen-sch-tki",
+   "feni-i-fen-sch-tki\"",
+   "gazonokosilki-i-trimmeri",
+   "gazonokosilki-i-trimmeri\"",
+   "stroiteljnie-feni",
+   "stroiteljnie-feni\""
+  ],
+  "monitors": [
+   "kompjyuteri-i-monitori",
+   "kompjyuteri-i-monitori\""
+  ],
+  "laptops": [
+   "noutbuki-i-kompjyuteri",
+   "noutbuki-i-kompjyuteri\"",
+   "podstavki-dlya-noutbukov",
+   "podstavki-dlya-noutbukov\""
+  ],
+  "stoves": [
+   "pliti-elektricheskie",
+   "pliti-elektricheskie\"",
+   "posudomoechnie-mashini",
+   "posudomoechnie-mashini\"",
+   "svarochnie-apparati",
+   "svarochnie-apparati\""
+  ]
+ },
+ "fridges:avtoholodiljniki": {
+  "st": 200,
+  "len": 403624,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/avtoholodiljniki",
+  "offers_mo": 0,
+  "links_mo": 7,
+  "pag": [],
+  "keysets": [
+   "brand,filters,price",
+   "brand_id,brand_image,brand_name,condition,discount,has_guarantee,has_imei,id,label_ru,label_uz,old_price,partner"
+  ]
+ },
+ "fridges:avtoholodiljniki\"": {
+  "st": 404,
+  "len": 319377,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/avtoholodiljniki%22",
+  "offers_mo": 0,
+  "links_mo": 0,
+  "pag": [],
+  "keysets": []
+ },
+ "fridges:holodiljniki-i-moroziljnie-kameri": {
+  "st": 200,
+  "len": 503671,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/holodiljniki-i-moroziljnie-kameri",
+  "offers_mo": 0,
+  "links_mo": 20,
+  "pag": [],
+  "keysets": [
+   "brand,filters,price",
+   "brand_id,brand_image,brand_name,condition,discount,has_guarantee,has_imei,id,label_ru,label_uz,old_price,partner"
+  ]
+ },
+ "kitchen:avtomaticheskie-kofemashini": {
+  "st": 200,
+  "len": 452675,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/avtomaticheskie-kofemashini",
+  "offers_mo": 0,
+  "links_mo": 20,
+  "pag": [],
+  "keysets": [
+   "brand,filters,price",
+   "brand_id,brand_image,brand_name,condition,discount,has_guarantee,has_imei,id,label_ru,label_uz,old_price,partner"
+  ]
+ },
+ "kitchen:avtomaticheskie-kofemashini\"": {
+  "st": 404,
+  "len": 319386,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/avtomaticheskie-kofemashini%22",
+  "offers_mo": 0,
+  "links_mo": 0,
+  "pag": [],
+  "keysets": []
+ },
+ "kitchen:chayniki-i-kofeyniki": {
+  "st": 200,
+  "len": 391301,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/chayniki-i-kofeyniki",
+  "offers_mo": 0,
+  "links_mo": 4,
+  "pag": [],
+  "keysets": [
+   "brand,filters,price",
+   "brand_id,brand_image,brand_name,condition,discount,has_guarantee,has_imei,id,label_ru,label_uz,old_price,partner"
+  ]
+ },
+ "home:distillirovannaya-voda-dlya-utyuga-i-glazhki\"": {
+  "st": 404,
+  "len": 319403,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/distillirovannaya-voda-dlya-utyuga-i-glazhki%22",
+  "offers_mo": 0,
+  "links_mo": 0,
+  "pag": [],
+  "keysets": []
+ },
+ "home:pilesosi-s-konteynerom-dlya-pili": {
+  "st": 200,
+  "len": 494517,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/pilesosi-s-konteynerom-dlya-pili",
+  "offers_mo": 0,
+  "links_mo": 20,
+  "pag": [],
+  "keysets": [
+   "brand,filters,price",
+   "brand_id,brand_image,brand_name,condition,discount,has_guarantee,has_imei,id,label_ru,label_uz,old_price,partner"
+  ]
+ },
+ "home:pilesosi-s-konteynerom-dlya-pili\"": {
+  "st": 404,
+  "len": 319393,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/pilesosi-s-konteynerom-dlya-pili%22",
+  "offers_mo": 0,
+  "links_mo": 0,
+  "pag": [],
+  "keysets": []
+ },
+ "phones:drugie-smartfoni": {
+  "st": 200,
+  "len": 513119,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/drugie-smartfoni",
+  "offers_mo": 0,
+  "links_mo": 20,
+  "pag": [],
+  "keysets": [
+   "brand,filters,price",
+   "brand_id,brand_image,brand_name,condition,discount,has_guarantee,has_imei,id,label_ru,label_uz,old_price,partner"
+  ]
+ },
+ "phones:drugie-smartfoni\"": {
+  "st": 404,
+  "len": 319377,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/drugie-smartfoni%22",
+  "offers_mo": 0,
+  "links_mo": 0,
+  "pag": [],
+  "keysets": []
+ },
+ "phones:smartfoni-i-gadzheti": {
+  "st": 200,
+  "len": 485059,
+  "nuxt": true,
+  "final": "https://alifshop.uz/ru/categories/smartfoni-i-gadzheti",
+  "offers_mo": 24,
+  "links_mo": 24,
+  "pag": [
+   {
+    "from": 1,
+    "to": 24,
+    "last_page": 192,
+    "current_page": 1,
+    "total": 4604,
+    "per_page": 24
+   }
+  ],
+  "keysets": [
+   "bnpl_details,condition,discount,has_video_links,image_path,image_path_v2,label,moderated_offer_id,name,offer_id,old_price,partner"
+  ]
+ }
+}
