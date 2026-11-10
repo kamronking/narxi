@@ -580,10 +580,12 @@ function parseQ(raw){let q=raw.toLowerCase().replace(/ё/g,'е').replace(/,/g,'.
   return {words,min,max,cat}}
 
 /* ===== Registration nudge (every visit until registered) ===== */
-const WORKER='https://narxi-bot.numonjonovkamron.workers.dev';
+const WORKER='https://narxi-bot.numonjonovkamron.workers.dev',WORKERS=['https://api.narxi.site',WORKER];
+/* own domain first (some ISPs block *.workers.dev), old address as fallback; 4 s timeout each */
+async function wfetch(path){for(const base of WORKERS){try{const c=new AbortController(),tm=setTimeout(()=>c.abort(),4000);const r=await fetch(base+path,{signal:c.signal});clearTimeout(tm);if(r.ok)return r}catch(e){}}throw new Error('worker unreachable')}
 async function regStatus(){if(store.get('reg_ok',false))return true;if(!WORKER)return false;
   const ids=[...new Set([store.get('reg_id',null),window.NX?await NX.uid():null].filter(Boolean))];
-  for(const id of ids)try{const r=await fetch(`${WORKER}/reg?id=${encodeURIComponent(id)}`);const j=await r.json();if(j.ok){store.set('reg_id',id);store.set('reg_ok',true);if(j.name&&(!USER||!USER.name)){USER={name:j.name,phone:'',city:'',brands:[],since:Date.now()};store.set('user',USER);window.NX&&NX.saveUser&&NX.saveUser(USER,WATCH,LANG);render()}window.NX&&NX.ev('sign_up',{method:'telegram'});return true}}catch(e){}return false}
+  for(const id of ids)try{const r=await wfetch(`/reg?id=${encodeURIComponent(id)}`);const j=await r.json();if(j.ok){store.set('reg_id',id);store.set('reg_ok',true);if(j.name&&(!USER||!USER.name)){USER={name:j.name,phone:'',city:'',brands:[],since:Date.now()};store.set('user',USER);window.NX&&NX.saveUser&&NX.saveUser(USER,WATCH,LANG);render()}window.NX&&NX.ev('sign_up',{method:'telegram'});return true}}catch(e){}return false}
 async function regNudge(force){if(await regStatus())return;if(!force&&sessionStorage.getItem('reg_shown'))return;try{sessionStorage.setItem('reg_shown','1')}catch(e){}
   if(document.getElementById('regsheet'))return;const id=store.get('reg_id',null)||(window.NX?await NX.uid():null);if(!id)return;store.set('reg_id',id);
   const el=document.createElement('div');el.id='regsheet';el.className='regwrap';
