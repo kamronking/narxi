@@ -254,7 +254,7 @@ ALIF_RE = {'phones': r'smartfon', 'laptops': r'noutbuk', 'tablets': r'planshet',
  'kitchen': r'mikrovoln|multivar|chaynik|chaynik|elektrochay|blender|kofemash|kofevar|myasoruk|toster|mikser|sokovizh|gril|hlebopech|parovar|aerogril|frityur',
  'stoves': r'plit|duhov|varochn|vityazh|posudomo', 'climate': r'obogrev|ventilyator|vodonagrev|uvlazhn|ochistitel', 'care': r'^fen|-fen|vipryamit|trimmer|britv|epilyator',
  'printers': r'printer|mfu'}
-ALIF_EXCL = r'aksessuar|chehl|zaryad|kabel|plenk|stekl|derzhatel|remesh|sumk|filjtr|zapchast|komplektu|chasti|detskie-chasi|nasadk'
+ALIF_EXCL = r'detsk|poroshk|ctekl|uvlazhnenie-i-pitanie|distillir|vozduhoduv|sadov|gazonokos|stroiteljn|svarochn|podstavk|^avtoholod|avtoelektron|avtomobil|kompjyuteri-i-monitori|noutbuki-i-kompjyuteri|graficheskie|elektronnie-knigi|paroochist|aksessuar|chehl|zaryad|kabel|plenk|stekl|derzhatel|remesh|sumk|filjtr|zapchast|komplektu|chasti|detskie-chasi|nasadk'
 def nuxt_revive(html):
     m = re.search(r'<script[^>]*id="__NUXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
     if not m:
@@ -273,7 +273,7 @@ def nuxt_revive(html):
 def alif():
     rep = {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}, 'cats': 0}
     slugs = set()
-    for n in (1, 2, 3):
+    for n in (0, 1, 2, 3):
         try:
             r = get(f'https://alifshop.uz/{n}-sitemap.xml')
             slugs |= set(re.findall(r'https://alifshop.uz/ru/categories/([a-z0-9-]+)', r.text))
@@ -285,7 +285,7 @@ def alif():
         for cid, rx in ALIF_RE.items():
             if re.search(rx, sl): bycat.setdefault(cid, []).append(sl); break
     rep['cats'] = sum(map(len, bycat.values()))
-    items, seen, budget = [], set(), 450
+    items, seen, budget = [], set(), 500
     for cid, sls in bycat.items():
         n0, cb = len(items), 30
         for sl in sls:
@@ -399,6 +399,66 @@ def key_for(it):
         return ('phones:' + k) if k else None
     return gen_key(it['cat'], it['title'])
 
+# ---------- cross-store merge (same model, keys differ by brand spelling / regional suffix) ----------
+REGION_SFX = r'(uxuz|uxru|uxce|xuz|uz|ru)$'
+CPU_RE = r'^(i[3579]\d{4,5}[a-z]*|r[3579]\d{4}[a-z]*|[3579]\d{3}[a-z]{1,2}|\d{4,5}[uhpk]x?s?|rtx\d+|gtx\d+|m[1-5](pro|max)?)$'
+def _codes_of(key):
+    parts = key.split(':')
+    if len(parts) < 3 or parts[1] == 't': return [], ''
+    return [c for c in parts[2].split('+') if c], (parts[3] if len(parts) > 3 else '')
+def _lowprice(g):
+    l = [o['price'] for o in g['offers'].values() if o['stock'] == 'ok'] or [o['price'] for o in g['offers'].values()]
+    return min(l) if l else 0
+def merge_groups(groups):
+    SKIP = ('phones', 'laptops', 'other')
+    keys = [k for k, g in groups.items() if g['cat'] not in SKIP]
+    par = {k: k for k in keys}
+    stores = {k: set(groups[k]['offers']) for k in keys}
+    price = {k: _lowprice(groups[k]) for k in keys}
+    def find(x):
+        while par[x] != x: par[x] = par[par[x]]; x = par[x]
+        return x
+    def union(a, b):
+        ra, rb = find(a), find(b)
+        if ra == rb or stores[ra] & stores[rb]: return
+        pa, pb = price[ra], price[rb]
+        if pa and pb and min(pa, pb) < max(pa, pb) * 0.6: return
+        if len(groups[ra]['offers']) < len(groups[rb]['offers']): ra, rb = rb, ra
+        par[rb] = ra; stores[ra] |= stores[rb]; price[ra] = min(pa or pb, pb or pa)
+    ids = {}
+    for k in keys:
+        codes, mem = _codes_of(k)
+        if not codes: continue
+        cat = groups[k]['cat']
+        ids.setdefault(('A', cat, '+'.join(codes), mem), []).append(k)
+        good = [c for c in codes if len(c) >= 6 and not re.match(CPU_RE, c)]
+        if good:
+            top = max(good, key=len)
+            base = re.sub(REGION_SFX, '', top) if len(top) >= 9 else top
+            ids.setdefault(('B', cat, base, mem), []).append(k)
+    for ks in ids.values():
+        for x in ks[1:]: union(ks[0], x)
+    # prefix rule: base (>=7 chars) + 2..5 letters suffix (colour/region), same cat+mem
+    byb = {}
+    for (t, cat, code, mem), ks in ids.items():
+        if t == 'B': byb.setdefault((cat, mem), {}).setdefault(code, []).extend(ks)
+    for (cat, mem), cm in byb.items():
+        allc = sorted(cm)
+        for i, a in enumerate(allc):
+            if len(a) < 7: continue
+            for b in allc[i + 1:i + 12]:
+                if not b.startswith(a): break
+                if re.fullmatch(r'[a-z]{2,5}', b[len(a):]):
+                    for x in cm[b]: union(cm[a][0], x)
+    merged = 0
+    for k in keys:
+        r = find(k)
+        if r == k: continue
+        for sid, o in groups[k]['offers'].items():
+            groups[r]['offers'].setdefault(sid, o)
+        del groups[k]; merged += 1
+    return merged
+
 def main():
     all_items = []
     for sid, fn in STORES.items():
@@ -419,6 +479,7 @@ def main():
             g['offers'][it['store']] = it
         elif not best:
             g['offers'][it['store']] = it
+    REPORT['merged'] = merge_groups(groups)
     products = []
     for g in groups.values():
         offers = list(g['offers'].values())
