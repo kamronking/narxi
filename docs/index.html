@@ -586,6 +586,10 @@ async function wfetch(path){for(const base of WORKERS){try{const c=new AbortCont
 async function regStatus(){if(store.get('reg_ok',false))return true;if(!WORKER)return false;
   const ids=[...new Set([store.get('reg_id',null),window.NX?await NX.uid():null].filter(Boolean))];
   for(const id of ids)try{const r=await wfetch(`/reg?id=${encodeURIComponent(id)}`);const j=await r.json();if(j.ok){store.set('reg_id',id);store.set('reg_ok',true);if(j.name&&(!USER||!USER.name)){USER={name:j.name,phone:'',city:'',brands:[],since:Date.now()};store.set('user',USER);window.NX&&NX.saveUser&&NX.saveUser(USER,WATCH,LANG);render()}window.NX&&NX.ev('sign_up',{method:'telegram'});return true}}catch(e){}return false}
+// came back to the tab without the bot's link: re-check quietly (only if a registration was started here)
+document.addEventListener('visibilitychange',async()=>{if(document.visibilityState!=='visible'||store.get('reg_ok',false)||!store.get('reg_id',null))return;
+  if(await regStatus()){document.getElementById('regsheet')?.remove();toast(t('rgOk'));render()}});
+window.addEventListener('focus',()=>document.dispatchEvent(new Event('visibilitychange')));
 const rid=()=>{const a='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';let s='';const r=crypto.getRandomValues(new Uint8Array(24));for(const x of r)s+=a[x%a.length];return s};
 async function regNudge(force){if(store.get('reg_ok',false))return;
   // a tap must open the sheet at once: no waiting for the network check (some ISPs make it hang)
