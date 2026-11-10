@@ -486,6 +486,7 @@ def idea():
                   'stock': 'ok' if int(p.get('in_stock') or 0) > 0 else 'out', 'img': p.get('medium_img') or p.get('img'), 'cat': cid}
             if ins and ins[0].get('price_per_month'):
                 it['inst'], it['instm'] = int(ins[0]['price_per_month']), int(ins[0]['duration'])
+                it['plans'] = sorted([int(x['duration']), int(x['price_per_month'])] for x in ins if x.get('price_per_month') and x.get('duration'))
             items.append(it)
         page += 1
     return _fin(items, rep)
@@ -791,7 +792,7 @@ def main():
         products.append({'key': g['key'], 'cat': g['cat'], 'name': name, 'img': imgs[0] if imgs else None, 'offers': sorted(offers, key=lambda o: o['price'])})
     products.sort(key=lambda p: (-len(p['offers']), p['name']))
     V2 = OUT / 'v2'; (V2 / 'c').mkdir(parents=True, exist_ok=True); (V2 / 'h').mkdir(parents=True, exist_ok=True)
-    cutoff = (NOW - dt.timedelta(days=150)).strftime('%Y-%m-%d')
+    cutoff = (NOW - dt.timedelta(days=190)).strftime('%Y-%m-%d')
     def live_of(p): return [o for o in p['offers'] if o['stock'] == 'ok']
     def gap(p):
         l = live_of(p)
