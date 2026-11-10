@@ -4,7 +4,7 @@
 // Price-drop notifications are still sent by GitHub Actions (scraper/bot.py notify) after every price update.
 
 const SITE = 'https://narxi.site/';
-const ORIGINS = ['https://narxi.site', 'https://www.narxi.site', 'https://kamronking.github.io'];
+const ORIGIN_OK = o => /^https?:\/\/(www\.)?narxi\.site$/.test(o || '') || o === 'https://kamronking.github.io';
 const STORE = { texnomart: 'Texnomart', olcha: 'Olcha', alif: 'Alif Shop', beeline: 'Beeline Market', macbro: 'Macbro', idea: 'Idea',
   maxcom: 'Maxcom', woot: 'Woot', avtech: 'Avtech', mionline: 'Mi Online', tezz: 'Tezz', karcher: 'Kärcher' };
 const T = {
@@ -182,7 +182,7 @@ export default {
     if (url.pathname === '/reg') {  // site asks: is this visitor registered? (yes/no only, no personal data)
       const id = url.searchParams.get('id') || '';
       const d = /^[A-Za-z0-9]{10,40}$/.test(id) ? await fs(env).get(`site_reg/${id}`) : null;
-      return new Response(JSON.stringify(d ? { ok: true, name: d.first_name || '' } : { ok: false }), { headers: { 'content-type': 'application/json', 'access-control-allow-origin': ORIGINS.includes(req.headers.get('origin')) ? req.headers.get('origin') : ORIGINS[0], 'vary': 'origin', 'cache-control': 'no-store' } });
+      return new Response(JSON.stringify(d ? { ok: true, name: d.first_name || '' } : { ok: false }), { headers: { 'content-type': 'application/json', 'access-control-allow-origin': ORIGIN_OK(req.headers.get('origin')) ? req.headers.get('origin') : 'https://narxi.site', 'vary': 'origin', 'cache-control': 'no-store' } });
     }
     if (url.pathname === '/hook' && req.method === 'POST') {
       if (req.headers.get('x-telegram-bot-api-secret-token') !== env.WEBHOOK_SECRET) return new Response('forbidden', { status: 403 });
