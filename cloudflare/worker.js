@@ -112,7 +112,8 @@ async function handle(env, u) {
   const pl = ((m.text || '').match(/^\/start\s+(uz|ru)_/) || [])[1];
   let lang = pl || (me0 && me0.lang) || ((frm.language_code || '').startsWith('uz') ? 'uz' : 'ru'), L = T[lang];
   if (pl && (!me0 || me0.lang !== pl)) await db.set(`tg_users/${chat}`, { lang: pl });
-  const text = (m.text || '').trim(), now = Math.floor(Date.now() / 1000);
+  const photo = m.photo && m.photo.length ? m.photo[m.photo.length - 1].file_id : null;  // admin broadcast with a picture: photo + caption '/broadcast ...'
+  const text = (m.text || m.caption || '').trim(), now = Math.floor(Date.now() / 1000);
   const askKb = { keyboard: [[{ text: L.btn, request_contact: true }]], resize_keyboard: true, one_time_keyboard: false, is_persistent: true };
   if (m.contact) {
     if (m.contact.user_id !== frm.id) {  // someone else's contact card — not a verification
@@ -170,11 +171,12 @@ async function handle(env, u) {
     if (text === '/cancel_broadcast') { await db.del('bot/broadcast'); await tg(env, 'sendMessage', { chat_id: chat, text: 'Рассылка отменена.' }); return }
     if (text.startsWith('/broadcast')) {
       const body = text.replace(/^\/broadcast(@\w+)?\s*/, '').trim();
-      if (!body) { await tg(env, 'sendMessage', { chat_id: chat, text: 'Напишите так:\n/broadcast Текст сообщения\n\nСсылки в тексте можно вставлять как есть.' }); return }
+      if (!body) { await tg(env, 'sendMessage', { chat_id: chat, text: 'Напишите так:\n/broadcast Текст сообщения\n\nС картинкой: отправьте фото и в подписи к нему напишите /broadcast Текст' }); return }
       const users = await db.all('tg_users');
-      await db.set('bot/broadcast', { text: body, at: Math.floor(Date.now() / 1000) }, false);
+      if (photo && body.length > 1024) { await tg(env, 'sendMessage', { chat_id: chat, text: `Подпись к фото слишком длинная: ${body.length} символов, Telegram разрешает 1024. Сократите текст.` }); return }
+      await db.set('bot/broadcast', { text: body, photo: photo || '', at: Math.floor(Date.now() / 1000) }, false);
       await tg(env, 'sendMessage', { chat_id: chat, text: `👀 Предпросмотр рассылки (получат ${users.length} чел.):` });
-      await tg(env, 'sendMessage', { chat_id: chat, text: body, disable_web_page_preview: false });
+      if (photo) await tg(env, 'sendPhoto', { chat_id: chat, photo, caption: body }); else await tg(env, 'sendMessage', { chat_id: chat, text: body, disable_web_page_preview: false });
       await tg(env, 'sendMessage', { chat_id: chat, text: 'Отправить всем? Нажмите /send_broadcast\nОтменить: /cancel_broadcast' });
       return;
     }
@@ -184,7 +186,7 @@ async function handle(env, u) {
     const users = (await db.all('tg_users')).slice(0, 40);  // Workers free plan: ~50 outgoing requests per message
     let ok = 0, fail = 0;
     for (const u of users) {
-      const r = await tg(env, 'sendMessage', { chat_id: u.id, text: bc.text });
+      const r = bc.photo ? await tg(env, 'sendPhoto', { chat_id: u.id, photo: bc.photo, caption: bc.text }) : await tg(env, 'sendMessage', { chat_id: u.id, text: bc.text });
       (r && r.ok) ? ok++ : fail++;
     }
     await tg(env, 'sendMessage', { chat_id: chat, text: `✅ Рассылка отправлена: ${ok}\n❌ Не доставлено: ${fail} (заблокировали бота)` });
