@@ -101,7 +101,11 @@ async function findProduct(cat, id) {
 async function handle(env, u) {
   const m = u.message; if (!m || m.chat?.type !== 'private') return;
   const chat = m.chat.id, frm = m.from || {}, db = fs(env);
-  let lang = (frm.language_code || '').startsWith('uz') ? 'uz' : 'ru', L = T[lang];
+  // language: chosen on the site (sent in /start payload) > saved for this user > Telegram app language
+  const me0 = await db.get(`tg_users/${chat}`);
+  const pl = ((m.text || '').match(/^\/start\s+(uz|ru)_/) || [])[1];
+  let lang = pl || (me0 && me0.lang) || ((frm.language_code || '').startsWith('uz') ? 'uz' : 'ru'), L = T[lang];
+  if (pl && (!me0 || me0.lang !== pl)) await db.set(`tg_users/${chat}`, { lang: pl });
   const text = (m.text || '').trim(), now = Math.floor(Date.now() / 1000);
   const askKb = { keyboard: [[{ text: L.btn, request_contact: true }]], resize_keyboard: true, one_time_keyboard: false, is_persistent: true };
   if (m.contact) {
@@ -124,7 +128,7 @@ async function handle(env, u) {
     const u0 = await db.get(`tg_users/${chat}`);
     if (u0 && u0.site_uid && !u0.phone) { await tg(env, 'sendMessage', { chat_id: chat, text: L.needBtn, reply_markup: askKb }); return; }
   }
-  const rg = text.match(/^\/start\s+reg_([A-Za-z0-9]{10,40})$/);
+  const rg = text.match(/^\/start\s+(?:(?:uz|ru)_)?reg_([A-Za-z0-9]{10,40})$/);
   if (rg) {
     await db.set(`tg_users/${chat}`, { site_uid: rg[1], first_name: frm.first_name || null, username: frm.username || null, lang, seen_at: now });
     const u = await db.get(`tg_users/${chat}`);
