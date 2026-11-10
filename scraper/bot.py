@@ -137,7 +137,8 @@ def notify(D, P):
 
 if __name__ == '__main__':
     if not TOKEN or not SA:
-        print('TG_BOT_TOKEN / FIREBASE_SA not set — bot is idle'); sys.exit(0)
+        print('bot is idle; TG_BOT_TOKEN set:', bool(TOKEN), '| FIREBASE_SA set:', bool(SA)); sys.exit(0)
+    me = tg('getMe'); print('telegram getMe ok:', me.get('ok'), (me.get('result') or {}).get('username'))
     D, P = db(), products()
     handle_updates(D, P)
     if 'notify' in sys.argv:
