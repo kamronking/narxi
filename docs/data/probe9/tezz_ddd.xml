@@ -1,0 +1,1595 @@
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+
+        <!-- Google Tag Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-KVR2WW8');
+        </script>
+        <!-- End Google Tag Manager -->
+
+
+        <link href="/favicon.ico" rel="shortcut icon"/>
+
+        <title>TEZZ.UZ - интернет-магазин бытовой техники и электроники, купить бытовую технику в Ташкенте недорого</title>
+        <meta charset="UTF-8">
+        <meta content="width=device-width,maximum-scale=1,initial-scale=1,user-scalable=0" name="viewport">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content=""/>
+        <meta name="description" content="Бытовая техника в интернет-магазине «TEZZ.UZ» ➤ Большой выбор качественной техники в Ташкенте ➤ Товары со скидкой % ➤ Быстрая доставка ☎ +998 71 205-55-33"/>
+
+        
+        <link href="http://tezz.uz/" rel="canonical">
+<link href="/css/bootstrap.css?1794299189" rel="stylesheet">
+<link href="/css/main.css?1794299189" rel="stylesheet">
+<link href="/css/scrollbar.css?1794299189" rel="stylesheet">
+<link href="/css/screen.css?1794299189" rel="stylesheet">
+<link href="/css/custom.css?1794299189" rel="stylesheet">
+<link href="/css/filter.css?1794299189" rel="stylesheet">
+<link href="/css/search.css?1794299189" rel="stylesheet">
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+                <script>localStorage.setItem('rt-basket', '[]');</script>
+
+        <style>
+            .instruction-wrapper {
+                padding-top: 10px;
+            }
+
+            .instruction-wrapper h1 {
+                text-align: center;
+            }
+
+            .instruction-wrapper .half {
+                float: left;
+            }
+
+            .instruction-wrapper .tab {
+                position: relative;
+                margin-bottom: 1px;
+                width: 100%;
+                color: #000;
+                overflow: hidden;
+            }
+
+            .instruction-wrapper .tab input {
+                position: absolute;
+                opacity: 0;
+                z-index: -1;
+            }
+
+            .instruction-wrapper .tab label {
+                position: relative;
+                display: block;
+                padding: 0 0 0 1em;
+                background: #dbdbdb;
+                font-weight: bold;
+                line-height: 3;
+                cursor: pointer;
+            }
+
+            .instruction-wrapper .blue label {
+                background: #2980b9;
+            }
+
+            .instruction-wrapper .tab-content {
+                max-height: 0;
+                overflow: hidden;
+                background: #ebebeb;
+                -webkit-transition: max-height .35s;
+                -o-transition: max-height .35s;
+                transition: max-height .35s;
+            }
+
+            .instruction-wrapper .blue .tab-content {
+                background: #3498db;
+            }
+
+            .instruction-wrapper .tab-content p {
+                margin: 1em;
+            }
+
+            .instruction-wrapper .tab input:checked ~ .tab-content {
+                max-height: 100vh;
+            }
+
+            .instruction-wrapper .tab label::after {
+                position: absolute;
+                right: 0;
+                top: 0;
+                display: block;
+                width: 3em;
+                height: 3em;
+                line-height: 3;
+                text-align: center;
+                -webkit-transition: all .35s;
+                -o-transition: all .35s;
+                transition: all .35s;
+            }
+
+            .instruction-wrapper .tab input[type=checkbox] + label::after {
+                content: "+";
+            }
+
+            .instruction-wrapper .tab input[type=radio] + label::after {
+                content: "\25BC";
+            }
+
+            .instruction-wrapper .tab input[type=checkbox]:checked + label::after {
+                transform: rotate(315deg);
+            }
+
+            .instruction-wrapper .tab input[type=radio]:checked + label::after {
+                transform: rotateX(180deg);
+            }
+
+            .intend-offer {
+                color: #1a9f29;
+                margin-bottom: -2px;
+                display: block;
+                position: relative;
+                border: 1px dotted #1a9f29;
+                font: 16px 'Exo 2', sans-serif;
+                padding-bottom: 10px;
+            }
+
+            .intend-offer img {
+                width: 100px;
+                height: auto;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body  class="page-home">
+
+
+    
+    <!-- Metatag  Organization Begin -->
+    <div itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="TEZZ.UZ">
+        <meta itemprop="image" content="https://tezz.uz/img/bg/tezz-logo.svg">
+        <meta itemprop="telephone" content="+ 998 71 205 55 33">
+        <span itemprop="email" content="info@tezz.uz">
+        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                <meta itemprop="streetAddress" content="ул. Бабура, дом 77">
+                <meta itemprop="addressLocality" content="Ташкент">
+                <meta itemprop="addressRegion" content="Ташкентская">
+        </div>
+    </div>
+    <!-- Metatag  Organization End -->
+
+
+            <!-- wrapper Start -->
+    <div class="wrapper">
+        <a href="tel:+998 71 205-55-33"
+           class="phone-call-i">Позвонить</a>
+        <!-- header Start -->
+<header class="header">
+		        <div class="header__banner-panel">
+			                <a href="/brand/lg">
+                    <span class="header__banner-panel__in">
+                        <img src="/uploads/images/topbanner/banner26.png" alt=""/>
+                    </span>
+                </a>
+			        </div>
+	    <div class="header__top-panel">
+        <div class="container">
+			            <span class="search-btn"><span>Поиск</span></span>
+            <!--<ul class="language-list">
+				<li>
+					<a href="#" data-lang="ru">
+						<img src="/img/bg/russia.svg" alt="RUS" />
+					</a>
+				</li>
+				<li>
+					<a href="#" data-lang="uz">
+						<img src="/img/bg/uzbekistan.svg" alt="UZB" />
+					</a>
+				</li>
+			</ul>-->
+            <nav class="header__top-panel__navi">
+                <ul>
+                    <li>
+                        <a href="/o-dostavke">Доставка</a>
+                    </li>
+                    <!--  <li><a href="/samovyvoz">-->
+					<? //=\Yii::t('app', 'pickup');?><!--</a></li>-->
+                    <li>
+                        <a href="/oplata">Оплата</a>
+                    </li>
+                    <!--  <li><a href="/kredit">-->
+					<? //=\Yii::t('app', 'credit');?><!--</a></li>-->
+                    <li><a href="/akcii"
+                           class="header__top-panel__navi__link">
+                           Скидки и акции                        </a>
+                    </li>
+                    <li><a href="/kontakty">Контакты</a></li>
+                    <li><a style="color:red;font-weight: 800;" href="/servis-centr/montach">Установка кондиционеров</a></li>
+                    <li><a href="/dlya-dilerov">Для дилеров</a></li>
+                </ul>
+            </nav>
+
+			                <a href="/cabinet/login" class="header__login-register">Вход и регистрация</a>
+			
+            <span class="channel-tg">
+                <a href="https://telegram.me/tezzuz" target="_blank">@tezzuz</a>
+            </span>
+                            <ul class="social">
+                    <li class="social__fb">
+                        <a href="https://www.facebook.com/tezzuzb">facebook</a>
+                    </li>
+                    <li class="social__play">
+                        <a href="https://www.youtube.com/channel/UCKjM7k5TSI2g34x9TGZQXNw">play</a>
+                    </li>
+                    <li class="social__instagram">
+                        <a href="https://www.instagram.com/tezz.uz">instagram</a>
+                    </li>
+                </ul>
+                        <div class="clearfix"></div>
+            <div class="header__right-col">
+                <span class="currency">
+                    <a href="http://cbu.uz/" target="_blank" title="Ўзбекистон Республикаси Марказий банки"
+                       style="text-transform: uppercase">
+                        1 USD = 12&nbsp;296.16&nbsp;сум                    </a>
+                </span>
+
+				                <a href="#" class="price-btn"
+                   data-currency="sum">
+					Показать цены в USD                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="header__middle-panel">
+        <div class="container">
+            <span class="main-navi-btn"><span></span></span>
+            <div class="logo">
+                                <a  href="/" ">TEZZ.UZ</a>
+                <span class="logo__slogan">
+                 Выгодные <br /> покупки. Всегда!                </span>
+            </div>
+            <div class="header__middle-panel__right-col">
+								                    <div class="header-shopping-cart shopping-cart">
+                        <a href="/basket">
+                            <span><span>Корзина</span></span>
+                            <strong>Пуста</strong>
+                        </a>
+                    </div>
+				                <div class="header__phone">
+                    <img style="margin-left:-20px;" width="24" src="/img/bg/phone-call.svg"/>
+                    <a style="font-size:26px;" href="tel:+998 71 205-55-33">&nbsp;&nbsp;&nbsp; 71 205-55-33</a>
+                    <!--
+                    <br/>
+                    <a style="font-size:25px;" href="tel:+998900222665">&nbsp;&nbsp;&nbsp;&nbsp;90 022 26 65</a>
+                    -->
+                </div>
+            </div>
+			
+                <!-- Metatag  WEBSITE  Begin -->
+
+                <div itemscope itemtype="https://schema.org/WebSite" class="search-form" data-search="form">
+                    <meta itemprop="url" content="https://tezz.uz/"/>
+                    <form itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction" action="/search">
+                        <fieldset>
+                            <div class="search-form__type-text open">
+                                <meta itemprop="target" content="https://tezz.uz/search?q={q}"/>
+                                <input itemprop="query-input" autocomplete="off" name="q"
+                                                                            value=""
+                                                                            type="text"
+                                                                            placeholder="Поиск товаров"/>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="last-child">
+                            <button type="submit" class="search-form__btn">Найти</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <!-- Metatag  WEBSITE End -->
+
+            
+        </div>
+    </div>
+    <nav class="main-navi" data-position="block">
+        <div class="container">
+            <div class="main-navi__top-panel">
+                <ul class="language-list">
+                    <li>
+                        <a href="#">
+                            <img src="/img/bg/russia.svg" alt="RUS"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/img/bg/uzbekistan.svg" alt="UZB"/>
+                        </a>
+                    </li>
+                </ul>
+                <span class="currency">
+                    <a href="http://cbu.uz/" target="_blank"
+                       title="Ўзбекистон Республикаси Марказий банки">1 USD = 12&nbsp;296.16&nbsp;сум</a>\
+                </span>
+                <span class="channel-tg">
+                    <a href="https://telegram.me/tezzuz" target="_blank">@tezzuz</a>
+                </span>
+            </div>
+            <ul class="main-navi__in">
+                <li class="directory">
+                    <a href="#">Все категории</a>
+                    <div class="directory__content">
+                        <div class="container">
+                            <div class="directory__content__in">
+                                <div class="directory__content__left-col">
+                                    <ul class="directory__content__navi">
+                                        <li class="arrow-none">
+                                            <a href="/catalog/kompyutery">Компьютеры и оргтехника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/audio-video-tehnika/televizory">Телевизоры</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/klimaticheskaya-tehnika">Климатическая техника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/krupnobytovaya-tehnika">Крупнобытовая техника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/vstraivaemaya-tehnika">Встраиваемая техника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/melkaya-bytovaya-tehnika">Мелкая бытовая техника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/instrumenty-i-tehnika">Инструменты и техника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/xoztovari">Товары для дома</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/krasotaizdorov">Красота и здоровье</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/melkaya-bytovaya-tehnika/tehnika-dlya-doma/pylesosy">Пылесосы</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/santehnika/ochistka-vody">Фильтры для воды</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/santehnika">Сантехника</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="arrow-none">
+                    <a href="/catalog/klimaticheskaya-tehnika">Климатическая техника</a>
+                </li>
+                <li class="arrow-none">
+                    <a href="/catalog/vstraivaemaya-tehnika">Встраиваемая техника</a>
+                </li>
+                <li class="arrow-none">
+                    <a href="/catalog/krupnobytovaya-tehnika">Крупнобытовая техника</a>
+                </li>
+                <li class="arrow-none">
+                    <a href="/catalog/melkaya-bytovaya-tehnika">Мелкая бытовая техника</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- header end -->
+                    <!-- start mobile slider --><div class="mobile_slider visible-xs"><div class="owl-carousel mobile-slider"><div class="item"><a href="catalog/klimaticheskaya-tehnika/kotelnoe-oborudovanie/gazovye-kotly"><img src="/uploads/images/mobilebanner/banner0.png"></a></div><div class="item"><a href="akcii/allplay_v"><img src="/uploads/images/mobilebanner/banner.png"></a></div><div class="item"><a href="catalog/instrumenty-i-tehnika/mojki-vysokogo-davleniya/bosch"><img src="/uploads/images/mobilebanner/banner14.jpg"></a></div></div></div><!-- nd mobile slider -->
+<!-- promo Start -->
+<div class="promo hidden-xs">
+    <div class="container">
+        <div class="promo__col">
+            <div class="promo__col__left">
+                <div class="promo__col__left__in">
+                    <div class="owl-carousel promo-slider">
+                        <div class="item changed" style="background-image: url(/uploads/images/slider/kotly.jpg);">
+                                                <a href="catalog/klimaticheskaya-tehnika/kotelnoe-oborudovanie/gazovye-kotly"></a>
+                                          </div><div class="item changed" style="background-image: url(/uploads/images/slider/lgcon1.jpg);">
+                                                <a href="catalog/klimaticheskaya-tehnika/kondicionery/bytovye-kondicionery/lg"></a>
+                                          </div><div class="item changed" style="background-image: url(/uploads/images/slider/lg_stiralky.jpg);">
+                                                <a href="catalog/krupnobytovaya-tehnika/stiralnye-mashiny/lg"></a>
+                                          </div><div class="item changed" style="background-image: url(/uploads/images/slider/barrier-1.jpg);">
+                                                <a href="https://tezz.uz/catalog/ochistka-vody/filtry-dlya-vody?brand%5B38401%5D=38401"></a>
+                                          </div><div class="item changed" style="background-image: url(/uploads/images/slider/barrier-min.jpg);">
+                                                <a href="catalog/ochistka-vody/barer"></a>
+                                          </div>                    </div>
+                </div>
+            </div>
+            <div class="promo__col__right">
+                <div class="gl-product">
+                    <span class="gl-product__text">Товар дня</span>
+                    <div class="gl-product__photo">
+                                        <a href="/product/gwh12ada-bora-inv-96264">
+                                            <img src="/uploads/images/product/553/thumbs/205029-400400.jpg" 
+                                            alt="Бытовой кондиционер  Gree GWH12ADA/(Bora) inv" />
+                                        </a>
+                                    </div>
+                                    <span class="gl-product__title">
+                                        <a href="/product/gwh12ada-bora-inv-96264">
+                                            <small>Бытовые кондиционеры</small>
+                                            <span>Бытовой кондиционер  Gree GWH12ADA/(Bora) inv</span>
+                                        </a>
+                                    </span>
+                                    <span class="gl-product__price">5&nbsp;728&nbsp;000&nbsp;сум.</span>
+                                    <a href="/product/gwh12ada-bora-inv-96264" class="btn">Подробнее</a>                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subcategory m-block">
+        <div id="info-gal" class="blueberry">
+            <ul class="slides">
+                <li>
+                    <span><i class="warranty-icon"></i>Гарантия низких цен!</span>
+                </li>
+                <li>
+                    <span><i class="exchange-icon"></i>15 дней на возврат или обмен</span>
+                </li>
+                <li>
+                    <span><i class="comments-icon"></i>Более 11000 отзывов на Яндекс Маркет</span>
+                </li>
+                <li>
+                    <span><i class="delivery-icon"></i>Доставка вовремя</span>
+                </li>
+            </ul>
+        </div>
+        <!--<div id="gallery-sl" class="blueberry">
+            <ul class="slides">
+                <li style="background-image: url(/img/src/promo-dec3.jpg);">
+                </li>
+                <li style="background-image: url(/img/src/promo-dec13.jpg);">
+                </li>
+            </ul>
+        </div>-->
+        <div class="subcategory__in">
+            <div class="container">
+                <div class="subcategory-slider-wrap">
+                    <span class="title">Выберите категорию</span>
+                    <div id="subcategory-slider" class="owl-carousel global-slider">
+                        <div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/krupnobytovaya-tehnika">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-krupnobytovaya-tehnika-190120.jpg" alt="Крупнобытовая техника" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/krupnobytovaya-tehnika">Крупнобытовая техника</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/obuv">
+                                            <img src="/uploads/images/thumbs/no_photo-png190120.png" alt="Обувь" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/obuv">Обувь</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/audio-video-tehnika">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-audio-video-tehnika-190120.jpg" alt="Аудио-Видео Техника" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/audio-video-tehnika">Аудио-Видео Техника</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/tovary-dlya-detey">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-detskiy-mir-190120.jpg" alt="Товары для детей" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/tovary-dlya-detey">Товары для детей</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/melkaya-bytovaya-tehnika">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-melkaya-bytovaya-tehnika-190120.jpg" alt="Мелкая бытовая техника" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/melkaya-bytovaya-tehnika">Мелкая бытовая техника</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/klimaticheskaya-tehnika">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-klimaticheskaya-tehnika-190120.jpg" alt="Климатическая техника" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/klimaticheskaya-tehnika">Климатическая техника</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/xoztovari">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-xoztovari-190120.jpg" alt="Товары для дома" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/xoztovari">Товары для дома</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/santehnika">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-santehnika-190120.jpg" alt="Сантехника" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/santehnika">Сантехника</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/ochistka-vody">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-ochistka-vody-190120.jpg" alt="Очистка воды" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/ochistka-vody">Очистка воды</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/specpredlozhenie">
+                                            <img src="/uploads/images/thumbs/no_photo-png190120.png" alt="Спецпредложение" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/specpredlozhenie">Спецпредложение</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/vstraivaemaya-tehnika">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-vstraivaemaya-tehnika-190120.jpg" alt="Встраиваемая техника" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/vstraivaemaya-tehnika">Встраиваемая техника</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/instrumenty-i-tehnika">
+                                            <img src="/uploads/images/thumbs/no_photo-png190120.png" alt="Инструменты и техника" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/instrumenty-i-tehnika">Инструменты и техника</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/smartfony-i-gadzhety">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-smartfony-i-gadzhety-190120.jpg" alt="Смартфоны и гаджеты" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/smartfony-i-gadzhety">Смартфоны и гаджеты</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/krasotaizdorov">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-krasotaizdorov-190120.jpg" alt="Красота и здоровье" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/krasotaizdorov">Красота и здоровье</a></span>
+                                    </div>
+                                </div>
+                            </div><div class="item">
+                                <div class="global-widget">
+                                    <div class="global-widget__photo">
+                                        <a href="/catalog/kompyutery">
+                                            <img src="/uploads/images/category/thumbs/image-catalog-kompyutery-190120.jpg" alt="Компьютерная техника" />
+                                        </a>
+                                    </div>
+                                    <div class="global-widget__description">
+                                        <span class="global-widget__title"><a href="/catalog/kompyutery">Компьютерная техника</a></span>
+                                    </div>
+                                </div>
+                            </div>                    </div>
+                </div>
+                <div class="subcategory__info">
+                    <strong>Monsher</strong>
+                    <p>Не понравится – вернем деньги!</p>
+                    <a href="https://tezz.uz/brand/monsher" class="btn">Узнайте больше</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- promo end -->             <!-- page Start -->
+            <div class="page ">
+                                                <div class="container">
+
+	
+	
+    <div class="visible-xs">
+        <span class="title">Популярные категории</span>
+        <ul class="advantages-list menu-list">
+            <li>
+                <a href="/catalog/kompyutery">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/uploads/images/menu/kompu-min.png" alt="Компьютеры и оргтехника"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Компьютеры и оргтехника</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="/catalog/audio-video-tehnika/televizory">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/tele-min.png" alt="Телевизоры"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Телевизоры</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="/catalog/klimaticheskaya-tehnika/kondicionery">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/kondic-min.png" alt="Кондиционеры"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Кондиционеры</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/catalog/krupnobytovaya-tehnika">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/uploads/images/menu/krupnobit-min.png" alt="Крупнобытовая техника"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Крупнобытовая техника</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="/catalog/vstraivaemaya-tehnika">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/uploads/images/menu/vstroyk-min.png" alt="Встраиваемая техника"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Встраиваемая техника</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="/catalog/santehnika/ochistka-vody">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/filtri-min.png" alt="Фильтры для воды"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Фильтры для воды</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="/catalog/melkaya-bytovaya-tehnika">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/uploads/images/menu/melkayab-min.png" alt="Мелкая бытовая техника"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Мелкая бытовая техника</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="/catalog/instrumenty-i-tehnika">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/instr.png" alt="Инструменты и техника"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Инструменты и техника</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="/catalog/xoztovari">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/uploads/images/menu/dlyadomat-min.png" alt="Товары для дома"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Товары для дома</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="hiddenMenu hidden">
+                <a href="/catalog/krupnobytovaya-tehnika/stiralnye-mashiny">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/stiral-min.png" alt="Стиральные машины"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Стиральные машины</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="hiddenMenu hidden">
+                <a href="/catalog/krupnobytovaya-tehnika/holodilniki">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/holod-min.png" alt="Холодильники"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Холодильники</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="hiddenMenu hidden">
+                <a href="/catalog/krupnobytovaya-tehnika/plity">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/plity-min.png" alt="Плиты"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Плиты</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+
+            <li class="hiddenMenu hidden">
+                <a href="/catalog/melkaya-bytovaya-tehnika/tehnika-dlya-doma/pylesosy">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/pilesosy.png" alt="Пылесосы"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Пылесосы</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="hiddenMenu hidden">
+                <a href="/catalog/kompyutery/printery">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/print.png" alt="Принтеры"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Принтеры</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="hiddenMenu hidden">
+                <a href="/catalog/xoztovari/stroitelstvo_remont">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/lest.png" alt="Стремянки и лестницы"/>
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Стремянки и лестницы</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+
+            <li class="hiddenMenu hidden">
+                <a href="/catalog/klimaticheskaya-tehnika">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/climattex.png" alt="Климатическая техника" />
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Климатическая техника</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="hiddenMenu hidden">
+                <a href="/catalog/santehnika">
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/mobile/categories/santex.png" alt="Сантехника" />
+                        </div>
+                        <div class="advantages__description pull-left">
+                            <span class="advantages__title">Сантехника</span>
+                        </div>
+                        <div class="advantages__arrow"></div>
+                    </div>
+                </a>
+            </li>
+
+
+            <li class="hiddenMenu">
+                <a href="javascript:void(0)" id="showHiddenMenu">
+                    <div class="advantages">
+                        <div class="advantages__description text-center">
+                            <span class="advantages__title">Показать все категории</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="visible-xs" style="margin-bottom:15px;">
+        <div class="gl-product">
+            <span class="gl-product__text">Товар дня</span>
+			<div class="gl-product__photo">
+                                <a href="/product/gwh12ada-bora-inv-96264">
+                                    <img src="/uploads/images/product/553/thumbs/205029-400400.jpg" 
+                                    alt="Бытовой кондиционер  Gree GWH12ADA/(Bora) inv" />
+                                </a>
+                            </div>
+                            <span class="gl-product__title">
+                                <a href="/product/gwh12ada-bora-inv-96264">
+                                    <small>Бытовые кондиционеры</small>
+                                    <span>Бытовой кондиционер  Gree GWH12ADA/(Bora) inv</span>
+                                </a>
+                            </span>
+                            <span class="gl-product__price">5&nbsp;728&nbsp;000&nbsp;сум.</span>
+                            <a href="/product/gwh12ada-bora-inv-96264" class="btn">Подробнее</a>        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+			
+<span class="title">Новинки дня</span>
+<div class="owl-carousel recommended-slider">
+    <div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/city-class-20f-102478">
+                                <img src="/uploads/images//product/685/thumbs/209527-png243243.png" alt="Газовые котлы  ITALTHERM CITY CLASS 20F" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/city-class-20f-102478">Газовые котлы  ITALTHERM CITY CLASS 20F</a>
+                        </span>
+                        <span class="recommended-slider__price">8&nbsp;745&nbsp;000&nbsp;сум </span>
+                        <a href="/product/city-class-20f-102478" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/filtr-profi-osmo-600-109879">
+                                <img src="/uploads/images/product/696/thumbs/109879_0-243243.jpg" alt="Фильтры для воды  Барьер Фильтр ПРОФИ Осмо 600" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/filtr-profi-osmo-600-109879">Фильтры для воды  Барьер Фильтр ПРОФИ Осмо 600</a>
+                        </span>
+                        <span class="recommended-slider__price">4&nbsp;900&nbsp;000&nbsp;сум </span>
+                        <a href="/product/filtr-profi-osmo-600-109879" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/s-odnim-zmeevikom-200-110092">
+                                <img src="/uploads/images/product/729/thumbs/110092_0-243243.jpg" alt="Бойлеры косвенного нагрева  Rectam с одним теплообменникам 200" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/s-odnim-zmeevikom-200-110092">Бойлеры косвенного нагрева  Rectam с одним теплообменникам 200</a>
+                        </span>
+                        <span class="recommended-slider__price">7&nbsp;733&nbsp;000&nbsp;сум </span>
+                        <a href="/product/s-odnim-zmeevikom-200-110092" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/asw-h12a4-fadr-110139">
+                                <img src="/uploads/images/product/553/thumbs/110139_0-243243.jpg" alt="Бытовой кондиционер  AUX ASW-H12A4/FADR" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/asw-h12a4-fadr-110139">Бытовой кондиционер  AUX ASW-H12A4/FADR</a>
+                        </span>
+                        <span class="recommended-slider__price">5&nbsp;415&nbsp;000&nbsp;сум </span>
+                        <a href="/product/asw-h12a4-fadr-110139" class="recommended-slider__btn">Подробно</a>
+                    </div></div>
+
+<span class="title">Популярные товары дня</span>
+<div class="owl-carousel recommended-slider">
+    <div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/dsz-5175-96345">
+                                <img src="/uploads/images/product/560/thumbs/96345_0-243243.jpg" alt="Морозильник  Indesit DSZ 5175" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/dsz-5175-96345">Морозильник  Indesit DSZ 5175</a>
+                        </span>
+                        <span class="recommended-slider__price">5&nbsp;636&nbsp;000&nbsp;сум </span>
+                        <a href="/product/dsz-5175-96345" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/gwh12ada-bora-inv-96264">
+                                <img src="/uploads/images/product/553/thumbs/205029-243243.jpg" alt="Бытовой кондиционер  Gree GWH12ADA/(Bora) inv" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/gwh12ada-bora-inv-96264">Бытовой кондиционер  Gree GWH12ADA/(Bora) inv</a>
+                        </span>
+                        <span class="recommended-slider__price">5&nbsp;728&nbsp;000&nbsp;сум </span>
+                        <a href="/product/gwh12ada-bora-inv-96264" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/ms2044v-101831">
+                                <img src="/uploads/images//product/523/thumbs/209587-png243243.png" alt="Микроволновая печь  LG MS2044V" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/ms2044v-101831">Микроволновая печь  LG MS2044V</a>
+                        </span>
+                        <span class="recommended-slider__price">1&nbsp;487&nbsp;000&nbsp;сум </span>
+                        <a href="/product/ms2044v-101831" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/f2v5ps2s-110042">
+                                <img src="/uploads/images/product/506/thumbs/110042_0-243243.jpg" alt="Стиральная машина  LG F2V5PS2S" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/f2v5ps2s-110042">Стиральная машина  LG F2V5PS2S</a>
+                        </span>
+                        <span class="recommended-slider__price">6&nbsp;022&nbsp;000&nbsp;сум </span>
+                        <a href="/product/f2v5ps2s-110042" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/its-5180-s-110036">
+                                <img src="/uploads/images/product/519/thumbs/110036_0-243243.jpg" alt="Холодильник  Indesit ITS 5180 S" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/its-5180-s-110036">Холодильник  Indesit ITS 5180 S</a>
+                        </span>
+                        <span class="recommended-slider__price">5&nbsp;766&nbsp;000&nbsp;сум </span>
+                        <a href="/product/its-5180-s-110036" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/filtr-profi-osmo-600-109879">
+                                <img src="/uploads/images/product/696/thumbs/109879_0-243243.jpg" alt="Фильтры для воды  Барьер Фильтр ПРОФИ Осмо 600" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/filtr-profi-osmo-600-109879">Фильтры для воды  Барьер Фильтр ПРОФИ Осмо 600</a>
+                        </span>
+                        <span class="recommended-slider__price">4&nbsp;900&nbsp;000&nbsp;сум </span>
+                        <a href="/product/filtr-profi-osmo-600-109879" class="recommended-slider__btn">Подробно</a>
+                    </div></div>
+
+<span class="title">Товары дня доступные по рассрочке</span>
+<div class="owl-carousel recommended-slider">
+    <div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/dw60r7070bb-wt-102383">
+                                <img src="/uploads/images/product/491/thumbs/102383_0-243243.jpg" alt="Встраиваемая посудомоечная машина  Samsung DW60R7070BB/WT" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/dw60r7070bb-wt-102383">Встраиваемая посудомоечная машина  Samsung DW60R7070BB/WT</a>
+                        </span>
+                        <span class="recommended-slider__price">8&nbsp;431&nbsp;000&nbsp;сум </span>
+                        <a href="/product/dw60r7070bb-wt-102383" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/55up81006-4k-smart-uhd-102265">
+                                <img src="/uploads/images//product/521/thumbs/210002-png243243.png" alt="Телевизор  LG 55UP81006 4K Smart UHD" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/55up81006-4k-smart-uhd-102265">Телевизор  LG 55UP81006 4K Smart UHD</a>
+                        </span>
+                        <span class="recommended-slider__price">10&nbsp;034&nbsp;000&nbsp;сум </span>
+                        <a href="/product/55up81006-4k-smart-uhd-102265" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/gc-b459seum-103133">
+                                <img src="/uploads/images/product/519/thumbs/210847-243243.jpg" alt="Холодильник  LG GC-B459SEUM" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/gc-b459seum-103133">Холодильник  LG GC-B459SEUM</a>
+                        </span>
+                        <span class="recommended-slider__price">9&nbsp;054&nbsp;000&nbsp;сум </span>
+                        <a href="/product/gc-b459seum-103133" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/bhg-10-102205">
+                                <img src="/uploads/images//product/718/thumbs/209961-png243243.png" alt="Газовые тепловые пушки  Ballu BHG-10" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/bhg-10-102205">Газовые тепловые пушки  Ballu BHG-10</a>
+                        </span>
+                        <span class="recommended-slider__price">1&nbsp;889&nbsp;000&nbsp;сум </span>
+                        <a href="/product/bhg-10-102205" class="recommended-slider__btn">Подробно</a>
+                    </div><div class="item">
+                        <div class="recommended-slider__photo">
+                            <a href="/product/its-5180-s-110036">
+                                <img src="/uploads/images/product/519/thumbs/110036_0-243243.jpg" alt="Холодильник  Indesit ITS 5180 S" />
+                            </a>
+                        </div>
+                        <span class="recommended-slider__title">
+                            <a href="/product/its-5180-s-110036">Холодильник  Indesit ITS 5180 S</a>
+                        </span>
+                        <span class="recommended-slider__price">5&nbsp;766&nbsp;000&nbsp;сум </span>
+                        <a href="/product/its-5180-s-110036" class="recommended-slider__btn">Подробно</a>
+                    </div></div>
+        </div>
+    </div>
+
+	        <div class="hidden-xs">
+            <span class="title">Наши преимущества</span>
+            <ul class="advantages-list">
+                <li>
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/bg/award.svg" alt="Только оригинальные европейские бренды."/>
+                        </div>
+                        <div class="advantages__description">
+                            <span class="advantages__title">Оригинальные европейские бренды.</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/bg/funds.svg" alt="Только официальная цена."/>
+                        </div>
+                        <div class="advantages__description indent-tp-big">
+                            <span class="advantages__title">Официальная цена.</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/bg/trophy.svg" alt="Только оригинальные европейские бренды."/>
+                        </div>
+                        <div class="advantages__description indent-tp-big">
+                            <span class="advantages__title">Высокий сервис.</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/bg/docs.svg" alt="Ручной отбор лучших европейских брендов."/>
+                        </div>
+                        <div class="advantages__description">
+                            <span class="advantages__title">Ручной отбор лучших европейских брендов.</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/bg/truck.svg" alt="Быстрая доставка по всей стране."/>
+                        </div>
+                        <div class="advantages__description">
+                            <span class="advantages__title">Быстрая доставка по Ташкенту</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="advantages">
+                        <div class="advantages__icon">
+                            <img src="/img/bg/shield.svg" alt="Безопасные покупки."/>
+                        </div>
+                        <div class="advantages__description indent-tp-big">
+                            <span class="advantages__title">Безопасные покупки.</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <span class="title">Структура компании</span>
+            <div class="about-company-slider">
+                <div class="slider about-company-slider__big">
+                    <div>
+                        <div class="about-company-slider__big__item">
+                            <div class="about-company-slider__big__info">
+                                <span class="about-company-slider__big__title">Интернет-магазин</span>
+                                <p>
+                                    В интернет-магазине Tezz.uz работают квалифицированные менеджеры, прошедшие
+                                    внутрикорпоративное
+                                    обучение. Мы регулярно повышаем нашу квалификацию в учебных центрах поставщиков и
+                                    производителей.
+                                    Нам особенно важно качество сервисного обслуживания клиентов, оказания помощи в
+                                    поиске и
+                                    подборе,
+                                    максимально удовлетворяющего вкус покупателя, техники. С нами у Вас всегда будут
+                                    выгодные покупки!
+                                </p>
+                            </div>
+                            <img src="/img/src/photo_a-s.jpg" alt="photo"/>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="about-company-slider__big__item">
+                            <div class="about-company-slider__big__info">
+                                <span class="about-company-slider__big__title">Технический отдел сайта</span>
+                                <p>
+                                    Наш сайт находится в постоянном развитии. Мы готовим для Вас максимум информации по
+                                    предлагаемым товарам
+                                    и всё для того, чтобы Вы сделали правильный выбор. Мы делаем видеообзоры на технику
+                                    и
+                                    это даст
+                                    Вам визуальное представление о товаре и его функциях, на основе которых вы можете
+                                    принять
+                                    окончательное решение о покупке.
+                                </p>
+                            </div>
+                            <img src="/img/src/photo_a-s2.jpg" alt="photo"/>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="about-company-slider__big__item">
+                            <div class="about-company-slider__big__info">
+                                <span class="about-company-slider__big__title">Дилерский отдел</span>
+                                <p>
+                                    Мы осуществляем свою работу с компаниями и строим отношения на лояльности и доверии.
+                                    Мы приглашаем производителей и дилеров различного вида техники к взаимовыгодному
+                                    сотрудничеству.
+                                    Вместе мы с легкостью сможем обеспечить возрастающий спрос покупателей!
+                                </p>
+                            </div>
+                            <img src="/img/src/photo_a-s3.jpg" alt="photo"/>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="about-company-slider__big__item">
+                            <div class="about-company-slider__big__info">
+                                <span class="about-company-slider__big__title">Отдел монтажа</span>
+                                <p>
+                                    Мы располагаем возможностью предоставить вам услуги качественного монтажа
+                                    оборудования.
+                                    Закажите у нас на сайте монтаж вместе с техникой и будьте уверены в качестве и
+                                    надежности установки.
+                                </p>
+                            </div>
+                            <img src="/img/src/photo_a-s4.jpg" alt="photo"/>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="about-company-slider__big__item">
+                            <div class="about-company-slider__big__info">
+                                <span class="about-company-slider__big__title">Руководитель проекта</span>
+                                <p>
+                                    Для нас важна репутация компании. Мы тщательно отслеживаем качество выполнения
+                                    заказов и
+                                    подходим индивидуально
+                                    к пожеланиям клиентов. Всегда готовы помочь покупателю подобрать необходимую технику
+                                    и
+                                    попутно решить возникающие
+                                    вопросы.
+                                </p>
+                            </div>
+                            <img src="/img/src/photo_a-s5.jpg" alt="photo"/>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="about-company-slider__big__item">
+                            <div class="about-company-slider__big__info">
+                                <span class="about-company-slider__big__title">Логистический отдел</span>
+                                <p>
+                                    Мы осуществляем бесплатную доставку к вашему дому по городу Ташкент, если стоимость
+                                    товара или заказа превышает 50 000 тысяч сум. Заказы за пределы города Ташкент,
+                                    рассматриваются индивидуально в зависимости от удаленности адреса и габаритов груза.
+                                </p>
+                            </div>
+                            <img src="/img/src/photo_a-s6.jpg" alt="photo"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider about-company-slider__small">
+                    <div>
+                        <div class="about-company-slider__small__item">
+                            <div class="about-company-slider__small__photo">
+                                <img src="/img/src/photo_a-s.jpg" alt="photo"/>
+                            </div>
+                            <span class="about-company-slider__small__title">Интернет-магазин</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="about-company-slider__small__item">
+                            <div class="about-company-slider__small__photo">
+                                <img src="../img/src/photo_a-s2.jpg" alt="photo"/>
+                            </div>
+                            <span class="about-company-slider__small__title">Технический отдел сайта</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="about-company-slider__small__item">
+                            <div class="about-company-slider__small__photo">
+                                <img src="/img/src/photo_a-s3.jpg" alt="photo"/>
+                            </div>
+                            <span class="about-company-slider__small__title">Дилерский отдел</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="about-company-slider__small__item">
+                            <div class="about-company-slider__small__photo">
+                                <img src="/img/src/photo_a-s4.jpg" alt="photo"/>
+                            </div>
+                            <span class="about-company-slider__small__title">Отдел монтажа</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="about-company-slider__small__item">
+                            <div class="about-company-slider__small__photo">
+                                <img src="/img/src/photo_a-s5.jpg" alt="photo"/>
+                            </div>
+                            <span class="about-company-slider__small__title">Руководитель проекта</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="about-company-slider__small__item">
+                            <div class="about-company-slider__small__photo">
+                                <img src="/img/src/photo_a-s6.jpg" alt="photo"/>
+                            </div>
+                            <span class="about-company-slider__small__title">Логистический отдел</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	
+
+    	
+    <!--<span class="title hiding">Новости и видео</span>
+    <div class="news-video hiding">
+        <ul>
+            <li>
+                <iframe width="100%" height="357" data-src="https://www.youtube.com/embed/9b_64LywzJ4" frameborder="0" allowfullscreen></iframe>
+            </li>
+            <li>
+                <ul class="news-list">
+                                    </ul>
+            </li>
+        </ul>
+    </div>-->
+    <!--<ul class="services hiding">
+        <li>
+            <i class="services__icon advice-i"></i>
+            <span>
+                <a href="/o-kompanii">Квалифицированные консультации</a>
+            </span>
+            <p>Наши специалисты всегда найдут решение вашего вопроса</p>
+        </li>
+        <li>
+            <i class="services__icon shipping-i"></i>
+            <span>
+                <a href="/o-kompanii/sertifikati">Сертифицированный дилер</a>
+            </span>
+            <p>Мы являемся сертифицированными дилерами большинства из преставленных производителей</p>
+        </li>
+        <li>
+            <i class="services__icon service-center-i"></i>
+            <span>
+                <a href="/servis-centr/vip_servis">VIP-сервис</a>
+            </span>
+            <p>Воспользуйтесь преимуществами услуги повышенного уровня обслуживания</p>
+        </li>
+        <li>
+            <i class="services__icon guarantee-i"></i>
+            <span>
+                <a href="/pokupatelyu/garantiya-proizvoditelya">Гарантия производителя</a>
+            </span>
+            <p>Представленные товары имеют официальную гарантию производителя</p>
+        </li>
+    </ul>-->
+
+
+    <!---->
+</div>
+</div>
+                 <section class="section hiding gray-bg">
+    <div class="container">
+        <span class="title">Бренды</span>
+        <div class="owl-carousel brands-slider">
+            <div class="item">
+                <a href="/brand/lg"><img src="/img/src/lg.png" alt="LG"/></a>  
+            </div>
+            <div class="item">
+                <a href="/brand/chigo"><img src="/img/src/chigo.png" alt="Chigo"/></a>
+            </div>
+            <div class="item">
+                <a href="/brand/gree"><img src="/img/src/gree.png" alt="Gree"/></a>
+            </div>
+            <div class="item">
+                <a href="/brand/hyundai"><img src="/img/src/hyundai.png" alt="Hyundai"/></a>
+            </div>
+            <div class="item">
+                <a href="/brand/monsher"><img src="/img/src/monsher.png" alt="Monsher"/></a>
+            </div>
+            <div class="item">
+                <a href="/brand/samsung"><img src="/img/src/samsung.png" alt="Samsung"/></a>
+            </div>
+        </div>    
+    </div>
+</section>            </div>
+            <!-- page end -->
+                <!-- footer Start -->
+<footer class="footer">
+            <div class="container">
+                <ul class="footer__list">
+            <li>
+                <span class="footer__list__title">
+                    <a href="/o-kompanii">О компании</a>
+                </span>
+                <ul>
+                    <li>
+                        <a href="/o-kompanii">О нас</a>
+                    </li>
+                    <li>
+                        <a href="/stati">Статьи</a>
+                    </li>
+                    <li>
+                        <a href="/novosti">Новости</a>
+                    </li>
+                    <li>
+                        <a href="/video-raybt">Видео TEZZ.UZ</a>
+                    </li>
+                    <li>
+                        <a href="/o-kompanii/vakansii">Вакансии</a>
+                    </li>                    <li>
+                        <a href="/dlya-dilerov">Для дилеров</a>
+                    </li>
+                    <li>
+                        <a href="/kontakty">Контакты</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="footer__list__title">
+                    <a href="/">Интернет-магазин</a>
+                </span>
+                <ul>
+                    <li>
+                        <a href="/akcii">Акции</a>
+                    </li>
+                    <!--<li>
+                        <a href="/pokupatelyu/optovikam">Оптовикам</a>
+                    </li>-->
+                    <li>
+                        <a href="/brand">Производители</a>
+                    </li>
+                    <li>
+                        <a href="/pokupatelyu/garantiya-proizvoditelya">Гарантия производителя</a>
+                    </li>
+                    <li>
+                        <a href="/pokupatelyu/dogovor-publichnoy-oferty">Договор публичной оферты</a>
+                    </li>
+                    <li>
+                        <a href="/sertificates">Сертификаты</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="footer__list__title">
+                    <a href="/pokupatelyu">Покупателю</a>
+                </span>
+                <ul>
+                    <li>
+                        <a href="/o-dostavke">О доставке</a>
+                    </li>
+                    <li>
+                        <a href="/oplata">Способ оплаты</a>
+                    </li>
+                    <li>
+                        <a href="/pokupatelyu/o-prieme-tovara">О приеме товара</a>
+                    </li>
+                    <li>
+                        <a href="/pokupatelyu/vozvrat-i-obmen-tovara">Возврат и обмен товара</a>
+                    </li>
+                    <li>
+                        <a href="/samovyvoz">Самовывоз</a>
+                    </li>
+                    <li>
+                        <a href="/servis-centr">Сервис центр</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="phone-col">
+                <ul>
+                    <li>
+                        <strong>
+                            <a  href="tel:+998 71 205-55-33">&nbsp;&nbsp;&nbsp; 71 205-55-33</a>
+                        </strong>
+                        <!--<strong><a href="tel:+998900222665">90 022 26 65</a></strong>-->
+                        <p>Магазин</p>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+                <div class="footer__bottom-panel">
+            <p class="copy">© 2026 «TEZZ.UZ» Интернет-Магазин</p>
+
+        </div>
+    </div>
+    <!----
+    <nc-mon-connect>776eyhdhKKYIEOIHDLhlhiu</nc-mon-connect>
+    --->
+</footer>
+<!-- footer end -->
+
+    </div>
+    <!-- wrapper end -->
+
+    <!-- modal Start -->
+    <div class="modal fade" id="modal-window" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                Подождите пожалуйста, загружается содержимое...
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-window-city" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog p-city">
+            <div class="modal-content">
+                Подождите пожалуйста, загружается содержимое...
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-filter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog filter-p">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-currency-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog sm-size">
+            <div class="modal-content">
+                <span class="modal__title">Внимание!</span>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <div class="modal-content__in">
+                    <div class="services-product">
+                        <p>Демонстрация цен в долларах США несёт в себе только информационный характер. Информация о курсе берётся с сайта Центального Банка РУз. Сайт не осуществляет продажу товаров в долларах США!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="curency-info-close" type="button"
+                            class="btn">Продолжить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal end -->
+
+    <script src="/js/jquery.js?v20.0"></script>
+<script src="/js/lodash.min.js?1794299189"></script>
+<script src="/js/jquery-ui.js?1794299189"></script>
+<script src="/js/bootstrap.js?1794299189"></script>
+<script src="/js/translitit-cyrillic-russian-to-latin.js?1794299189"></script>
+<script src="/js/filter.js?1794299189"></script>
+<script src="/js/owl.carousel.js?1794299189"></script>
+<script src="/js/jquery.scrollbar.js?1794299189"></script>
+<script src="/js/rating.js?1794299189"></script>
+<script src="/js/jquery.sticky.js?1794299189"></script>
+<script src="/js/jquery.inputmask.bundle.js?1794299189"></script>
+<script src="/js/inputmask/phone-codes/phone.js?1794299189"></script>
+<script src="/js/inputmask/phone-codes/phone-be.js?1794299189"></script>
+<script src="/js/inputmask/phone-codes/phone-ru.js?1794299189"></script>
+<script src="/js/threesixty.js?1794299189"></script>
+<script src="/js/fadeSlideShow.js?1794299189"></script>
+<script src="/js/jquery.fancybox.js?1794299189"></script>
+<script src="/js/slick.js?1794299189"></script>
+<script src="/js/scripts.js?1794299189"></script>
+<script src="/js/rt.js?1794299189"></script>    <script>RT.CurrentRegion =1;</script>
+    <!-- BEGIN JIVOSITE CODE {literal} -->
+    <script type='text/javascript'>
+        (function () {
+            if (!/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)) {
+                var widget_id = 'Ql5Ffdv7Ok';
+                var d = document;
+                var w = window;
+
+                function l() {
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = '//code.jivosite.com/script/widget/' + widget_id;
+                    var ss = document.getElementsByTagName('script')[0];
+                    ss.parentNode.insertBefore(s, ss);
+                }
+
+                if (d.readyState == 'complete') {
+                    l();
+                } else {
+                    if (w.attachEvent) {
+                        w.attachEvent('onload', l);
+                    } else {
+                        w.addEventListener('load', l, false);
+                    }
+                }
+            }
+        })();
+    </script>
+    <!-- {/literal} END JIVOSITE CODE -->
+    </body>
+    </html>

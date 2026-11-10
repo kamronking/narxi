@@ -1,0 +1,633 @@
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+
+        <!-- Google Tag Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-KVR2WW8');
+        </script>
+        <!-- End Google Tag Manager -->
+
+
+        <link href="/favicon.ico" rel="shortcut icon"/>
+
+        <title></title>
+        <meta charset="UTF-8">
+        <meta content="width=device-width,maximum-scale=1,initial-scale=1,user-scalable=0" name="viewport">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content=""/>
+        <meta name="description" content=""/>
+
+        
+        <link href="/css/bootstrap.css?1794299186" rel="stylesheet">
+<link href="/css/main.css?1794299186" rel="stylesheet">
+<link href="/css/scrollbar.css?1794299186" rel="stylesheet">
+<link href="/css/screen.css?1794299186" rel="stylesheet">
+<link href="/css/custom.css?1794299186" rel="stylesheet">
+<link href="/css/filter.css?1794299186" rel="stylesheet">
+<link href="/css/search.css?1794299186" rel="stylesheet">
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+                <script>localStorage.setItem('rt-basket', '[]');</script>
+
+        <style>
+            .instruction-wrapper {
+                padding-top: 10px;
+            }
+
+            .instruction-wrapper h1 {
+                text-align: center;
+            }
+
+            .instruction-wrapper .half {
+                float: left;
+            }
+
+            .instruction-wrapper .tab {
+                position: relative;
+                margin-bottom: 1px;
+                width: 100%;
+                color: #000;
+                overflow: hidden;
+            }
+
+            .instruction-wrapper .tab input {
+                position: absolute;
+                opacity: 0;
+                z-index: -1;
+            }
+
+            .instruction-wrapper .tab label {
+                position: relative;
+                display: block;
+                padding: 0 0 0 1em;
+                background: #dbdbdb;
+                font-weight: bold;
+                line-height: 3;
+                cursor: pointer;
+            }
+
+            .instruction-wrapper .blue label {
+                background: #2980b9;
+            }
+
+            .instruction-wrapper .tab-content {
+                max-height: 0;
+                overflow: hidden;
+                background: #ebebeb;
+                -webkit-transition: max-height .35s;
+                -o-transition: max-height .35s;
+                transition: max-height .35s;
+            }
+
+            .instruction-wrapper .blue .tab-content {
+                background: #3498db;
+            }
+
+            .instruction-wrapper .tab-content p {
+                margin: 1em;
+            }
+
+            .instruction-wrapper .tab input:checked ~ .tab-content {
+                max-height: 100vh;
+            }
+
+            .instruction-wrapper .tab label::after {
+                position: absolute;
+                right: 0;
+                top: 0;
+                display: block;
+                width: 3em;
+                height: 3em;
+                line-height: 3;
+                text-align: center;
+                -webkit-transition: all .35s;
+                -o-transition: all .35s;
+                transition: all .35s;
+            }
+
+            .instruction-wrapper .tab input[type=checkbox] + label::after {
+                content: "+";
+            }
+
+            .instruction-wrapper .tab input[type=radio] + label::after {
+                content: "\25BC";
+            }
+
+            .instruction-wrapper .tab input[type=checkbox]:checked + label::after {
+                transform: rotate(315deg);
+            }
+
+            .instruction-wrapper .tab input[type=radio]:checked + label::after {
+                transform: rotateX(180deg);
+            }
+
+            .intend-offer {
+                color: #1a9f29;
+                margin-bottom: -2px;
+                display: block;
+                position: relative;
+                border: 1px dotted #1a9f29;
+                font: 16px 'Exo 2', sans-serif;
+                padding-bottom: 10px;
+            }
+
+            .intend-offer img {
+                width: 100px;
+                height: auto;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body >
+
+
+    
+    <!-- Metatag  Organization Begin -->
+    <div itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="TEZZ.UZ">
+        <meta itemprop="image" content="https://tezz.uz/img/bg/tezz-logo.svg">
+        <meta itemprop="telephone" content="+ 998 71 205 55 33">
+        <span itemprop="email" content="info@tezz.uz">
+        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                <meta itemprop="streetAddress" content="ул. Бабура, дом 77">
+                <meta itemprop="addressLocality" content="Ташкент">
+                <meta itemprop="addressRegion" content="Ташкентская">
+        </div>
+    </div>
+    <!-- Metatag  Organization End -->
+
+
+            <!-- wrapper Start -->
+    <div class="wrapper">
+        <a href="tel:+998 71 205-55-33"
+           class="phone-call-i">Позвонить</a>
+        <!-- header Start -->
+<header class="header">
+		        <div class="header__banner-panel">
+			                <a href="/brand/lg">
+                    <span class="header__banner-panel__in">
+                        <img src="/uploads/images/topbanner/banner26.png" alt=""/>
+                    </span>
+                </a>
+			        </div>
+	    <div class="header__top-panel">
+        <div class="container">
+			            <span class="search-btn"><span>Поиск</span></span>
+            <!--<ul class="language-list">
+				<li>
+					<a href="#" data-lang="ru">
+						<img src="/img/bg/russia.svg" alt="RUS" />
+					</a>
+				</li>
+				<li>
+					<a href="#" data-lang="uz">
+						<img src="/img/bg/uzbekistan.svg" alt="UZB" />
+					</a>
+				</li>
+			</ul>-->
+            <nav class="header__top-panel__navi">
+                <ul>
+                    <li>
+                        <a href="/o-dostavke">Доставка</a>
+                    </li>
+                    <!--  <li><a href="/samovyvoz">-->
+					<? //=\Yii::t('app', 'pickup');?><!--</a></li>-->
+                    <li>
+                        <a href="/oplata">Оплата</a>
+                    </li>
+                    <!--  <li><a href="/kredit">-->
+					<? //=\Yii::t('app', 'credit');?><!--</a></li>-->
+                    <li><a href="/akcii"
+                           class="header__top-panel__navi__link">
+                           Скидки и акции                        </a>
+                    </li>
+                    <li><a href="/kontakty">Контакты</a></li>
+                    <li><a style="color:red;font-weight: 800;" href="/servis-centr/montach">Установка кондиционеров</a></li>
+                    <li><a href="/dlya-dilerov">Для дилеров</a></li>
+                </ul>
+            </nav>
+
+			                <a href="/cabinet/login" class="header__login-register">Вход и регистрация</a>
+			
+            <span class="channel-tg">
+                <a href="https://telegram.me/tezzuz" target="_blank">@tezzuz</a>
+            </span>
+                            <ul class="social">
+                    <li class="social__fb">
+                        <a href="https://www.facebook.com/tezzuzb">facebook</a>
+                    </li>
+                    <li class="social__play">
+                        <a href="https://www.youtube.com/channel/UCKjM7k5TSI2g34x9TGZQXNw">play</a>
+                    </li>
+                    <li class="social__instagram">
+                        <a href="https://www.instagram.com/tezz.uz">instagram</a>
+                    </li>
+                </ul>
+                        <div class="clearfix"></div>
+            <div class="header__right-col">
+                <span class="currency">
+                    <a href="http://cbu.uz/" target="_blank" title="Ўзбекистон Республикаси Марказий банки"
+                       style="text-transform: uppercase">
+                        1 USD = 12&nbsp;296.16&nbsp;сум                    </a>
+                </span>
+
+				                <a href="#" class="price-btn"
+                   data-currency="sum">
+					Показать цены в USD                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="header__middle-panel">
+        <div class="container">
+            <span class="main-navi-btn"><span></span></span>
+            <div class="logo">
+                                <a  href="/" ">TEZZ.UZ</a>
+                <span class="logo__slogan">
+                 Выгодные <br /> покупки. Всегда!                </span>
+            </div>
+            <div class="header__middle-panel__right-col">
+								                    <div class="header-shopping-cart shopping-cart">
+                        <a href="/basket">
+                            <span><span>Корзина</span></span>
+                            <strong>Пуста</strong>
+                        </a>
+                    </div>
+				                <div class="header__phone">
+                    <img style="margin-left:-20px;" width="24" src="/img/bg/phone-call.svg"/>
+                    <a style="font-size:26px;" href="tel:+998 71 205-55-33">&nbsp;&nbsp;&nbsp; 71 205-55-33</a>
+                    <!--
+                    <br/>
+                    <a style="font-size:25px;" href="tel:+998900222665">&nbsp;&nbsp;&nbsp;&nbsp;90 022 26 65</a>
+                    -->
+                </div>
+            </div>
+			
+                <!-- Metatag  WEBSITE  Begin -->
+
+                <div itemscope itemtype="https://schema.org/WebSite" class="search-form" data-search="form">
+                    <meta itemprop="url" content="https://tezz.uz/"/>
+                    <form itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction" action="/search">
+                        <fieldset>
+                            <div class="search-form__type-text open">
+                                <meta itemprop="target" content="https://tezz.uz/search?q={q}"/>
+                                <input itemprop="query-input" autocomplete="off" name="q"
+                                                                            value=""
+                                                                            type="text"
+                                                                            placeholder="Поиск товаров"/>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="last-child">
+                            <button type="submit" class="search-form__btn">Найти</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <!-- Metatag  WEBSITE End -->
+
+            
+        </div>
+    </div>
+    <nav class="main-navi" data-position="block">
+        <div class="container">
+            <div class="main-navi__top-panel">
+                <ul class="language-list">
+                    <li>
+                        <a href="#">
+                            <img src="/img/bg/russia.svg" alt="RUS"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/img/bg/uzbekistan.svg" alt="UZB"/>
+                        </a>
+                    </li>
+                </ul>
+                <span class="currency">
+                    <a href="http://cbu.uz/" target="_blank"
+                       title="Ўзбекистон Республикаси Марказий банки">1 USD = 12&nbsp;296.16&nbsp;сум</a>\
+                </span>
+                <span class="channel-tg">
+                    <a href="https://telegram.me/tezzuz" target="_blank">@tezzuz</a>
+                </span>
+            </div>
+            <ul class="main-navi__in">
+                <li class="directory">
+                    <a href="#">Все категории</a>
+                    <div class="directory__content">
+                        <div class="container">
+                            <div class="directory__content__in">
+                                <div class="directory__content__left-col">
+                                    <ul class="directory__content__navi">
+                                        <li class="arrow-none">
+                                            <a href="/catalog/kompyutery">Компьютеры и оргтехника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/audio-video-tehnika/televizory">Телевизоры</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/klimaticheskaya-tehnika">Климатическая техника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/krupnobytovaya-tehnika">Крупнобытовая техника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/vstraivaemaya-tehnika">Встраиваемая техника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/melkaya-bytovaya-tehnika">Мелкая бытовая техника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/instrumenty-i-tehnika">Инструменты и техника</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/xoztovari">Товары для дома</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/krasotaizdorov">Красота и здоровье</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/melkaya-bytovaya-tehnika/tehnika-dlya-doma/pylesosy">Пылесосы</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/santehnika/ochistka-vody">Фильтры для воды</a>
+                                        </li>
+                                        <li class="arrow-none">
+                                            <a href="/catalog/santehnika">Сантехника</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="arrow-none">
+                    <a href="/catalog/klimaticheskaya-tehnika">Климатическая техника</a>
+                </li>
+                <li class="arrow-none">
+                    <a href="/catalog/vstraivaemaya-tehnika">Встраиваемая техника</a>
+                </li>
+                <li class="arrow-none">
+                    <a href="/catalog/krupnobytovaya-tehnika">Крупнобытовая техника</a>
+                </li>
+                <li class="arrow-none">
+                    <a href="/catalog/melkaya-bytovaya-tehnika">Мелкая бытовая техника</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- header end -->
+                                <!-- page Start -->
+            <div class="page ">
+                                                
+<nav class="bread-crumbs">
+    <div class="container">
+        <ul>
+            <li class="bread-crumbs__home">
+                <a href="/">Главная</a>
+            </li>
+            <li class="active">
+                404
+            </li>
+        </ul>
+    </div>
+</nav>
+<section class="section color-white">
+    <div class="container">
+        <div class="error-404">
+            <div class="error-404__name">
+                <dl>
+                    <dt>Ошибка</dt>
+                    <dd>404</dd>
+                </dl>
+            </div>
+            <div class="error-404__info">
+                <h3>Мы тоже не любим ошибки, но иногда они случаются...</h3>
+                <p>Возможно, вы перешли по неверной ссылке, страница была перемещена или ее никогда не было на сайте. Попробуйте вернуться на <a href="/">главную</a> или перейдите по одной из ссылок ниже.</p>
+            </div>
+        </div>
+    </div>
+</section>
+                            </div>
+            <!-- page end -->
+                <!-- footer Start -->
+<footer class="footer">
+        <div class="container">
+                <ul class="footer__list">
+            <li>
+                <span class="footer__list__title">
+                    <a href="/o-kompanii">О компании</a>
+                </span>
+                <ul>
+                    <li>
+                        <a href="/o-kompanii">О нас</a>
+                    </li>
+                    <li>
+                        <a href="/stati">Статьи</a>
+                    </li>
+                    <li>
+                        <a href="/novosti">Новости</a>
+                    </li>
+                    <li>
+                        <a href="/video-raybt">Видео TEZZ.UZ</a>
+                    </li>
+                    <li>
+                        <a href="/o-kompanii/vakansii">Вакансии</a>
+                    </li>                    <li>
+                        <a href="/dlya-dilerov">Для дилеров</a>
+                    </li>
+                    <li>
+                        <a href="/kontakty">Контакты</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="footer__list__title">
+                    <a href="/">Интернет-магазин</a>
+                </span>
+                <ul>
+                    <li>
+                        <a href="/akcii">Акции</a>
+                    </li>
+                    <!--<li>
+                        <a href="/pokupatelyu/optovikam">Оптовикам</a>
+                    </li>-->
+                    <li>
+                        <a href="/brand">Производители</a>
+                    </li>
+                    <li>
+                        <a href="/pokupatelyu/garantiya-proizvoditelya">Гарантия производителя</a>
+                    </li>
+                    <li>
+                        <a href="/pokupatelyu/dogovor-publichnoy-oferty">Договор публичной оферты</a>
+                    </li>
+                    <li>
+                        <a href="/sertificates">Сертификаты</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="footer__list__title">
+                    <a href="/pokupatelyu">Покупателю</a>
+                </span>
+                <ul>
+                    <li>
+                        <a href="/o-dostavke">О доставке</a>
+                    </li>
+                    <li>
+                        <a href="/oplata">Способ оплаты</a>
+                    </li>
+                    <li>
+                        <a href="/pokupatelyu/o-prieme-tovara">О приеме товара</a>
+                    </li>
+                    <li>
+                        <a href="/pokupatelyu/vozvrat-i-obmen-tovara">Возврат и обмен товара</a>
+                    </li>
+                    <li>
+                        <a href="/samovyvoz">Самовывоз</a>
+                    </li>
+                    <li>
+                        <a href="/servis-centr">Сервис центр</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="phone-col">
+                <ul>
+                    <li>
+                        <strong>
+                            <a  href="tel:+998 71 205-55-33">&nbsp;&nbsp;&nbsp; 71 205-55-33</a>
+                        </strong>
+                        <!--<strong><a href="tel:+998900222665">90 022 26 65</a></strong>-->
+                        <p>Магазин</p>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+                <div class="footer__bottom-panel">
+            <p class="copy">© 2026 «TEZZ.UZ» Интернет-Магазин</p>
+
+        </div>
+    </div>
+    <!----
+    <nc-mon-connect>776eyhdhKKYIEOIHDLhlhiu</nc-mon-connect>
+    --->
+</footer>
+<!-- footer end -->
+
+    </div>
+    <!-- wrapper end -->
+
+    <!-- modal Start -->
+    <div class="modal fade" id="modal-window" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                Подождите пожалуйста, загружается содержимое...
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-window-city" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog p-city">
+            <div class="modal-content">
+                Подождите пожалуйста, загружается содержимое...
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-filter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog filter-p">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-currency-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog sm-size">
+            <div class="modal-content">
+                <span class="modal__title">Внимание!</span>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <div class="modal-content__in">
+                    <div class="services-product">
+                        <p>Демонстрация цен в долларах США несёт в себе только информационный характер. Информация о курсе берётся с сайта Центального Банка РУз. Сайт не осуществляет продажу товаров в долларах США!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="curency-info-close" type="button"
+                            class="btn">Продолжить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal end -->
+
+    <script src="/js/jquery.js?v20.0"></script>
+<script src="/js/lodash.min.js?1794299186"></script>
+<script src="/js/jquery-ui.js?1794299186"></script>
+<script src="/js/bootstrap.js?1794299186"></script>
+<script src="/js/translitit-cyrillic-russian-to-latin.js?1794299186"></script>
+<script src="/js/filter.js?1794299186"></script>
+<script src="/js/owl.carousel.js?1794299186"></script>
+<script src="/js/jquery.scrollbar.js?1794299186"></script>
+<script src="/js/rating.js?1794299186"></script>
+<script src="/js/jquery.sticky.js?1794299186"></script>
+<script src="/js/jquery.inputmask.bundle.js?1794299186"></script>
+<script src="/js/inputmask/phone-codes/phone.js?1794299186"></script>
+<script src="/js/inputmask/phone-codes/phone-be.js?1794299186"></script>
+<script src="/js/inputmask/phone-codes/phone-ru.js?1794299186"></script>
+<script src="/js/threesixty.js?1794299186"></script>
+<script src="/js/fadeSlideShow.js?1794299186"></script>
+<script src="/js/jquery.fancybox.js?1794299186"></script>
+<script src="/js/slick.js?1794299186"></script>
+<script src="/js/scripts.js?1794299186"></script>
+<script src="/js/rt.js?1794299186"></script>    <script>RT.CurrentRegion =1;</script>
+    <!-- BEGIN JIVOSITE CODE {literal} -->
+    <script type='text/javascript'>
+        (function () {
+            if (!/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)) {
+                var widget_id = 'Ql5Ffdv7Ok';
+                var d = document;
+                var w = window;
+
+                function l() {
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = '//code.jivosite.com/script/widget/' + widget_id;
+                    var ss = document.getElementsByTagName('script')[0];
+                    ss.parentNode.insertBefore(s, ss);
+                }
+
+                if (d.readyState == 'complete') {
+                    l();
+                } else {
+                    if (w.attachEvent) {
+                        w.attachEvent('onload', l);
+                    } else {
+                        w.addEventListener('load', l, false);
+                    }
+                }
+            }
+        })();
+    </script>
+    <!-- {/literal} END JIVOSITE CODE -->
+    </body>
+    </html>
