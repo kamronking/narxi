@@ -1,0 +1,54 @@
+{
+ "tm_cat": {
+  "st": 200,
+  "len": 418284,
+  "hits": {
+   "monthly": 41,
+   "loan": 44,
+   "installment": 38,
+   "credit": 0,
+   "oyiga": 0,
+   "мес": 78,
+   "month": 192,
+   "rassrochka": 0,
+   "nasiya": 0,
+   "period": 0
+  },
+  "samples": [
+   "eta:{total:d,current_page:b,last_page:b,per_page:bZ},loading:c,categories:[],products:[],brand:{},banners:[],catalogs:[],productsHit:[],videos:[],seo:{}},cart:{monthly_sale_number:H,products:[],checkout_products:[],isChange:c,selected_products_count:d,recommended_products:{data:[]},reco",
+   "дверный\"},{count:b,id:74181,value:\"T-Door\"}]},{count:b,id:798,name:ei,values:[{count:b,id:63896,value:ej}]}],similarProducts:[{all_count:b,availability:F,axiom_monthly_price:\"от 816 142 сум \\u002F 24 мес.\",benefit:d,categories:{item_category:n,item_category2:o,item_category3:i,item_cate",
+   ":\\u002F\\u002Fmini-io-api.texnomart.uz\\u002Fcatalog\\u002Fproduct\\u002F3583\\u002F358380\\u002F209463\\u002F14721b17-e13b-493d-8de3-0d0b40adfc10-medium.webp\",is_can_loan_order:b,name:el,old_price:e,reviews_average:e,reviews_count:d,sale_months:[{id:j,image:k,key:f,name:f}],sale_price:11522",
+   "ount:d,sale_months:[{id:j,image:k,key:f,name:f}],sale_price:11522000,stickers:[],uuid:\"8a2e118b-f9ae-11ef-88eb-40a8f02c4f60\"},{all_count:q,availability:F,axiom_monthly_price:\"от 454 325 сум \\u002F 24 мес.\",benefit:d,categories:{item_category:n,item_category2:o,item_category3:i,item_cate",
+   ":\\u002F\\u002Fmini-io-api.texnomart.uz\\u002Fcatalog\\u002Fproduct\\u002F3580\\u002F358075\\u002F207683\\u002Ff93310bc-1cfe-46ae-ae06-24c1f36279b2-medium.webp\",is_can_loan_order:b,name:en,old_price:e,reviews_average:e,reviews_count:d,sale_months:[{id:j,image:k,key:f,name:f}],sale_price:64140",
+   "ount:d,sale_months:[{id:j,image:k,key:f,name:f}],sale_price:6414000,stickers:[],uuid:\"b880ab84-345f-11ef-88e9-40a8f02c4f60\"},{all_count:23,availability:l,axiom_monthly_price:\"от 1 356 525 сум \\u002F 24 мес.\",benefit:d,categories:{item_category:n,item_category2:o,item_category3:i,item_ca",
+   ":\\u002F\\u002Fmini-io-api.texnomart.uz\\u002Fcatalog\\u002Fproduct\\u002F3598\\u002F359856\\u002F215794\\u002F61aff834-cfc3-4ea5-838e-7483375d2767-medium.webp\",is_can_loan_order:b,name:eo,old_price:e,reviews_average:e,reviews_count:d,sale_months:[{id:j,image:k,key:f,name:f}],sale_price:15510",
+   "unt:d,sale_months:[{id:j,image:k,key:f,name:f}],sale_price:15510000,stickers:[],uuid:\"b5c0f8e6-2e93-11f1-b0ed-c4d76094fcde\"},{all_count:a$,availability:l,axiom_monthly_price:\"от 454 113 сум \\u002F 24 мес.\",benefit:d,categories:{item_category:n,item_category2:o,item_category3:i,item_cate"
+  ]
+ },
+ "tm_prod_list2": {
+  "st": 200,
+  "len": 516952,
+  "hits": {
+   "monthly": 41,
+   "loan": 44,
+   "installment": 38,
+   "credit": 0,
+   "oyiga": 0,
+   "мес": 64,
+   "month": 128,
+   "rassrochka": 0,
+   "nasiya": 0,
+   "period": 0
+  },
+  "samples": [
+   "meta:{total:d,current_page:c,last_page:c,per_page:u},loading:b,categories:[],products:[],brand:{},banners:[],catalogs:[],productsHit:[],videos:[],seo:{}},cart:{monthly_sale_number:T,products:[],checkout_products:[],isChange:b,selected_products_count:d,recommended_products:{data:[]},reco",
+   "4192,value:\"HONOR серии Magic\"}]},{count:c,id:1645,name:\"Тип матрицы\",values:[{count:c,id:50850,value:d$}]}],similarProducts:[{all_count:y,availability:o,axiom_monthly_price:\"от 114 538 сум \\u002F 24 мес.\",benefit:d,categories:{item_category:w,item_category2:k,item_category3:aN,item_cat",
+   ":\\u002F\\u002Fmini-io-api.texnomart.uz\\u002Fcatalog\\u002Fproduct\\u002F3578\\u002F357839\\u002F204765\\u002F038bd7be-8331-47d7-ac9e-c65007edef5c-medium.webp\",is_can_loan_order:c,name:\"Infinix Smart 9 4\\u002F128GB Металлический черный\",old_price:f,reviews_average:f,reviews_count:d,sale_mont",
+   "color:s,id:q,image:t,is_image:a,name:r,position:p,show_in_card:a,text_color:l}],uuid:\"56108373-8ae2-11ef-88e9-40a8f02c4f60\"},{all_count:ea,availability:o,axiom_monthly_price:\"от 411 613 сум \\u002F 24 мес.\",benefit:d,categories:{item_category:w,item_category2:k,item_category3:as,item_cat",
+   ":\\u002F\\u002Fmini-io-api.texnomart.uz\\u002Fcatalog\\u002Fproduct\\u002F3590\\u002F359083\\u002F212817\\u002F90dd862a-9ab9-4649-a268-67f9c9ea9e29-medium.webp\",is_can_loan_order:c,name:\"Honor X9d 12\\u002F256GB Красный\",old_price:f,reviews_average:f,reviews_count:d,sale_months:[],sale_price:5",
+   "color:s,id:q,image:t,is_image:a,name:r,position:p,show_in_card:a,text_color:l}],uuid:\"987277a3-b3c9-11f0-88f3-40a8f02c4f60\"},{all_count:m,availability:al,axiom_monthly_price:\"от 230 175 сум \\u002F 24 мес.\",benefit:d,categories:{item_category:w,item_category2:k,item_category3:bA,item_cat",
+   ":\\u002F\\u002Fmini-io-api.texnomart.uz\\u002Fcatalog\\u002Fproduct\\u002F3587\\u002F358736\\u002F211207\\u002F24587a51-3c2b-41d7-b1ed-72df65f2491d-medium.webp\",is_can_loan_order:c,name:eb,old_price:f,reviews_average:f,reviews_count:d,sale_months:[],sale_price:3069000,stickers:[{background_co",
+   "_color:s,id:q,image:t,is_image:a,name:r,position:p,show_in_card:a,text_color:l}],uuid:\"5895006e-6204-11f0-88ee-40a8f02c4f60\"},{all_count:n,availability:o,axiom_monthly_price:\"от 226 880 сум \\u002F 24 мес.\",benefit:d,categories:{item_category:w,item_category2:k,item_category3:aN,item_cat"
+  ]
+ }
+}
