@@ -92,7 +92,7 @@ def handle_updates(D, P):
                     'username': frm.get('username'), 'lang': lang, 'verified_at': int(time.time())}, merge=True)
                 tg('sendMessage', chat_id=chat, text=L['thanks'], reply_markup={'remove_keyboard': True})
             continue
-        mm = re.match(r'/start\s+(?:(uz|ru)_)?w([0-9a-z]{1,8})_(\d{1,7})$', text)
+        mm = re.match(r'/start\s+(?:(uz|ru)_)?w([0-9a-z]{1,8})_(\d{1,7})(?:_[a-z0-9-]{2,12})?$', text)
         if mm:
             if mm.group(1): lang = mm.group(1); L = T[lang]
             pid, target = mm.group(2), int(mm.group(3)) * 1000
