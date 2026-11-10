@@ -13,14 +13,14 @@ const T = {
     hello: 'Привет! Я бот Narxi. Откройте товар на сайте и нажмите «Уведомить в Telegram» — я сообщу, когда цена упадёт.\n\n' + SITE,
     list: 'Вы следите за:\n{items}\n\nОтписаться от всего: /stop', empty: 'Пока ничего не отслеживается.', stopped: 'Готово, уведомления отключены.',
     nf: 'Товар не найден — возможно, он больше не продаётся.',
-    reg: 'Регистрация в Narxi: нажмите кнопку ниже — Telegram передаст ваш номер, и всё готово.', regok: '✅ Готово! Вы зарегистрированы в Narxi. Вернитесь на сайт: ' + SITE },
+    reg: '📱 Регистрация в Narxi\n\nЧтобы завершить регистрацию, нажмите кнопку «📱 Поделиться номером» внизу. Без номера регистрация невозможна.', notOwn: '⚠️ Это не ваш номер. Нажмите кнопку «📱 Поделиться номером» внизу — нужен номер именно вашего Telegram-аккаунта.', needBtn: '👇 Пожалуйста, нажмите кнопку «📱 Поделиться номером» внизу экрана. Номер вручную вводить не нужно — Telegram отправит его сам.', regok: '✅ Готово! Вы зарегистрированы в Narxi. Вернитесь на сайт: ' + SITE },
   uz: { set: "✅ Narxni kuzatyapman\n\n{name}\nHozir: {now} so'm ({store})\nNarx {target} so'm yoki undan past bo'lsa xabar beraman.",
     phone: "Narxi'da ro'yxatdan o'tish uchun pastdagi tugmani bosing — Telegram raqamingizni yuboradi. Bu majburiy emas.",
     btn: '📱 Raqamni yuborish', thanks: "🙏 Rahmat! Raqam tasdiqlandi, siz Narxi'da ro'yxatdan o'tdingiz.",
     hello: "Salom! Men Narxi botiman. Saytda tovarni oching va «Telegram'da xabar berish» tugmasini bosing — narx tushganda yozaman.\n\n" + SITE,
     list: "Kuzatuvdagi tovarlar:\n{items}\n\nHammasini o'chirish: /stop", empty: 'Hozircha hech narsa kuzatilmayapti.', stopped: "Tayyor, xabarlar o'chirildi.",
     nf: 'Tovar topilmadi — balki endi sotilmayapti.',
-    reg: "Narxi'da ro'yxatdan o'tish: pastdagi tugmani bosing — Telegram raqamingizni yuboradi va tayyor.", regok: "✅ Tayyor! Siz Narxi'da ro'yxatdan o'tdingiz. Saytga qayting: " + SITE },
+    reg: "📱 Narxi'da ro'yxatdan o'tish\n\nRo'yxatdan o'tishni yakunlash uchun pastdagi «📱 Raqamni yuborish» tugmasini bosing. Raqamsiz ro'yxatdan o'tib bo'lmaydi.", notOwn: "⚠️ Bu sizning raqamingiz emas. Pastdagi «📱 Raqamni yuborish» tugmasini bosing — aynan sizning Telegram raqamingiz kerak.", needBtn: "👇 Iltimos, ekran pastidagi «📱 Raqamni yuborish» tugmasini bosing. Raqamni qo'lda yozish shart emas — Telegram o'zi yuboradi.", regok: "✅ Tayyor! Siz Narxi'da ro'yxatdan o'tdingiz. Saytga qayting: " + SITE },
 };
 const fill = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k]);
 const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -91,14 +91,22 @@ async function handle(env, u) {
   const chat = m.chat.id, frm = m.from || {}, db = fs(env);
   let lang = (frm.language_code || '').startsWith('uz') ? 'uz' : 'ru', L = T[lang];
   const text = (m.text || '').trim(), now = Math.floor(Date.now() / 1000);
+  const askKb = { keyboard: [[{ text: L.btn, request_contact: true }]], resize_keyboard: true, one_time_keyboard: false, is_persistent: true };
   if (m.contact) {
-    if (m.contact.user_id === frm.id) {
+    if (m.contact.user_id !== frm.id) {  // someone else's contact card — not a verification
+      await tg(env, 'sendMessage', { chat_id: chat, text: L.notOwn, reply_markup: askKb }); return;
+    }
+    {
       const prev = await db.get(`tg_users/${chat}`);
       await db.set(`tg_users/${chat}`, { phone: m.contact.phone_number, first_name: frm.first_name || null, username: frm.username || null, lang, verified_at: now });
       if (prev && prev.site_uid) await db.set(`site_reg/${prev.site_uid}`, { chat, phone: m.contact.phone_number, first_name: frm.first_name || null, at: now });
       await tg(env, 'sendMessage', { chat_id: chat, text: prev && prev.site_uid ? L.regok : L.thanks, reply_markup: { remove_keyboard: true } });
     }
     return;
+  }
+  if (!text.startsWith('/')) {
+    const u0 = await db.get(`tg_users/${chat}`);
+    if (u0 && u0.site_uid && !u0.phone) { await tg(env, 'sendMessage', { chat_id: chat, text: L.needBtn, reply_markup: askKb }); return; }
   }
   const rg = text.match(/^\/start\s+reg_([A-Za-z0-9]{10,40})$/);
   if (rg) {
@@ -108,7 +116,7 @@ async function handle(env, u) {
       await db.set(`site_reg/${rg[1]}`, { chat, phone: u.phone, first_name: frm.first_name || null, at: now });
       await tg(env, 'sendMessage', { chat_id: chat, text: L.regok }); return;
     }
-    await tg(env, 'sendMessage', { chat_id: chat, text: L.reg, reply_markup: { keyboard: [[{ text: L.btn, request_contact: true }]], resize_keyboard: true, one_time_keyboard: true } });
+    await tg(env, 'sendMessage', { chat_id: chat, text: L.reg, reply_markup: askKb });
     return;
   }
   const mm = text.match(/^\/start\s+(?:(uz|ru)_)?w([0-9a-z]{1,8})_(\d{1,7})(?:_([a-z0-9-]{2,12}))?$/);
