@@ -145,8 +145,8 @@ export default {
     }
     if (url.pathname === '/reg') {  // site asks: is this visitor registered? (yes/no only, no personal data)
       const id = url.searchParams.get('id') || '';
-      const ok = /^[A-Za-z0-9]{10,40}$/.test(id) && !!(await fs(env).get(`site_reg/${id}`));
-      return new Response(JSON.stringify({ ok }), { headers: { 'content-type': 'application/json', 'access-control-allow-origin': 'https://kamronking.github.io', 'cache-control': 'no-store' } });
+      const d = /^[A-Za-z0-9]{10,40}$/.test(id) ? await fs(env).get(`site_reg/${id}`) : null;
+      return new Response(JSON.stringify(d ? { ok: true, name: d.first_name || '' } : { ok: false }), { headers: { 'content-type': 'application/json', 'access-control-allow-origin': 'https://kamronking.github.io', 'cache-control': 'no-store' } });
     }
     if (url.pathname === '/hook' && req.method === 'POST') {
       if (req.headers.get('x-telegram-bot-api-secret-token') !== env.WEBHOOK_SECRET) return new Response('forbidden', { status: 403 });

@@ -300,6 +300,7 @@ const auth=getAuth(app),db=getFirestore(app);
 async function uid(){if(auth.currentUser)return auth.currentUser.uid;const c=await signInAnonymously(auth);return c.user.uid}
 window.NX={
   async uid(){try{return await uid()}catch(e){return null}},
+  async signOut(){try{await auth.signOut()}catch(e){}},
   async saveUser(u,watch,lang){console.log('[narxi] saveUser');try{const id=await uid();await setDoc(doc(db,'users',id),{name:u.name,phone:u.phone,city:u.city,brands:u.brands||[],since:u.since,lang,watch:watch||{},updated:serverTimestamp()},{merge:true});return true}catch(e){console.warn('[narxi] saveUser failed',e&&e.code,e&&e.message);return false}},
   async saveWatch(watch){try{if(!auth.currentUser)return;await setDoc(doc(db,'users',auth.currentUser.uid),{watch,updated:serverTimestamp()},{merge:true})}catch(e){console.warn('saveWatch',e)}},
   async load(){try{const id=await new Promise(r=>{const un=onAuthStateChanged(auth,x=>{un();r(x?x.uid:null)})});if(!id)return null;const s=await getDoc(doc(db,'users',id));return s.exists()?s.data():null}catch(e){return null}},
@@ -573,7 +574,7 @@ function parseQ(raw){let q=raw.toLowerCase().replace(/ё/g,'е').replace(/,/g,'.
 /* ===== Registration nudge (every visit until registered) ===== */
 const WORKER='https://narxi-bot.numonjonovkamron.workers.dev';
 async function regStatus(){if(store.get('reg_ok',false))return true;if(!WORKER||!window.NX)return false;
-  try{const id=await NX.uid();if(!id)return false;const r=await fetch(`${WORKER}/reg?id=${encodeURIComponent(id)}`);const j=await r.json();if(j.ok){store.set('reg_ok',true);return true}}catch(e){}return false}
+  try{const id=await NX.uid();if(!id)return false;const r=await fetch(`${WORKER}/reg?id=${encodeURIComponent(id)}`);const j=await r.json();if(j.ok){store.set('reg_ok',true);if(j.name&&(!USER||!USER.name)){USER={name:j.name,phone:'',city:'',brands:[],since:Date.now()};store.set('user',USER);window.NX&&NX.saveUser&&NX.saveUser(USER,WATCH,LANG);render()}window.NX&&NX.ev('sign_up',{method:'telegram'});return true}}catch(e){}return false}
 async function regNudge(force){if(await regStatus())return;if(!force&&sessionStorage.getItem('reg_shown'))return;try{sessionStorage.setItem('reg_shown','1')}catch(e){}
   if(document.getElementById('regsheet'))return;const id=window.NX?await NX.uid():null;if(!id)return;
   const el=document.createElement('div');el.id='regsheet';el.className='regwrap';
@@ -643,12 +644,12 @@ const ART=[
  `<svg class="chart2" viewBox="0 0 250 170"><path d="M10 120 L60 118 L100 122 L130 60 L160 58 L190 128 L240 126" fill="none" stroke="#c8f169" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="145" cy="58" r="7" fill="#ff8a80"/><text x="120" y="40" fill="#fff" font-size="13" font-weight="700">+17%</text><text x="185" y="152" fill="#fff" font-size="13" font-weight="700">"−15%"</text></svg>`,
  `<div class="tags3"><div class="ptag win" style="left:30px;top:40px">🔔 5 990 000<small>${LANG==='uz'?'Narx tushdi!':'Цена упала!'}</small></div><div class="ptag" style="right:10px;bottom:30px;animation-delay:-1.5s">${LANG==='uz'?'Maqsad':'Цель'}: 6 000 000<small>${LANG==='uz'?'Kuzatuv':'Слежу'}</small></div></div>`];
 let regFromProfile=false;function openOB(step=0){obStep=step;regFromProfile=step===3;ob.hidden=false;drawOB()}
-function closeOB(){ob.hidden=true;store.set('seen',1);render();setTimeout(()=>regNudge(true),1200)}
+function closeOB(){const fromProf=regFromProfile;ob.hidden=true;store.set('seen',1);render();if(!fromProf)setTimeout(()=>regNudge(true),600)}
 function drawOB(){if(obStep<3){obw.innerHTML=`<div class="obtop">${obStep>0?`<button class="obback" id="obBack" aria-label="${t('back')}">‹</button>`:'<span></span>'}<button class="skip" id="obSkip">${t('skip')}</button></div><div class="art in-up" style="--i:0">${ART[obStep]}</div>
-   <div class="steps">${[0,1,2,3].map(i=>`<i class="${i===obStep?'on':''}"></i>`).join('')}</div>
+   <div class="steps">${[0,1,2].map(i=>`<i class="${i===obStep?'on':''}"></i>`).join('')}</div>
    <h1 class="in-up" style="--i:1">${t('ob'+(obStep+1)+'t')}</h1><p class="in-up" style="--i:2">${t('ob'+(obStep+1)+'p')}</p>
    <button class="btn lime wide press in-up" style="--i:3" id="obNext">${obStep<2?t('next'):t('start')}</button>`;
-   document.getElementById('obNext').onclick=()=>{obStep++;drawOB()};const bb=document.getElementById('obBack');if(bb)bb.onclick=()=>{obStep--;drawOB()};document.getElementById('obSkip').onclick=()=>{obStep=3;drawOB()};return}
+   document.getElementById('obNext').onclick=()=>{if(obStep>=2){closeOB();return}obStep++;drawOB()};const bb=document.getElementById('obBack');if(bb)bb.onclick=()=>{obStep--;drawOB()};document.getElementById('obSkip').onclick=closeOB;return}
   const regs=t('regions');
   obw.innerHTML=`<div class="obtop"><button class="obback" id="obBack" aria-label="${t('back')}">‹</button><span></span></div><div class="steps" style="margin-top:6px">${[0,1,2,3].map(i=>`<i class="${i===3?'on':''}"></i>`).join('')}</div><h1 class="in-up">${t('regT')}</h1><p class="in-up" style="--i:1">${t('regP')}</p>
    <form class="reg in-up" style="--i:2" id="regF" novalidate>
@@ -695,8 +696,11 @@ async function refresh(manual){if(busy||!DATA)return;busy=true;const rf=document
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&DATA&&Date.now()-lastRf>15*60e3){lastRf=Date.now();refresh('auto')}})})();
 let lastRf=Date.now();
 render();
-if(!store.get('seen',0))openOB(0);
-setTimeout(function waitNX(n){if(!window.NX&&n<20)return setTimeout(()=>waitNX(n+1),500);if(store.get('seen',0)&&ob.hidden)regNudge()},4000,0);
+(function(){const q=new URLSearchParams(location.search);if(q.has('reset')){try{['user','watch','seen','reg_ok','synced','cmp','seenp'].forEach(k=>localStorage.removeItem('narxi_'+k));sessionStorage.clear()}catch(e){}
+  const go2=()=>{location.replace(location.pathname)};if(window.NX&&NX.signOut)NX.signOut().then(go2,go2);else setTimeout(()=>{(window.NX&&NX.signOut?NX.signOut():Promise.resolve()).then(go2,go2)},1500)}})();
+const firstVisitOfSession=!sessionStorage.getItem('ob_shown');
+if(!store.get('reg_ok',false)&&firstVisitOfSession){try{sessionStorage.setItem('ob_shown','1');sessionStorage.setItem('reg_shown','1')}catch(e){}openOB(0)}
+setTimeout(function waitNX(n){if(!window.NX&&n<20)return setTimeout(()=>waitNX(n+1),500);regStatus().then(ok=>{if(ok&&!ob.hidden&&!regFromProfile){ob.hidden=true;render()}})},1500,0);
 const nxBoot=async()=>{if(USER){if(!store.get('synced',0)){const ok=await NX.saveUser(USER,WATCH,LANG);if(ok){store.set('synced',1);toast('☁️ '+t('saved'))}}return}const d=await NX.load();if(d&&d.name){USER={name:d.name,phone:d.phone,city:d.city,brands:d.brands||[],since:d.since||Date.now()};store.set('user',USER);if(d.watch){WATCH={...d.watch,...WATCH};store.set('watch',WATCH)}store.set('seen',1);if(!ob.hidden)ob.hidden=true;render()}};if(window.NX_READY)nxBoot();else addEventListener('nx-ready',nxBoot);
 </script>
 </body>
