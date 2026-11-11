@@ -97,7 +97,7 @@ def handle_updates(D, P):
                     D.collection('site_reg').document(prev['site_uid']).set({'chat': chat, 'phone': c.get('phone_number'), 'first_name': frm.get('first_name'), 'at': int(time.time())})
                 tg('sendMessage', chat_id=chat, text=L['regok'] if prev.get('site_uid') else L['thanks'], reply_markup={'remove_keyboard': True})
             continue
-        rg = re.match(r'/start\s+reg_([A-Za-z0-9]{10,40})$', text)
+        rg = re.match(r'/start\s+(?:(?:uz|ru)_)?reg_([A-Za-z0-9]{10,40})$', text)  # the site sends ru_reg_/uz_reg_
         if rg:
             ref = D.collection('tg_users').document(str(chat)); u = ref.get().to_dict() or {}
             ref.set({'site_uid': rg.group(1), 'first_name': frm.get('first_name'), 'username': frm.get('username'), 'lang': lang, 'seen_at': int(time.time())}, merge=True)

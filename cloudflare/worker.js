@@ -50,7 +50,9 @@ async function gtoken(sa) {
   const sig = await crypto.subtle.sign('RSASSA-PKCS1-v1_5', key, new TextEncoder().encode(unsigned));
   const r = await fetch(sa.token_uri, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body: 'grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=' + unsigned + '.' + b64u(sig) });
-  const j = await r.json(); TOKEN = j.access_token; TOKEN_EXP = Date.now() + 50 * 60 * 1000; return TOKEN;
+  const j = await r.json().catch(() => ({}));
+  if (!j.access_token) { TOKEN = null; TOKEN_EXP = 0; throw new Error('google token failed: ' + JSON.stringify(j).slice(0, 200)) }  // don't cache a failure for 50 min
+  TOKEN = j.access_token; TOKEN_EXP = Date.now() + 50 * 60 * 1000; return TOKEN;
 }
 const val = v => v === null || v === undefined ? { nullValue: null } : typeof v === 'boolean' ? { booleanValue: v } :
   Number.isInteger(v) ? { integerValue: String(v) } : typeof v === 'number' ? { doubleValue: v } : { stringValue: String(v) };
@@ -122,7 +124,8 @@ async function handle(env, u) {
     {
       const prev = await db.get(`tg_users/${chat}`);
       await db.set(`tg_users/${chat}`, { phone: m.contact.phone_number, first_name: frm.first_name || null, username: frm.username || null, lang, verified_at: now });
-      if (prev && prev.site_uid) await db.set(`site_reg/${prev.site_uid}`, { chat, phone: m.contact.phone_number, first_name: frm.first_name || null, at: now });
+      if (prev && prev.site_uid) { const ex = await db.get(`site_reg/${prev.site_uid}`);
+        await db.set(`site_reg/${prev.site_uid}`, { chat, phone: m.contact.phone_number, first_name: frm.first_name || null, at: (ex && ex.at) || now }) }
       if (env.ADMIN_CHAT && !(prev && prev.phone)) {
         await tg(env, 'sendMessage', { chat_id: env.ADMIN_CHAT, text: `🆕 Новый пользователь Narxi\n\n👤 ${frm.first_name || ''} ${frm.last_name || ''}${frm.username ? ' (@' + frm.username + ')' : ''}\n📱 ${m.contact.phone_number}\n🌐 язык: ${lang}${prev && prev.site_uid ? '\n✅ с сайта' : ''}` });
       }
@@ -140,7 +143,8 @@ async function handle(env, u) {
     await db.set(`tg_users/${chat}`, { site_uid: rg[1], first_name: frm.first_name || null, username: frm.username || null, lang, seen_at: now });
     const u = await db.get(`tg_users/${chat}`);
     if (u && u.phone) {
-      await db.set(`site_reg/${rg[1]}`, { chat, phone: u.phone, first_name: frm.first_name || null, at: now });
+      const ex = await db.get(`site_reg/${rg[1]}`);  // logging in again must not look like a new registration in /stats
+      await db.set(`site_reg/${rg[1]}`, { chat, phone: u.phone, first_name: frm.first_name || null, at: (ex && ex.at) || now });
       await tg(env, 'sendMessage', { chat_id: chat, text: L.regok, reply_markup: backBtn(L, rg[1]) }); return;
     }
     await tg(env, 'sendMessage', { chat_id: chat, text: L.reg, reply_markup: askKb });
@@ -163,9 +167,13 @@ async function handle(env, u) {
     await tg(env, 'sendMessage', { chat_id: chat, text: `Ваш chat id: ${chat}` });
   } else if (text.startsWith('/stats') && env.ADMIN_CHAT && String(chat) === String(env.ADMIN_CHAT)) {
     const day = Math.floor(Date.now() / 1000) - 86400, week = Math.floor(Date.now() / 1000) - 7 * 86400;
-    const [all, d1, d7, last] = await Promise.all([db.count('site_reg'), db.count('site_reg', day), db.count('site_reg', week), db.recent('site_reg', 10)]);
+    // one person can register from several devices (phone + laptop) -> count people by phone, first time seen
+    const regs = await db.all('site_reg'), first = {};
+    for (const r of regs) { const k = r.phone || r.chat || r.id; if (!first[k] || (r.at || 0) < first[k].at) first[k] = { ...r, at: r.at || 0 } }
+    const ppl = Object.values(first), last = ppl.slice().sort((a, b) => b.at - a.at).slice(0, 10);
+    const d1 = ppl.filter(r => r.at >= day).length, d7 = ppl.filter(r => r.at >= week).length;
     const fmtT = ts => new Date(ts * 1000).toLocaleString('ru-RU', { timeZone: 'Asia/Tashkent', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
-    await tg(env, 'sendMessage', { chat_id: chat, text: `📊 Регистрации Narxi\n\nВсего: ${all}\nЗа 24 часа: ${d1}\nЗа 7 дней: ${d7}\n\nПоследние:\n` + (last.map(r => `• ${fmtT(r.at)} — ${r.first_name || '—'} ${r.phone || ''}`).join('\n') || '—') });
+    await tg(env, 'sendMessage', { chat_id: chat, text: `📊 Регистрации Narxi\n\nЛюдей: ${ppl.length} (входов с устройств: ${regs.length})\nНовых за 24 часа: ${d1}\nНовых за 7 дней: ${d7}\n\nПоследние:\n` + (last.map(r => `• ${fmtT(r.at)} — ${r.first_name || '—'} ${r.phone || ''}`).join('\n') || '—') });
   } else if ((text.startsWith('/broadcast') || text === '/send_broadcast' || text === '/cancel_broadcast') && env.ADMIN_CHAT && String(chat) === String(env.ADMIN_CHAT)) {
     // admin-only mass message: /broadcast <text> -> preview; /send_broadcast -> send to everyone; /cancel_broadcast -> drop
     if (text === '/cancel_broadcast') { await db.del('bot/broadcast'); await tg(env, 'sendMessage', { chat_id: chat, text: 'Рассылка отменена.' }); return }
@@ -182,13 +190,21 @@ async function handle(env, u) {
     }
     const bc = await db.get('bot/broadcast');
     if (!bc || !bc.text) { await tg(env, 'sendMessage', { chat_id: chat, text: 'Нет подготовленной рассылки. Сначала /broadcast Текст' }); return }
-    await db.del('bot/broadcast');
-    const users = (await db.all('tg_users')).slice(0, 40);  // Workers free plan: ~50 outgoing requests per message
-    let ok = 0, fail = 0;
-    for (const u of users) {
+    // Workers free plan allows ~50 outgoing requests per message, so send in parts of 35 and remember where we stopped
+    const all = (await db.all('tg_users')).sort((a, b) => String(a.id).localeCompare(String(b.id)));
+    const from = +bc.done || 0, part = all.slice(from, from + 35);
+    let ok = +bc.ok || 0, fail = +bc.fail || 0;
+    for (const u of part) {
       const r = bc.photo ? await tg(env, 'sendPhoto', { chat_id: u.id, photo: bc.photo, caption: bc.text }) : await tg(env, 'sendMessage', { chat_id: u.id, text: bc.text });
       (r && r.ok) ? ok++ : fail++;
     }
+    const done = from + part.length;
+    if (done < all.length) {
+      await db.set('bot/broadcast', { done, ok, fail });
+      await tg(env, 'sendMessage', { chat_id: chat, text: `⏳ Отправлено ${done} из ${all.length}. Нажмите /send_broadcast ещё раз, чтобы продолжить.` });
+      return;
+    }
+    await db.del('bot/broadcast');
     await tg(env, 'sendMessage', { chat_id: chat, text: `✅ Рассылка отправлена: ${ok}\n❌ Не доставлено: ${fail} (заблокировали бота)` });
   } else if (text.startsWith('/list')) {
     const al = await db.byChat(chat);

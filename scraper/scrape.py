@@ -7,7 +7,7 @@ Outputs (served by GitHub Pages):
   docs/data/history.json  - {model_key: {date: {store: price}}}
   docs/data/report.json   - what the robot saw (for debugging)
 """
-import json, re, time, datetime as dt, pathlib, urllib.robotparser as rp
+import json, re, time, unicodedata, datetime as dt, pathlib, urllib.robotparser as rp
 import requests
 
 UA = 'NarxiBot/0.1 (+https://github.com/kamronking/narxi; price comparison)'
@@ -120,7 +120,9 @@ def gen_key(cat, title):
     t = title.lower().replace('ё', 'е')
     toks = re.findall(r'[a-z0-9]+(?:[-.][a-z0-9]+)*', t)
     toks = [x for x in toks if not re.match(LATIN_COLORS, x)]
-    codes = sorted({re.sub(r'[-/.]', '', x) for x in toks if re.search(r'[a-z]', x) and re.search(r'\d', x) and len(re.sub(r'[-/.]', '', x)) >= 4 and not re.match(r'^(\d+(gb|tb|w|l|kg|hz|mah|btu|mm|cm|inch|ssd|hdd|ddr\d?))+$', re.sub(r'[-/.]', '', x))})
+    codes = sorted({re.sub(r'[-/.]', '', x) for x in toks if re.search(r'[a-z]', x) and re.search(r'\d', x) and len(re.sub(r'[-/.]', '', x)) >= 4
+                    and not re.match(r'^(\d+(gb|tb|w|l|kg|hz|mah|btu|mm|cm|inch|ssd|hdd|ddr\d?))+$', re.sub(r'[-/.]', '', x))
+                    and not re.match(r'^\d{3,4}x\d{3,4}$', x)})  # screen resolution (1920x1080) is not a model code
     mem = sorted(set(re.findall(r'(?<![a-z0-9])(\d+)\s*(?:gb|tb|гб|тб)', t)))
     brand = next((x for x in toks if re.match(r'^[a-z]{2,}$', x) and not re.match(GENERIC, x)), '')
     if codes:
@@ -747,6 +749,34 @@ def merge_groups(groups):
         del groups[k]; merged += 1
     return merged
 
+BRAND_ALIAS = {'mi': 'xiaomi', 'redmi': 'xiaomi', 'poco': 'xiaomi', 'konnen': 'konnen'}
+def _title_words(t):
+    t = unicodedata.normalize('NFKD', (t or '').lower())
+    t = ''.join(ch for ch in t if not unicodedata.combining(ch))
+    return {BRAND_ALIAS.get(w, w) for w in re.findall(r'[a-z]+', t)}
+def split_brand_conflicts(groups):
+    """A group keyed by brand X must not show an offer whose title names a different known brand
+    (e.g. an AUX air conditioner next to a Sitronic one with a similar code). Such offers get their own group."""
+    cnt = {}
+    for k in groups:
+        p = k.split(':')
+        if len(p) >= 3 and p[0] != 'phones' and p[1] not in ('t', ''): cnt[p[1]] = cnt.get(p[1], 0) + 1
+    brands = {b for b, n in cnt.items() if n >= 3 and len(b) >= 3 and not re.match(GENERIC, b)}
+    moved = 0
+    for k in list(groups):
+        p = k.split(':'); g = groups[k]
+        if len(p) < 3 or p[0] == 'phones' or p[1] in ('t', '') or len(g['offers']) < 2: continue
+        ob = {sid: _title_words(o['title']) & brands for sid, o in g['offers'].items()}
+        for sid, o in list(g['offers'].items()):
+            rest = set().union(*[b for s2, b in ob.items() if s2 != sid and s2 in g['offers']])
+            # conflict only when both sides name a known brand and they share none
+            if not ob[sid] or not rest or ob[sid] & rest: continue
+            other = sorted(ob[sid])
+            del g['offers'][sid]
+            ng = groups.setdefault(f"{p[0]}:{other[0]}:{':'.join(p[2:])}", {'key': f"{p[0]}:{other[0]}:{':'.join(p[2:])}", 'cat': g['cat'], 'offers': {}})
+            ng['offers'].setdefault(sid, o); moved += 1
+    return moved
+
 def main():
     all_items = []
     def run(sid):
@@ -789,6 +819,7 @@ def main():
         elif not best:
             g['offers'][it['store']] = it
     REPORT['merged'] = merge_groups(groups)
+    REPORT['brand_split'] = split_brand_conflicts(groups)
     products = []
     for g in groups.values():
         offers = list(g['offers'].values())
