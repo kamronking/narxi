@@ -217,7 +217,20 @@ async function handle(env, u) {
   }
 }
 
+// ---------- price robot timer ----------
+// GitHub often skips its own scheduled runs, so Cloudflare's cron (Settings → Triggers → Cron: 17 */3 * * *) starts the
+// "collect prices" workflow. Needs secret GH_TOKEN: fine-grained GitHub token, repo kamronking/narxi only, Actions: Read and write.
+async function startScraper(env) {
+  if (!env.GH_TOKEN) { console.log('GH_TOKEN not set, robot not started'); return }
+  const r = await fetch('https://api.github.com/repos/kamronking/narxi/actions/workflows/scrape.yml/dispatches', {
+    method: 'POST', body: JSON.stringify({ ref: 'main' }),
+    headers: { authorization: 'Bearer ' + env.GH_TOKEN, accept: 'application/vnd.github+json', 'user-agent': 'narxi-bot', 'content-type': 'application/json' } });
+  console.log('start robot:', r.status, r.status === 204 ? 'ok' : await r.text());
+  if (r.status !== 204 && env.ADMIN_CHAT) await tg(env, 'sendMessage', { chat_id: env.ADMIN_CHAT, text: `⚠️ Робот цен не запустился (GitHub ответил ${r.status}). Возможно, истёк GH_TOKEN.` });
+}
+
 export default {
+  async scheduled(event, env, ctx) { ctx.waitUntil(startScraper(env)) },
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
     if (url.pathname === '/setup') {

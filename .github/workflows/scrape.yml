@@ -1,8 +1,7 @@
 name: collect prices
 on:
   schedule:
-    - cron: '17 */3 * * *'   # every 3 hours
-    - cron: '47 1-23/3 * * *' # backup slot: GitHub often drops scheduled runs under load
+    - cron: '47 */6 * * *'   # fallback only; the real 3-hour timer is Cloudflare cron in cloudflare/worker.js (GitHub often skips its own schedule)
   push:
     paths: ['scraper/scrape.py', '.github/workflows/scrape.yml']
   workflow_dispatch:
