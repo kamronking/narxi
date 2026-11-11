@@ -1,12 +1,12 @@
 {
- "started": "2026-11-11T20:41:17.271040+05:00",
+ "started": "2026-11-11T23:18:00.129124+05:00",
  "stores": {
   "texnomart": {
    "pages": 1271,
-   "items": 1840,
+   "items": 1838,
    "errors": [],
    "per_cat": {
-    "phones": 284,
+    "phones": 282,
     "laptops": 25,
     "tablets": 37,
     "tv": 192,
@@ -42,11 +42,11 @@
     "printers": 8
    },
    "inst": {
-    "exact": 1473,
-    "est": 367,
+    "exact": 1463,
+    "est": 375,
     "factor": 1.7,
     "months": 24,
-    "known": 1628
+    "known": 1629
    }
   },
   "olcha": {
@@ -75,7 +75,7 @@
   },
   "alif": {
    "pages": 387,
-   "items": 7747,
+   "items": 7748,
    "errors": [],
    "per_cat": {
     "tv": 562,
@@ -85,15 +85,15 @@
     "phones": 588,
     "stoves": 591,
     "care": 225,
-    "watches": 344,
+    "watches": 343,
     "fridges": 599,
     "ac": 599,
     "printers": 260,
     "monitors": 47,
     "laptops": 720,
-    "climate": 526,
+    "climate": 529,
     "home": 685,
-    "tablets": 178
+    "tablets": 177
    },
    "cats": 73,
    "budget_left": 113
@@ -260,19 +260,19 @@
  "ram_split": 27,
  "merged": 127,
  "brand_split": 14,
- "products": 22722,
- "matched_2plus": 1533,
+ "products": 22716,
+ "matched_2plus": 1534,
  "cats": {
   "phones": [
    552,
-   154
+   155
   ],
   "laptops": [
-   1575,
+   1574,
    16
   ],
   "tablets": [
-   459,
+   458,
    14
   ],
   "tv": [
@@ -296,15 +296,15 @@
    87
   ],
   "washers": [
-   559,
+   558,
    100
   ],
   "ac": [
-   770,
+   769,
    82
   ],
   "home": [
-   1114,
+   1112,
    163
   ],
   "kitchen": [
@@ -338,31 +338,31 @@
   "Умная колонка Яндекс Станция Мини с часами с Алисой, Черный, 10Вт",
   "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
   "Наушники вставные беспроводные Green Earbuds",
-  "Смарт часы Green Active Pro Black",
   "Смарт часы Green Ultra Black",
+  "Смарт часы Green Active Pro Black",
+  "Мясорубка Аксион М21.01",
+  "Мясорубка Аксион М12.11",
   "Мясорубка Аксион М321.01",
   "Мясорубка Аксион М61.02",
-  "Мясорубка Аксион М21.01",
   "Мясорубка Аксион М41.00",
-  "Мясорубка Аксион М12.11",
   "Мясорубка Аксион М41.01",
   "Соковыжималка Аксион СЦ32.01 Чёрная",
-  "Соковыжималка Аксион СЦ32.02 Джус"
+  "Соковыжималка Аксион СЦ32.01"
  ],
  "keys_sample": {
   "phones": [
-   "phones:iphone 17 pro max 256gb :: macbro 17276000 iPhone 17 Pro Max Deep Blue 256GB eSIM | alif 17839000 Смартфон Apple iPhone 17 Pro Max 256 ГБ (nanoSim+e | beeline 17979000 Apple iPhone 17 Pro Max, 256 GB, SIM+eSIM | olcha 18200000 iPhone 17 Pro Max Cosmic Orange 256 GB | idea 20399000 Смартфон iPhone 17 Pro Max 256GB Silver | texnomart 22153000 Apple iPhone 17 Pro Max 12/256GB Глубокий синий",
+   "phones:iphone 17 pro max 256gb :: macbro 17276000 iPhone 17 Pro Max Deep Blue 256GB eSIM | alif 17979000 Смартфон Apple iPhone 17 Pro Max 256 ГБ (nanoSim+e | beeline 17979000 Apple iPhone 17 Pro Max, 256 GB, SIM+eSIM | olcha 18200000 iPhone 17 Pro Max Cosmic Orange 256 GB | idea 20399000 Смартфон iPhone 17 Pro Max 256GB Silver | texnomart 22153000 Apple iPhone 17 Pro Max 12/256GB Оранжевый",
    "phones:iphone air 256gb :: macbro 12990000 iPhone Air Space Black 256GB eSIM | olcha 13199000 Iphone Air 12/256 GB Light Gold | beeline 13359000 Apple iPhone Air, 256 GB, eSIM | alif 13599000 Смартфон Apple iPhone Air 256 ГБ eSim, Light Gold | texnomart 13999000 Apple iPhone Air 12/256GB Небесно-голубой | idea 14999000 Смартфон iPhone Air 256GB Space Black",
    "phones:samsung galaxy s26 ultra 256gb :: olcha 13199000 Смартфон Samsung Galaxy S26 Ultra 5G Violet 256 ГБ | alif 13387000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256 ГБ, фи | beeline 13499000 Samsung Galaxy S26 Ultra, 12/256 GB | macbro 14225000 Смартфон Samsung Galaxy S26 Ultra Black 256GB 12GB | texnomart 14839000 Samsung Galaxy S26 Ultra 12/256GB Фиолетовый кобал | idea 15999000 Смартфон Samsung Galaxy S26 Ultra 12/256 Black",
-   "phones:iphone 17 pro 256gb :: macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | alif 16999000 Смартфон Apple iPhone 17 Pro 256 ГБ eSIM, Cosmic O | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | beeline 17399000 Apple iPhone 17 Pro, 256 GB, SIM+eSIM | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver | texnomart 19603000 Apple iPhone 17 Pro 12/256GB Серебристый",
+   "phones:iphone 17 pro 256gb :: macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | alif 16999000 Смартфон Apple iPhone 17 Pro 256 ГБ eSIM, Cosmic O | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | beeline 17399000 Apple iPhone 17 Pro, 256 GB, SIM+eSIM | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver | texnomart 19603000 Apple iPhone 17 Pro 12/256GB Оранжевый",
    "phones:iphone 18 pro 256gb :: beeline 19195000 Apple IPhone 18 Pro, 256 GB SIM+eSIM | alif 19879000 Смартфон Apple iPhone 18 Pro 256 ГБ (nanoSim+eSim) | olcha 20540000 Смартфон Apple iPhone 18 Pro 256 GB Silver | idea 20999000 Смартфон iPhone 18 Pro 256GB Glacier | texnomart 21199000 Apple iPhone 18 Pro 12/256GB Серебристый | macbro 22385000 iPhone 18 Pro Black 256GB Single SIM",
-   "phones:iphone 18 pro 512gb :: beeline 22899000 Apple IPhone 18 Pro, 512 GB SIM+eSIM | texnomart 23499000 Apple iPhone 18 Pro 12/512GB Голубой | alif 23999000 Смартфон Apple iPhone 18 Pro 512 ГБ (nanoSim+eSim) | idea 24799000 Смартфон iPhone 18 Pro 512GB Black | olcha 24899000 Смартфон Apple iPhone 18 Pro 512 GB Glacier | macbro 25990000 iPhone 18 Pro Black 512GB Single SIM",
    "phones:iphone 18 pro max 256gb :: beeline 20995000 Apple IPhone 18 Pro Max, 256 GB SIM+eSIM | alif 22300000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier | texnomart 24158000 Apple iPhone 18 Pro Max 12/256GB Голубой | macbro 24200000 iPhone 18 Pro Max Silver 256GB Single SIM",
-   "phones:iphone 17 256gb :: alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Белый | idea 14299000 Смартфон iPhone 17 256GB Black",
+   "phones:iphone 17 256gb :: alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Черный | idea 14299000 Смартфон iPhone 17 256GB Black",
    "phones:honor x9d 256gb:r8 :: beeline 4789000 Honor X9d, 8/256 GB | olcha 4868000 Honor X9d 5G Red 8/256 GB | texnomart 5199000 Honor X9d 8/256GB Золотистый рассвет | idea 5199000 Смартфон Honor X9d 8/256 Midnight Black | alif 5299000 Смартфон Honor X9D 8/256 ГБ, Midnight",
    "phones:samsung galaxy a27 128gb :: beeline 3550000 Samsung Galaxy A27 5G, 6/128 GB | olcha 3645000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4699000 Samsung Galaxy A27 5G 6/128GB Синий",
-   "phones:samsung galaxy a27 256gb :: beeline 3989000 Samsung Galaxy A27 5G, 8/256 GB | olcha 4189000 Смартфон Samsung Galaxy A27 5G 8/256GB Black | alif 4705000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | texnomart 4831000 Samsung Galaxy A27 5G 8/256GB Синий | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black",
-   "phones:samsung galaxy a37 128gb :: beeline 4459000 Samsung Galaxy A37 5G, 8/128 GB | alif 4510000 Смартфон Samsung Galaxy A37 5G 8/128 ГБ, Charcoal  | olcha 4699000 Samsung Galaxy A37 Pink 8/128 Гб | idea 4899000 Смартфон SAMSUNG Galaxy A37 8/128 Gray (SM-A376EZA | texnomart 4981000 Samsung Galaxy A37 8/128GB Темно зеленый"
+   "phones:samsung galaxy a27 256gb :: beeline 3989000 Samsung Galaxy A27 5G, 8/256 GB | olcha 4189000 Смартфон Samsung Galaxy A27 5G 8/256GB Black | alif 4705000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | texnomart 4831000 Samsung Galaxy A27 5G 8/256GB Черный | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black",
+   "phones:samsung galaxy a37 128gb :: beeline 4459000 Samsung Galaxy A37 5G, 8/128 GB | alif 4510000 Смартфон Samsung Galaxy A37 5G 8/128 ГБ, Charcoal  | olcha 4699000 Samsung Galaxy A37 Pink 8/128 Гб | idea 4899000 Смартфон SAMSUNG Galaxy A37 8/128 Gray (SM-A376EZA | texnomart 4981000 Samsung Galaxy A37 8/128GB Серый",
+   "phones:samsung galaxy a56 128gb :: beeline 4099000 Samsung Galaxy A56, 8/128 GB | alif 4888000 Смартфон Samsung Galaxy A56 5G 8/128 ГБ, Black | texnomart 5087500 Samsung Galaxy A56 5G 8/128GB Серый | olcha 5099000 Samsung Galaxy A56 5G 8/128 GB Graphite | idea 5099000 Смартфон Samsung Galaxy A56 8/128gb Gray"
   ],
   "audio": [
    "audio:t:apple airpods 4 :: alif 1755000 Наушники Apple AirPods 4, белый | macbro 1785000 Наушники Apple AirPods 4 White | idea 1999000 Беспроводные наушники Apple AirPods 4 | texnomart 2258000 Наушники вставные беспроводные Apple AirPods 4 Whi | olcha 2300000 Беспроводные наушники Apple Airpods 4 | maxcom 2335200 Наушники Apple AirPods 4",
@@ -451,7 +451,7 @@
   "ac": [
    "ac:premier:prmfr12snr1inv :: olcha 5184000 Кондиционер Premier PRMFR-12SNR1-INV/2S Forever In | idea 5490000 Кондиционер  Premier  PRMFR-12SNR1-INV/2G | alif 5980000 Кондиционер Premier PRMFR-12SNR1-INV Forever, чёрн | tezz 6893000 Бытовой кондиционер  Premier FOREVER PRMFR-12SNR1-",
    "ac:aux:aswh18a4 :: tezz 6083000 Бытовой кондиционер  AUX ASW-H18A4/FADR | alif 6999000 Кондиционер AUX ASW-H18A4/JLR,  белый | texnomart 7504000 Кондиционер AUX ASW-H18A4/QDR",
-   "ac:t:artel marvarid 12 :: alif 3544000 Кондиционер Artel Marvarid 12 inverter, белый | olcha 3639000 Кондиционер Artel Marvarid 12 Inverter | tezz 4474000 Бытовой кондиционер  Artel Marvarid 12",
+   "ac:t:artel marvarid 12 :: alif 3545000 Кондиционер Artel Marvarid 12,  белый | olcha 3639000 Кондиционер Artel Marvarid 12 Inverter | tezz 4474000 Бытовой кондиционер  Artel Marvarid 12",
    "ac:lg:b12ts :: texnomart 7399000 Кондиционер LG B12TS | alif 7648000 Кондиционер LG B12TS, чёрный | tezz 8050000 Бытовой кондиционер  LG DUAL INVERTER B12TS",
    "ac:lg:b18ts :: texnomart 8999000 Кондиционер LG B18TS | tezz 9598000 Бытовой кондиционер  LG DUAL INVERTER B18TS | alif 9672000 Кондиционер LG DUAL INVERTER B18TS, белый",
    "ac:lg:d12tt :: olcha 6905000 Кондиционер LG Mega Dual Plus 12 Inverter (D12TT) | alif 7176000 Кондиционер LG D12TT NSJ+UA3, белый | texnomart 8114000 Кондиционер LG D12TT",
@@ -487,7 +487,7 @@
    "watches:t:xiaomi mibro color :: mionline 449000 Умные часы Xiaomi Mibro Color (EU, черный) | texnomart 522000 Смарт часы Xiaomi Mibro Color",
    "watches:t:xiaomi redmi watch 4 :: idea 1599000 Умные часы Xiaomi Redmi Watch 4 Silver Gray | texnomart 1926000 Смарт часы Xiaomi Redmi Watch 4 Silver Gray",
    "watches:t:xiaomi watch s3 :: mionline 1590000 Умные часы Xiaomi Smart Watch S3 (EU, Белый) | texnomart 2748000 Смарт часы Xiaomi Watch S3 Silver",
-   "watches:t:xiaomi watch s4 :: mionline 1990000 Умные часы Xiaomi Smart Watch S4 (EU, Белый) | texnomart 2540000 Смарт часы Xiaomi Watch S4 Silver",
+   "watches:t:xiaomi watch s4 :: mionline 1990000 Умные часы Xiaomi Smart Watch S4 (EU, Белый) | texnomart 2540000 Смарт часы Xiaomi Watch S4 Black",
    "watches:t:amazfit cheetah :: mionline 1990000 Умные часы Amazfit Cheetah (бело-зеленый) | alif 2798000 Смарт-часы Amazfit Cheetah , серый"
   ],
   "tv": [
