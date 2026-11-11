@@ -1,5 +1,5 @@
 {
- "started": "2026-11-11T19:54:54.456159+05:00",
+ "started": "2026-11-11T20:41:17.271040+05:00",
  "stores": {
   "texnomart": {
    "pages": 1271,
@@ -42,11 +42,11 @@
     "printers": 8
    },
    "inst": {
-    "exact": 1457,
-    "est": 383,
+    "exact": 1473,
+    "est": 367,
     "factor": 1.7,
     "months": 24,
-    "known": 1615
+    "known": 1628
    }
   },
   "olcha": {
@@ -82,9 +82,9 @@
     "audio": 532,
     "kitchen": 572,
     "washers": 719,
-    "phones": 587,
+    "phones": 588,
     "stoves": 591,
-    "care": 226,
+    "care": 225,
     "watches": 344,
     "fridges": 599,
     "ac": 599,
@@ -260,7 +260,7 @@
  "ram_split": 27,
  "merged": 127,
  "brand_split": 14,
- "products": 22723,
+ "products": 22722,
  "matched_2plus": 1533,
  "cats": {
   "phones": [
@@ -284,7 +284,7 @@
    10
   ],
   "audio": [
-   1445,
+   1444,
    133
   ],
   "watches": [
@@ -340,12 +340,12 @@
   "Наушники вставные беспроводные Green Earbuds",
   "Смарт часы Green Active Pro Black",
   "Смарт часы Green Ultra Black",
-  "Мясорубка Аксион М41.01",
+  "Мясорубка Аксион М321.01",
+  "Мясорубка Аксион М61.02",
+  "Мясорубка Аксион М21.01",
   "Мясорубка Аксион М41.00",
   "Мясорубка Аксион М12.11",
-  "Мясорубка Аксион М321.01",
-  "Мясорубка Аксион М21.01",
-  "Мясорубка Аксион М61.02",
+  "Мясорубка Аксион М41.01",
   "Соковыжималка Аксион СЦ32.01 Чёрная",
   "Соковыжималка Аксион СЦ32.02 Джус"
  ],
@@ -358,7 +358,7 @@
    "phones:iphone 18 pro 256gb :: beeline 19195000 Apple IPhone 18 Pro, 256 GB SIM+eSIM | alif 19879000 Смартфон Apple iPhone 18 Pro 256 ГБ (nanoSim+eSim) | olcha 20540000 Смартфон Apple iPhone 18 Pro 256 GB Silver | idea 20999000 Смартфон iPhone 18 Pro 256GB Glacier | texnomart 21199000 Apple iPhone 18 Pro 12/256GB Серебристый | macbro 22385000 iPhone 18 Pro Black 256GB Single SIM",
    "phones:iphone 18 pro 512gb :: beeline 22899000 Apple IPhone 18 Pro, 512 GB SIM+eSIM | texnomart 23499000 Apple iPhone 18 Pro 12/512GB Голубой | alif 23999000 Смартфон Apple iPhone 18 Pro 512 ГБ (nanoSim+eSim) | idea 24799000 Смартфон iPhone 18 Pro 512GB Black | olcha 24899000 Смартфон Apple iPhone 18 Pro 512 GB Glacier | macbro 25990000 iPhone 18 Pro Black 512GB Single SIM",
    "phones:iphone 18 pro max 256gb :: beeline 20995000 Apple IPhone 18 Pro Max, 256 GB SIM+eSIM | alif 22300000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier | texnomart 24158000 Apple iPhone 18 Pro Max 12/256GB Голубой | macbro 24200000 iPhone 18 Pro Max Silver 256GB Single SIM",
-   "phones:iphone 17 256gb :: alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Черный | idea 14299000 Смартфон iPhone 17 256GB Black",
+   "phones:iphone 17 256gb :: alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Белый | idea 14299000 Смартфон iPhone 17 256GB Black",
    "phones:honor x9d 256gb:r8 :: beeline 4789000 Honor X9d, 8/256 GB | olcha 4868000 Honor X9d 5G Red 8/256 GB | texnomart 5199000 Honor X9d 8/256GB Золотистый рассвет | idea 5199000 Смартфон Honor X9d 8/256 Midnight Black | alif 5299000 Смартфон Honor X9D 8/256 ГБ, Midnight",
    "phones:samsung galaxy a27 128gb :: beeline 3550000 Samsung Galaxy A27 5G, 6/128 GB | olcha 3645000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4699000 Samsung Galaxy A27 5G 6/128GB Синий",
    "phones:samsung galaxy a27 256gb :: beeline 3989000 Samsung Galaxy A27 5G, 8/256 GB | olcha 4189000 Смартфон Samsung Galaxy A27 5G 8/256GB Black | alif 4705000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | texnomart 4831000 Samsung Galaxy A27 5G 8/256GB Синий | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black",
