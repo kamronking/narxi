@@ -1,0 +1,143 @@
+{
+ "mediapark.uz": {
+  "robots_st": 403,
+  "robots": "",
+  "sitemaps": [],
+  "home_st": 403,
+  "final": "https://mediapark.uz/",
+  "server": "cloudflare",
+  "cf": true,
+  "challenge": true,
+  "title": "Just a moment...",
+  "len": 5520,
+  "next": false,
+  "nuxt": false,
+  "prices_in_html": 0,
+  "api_hints": []
+ },
+ "asaxiy.uz": {
+  "robots_st": 403,
+  "robots": "",
+  "sitemaps": [],
+  "home_st": 403,
+  "final": "https://asaxiy.uz/",
+  "server": "cloudflare",
+  "cf": true,
+  "challenge": true,
+  "title": "Just a moment...",
+  "len": 5521,
+  "next": false,
+  "nuxt": false,
+  "prices_in_html": 0,
+  "api_hints": []
+ },
+ "elmakon.uz": {
+  "err": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'elmakon.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED]"
+ },
+ "goodzone.uz": {
+  "err": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='goodzone.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] "
+ },
+ "uzum.uz": {
+  "robots_st": 403,
+  "robots": "",
+  "sitemaps": [],
+  "home_st": 403,
+  "final": "https://uzum.uz/",
+  "server": "cloudflare",
+  "cf": true,
+  "challenge": true,
+  "title": "Attention Required! | Cloudflare",
+  "len": 5657,
+  "next": false,
+  "nuxt": false,
+  "prices_in_html": 0,
+  "api_hints": []
+ },
+ "artel.uz": {
+  "err": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'artel.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError(\"HTTPSConnection(host=\\'artel.uz\\', port=443)"
+ },
+ "ishonch.uz": {
+  "robots_st": 200,
+  "robots": "User-Agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\n\nSitemap: https://ishonch.uz/sitemap.xml\n",
+  "sitemaps": [
+   "https://ishonch.uz/sitemap.xml"
+  ],
+  "home_st": 200,
+  "final": "https://ishonch.uz/",
+  "server": "nginx/1.24.0 (Ubuntu)",
+  "cf": false,
+  "challenge": false,
+  "title": "Ishonch.uz — Tezkor, xolis va ishonchli axborot portali",
+  "len": 259093,
+  "next": false,
+  "nuxt": false,
+  "prices_in_html": 0,
+  "api_hints": [],
+  "sitemap_st": 200,
+  "sitemap_head": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n<url>\n<loc>https://ishonch.uz</loc>\n<lastmod>2026-11-12T22:59:39.575Z</lastmod>\n<changefreq>always</changefreq>\n<priority>1</priority>\n</url>\n<url>\n<loc>https://ishonch.uz/newspaper</loc>\n<lastmod>2026-11-12T22:59:39.575Z</lastmod>\n<changefreq>daily</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ishonch.uz/foto</loc>\n<lastmod>2026-11-12T22:59:39.575Z</lastmod>\n<changefreq>daily</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ishonch.uz/video</loc>\n<lastmod>2026-1"
+ },
+ "glotr.uz": {
+  "robots_st": 200,
+  "robots": "# ============================================\n# glotr.uz — robots.txt\n# ============================================\n\n# --- Search sahifalarini HAMMA botlardan yopish ---\n# (Sphinx ni himoya qilish uchun eng muhim qism)\nUser-agent: *\nDisallow: /search\nDisallow: /uz/search\nDisallow: /ru/search\nDisallow: /en/search\nDisallow: /*?catid=\nDisallow: /*?term=\nDisallow: /*?page=\nDisallow: /*?region=\nDisallow: /*?sort=\nDisallow: /*?price_type=\nDisallow: /*&term=\nDisallow: /*&page=\nDisallow: /*&catid=\nCrawl-delay: 10\n\n# --- Baidu (asosiy muammo manbai) ---\nUser-agent: Baiduspider\nDisallow: /\n\n# --- Yandex — sekinlashtirish ---\nUser-agent: YandexBot\nDisallow: /search\nDisallow: /uz/search\nDisallow: /ru/search\nCrawl-delay: 15\n\n# --- Keraksiz / agressiv SEO va skraper botlar ---\nUser-agent: AhrefsBot\nDisallow: /\n\nUser-agent: SemrushBot\nDisallow: /\n\nUser-agent: MJ12bot\nDisallow: /\n\nUser-agent: DotBot\nDisallow: /\n\nUser-agent: BLEXBot\nDisallow: /\n\nUser-agent: DataForSeoBot\nDisallow: /\n\nUser-agent: PetalBot\nDisallow: /\n\nUser-agent: Bytespider\nDisallow: /\n\nUser-agent: SeznamBot\nDisallow: /\n\nUser-agent: MojeekBot\nDisallow: /\n\nUser-agent: SerpstatBot\nDisallow: /\n\nUser-agent: ZoominfoBot\nDisallow: /\n\n# --- AI skraperlar (ixtiyoriy — xohlasangiz qoldiring) ---\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: CCBot\nDisallow: /\n\nUser-agent: ClaudeBot\nDisallow: /\n\n# --- Google va Bing — saytni indekslasin, LEKIN search'ga kirmasin ---\nUser-agent: Googlebot\nDisallow: /search\nDisallow: /uz/search\nDisallow: /",
+  "sitemaps": [
+   "https://glotr.uz/sitemap.xml"
+  ],
+  "home_st": 200,
+  "final": "https://glotr.uz/",
+  "server": "nginx",
+  "cf": false,
+  "challenge": true,
+  "title": "Glotr.uz - первый торговый центр в интернете.",
+  "len": 450638,
+  "next": false,
+  "nuxt": false,
+  "prices_in_html": 0,
+  "api_hints": [],
+  "sitemap_st": 200,
+  "sitemap_head": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n<sitemap>\n      <loc>https://glotr.uz/sitemap1.xml.gz</loc>\n      <lastmod>2026-11-13T01:00:03+05:00</lastmod>\n</sitemap>\n<sitemap>\n      <loc>https://glotr.uz/sitemap6.xml.gz</loc>\n      <lastmod>2026-09-12T01:00:09+05:00</lastmod>\n</sitemap>\n<sitemap>\n      <loc>https://glotr.uz/sitemap7.xml.gz</loc>\n      <lastmod>2026-09-12T01:00:12+05:00</lastmod>\n</sitemap>\n<sitemap>\n      <loc>https://glotr.uz/sitemap8.xml.gz</loc>\n      <lastmod>2026-09-12T01:00:15+05:00</lastmod>\n</sitemap>\n<sitem"
+ },
+ "openshop.uz": {
+  "robots_st": 200,
+  "robots": "User-agent: *\nDisallow: /admin/\nDisallow: /user/\nDisallow: /bag\nDisallow: /wishlist\n\n# Qidiruv sahifalari (/shop?search=, /shop/search/) hozircha ataylab ochiq:\n# Google ularning noindex'ini ko'rib, indeksdan tushirishi kerak. Search Console'da\n# ular indeksdan tushgach (taxminan noyabr boshi) quyidagilar qo'shiladi:\n# Disallow: /shop/search/\n# Disallow: /shop?search=\n\nUser-agent: Yandex\nDisallow: /admin/\nDisallow: /user/\nDisallow: /bag\nDisallow: /wishlist\nClean-param: search /shop\n\nSitemap: https://openshop.uz/sitemap.xml\n",
+  "sitemaps": [
+   "https://openshop.uz/sitemap.xml"
+  ],
+  "home_st": 200,
+  "final": "https://openshop.uz/?lang=uz",
+  "server": "nginx",
+  "cf": false,
+  "challenge": false,
+  "title": "Bosh sahifa | OpenShop",
+  "len": 121207,
+  "next": false,
+  "nuxt": false,
+  "prices_in_html": 0,
+  "api_hints": [
+   "https://api.qrserver.com"
+  ],
+  "sitemap_st": 200,
+  "sitemap_head": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/page1.xml</loc>\n        <lastmod>2026-11-13T03:00:04+05:00</lastmod>\n    </sitemap>\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/category1.xml</loc>\n        <lastmod>2026-11-11T20:06:41+05:00</lastmod>\n    </sitemap>\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/product1.xml</loc>\n        <lastmod>2026-11-13T02:13:58+05:00</lastmod>\n    </sitemap>\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/product2.xml</l"
+ },
+ "sello.uz": {
+  "robots_st": 522,
+  "robots": "",
+  "sitemaps": [],
+  "home_st": 522,
+  "final": "https://sello.uz/",
+  "server": "cloudflare",
+  "cf": true,
+  "challenge": false,
+  "title": "sello.uz | 522: Connection timed out",
+  "len": 7202,
+  "next": false,
+  "nuxt": false,
+  "prices_in_html": 0,
+  "api_hints": []
+ },
+ "texnoplus.uz": {
+  "err": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'texnoplus.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by NameResolutionError(\"HTTPSConnection(host=\\'texnoplus.uz\\', p"
+ },
+ "smarts.uz": {
+  "err": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='smarts.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPSConnection(host='smarts.uz', port=443) at"
+ }
+}
