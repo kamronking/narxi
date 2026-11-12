@@ -1,0 +1,111 @@
+{
+ "openshop.uz": {
+  "robots_st": 200,
+  "robots": "User-agent: *\nDisallow: /admin/\nDisallow: /user/\nDisallow: /bag\nDisallow: /wishlist\n\n# Qidiruv sahifalari (/shop?search=, /shop/search/) hozircha ataylab ochiq:\n# Google ularning noindex'ini ko'rib, indeksdan tushirishi kerak. Search Console'da\n# ular indeksdan tushgach (taxminan noyabr boshi) quyidagilar qo'shiladi:\n# Disallow: /shop/search/\n# Disallow: /shop?search=\n\nUser-agent: Yandex\nDisallow: /admin/\nDisallow: /user/\nDisallow: /bag\nDisallow: /wishlist\nClean-param: search /shop\n\nSitemap: https://openshop.uz/sitemap.xml\n",
+  "sitemaps": [
+   "https://openshop.uz/sitemap.xml"
+  ],
+  "sm_st": 200,
+  "sm_head": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/page1.xml</loc>\n        <lastmod>2026-11-13T03:00:04+05:00</lastmod>\n    </sitemap>\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/category1.xml</loc>\n        <lastmod>2026-11-11T20:06:41+05:00</lastmod>\n    </sitemap>\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/product1.xml</loc>\n        <lastmod>2026-11-13T02:13:58+05:00</lastmod>\n    </sitemap>\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/product2.xml</loc>\n        <lastmod>2026-11-13T01:45:20+05:00</lastmod>\n    </sitemap>\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/product3.xml</loc>\n        <lastmod>2026-11-13T02:32:09+05:00</lastmod>\n ",
+  "sub": {
+   "https://openshop.uz/sitemap/page1.xml": {
+    "n": 8,
+    "ex": [
+     "https://openshop.uz/?lang=uz",
+     "https://openshop.uz/?lang=ru",
+     "https://openshop.uz/page/locations?lang=uz"
+    ]
+   },
+   "https://openshop.uz/sitemap/category1.xml": {
+    "n": 632,
+    "ex": [
+     "https://openshop.uz/shop/category/3-aksessuarlar-va-gadjetlar?lang=uz",
+     "https://openshop.uz/shop/category/3-aksessuarlar-va-gadjetlar?lang=ru",
+     "https://openshop.uz/shop/category/4-maishiy-texnika?lang=uz"
+    ]
+   },
+   "https://openshop.uz/sitemap/product1.xml": {
+    "n": 5000,
+    "ex": [
+     "https://openshop.uz/shop/product/564-sichqoncha-cougar-surpassion-rx-pushti?lang=uz",
+     "https://openshop.uz/shop/product/564-sichqoncha-cougar-surpassion-rx-pushti?lang=ru",
+     "https://openshop.uz/shop/product/1771-elektr-soqol-mashinasi-panasonic-es-rw30-s520?lang=uz"
+    ]
+   },
+   "https://openshop.uz/sitemap/product2.xml": {
+    "n": 5000,
+    "ex": [
+     "https://openshop.uz/shop/product/129393-fotoapparat-va-videokamera-uchun-shtativ-yunteng-vct-999?lang=uz",
+     "https://openshop.uz/shop/product/129393-fotoapparat-va-videokamera-uchun-shtativ-yunteng-vct-999?lang=ru",
+     "https://openshop.uz/shop/product/129394-mikroto-lqinli-pech-samsung-ge83arw-uz?lang=uz"
+    ]
+   },
+   "https://openshop.uz/sitemap/product3.xml": {
+    "n": 2348,
+    "ex": [
+     "https://openshop.uz/shop/product/137356-simsiz-sichqoncha-rapoo-mt560-pale-green?lang=uz",
+     "https://openshop.uz/shop/product/137356-simsiz-sichqoncha-rapoo-mt560-pale-green?lang=ru",
+     "https://openshop.uz/shop/product/137357-o-yin-klaviaturasi-1stplayer-neo87-three-connecting-rose-nebula-ru?lang=uz"
+    ]
+   },
+   "https://openshop.uz/sitemap/brand1.xml": {
+    "n": 486,
+    "ex": [
+     "https://openshop.uz/shop/brand/1-xiaomi?lang=uz",
+     "https://openshop.uz/shop/brand/1-xiaomi?lang=ru",
+     "https://openshop.uz/shop/brand/2-samsung?lang=uz"
+    ]
+   },
+   "https://openshop.uz/sitemap/blog1.xml": {
+    "n": 122,
+    "ex": [
+     "https://openshop.uz/blog/11-11-openshop-yilning-eng-kutilgan-chegirmalari?lang=uz",
+     "https://openshop.uz/blog/11-11-openshop-yilning-eng-kutilgan-chegirmalari?lang=ru",
+     "https://openshop.uz/blog/openshop-nova-voyage-sayohat-sertifikati-aksiyasi?lang=uz"
+    ]
+   }
+  },
+  "prod_example": [
+   "https://openshop.uz/shop/product/564-sichqoncha-cougar-surpassion-rx-pushti?lang=uz",
+   "https://openshop.uz/shop/product/564-sichqoncha-cougar-surpassion-rx-pushti?lang=ru",
+   "https://openshop.uz/shop/product/1771-elektr-soqol-mashinasi-panasonic-es-rw30-s520?lang=uz"
+  ],
+  "p_st": 200,
+  "p_len": 108535,
+  "ld": [
+   "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"OpenShop\",\"url\":\"https://openshop.uz\",\"logo\":\"https://openshop.uz/openshop.png\",\"image\":\"https://openshop.uz/openshop.png\",\"telephone\":\"+998712036660\",\"sameAs\":[\"https://t.me/WWWOPENSHOPUZ\"],\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"+998712036660\",\"contactType\":\"customer service\",\"areaServed\":\"UZ\",\"availableLanguage\":[\"uz\",\"ru\"]}}",
+   "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"OpenShop\",\"url\":\"https://openshop.uz\",\"inLanguage\":[\"uz\",\"ru\"],\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://openshop.uz/shop/search/{search_term_string}\"},\"query-input\":\"required name=search_term_string\"}}"
+  ],
+  "og": [
+   "<meta property=\"og:title\" content=\"Sichqoncha Cougar Surpassion RX Pushti | Xotira: Ichki Li-Ion akkumulyator | Narx: 717 000 so&#x27;m\"/>",
+   "<meta property=\"og:description\" content=\"Cougar Surpassion RX Pink modeli Pixart kompaniyasining PMW3330 optik sensori bilan jihozlangan bo‘lib, bu sensor 50 dan 7200 DPI oralig‘ida aniqlikni (DPI / CPI) ta’minlaydi. Bu...\"/>",
+   "<meta property=\"og:url\" content=\"https://openshop.uz/shop/product/564-sichqoncha-cougar-surpassion-rx-pushti?lang=uz\"/>",
+   "<meta property=\"og:site_name\" content=\"OpenShopping\"/>",
+   "<meta property=\"og:locale\" content=\"uz_UZ\"/>",
+   "<meta property=\"og:image\" content=\"https://asset.openshop.uz/uploads/products/thumbnail/1579261799CH7KIqXTMXP2Rs7WpLnHmVoOVHkoG6zK.jpg\"/>",
+   "<meta property=\"og:image:alt\" content=\"Sichqoncha Cougar Surpassion RX Pushti | Xotira: Ichki Li-Ion akkumulyator | Narx: 717 000 so&#x27;m\"/>",
+   "<meta property=\"og:image\" content=\"https://asset.openshop.uz/storage/uploads/products/photos/202510/lvYcMJhs8BNjBMzlcopt4F58xGT97Pha.jpg\"/>"
+  ],
+  "price_snips": [
+   "\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"Sichqoncha Cougar Surpassion RX Pushti | Xotira: Ichki Li-Ion akkumulyator | Narx: 717 000 so'm\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"d",
+   "roperty\\\":\\\"og:title\\\",\\\"content\\\":\\\"Sichqoncha Cougar Surpassion RX Pushti | Xotira: Ichki Li-Ion akkumulyator | Narx: 717 000 so'm\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"18\\\",{\\\"property\\",
+   "rty\\\":\\\"og:image:alt\\\",\\\"content\\\":\\\"Sichqoncha Cougar Surpassion RX Pushti | Xotira: Ichki Li-Ion akkumulyator | Narx: 717 000 so'm\\\"}],\\\"$L37\\\",\\\"$L38\\\",\\\"$L39\\\",\\\"$L3a\\\""
+  ],
+  "next": false,
+  "nuxt": false
+ },
+ "elmakon.uz": {
+  "chain_added": [
+   "MIIFjTCCA3WgAwIBAgIR",
+   "MIIFgzCCA2ugAwIBAgIO"
+  ],
+  "err": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'elmakon.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for \\'elmakon.uz\\'. (_ssl.c:"
+ },
+ "goodzone.uz": {
+  "chain_added": [
+   "MIIFjDCCA3SgAwIBAgIQ",
+   "MIIFgzCCA2ugAwIBAgIO"
+  ],
+  "err": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='goodzone.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1011)')))\"))"
+ }
+}
