@@ -1,0 +1,66 @@
+{
+ "os_cat": {
+  "st": 200,
+  "len": 236739,
+  "prod_links": 12,
+  "prices": [],
+  "hosts": [
+   "https://asset.openshop.uz/storage/uploads/products/thumbnail/2024",
+   "https://asset.openshop.uz/storage/uploads/products/thumbnail/2025",
+   "https://asset.openshop.uz/uploads/categories/banner/202601/iQKT6S",
+   "https://asset.openshop.uz/uploads/page/bag-hm.svg",
+   "https://asset.openshop.uz/uploads/page/heart-hm.svg",
+   "https://asset.openshop.uz/uploads/page/home-hm.svg",
+   "https://asset.openshop.uz/uploads/page/ru.png",
+   "https://asset.openshop.uz/uploads/page/search-hm.svg",
+   "https://asset.openshop.uz/uploads/page/user-hm.svg",
+   "https://asset.openshop.uz/uploads/products/thumbnail/202605/jfjQ5",
+   "https://asset.openshop.uz/uploads/products/thumbnail/202606/VgFJg",
+   "https://asset.openshop.uz/uploads/products/thumbnail/202608/TOZYZ",
+   "https://asset.openshop.uz/uploads/products/thumbnail/202608/u93mx",
+   "https://asset.openshop.uz/uploads/products/thumbnail/202611/ZgjCi",
+   "https://asset.openshop.uz/uploads/products/thumbnail/202611/a8fXQ",
+   "https://asset.openshop.uz/uploads/static/1177c1907668dead5f476524",
+   "https://asset.openshop.uz/uploads/static/1e3887818f673f82be6e5e70",
+   "https://asset.openshop.uz/uploads/static/427a73097b4a45f8377e5dae",
+   "https://asset.openshop.uz/uploads/static/bf2aa75a670710d07790a2a2",
+   "https://asset.openshop.uz/uploads/static/f75614ab8a722550e9347ee8",
+   "https://openshop.uz",
+   "https://openshop.uz/",
+   "https://openshop.uz/app-download",
+   "https://openshop.uz/openshop.png",
+   "https://openshop.uz/shop/category/4-maishiy-texnika"
+  ],
+  "api_like": [],
+  "page_param": [],
+  "snip": [
+   "//asset.openshop.uz/storage/uploads/products/thumbnail/202402/zDcqntMxGtDIRdSGjPydxWYWslieJ32pG6pqM3R8.jpg\"],\"mainEntity\":{\"@type\":\"ItemList\",\"numberOfItems\":902,\"itemListOrder\":\"https://schema.org/ItemListOrderAscending\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"url\":\"https://openshop.uz/shop/product/137597-kir-yuvish-mashina-premier-prm60f1010sin-g-invertor?lang=ru\",\"item\":{\"@type\":\"Product\",\"name\":\"Стира",
+   "F1010SIN/G Invertor\",\"image\":[\"https://asset.openshop.uz/uploads/products/thumbnail/202608/TOZYZCstaERWTIFfGYFOQJLec16yLMZ8.png\"],\"offers\":{\"@type\":\"Offer\",\"price\":2768000,\"priceCurrency\":\"UZS\",\"availability\":\"https://schema.org/InStock\"}}},{\"@type\":\"ListItem\",\"position\":2,\"url\":\"https://openshop.uz/shop/product/140733-maydalagich-bosch-bsi-888-black-steel?lang=ru\",\"item\":{\"@type\":\"Product\",\"name\":\"Измельчитель Bosch "
+  ]
+ },
+ "os_guess": {
+  "https://api.openshop.uz/": [
+   200,
+   "text/html; charset=utf-8",
+   "<!DOCTYPE html><html lang=\"uz\" translate=\"no\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\"/><link rel=\"preload\" a"
+  ],
+  "https://openshop.uz/api/products?limit=2": [
+   404,
+   "text/html; charset=utf-8",
+   "<!DOCTYPE html><html lang=\"uz\" translate=\"no\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\"/><link rel=\"preload\" a"
+  ],
+  "https://back.openshop.uz/": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'back.openshop.uz\\', port=443): Max retries exceeded with url: "
+ },
+ "www.elmakon.uz": {
+  "err": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'www.elmakon.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate ver"
+ },
+ "www.goodzone.uz": {
+  "err": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='www.goodzone.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate veri"
+ },
+ "elmakon.uz": {
+  "err": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'elmakon.uz\\', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify "
+ },
+ "goodzone.uz": {
+  "err": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='goodzone.uz', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify f"
+ }
+}
