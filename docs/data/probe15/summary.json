@@ -1,0 +1,218 @@
+{
+ "p1": {
+  "n_total": 902,
+  "n": 12,
+  "first": 1,
+  "ex": [
+   [
+    "Стиральная машина Premier PRM60F1010SIN/G Invertor",
+    2768000,
+    "InStock",
+    "ir-yuvish-mashina-premier-prm60f1010sin-g-invertor"
+   ],
+   [
+    "Измельчитель Bosch BSI 888 Black-Steel",
+    99000,
+    "InStock",
+    "oduct/140733-maydalagich-bosch-bsi-888-black-steel"
+   ]
+  ]
+ },
+ "&page=2": {
+  "n_total": 902,
+  "n": 12,
+  "first": 1,
+  "ex": [
+   [
+    "Швейная машина Janome HomeDecor 1019",
+    3455000,
+    "InStock",
+    "roduct/13908-tikuv-mashinasi-janome-homedecor-1019"
+   ],
+   [
+    "Швейная машинка Janome MX77",
+    1749000,
+    "InStock",
+    "uz/shop/product/138455-tikuv-mashinasi-janome-mx77"
+   ]
+  ]
+ },
+ "&page=10": {
+  "n_total": 902,
+  "n": 12,
+  "first": 1,
+  "ex": [
+   [
+    "Термос Honor Talents, Белый",
+    99000,
+    "InStock",
+    "hop.uz/shop/product/140641-termos-honor-talents-oq"
+   ],
+   [
+    "Портативный мини-вентилятор Infinix Portable Fan White с держателем для телефона, белый цвет",
+    49000,
+    "InStock",
+    "efon-ushlagichli-portativ-mini-ventilyator-oq-rang"
+   ]
+  ]
+ },
+ "&p=2": {
+  "n_total": 902,
+  "n": 12,
+  "first": 1,
+  "ex": [
+   [
+    "Стиральная машина Premier PRM60F1010SIN/G Invertor",
+    2768000,
+    "InStock",
+    "ir-yuvish-mashina-premier-prm60f1010sin-g-invertor"
+   ],
+   [
+    "Измельчитель Bosch BSI 888 Black-Steel",
+    99000,
+    "InStock",
+    "oduct/140733-maydalagich-bosch-bsi-888-black-steel"
+   ]
+  ]
+ },
+ "&limit=100": {
+  "n_total": 902,
+  "n": 12,
+  "first": 1,
+  "ex": [
+   [
+    "Стиральная машина Premier PRM60F1010SIN/G Invertor",
+    2768000,
+    "InStock",
+    "ir-yuvish-mashina-premier-prm60f1010sin-g-invertor"
+   ],
+   [
+    "Измельчитель Bosch BSI 888 Black-Steel",
+    99000,
+    "InStock",
+    "oduct/140733-maydalagich-bosch-bsi-888-black-steel"
+   ]
+  ]
+ },
+ "&per_page=100": {
+  "n_total": 902,
+  "n": 12,
+  "first": 1,
+  "ex": [
+   [
+    "Стиральная машина Premier PRM60F1010SIN/G Invertor",
+    2768000,
+    "InStock",
+    "ir-yuvish-mashina-premier-prm60f1010sin-g-invertor"
+   ],
+   [
+    "Измельчитель Bosch BSI 888 Black-Steel",
+    99000,
+    "InStock",
+    "oduct/140733-maydalagich-bosch-bsi-888-black-steel"
+   ]
+  ]
+ },
+ "&page=2&limit=48": {
+  "n_total": 902,
+  "n": 12,
+  "first": 1,
+  "ex": [
+   [
+    "Швейная машина Janome HomeDecor 1019",
+    3455000,
+    "InStock",
+    "roduct/13908-tikuv-mashinasi-janome-homedecor-1019"
+   ],
+   [
+    "Швейная машинка Janome MX77",
+    1749000,
+    "InStock",
+    "uz/shop/product/138455-tikuv-mashinasi-janome-mx77"
+   ]
+  ]
+ },
+ "n_cats": 316,
+ "cats": [
+  "https://openshop.uz/shop/category/11-telefonlar-va-planshetlar",
+  "https://openshop.uz/shop/category/3-aksessuarlar-va-gadjetlar",
+  "https://openshop.uz/shop/category/39-avto-va-moto-tovarlar",
+  "https://openshop.uz/shop/category/4-maishiy-texnika",
+  "https://openshop.uz/shop/category/54-b-u-tovarlar",
+  "https://openshop.uz/shop/category/56-go-zallik-va-sog-lik",
+  "https://openshop.uz/shop/category/59-qurilish-va-ta-mirlash",
+  "https://openshop.uz/shop/category/61-uy-va-dala-hovli-uchun-jihozlar",
+  "https://openshop.uz/shop/category/62-bolalar-tovarlari",
+  "https://openshop.uz/shop/category/63-sport-va-hordiq",
+  "https://openshop.uz/shop/category/64-mebel",
+  "https://openshop.uz/shop/category/8-video-va-kompyuter-texnikalari",
+  "https://openshop.uz/shop/subcategory/1-aksessuarlar",
+  "https://openshop.uz/shop/subcategory/100-planshetlar",
+  "https://openshop.uz/shop/subcategory/154-noutbuklar",
+  "https://openshop.uz/shop/subcategory/157-avtomobil-uchun-elektronika",
+  "https://openshop.uz/shop/subcategory/160-kompyuter-aksessuarlari",
+  "https://openshop.uz/shop/subcategory/162-kompyuterlar-va-tashqi-qurilmalar",
+  "https://openshop.uz/shop/subcategory/163-katta-maishiy-texnika",
+  "https://openshop.uz/shop/subcategory/166-elektronika-va-akkumulyatorlar",
+  "https://openshop.uz/shop/subcategory/167-telefonlar",
+  "https://openshop.uz/shop/subcategory/170-naushnik-va-audio-jihozlar",
+  "https://openshop.uz/shop/subcategory/171-o-yin-qurilmalari",
+  "https://openshop.uz/shop/subcategory/178-sochlar-parvarishi",
+  "https://openshop.uz/shop/subcategory/179-shina-va-disklar",
+  "https://openshop.uz/shop/subcategory/182-asboblar",
+  "https://openshop.uz/shop/subcategory/183-iqlim-texnikasi",
+  "https://openshop.uz/shop/subcategory/186-bog-asbob-uskunalari",
+  "https://openshop.uz/shop/subcategory/187-aqlli-soatlar-va-brasletlar",
+  "https://openshop.uz/shop/subcategory/188-bog-texnikasi",
+  "https://openshop.uz/shop/subcategory/190-tugmali-telefonlar",
+  "https://openshop.uz/shop/subcategory/192-yuz-parvarishi",
+  "https://openshop.uz/shop/subcategory/193-tana-parvarishi",
+  "https://openshop.uz/shop/subcategory/195-ta-mirlash-uskunalari",
+  "https://openshop.uz/shop/subcategory/198-uy-anjomlari",
+  "https://openshop.uz/shop/subcategory/200-oyinchoqlar-va-oyinlar",
+  "https://openshop.uz/shop/subcategory/201-aravachalar-va-avtomobil-uchun-orindiqlar",
+  "https://openshop.uz/shop/subcategory/203-foto-va-video-texnika",
+  "https://openshop.uz/shop/subcategory/204-ovqatlantirish-uchun-tovarlar",
+  "https://openshop.uz/shop/subcategory/207-salon-uchun-jihozlar",
+  "https://openshop.uz/shop/subcategory/210-trenajorlar",
+  "https://openshop.uz/shop/subcategory/211-velosport",
+  "https://openshop.uz/shop/subcategory/213-o-yin-uchun-mahsulotlar",
+  "https://openshop.uz/shop/subcategory/214-massaj-uskunalari",
+  "https://openshop.uz/shop/subcategory/215-moto-va-elektrotransport",
+  "https://openshop.uz/shop/subcategory/216-erkin-og-irlik-anjomlari",
+  "https://openshop.uz/shop/subcategory/222-sport-aksessuarlari",
+  "https://openshop.uz/shop/subcategory/225-qurilish-pardoz-materiallari",
+  "https://openshop.uz/shop/subcategory/226-isitish",
+  "https://openshop.uz/shop/subcategory/229-asboblar-va-uskunalar",
+  "https://openshop.uz/shop/subcategory/231-xojalik-buyumlari",
+  "https://openshop.uz/shop/subcategory/233-ofis-texnikasi",
+  "https://openshop.uz/shop/subcategory/235-elektrika",
+  "https://openshop.uz/shop/subcategory/238-bolalar-uchun-faol-dam-olish",
+  "https://openshop.uz/shop/subcategory/239-geymerlar-uchun-stol-va-kreslolar",
+  "https://openshop.uz/shop/subcategory/240-ofis-uchun-stol-va-kreslolar",
+  "https://openshop.uz/shop/subcategory/242-oshxona-buyumlari",
+  "https://openshop.uz/shop/subcategory/4-smartfonlar",
+  "https://openshop.uz/shop/subcategory/8-uy-uchun",
+  "https://openshop.uz/shop/subcategory/9-oshxona-texnikalari",
+  "https://openshop.uz/shop/subsubcategory/1-tashqi-akkumulyatorlar-power-banklar",
+  "https://openshop.uz/shop/subsubcategory/1178-blackview",
+  "https://openshop.uz/shop/subsubcategory/1213-honor",
+  "https://openshop.uz/shop/subsubcategory/1215-pechlar",
+  "https://openshop.uz/shop/subsubcategory/1219-tecno",
+  "https://openshop.uz/shop/subsubcategory/1221-kolonkalar",
+  "https://openshop.uz/shop/subsubcategory/1225-noutbuklar",
+  "https://openshop.uz/shop/subsubcategory/1226-o-yin-noutbuklari",
+  "https://openshop.uz/shop/subsubcategory/1227-proektorlar",
+  "https://openshop.uz/shop/subsubcategory/1229-radarlar",
+  "https://openshop.uz/shop/subsubcategory/1230-isitgichlar",
+  "https://openshop.uz/shop/subsubcategory/1242-infinix",
+  "https://openshop.uz/shop/subsubcategory/1244-asosiy-platalar",
+  "https://openshop.uz/shop/subsubcategory/1245-operativ-xotiralar",
+  "https://openshop.uz/shop/subsubcategory/1246-ichki-xotira-disklari-hdd-yoki-ssd",
+  "https://openshop.uz/shop/subsubcategory/1247-quvvat-bloklari",
+  "https://openshop.uz/shop/subsubcategory/1248-protsessor-sovutgichlari",
+  "https://openshop.uz/shop/subsubcategory/1249-protsessorlar",
+  "https://openshop.uz/shop/subsubcategory/1250-videokartalar",
+  "https://openshop.uz/shop/subsubcategory/1251-kompyuter-korpuslari"
+ ]
+}
