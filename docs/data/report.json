@@ -1,12 +1,12 @@
 {
- "started": "2026-11-12T23:18:15.570338+05:00",
+ "started": "2026-11-13T02:17:59.314747+05:00",
  "stores": {
   "texnomart": {
    "pages": 1271,
-   "items": 1839,
+   "items": 1844,
    "errors": [],
    "per_cat": {
-    "phones": 283,
+    "phones": 288,
     "laptops": 25,
     "tablets": 38,
     "tv": 192,
@@ -42,11 +42,11 @@
     "printers": 8
    },
    "inst": {
-    "exact": 1473,
-    "est": 366,
+    "exact": 1433,
+    "est": 411,
     "factor": 1.7,
     "months": 24,
-    "known": 1646
+    "known": 1643
    }
   },
   "olcha": {
@@ -75,25 +75,25 @@
   },
   "alif": {
    "pages": 388,
-   "items": 7751,
+   "items": 7745,
    "errors": [],
    "per_cat": {
-    "tv": 560,
-    "audio": 535,
+    "tv": 558,
+    "audio": 534,
     "kitchen": 559,
     "washers": 718,
     "phones": 587,
     "stoves": 599,
     "care": 226,
-    "watches": 342,
+    "watches": 341,
     "fridges": 599,
     "ac": 599,
     "printers": 263,
     "monitors": 48,
     "laptops": 720,
-    "climate": 535,
+    "climate": 534,
     "home": 684,
-    "tablets": 177
+    "tablets": 176
    },
    "cats": 73,
    "budget_left": 112
@@ -208,25 +208,12 @@
    "budget_left": 96
   },
   "mionline": {
-   "pages": 200,
-   "items": 1479,
+   "pages": 0,
+   "items": 0,
    "errors": [],
-   "per_cat": {
-    "other": 535,
-    "home": 285,
-    "kitchen": 134,
-    "tv": 14,
-    "watches": 84,
-    "audio": 174,
-    "phones": 2,
-    "washers": 1,
-    "printers": 2,
-    "climate": 143,
-    "care": 90,
-    "tablets": 15
-   },
-   "cats": 144,
-   "budget_left": 0
+   "per_cat": {},
+   "cats": 0,
+   "budget_left": 200
   },
   "tezz": {
    "pages": 91,
@@ -258,45 +245,45 @@
   }
  },
  "ram_split": 25,
- "merged": 126,
+ "merged": 114,
  "brand_split": 14,
- "products": 22739,
- "matched_2plus": 1526,
+ "products": 21715,
+ "matched_2plus": 1423,
  "cats": {
   "phones": [
-   547,
-   154
+   549,
+   157
   ],
   "laptops": [
    1573,
    16
   ],
   "tablets": [
-   464,
-   14
+   451,
+   13
   ],
   "tv": [
-   916,
-   141
+   908,
+   137
   ],
   "monitors": [
    380,
    10
   ],
   "audio": [
-   1444,
-   132
+   1360,
+   125
   ],
   "watches": [
-   333,
-   24
+   285,
+   18
   ],
   "fridges": [
    723,
    87
   ],
   "washers": [
-   557,
+   555,
    100
   ],
   "ac": [
@@ -304,32 +291,32 @@
    77
   ],
   "home": [
-   1109,
-   165
+   914,
+   138
   ],
   "kitchen": [
-   1140,
-   241
+   1067,
+   211
   ],
   "stoves": [
    672,
    68
   ],
   "climate": [
-   576,
-   61
+   470,
+   48
   ],
   "care": [
-   485,
-   62
+   421,
+   47
   ],
   "printers": [
-   313,
+   311,
    71
   ],
   "other": [
-   10723,
-   103
+   10292,
+   100
   ]
  },
  "unkeyed_sample": [
@@ -338,64 +325,49 @@
   "Умная колонка Яндекс Станция Мини с часами с Алисой, Черный, 10Вт",
   "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
   "Наушники вставные беспроводные Green Earbuds",
-  "Смарт часы Green Ultra Black",
   "Смарт часы Green Active Pro Black",
-  "Мясорубка Аксион М321.01",
+  "Смарт часы Green Ultra Black",
   "Мясорубка Аксион М61.02",
   "Мясорубка Аксион М21.01",
   "Мясорубка Аксион М12.11",
-  "Мясорубка Аксион М41.00",
+  "Мясорубка Аксион М321.01",
   "Мясорубка Аксион М41.01",
-  "Соковыжималка Аксион СЦ32.01 Чёрная",
-  "Соковыжималка Аксион СЦ32.02 Джус"
+  "Мясорубка Аксион М41.00",
+  "Соковыжималка Аксион СЦ32.02 Джус",
+  "Соковыжималка Аксион СЦ32.01"
  ],
  "keys_sample": {
   "phones": [
    "phones:iphone 17 pro max 256gb :: macbro 17276000 iPhone 17 Pro Max Deep Blue 256GB eSIM | alif 17999000 Смартфон Apple iPhone 17 Pro Max 256 ГБ eSIM, Cosm | olcha 18200000 iPhone 17 Pro Max Cosmic Orange 256 GB | beeline 18499000 Apple iPhone 17 Pro Max, 256 GB, SIM+eSIM | texnomart 18999000 Apple iPhone 17 Pro Max 12/256GB Глубокий синий | idea 20399000 Смартфон iPhone 17 Pro Max 256GB Silver",
    "phones:samsung galaxy s26 ultra 256gb :: olcha 13199000 Смартфон Samsung Galaxy S26 Ultra 5G Violet 256 ГБ | alif 13385000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256 ГБ, фи | beeline 13499000 Samsung Galaxy S26 Ultra, 12/256 GB | texnomart 13999000 Samsung Galaxy S26 Ultra 12/256GB Фиолетовый кобал | macbro 14225000 Смартфон Samsung Galaxy S26 Ultra Black 256GB 12GB | idea 15999000 Смартфон Samsung Galaxy S26 Ultra 12/256 Black",
    "phones:iphone 17 pro 256gb :: macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | alif 16999000 Смартфон Apple iPhone 17 Pro 256 ГБ eSIM, Cosmic O | beeline 17199000 Apple iPhone 17 Pro, 256 GB, SIM+eSIM | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | texnomart 17999000 Apple iPhone 17 Pro 12/256GB Оранжевый | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver",
-   "phones:iphone 18 pro 256gb :: beeline 19195000 Apple IPhone 18 Pro, 256 GB SIM+eSIM | alif 19799000 Смартфон Apple iPhone 18 Pro 256 ГБ (nanoSim+eSim) | olcha 20540000 Смартфон Apple iPhone 18 Pro 256 GB Silver | idea 20999000 Смартфон iPhone 18 Pro 256GB Glacier | texnomart 21199000 Apple iPhone 18 Pro 12/256GB Серебристый | macbro 21418000 iPhone 18 Pro Black 256GB Single SIM",
+   "phones:iphone 18 pro 256gb :: beeline 19195000 Apple IPhone 18 Pro, 256 GB SIM+eSIM | alif 19799000 Смартфон Apple iPhone 18 Pro 256 ГБ (nanoSim+eSim) | texnomart 19999000 Apple iPhone 18 Pro 12/256GB Серебристый | olcha 20540000 Смартфон Apple iPhone 18 Pro 256 GB Silver | idea 20999000 Смартфон iPhone 18 Pro 256GB Glacier | macbro 21418000 iPhone 18 Pro Black 256GB Single SIM",
    "phones:iphone 18 pro 512gb :: beeline 22899000 Apple IPhone 18 Pro, 512 GB SIM+eSIM | texnomart 23499000 Apple iPhone 18 Pro 12/512GB Голубой | alif 23999000 Смартфон Apple iPhone 18 Pro 512 ГБ (nanoSim+eSim) | idea 24799000 Смартфон iPhone 18 Pro 512GB Black | olcha 24899000 Смартфон Apple iPhone 18 Pro 512 GB Glacier | macbro 25990000 iPhone 18 Pro Black 512GB Single SIM",
    "phones:iphone 18 pro max 256gb :: beeline 20995000 Apple IPhone 18 Pro Max, 256 GB SIM+eSIM | alif 22300000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | macbro 22699000 iPhone 18 Pro Max Black 256GB Single SIM | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier | texnomart 23499000 Apple iPhone 18 Pro Max 12/256GB Голубой",
-   "phones:iphone 17 256gb :: alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Белый | idea 14299000 Смартфон iPhone 17 256GB Black",
+   "phones:iphone 17 256gb :: alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Фиолетовый | idea 14299000 Смартфон iPhone 17 256GB Black",
    "phones:honor x9d 256gb:r8 :: beeline 4789000 Honor X9d, 8/256 GB | olcha 4868000 Honor X9d 5G Red 8/256 GB | texnomart 5199000 Honor X9d 8/256GB Золотистый рассвет | idea 5199000 Смартфон Honor X9d 8/256 Midnight Black | alif 5299000 Смартфон Honor X9D 8/256 ГБ, Midnight",
    "phones:iphone air 256gb :: macbro 12990000 iPhone Air Space Black 256GB eSIM | olcha 13199000 Iphone Air 12/256 GB Light Gold | beeline 13359000 Apple iPhone Air, 256 GB, eSIM | texnomart 13999000 Apple iPhone Air 12/256GB Небесно-голубой | idea 14999000 Смартфон iPhone Air 256GB Space Black",
-   "phones:samsung galaxy a27 128gb :: beeline 3550000 Samsung Galaxy A27 5G, 6/128 GB | olcha 3645000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4699000 Samsung Galaxy A27 5G 6/128GB Черный",
+   "phones:samsung galaxy a27 128gb :: beeline 3550000 Samsung Galaxy A27 5G, 6/128 GB | olcha 3645000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4699000 Samsung Galaxy A27 5G 6/128GB Синий",
    "phones:samsung galaxy a27 256gb :: beeline 3989000 Samsung Galaxy A27 5G, 8/256 GB | olcha 4189000 Смартфон Samsung Galaxy A27 5G 8/256GB Black | texnomart 4399000 Samsung Galaxy A27 5G 8/256GB Синий | alif 4705000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black",
-   "phones:samsung galaxy a37 128gb :: beeline 4459000 Samsung Galaxy A37 5G, 8/128 GB | alif 4510000 Смартфон Samsung Galaxy A37 5G 8/128 ГБ, Charcoal  | olcha 4699000 Samsung Galaxy A37 Pink 8/128 Гб | idea 4899000 Смартфон SAMSUNG Galaxy A37 8/128 Gray (SM-A376EZA | texnomart 4981000 Samsung Galaxy A37 8/128GB Серый"
+   "phones:samsung galaxy a37 128gb :: beeline 4459000 Samsung Galaxy A37 5G, 8/128 GB | alif 4510000 Смартфон Samsung Galaxy A37 5G 8/128 ГБ, Charcoal  | olcha 4699000 Samsung Galaxy A37 Pink 8/128 Гб | texnomart 4890000 Samsung Galaxy A37 8/128GB Серый | idea 4899000 Смартфон SAMSUNG Galaxy A37 8/128 Gray (SM-A376EZA"
   ],
   "audio": [
    "audio:t:apple airpods 4 :: alif 1755000 Наушники Apple AirPods 4, белый | macbro 1785000 Наушники Apple AirPods 4 White | idea 1999000 Беспроводные наушники Apple AirPods 4 | texnomart 2258000 Наушники вставные беспроводные Apple AirPods 4 Whi | olcha 2300000 Беспроводные наушники Apple Airpods 4 | maxcom 2335200 Наушники Apple AirPods 4",
-   "audio:t:xiaomi redmi buds 6 play :: alif 131000 Наушники Xiaomi Redmi Buds 6 Play , розовый | idea 179000 Беспроводные наушники Xiaomi  Redmi Buds 6 Play Wh | maxcom 194600 Наушники Xiaomi Redmi Buds 6 Play (Black, White) | woot 196000 Беспроводные наушники Xiaomi Redmi Buds 6 Play | mionline 199000 Беспроводные наушники Xiaomi Redmi Buds 6 Play (Бе",
    "audio:logitech:h151 :: alif 249000 Наушники Logitech H151, Черный | texnomart 276000 Наушники накладные проводные LOGITECH H151 Corded  | maxcom 291900 Компьютерная гарнитура Logitech Stereo Headset H15 | olcha 335000 Проводная гарнитура Logitech H151, стереозвук, мик | woot 352000 Компьютерная гарнитура Logitech H151",
    "audio:logitech:h111 :: alif 162000  Полноразмерные наушники Logitech H111, черный | maxcom 194600 Компьютерная гарнитура Logitech H111 | olcha 200000 Проводные наушники Logitech H111, накладные полуот | woot 215000 Компьютерная гарнитура Logitech H111",
    "audio:logitech:h340 :: olcha 340000 Проводная USB-гарнитура Logitech H340, полноразмер | maxcom 347500 Компьютерная гарнитура Logitech USB Headset H340 | alif 359000 Полноразмерные наушники Logitech H340 Headset, Чер | woot 444000 Компьютерная гарнитура Logitech H340",
    "audio:sony:wh1000xm6 :: olcha 4097000 Наушник Sony WH-1000XM6 Silver | alif 4550000 Полноразмерный наушник Sony WH-1000XM6 , черный | maxcom 4587000 Беспроводные наушники Sony  WH-1000XM6 | macbro 4736000 Наушники Sony WH-1000XM6 Black",
    "audio:sony:whch520 :: olcha 550000 Беспроводные наушники Sony WH-CH520, Bluetooth 5.2 | alif 616000 Наушники Sony WH-CH520, синий | idea 699000 Беспроводные наушники Sony WH-CH520, silver | macbro 765000 Наушники SONY WH-CH520 Beige",
    "audio:t:samsung galaxy buds 4 :: beeline 1499000 Беспроводные наушники Samsung Galaxy Buds 4 Black | idea 1599000 Беспроводные наушники Samsung Galaxy Buds 4 Black | alif 1890000 Наушники Samsung Galaxy Buds 4, черный | macbro 1996000 Наушники Samsung Galaxy Buds 4 Black",
-   "audio:t:xiaomi redmi buds 5 :: maxcom 500400 Наушники Xiaomi Redmi Buds 5 | mionline 549000 Беспроводные наушники Xiaomi Redmi Buds 5 (Белый) | idea 559000 Наушники Xiaomi Redmi Buds 5, white | woot 796000 Наушники Xiaomi Redmi Buds 5",
+   "audio:t:xiaomi redmi buds 6 play :: alif 131000 Наушники Xiaomi Redmi Buds 6 Play , розовый | idea 179000 Беспроводные наушники Xiaomi  Redmi Buds 6 Play Wh | maxcom 194600 Наушники Xiaomi Redmi Buds 6 Play (Black, White) | woot 196000 Беспроводные наушники Xiaomi Redmi Buds 6 Play",
    "audio:t:apple airpods 5 :: beeline 1899000 Беспроводные наушники Apple AirPods 5 | macbro 1949000 Наушники Apple AirPods 5 White | texnomart 1999000 Наушники вставные беспроводные Apple AirPods 5 | alif 2050000 Наушники Apple AirPods 5, белый",
    "audio:t:xiaomi buds 5 :: alif 1000000 Наушники Xiaomi Buds 5, белый | woot 1305000 Наушники Xiaomi Buds 5 | maxcom 1403900 Наушники  Xiaomi Buds 5 (Gray, White, Black) | texnomart 1407000 Наушники вставные беспроводные Xiaomi Buds 5 Black",
-   "audio:honor:rosme01 :: texnomart 205000 Наушники накладные беспроводные Honor Choice ROS-M | idea 259000 Беспроводные наушники  Honor Choice Headphones Whi | beeline 309000 Беспроводные наушники Honor Choice ROS-Me01 White | alif 330000 Наушники Honor ROS-Me01,  белый"
-  ],
-  "kitchen": [
-   "kitchen:braun:mq55307mbk :: woot 919000 Погружной блендер BRAUN MQ55307MBK | texnomart 949000 Блендер погружной Braun MQ55307MBK | mionline 1169000 Погружной блендер Braun MultiQuick 5 Pro MQ55307 | olcha 1181000 Блендер Braun MQ55307 (MultiQuick 5 Pro) | alif 1392000 Блендер Braun MQ55307MBK, черный",
-   "kitchen:braun:mq55755mbk :: texnomart 999000 Блендер погружной Braun MQ55755MBK | mionline 1209000 Погружной блендер Braun MultiQuick 5 Pro MQ55755 | olcha 1386000 Блендер Braun MQ55755 | alif 1465000 Блендер Braun MQ55755MBK, черный | idea 1499000 Погружной блендер Braun MultiQuick 5 Pro MQ55755MB",
-   "kitchen:kenwood:sjm490 :: woot 646000 Электрический чайник KENWOOD SJM490 | texnomart 749000 Электрочайник Kenwood SJM490 | idea 799000 Электрочайник Kenwood SJM490 | olcha 831000 Электрочайник KENWOOD SJM490 | alif 839990 Электрочайник Kenwood SJM490 Scene Collection, сер",
-   "kitchen:braun:mq55236mbk :: woot 833000 Погружной блендер BRAUN MQ55236MBK | olcha 1097000 Блендер Braun MQ55236 | alif 1125000 Блендер Braun MQ55236MBK, черный | idea 1149000 Погружной блендер Braun MQ55236MBK",
-   "kitchen:moulinex:lm871d10 :: woot 1997000 Блендер Moulinex PerfectMix LM871D10 | mionline 2079000 Блендер Moulinex LM871D10 | olcha 2085000 Блендер Moulinex LM871D10 | alif 2679990 Блендер Moulinex PerfectMix+ LM871D10, стальной-че",
-   "kitchen:braun:mq7035x :: woot 1005000 Погружной блендер BRAUN MQ7035X | texnomart 1099000 Блендер погружной Braun MQ7035X | alif 1339000 Блендер Braun MQ7035X, черный | idea 1349000 Погружной блендер Braun MQ7035X",
-   "kitchen:braun:mq7087x :: woot 1436000 Погружной блендер BRAUN MQ7087X | texnomart 1999000 Блендер погружной Braun MQ7087X | alif 2322000 Блендер Braun MQ7087X, черный | idea 2349000 Погружной блендер Braun MQ7087X",
-   "kitchen:braun:mq9138xi :: woot 1364000 Погружной блендер BRAUN MQ9138XI | idea 1490000 Погружной блендер Braun  MQ9138XI | texnomart 1849000 Блендер погружной Braun MQ9138XI | alif 2109000 Блендер Braun MQ9138XI, черный",
-   "kitchen:braun:mq9195xli :: woot 2297000 Погружной блендер BRAUN MQ9195XLI | texnomart 2999000 Блендер погружной Braun MQ9195XLI | alif 3392000 Блендер Braun MQ9195XLI, черный | idea 3399000 Погружной блендер Braun MQ9195XLI",
-   "kitchen:moulinex:dd94j110 :: woot 1501000 Погружной блендер Moulinex InfinyForce DD94J110 | texnomart 1590000 Блендер погружной Moulinex DD94J110 | alif 1659000 Блендер Moulinex DD94J110 , белый | idea 1690000 Погружной блендер Moulinex InfinyForce DD94J110",
-   "kitchen:philips:hr2545 :: mionline 939000 Погружной блендер Philips HR2545 | olcha 1024000 Блендер Philips HR2545/01 | texnomart 1119000 Блендер погружной Philips HR2545/00 | idea 1290000 Ручной блендер Philips HR2545/01",
-   "kitchen:delonghi:ec9455m :: woot 7896000 Кофеварка Рожковая DeLonghi EC9455.M | texnomart 7999000 Кофеварка Рожковая DeLonghi EC9455.M | olcha 8450000 Кофеварка De'Longhi La Specialista Touch EC9455.M  | mionline 8773000 Кофемашина DeLonghi EC9455.M"
+   "audio:honor:rosme01 :: texnomart 205000 Наушники накладные беспроводные Honor Choice ROS-M | idea 259000 Беспроводные наушники  Honor Choice Headphones Whi | beeline 309000 Беспроводные наушники Honor Choice ROS-Me01 White | alif 330000 Наушники Honor ROS-Me01,  белый",
+   "audio:sony:wh1000xm5 :: macbro 3520000 Наушники SONY WH-1000XM5 Black | alif 3740800 Наушники Sony WH-1000XM5, Черный | texnomart 4199000 Наушники накладные беспроводные Sony WH-1000XM5 Si | idea 4999000 Беспроводные наушники Sony WH-1000XM5, black"
   ],
   "care": [
    "care:dyson:ht01 :: olcha 4772000 Выпрямитель Dyson Airstrait HT01 Ceramic Pink | alif 6190000 Выпрямитель Dyson Airstrait HT01, Strawberry Bronz | woot 6983000 Выпрямитель для волос Dyson HT01 Airstrait Straigh | macbro 7020000 Выпрямитель Dyson Airstrait HT01, Jasper Plum Jasp | texnomart 7349000 Выпрямитель для волос Dyson HT01 Prussian Blue",
    "care:dyson:hd16 :: macbro 5850000 Фен Dyson Supersonic Nural HD16, Strawberry Bronze | olcha 6109000 Фен Dyson Supersonic Nural HD16 Kanzan Pink | texnomart 6430000 Фен Dyson HD16 Ceramic Pink | alif 6660000 Фен Dyson Supersonic HD16 Nural, Strawberry Bronze | woot 6917000 Фен Dyson Strawberry HD16 Nural",
-   "care:xiaomi:h300 :: alif 389000 Фен Xiaomi Mi Ionic Hair Dryer H300 EU, белый | woot 431000 Фен Xiaomi Mi Ionic Hair Dryer H300 EU | texnomart 497000 Фен MI Ionic H300 | mionline 549000 Фен для волос Xiaomi Mijia Negative Ion Portable H",
    "care:philips:bhs510 :: idea 999000 Выпрямитель волос Philips BHS510/00 | olcha 1100000 Выпрямитель для волос Philips BHS510/00 | texnomart 1275000 Выпрямитель для волос Philips BHS510/00",
    "care:rowenta:sf8120f0 :: texnomart 849000 Выпрямитель для волос Rowenta SF8120F0 | woot 1318000 Выпрямитель для волос Rowenta Ultimate Experience  | idea 1499000 Выпрямитель для волос Rowenta Ultimate Experience ",
    "care:dyson:hs05 :: woot 7309000 Мультистайлер Dyson Airwrap Complete Long HS05 | olcha 7592000 Стайлер Dyson Airwrap HS05 Long Strawberry Long | macbro 7830000 Мультистайлер Dyson Airwrap Complete Long Volumise",
@@ -403,6 +375,7 @@
    "care:dyson:hs09 :: macbro 8296000 Мультистайлер Dyson Airwrap HS09 Red Velvet | olcha 9074000 Стайлер Dyson Airwrap Coanda 2x HS09 Amber Silk | alif 9339000 Стайлер Dyson Airwrap HS09,  розовый",
    "care:panasonic:ergd61k520 :: alif 785000 Триммер Panasonic ER-GD61-K520, чёрный | woot 933000 Триммер Panasonic ER-GD61-K520 | idea 1290000 Триммер Panasonic ER-GD61-K520",
    "care:dyson:hd18 :: olcha 6278000 Фен Dyson Supersonic r HD18 Professional Vinca blu | alif 7140000 Фен Dyson Supersonic HD18 Professional R, Prussian | macbro 7450000 Фен Dyson HD18 Supersonic R Pro, Vinca Blue/Topaz ",
+   "care:xiaomi:h300 :: alif 389000 Фен Xiaomi Mi Ionic Hair Dryer H300 EU, белый | woot 431000 Фен Xiaomi Mi Ionic Hair Dryer H300 EU | texnomart 497000 Фен MI Ionic H300",
    "care:xiaomi:h101 :: alif 259000 Фен Xiaomi Compact Hair Dryer H101, белый | texnomart 299000 Фен Xiaomi H101 (Pink) | woot 352000 Фен Xiaomi Compact Hair Dryer H101 White EU",
    "care:xiaomi:h500 :: alif 780000 Фен  Xiaomi Water Ionic Hair Dryer H500 , белый | woot 783000 Фен Xiaomi Water Ionic Hair Dryer H500 EU | idea 799000 Фен Xiaomi Mi Water Ionic Hair Dryer H500 EU"
   ],
@@ -434,6 +407,20 @@
    "washers:samsung:ww70ag4s21veld :: tezz 4928000 Стиральная машина  Samsung WW70AG4S21VELD | idea 4999000 Стиральная машина Samsung WW70AG4S21VELD | alif 5299000 Стиральная машина Samsung WW70AG4S21VELD,  белый | texnomart 5608000 Стиральная машина Samsung WW70AG4S21VELD",
    "washers:samsung:ww70agas22aeld :: idea 5099000 Стиральная машина Samsung WW70AGAS22AELD | alif 5199000 Стиральная машина Samsung WW70AGAS22AELD, белый | tezz 5280000 Стиральная машина  Samsung WW70AGAS22AELD | texnomart 5929000 Стиральная машина Samsung WW70AGAS22AELD"
   ],
+  "kitchen": [
+   "kitchen:kenwood:sjm490 :: woot 646000 Электрический чайник KENWOOD SJM490 | texnomart 749000 Электрочайник Kenwood SJM490 | idea 799000 Электрочайник Kenwood SJM490 | olcha 831000 Электрочайник KENWOOD SJM490 | alif 839990 Электрочайник Kenwood SJM490 Scene Collection, сер",
+   "kitchen:braun:mq55236mbk :: woot 833000 Погружной блендер BRAUN MQ55236MBK | olcha 1097000 Блендер Braun MQ55236 | alif 1125000 Блендер Braun MQ55236MBK, черный | idea 1149000 Погружной блендер Braun MQ55236MBK",
+   "kitchen:moulinex:lm435810 :: idea 1499000 Блендер Moulinex LM435810 | woot 1501000 Блендер Moulinex LM435810 | texnomart 1590000 Блендер Moulinex LM435810 | alif 1699990 Блендер Moulinex BlendForce 2 LM435810, черный",
+   "kitchen:braun:mq55307mbk :: woot 919000 Погружной блендер BRAUN MQ55307MBK | texnomart 949000 Блендер погружной Braun MQ55307MBK | olcha 1181000 Блендер Braun MQ55307 (MultiQuick 5 Pro) | alif 1392000 Блендер Braun MQ55307MBK, черный",
+   "kitchen:braun:mq55755mbk :: texnomart 999000 Блендер погружной Braun MQ55755MBK | olcha 1386000 Блендер Braun MQ55755 | alif 1465000 Блендер Braun MQ55755MBK, черный | idea 1499000 Погружной блендер Braun MultiQuick 5 Pro MQ55755MB",
+   "kitchen:braun:mq7035x :: woot 1005000 Погружной блендер BRAUN MQ7035X | texnomart 1099000 Блендер погружной Braun MQ7035X | alif 1339000 Блендер Braun MQ7035X, черный | idea 1349000 Погружной блендер Braun MQ7035X",
+   "kitchen:braun:mq7087x :: woot 1436000 Погружной блендер BRAUN MQ7087X | texnomart 1999000 Блендер погружной Braun MQ7087X | alif 2322000 Блендер Braun MQ7087X, черный | idea 2349000 Погружной блендер Braun MQ7087X",
+   "kitchen:braun:mq9138xi :: woot 1364000 Погружной блендер BRAUN MQ9138XI | idea 1490000 Погружной блендер Braun  MQ9138XI | texnomart 1849000 Блендер погружной Braun MQ9138XI | alif 2109000 Блендер Braun MQ9138XI, черный",
+   "kitchen:braun:mq9195xli :: woot 2297000 Погружной блендер BRAUN MQ9195XLI | texnomart 2999000 Блендер погружной Braun MQ9195XLI | alif 3392000 Блендер Braun MQ9195XLI, черный | idea 3399000 Погружной блендер Braun MQ9195XLI",
+   "kitchen:moulinex:dd94j110 :: woot 1501000 Погружной блендер Moulinex InfinyForce DD94J110 | texnomart 1590000 Блендер погружной Moulinex DD94J110 | alif 1659000 Блендер Moulinex DD94J110 , белый | idea 1690000 Погружной блендер Moulinex InfinyForce DD94J110",
+   "kitchen:kenwood:jmp85000si :: woot 2512000 Соковыжималка шнековые KENWOOD JMP85.000 SI | olcha 2952000 Соковыжималка Kenwood JMP85.000SI | texnomart 3399000 Соковыжималка Kenwood JMP85.000SI | idea 3490000 Соковыжималка Kenwood JMP85.000SI",
+   "kitchen:braun:wk300 :: woot 502000 Электрический чайник BRAUN WK300 CREAM | idea 629000 Чайник электрический Braun WK300 ONYX-BK | alif 765000 Электрочайник Braun WK300, белый | olcha 783000 Чайник электрический Braun Multiquick 3 WK300"
+  ],
   "stoves": [
    "stoves:t:gefest 6300-02 0340 :: texnomart 5663000 Газовая плита Gefest 6300-02 0340 | tezz 5850000 Газовая плита  Gefest ПГ 6300-02 0340 | idea 6299000 Плита газовая GEFEST ПГ 6300-02 0340 | alif 6686000 Газовая плита Gefest 6300-02 0340Т, белый",
    "stoves:shivaki:6300k :: alif 2292000 Газовая плита Shivaki 6300-K Eco, серый | tezz 2553000 Комбинированные плиты  SHIVAKI 6300-K eco ГП Cepый | olcha 2579000 Газовые плитa Shivaki 6300-K Eco КП белый | idea 2799000 Газовая плита Shivaki 6300-K Eco Серый",
@@ -464,7 +451,6 @@
   ],
   "home": [
    "home:braun:is9090bk :: olcha 5001000 Утюг с парогенератором Braun CareStyle IS9090BK | woot 5527000 Парогенератор BRAUN IS9090BK | idea 6499000 Утюг с пaрогенератором IS9090BK | alif 8820000 Отпариватель Braun IS9090BK, чёрный",
-   "home:t:karcher vc 3 :: alif 1920000 Пылесос с контейнером для пыли Karcher VC 3 Plus P | mionline 2149000 Пылесос KARCHER VC 3 Plus (проводной) | idea 2199000 Пылесос для сухой уборки Karcher VC 3 Plus | olcha 2656250 Пылесос Karcher VC 3 Plus",
    "home:lg:vc83109uhaq :: texnomart 2699000 Пылесос LG VC83109UHAQ | idea 2699000 Пылесос LG VC83109UHAQ | alif 2749000 Пылесос LG VC83109UHAQ, Чёрный / серый | tezz 2875000 Пылесос  LG VC83109UHAQ",
    "home:lg:vc83209uha :: texnomart 2549000 Пылесос LG VC83209UHA | alif 2599000 Пылесос LG VC83209UHA, серый-красный | idea 2599000 Пылесос LG VC83209UHA | tezz 2777000 Пылесос  LG VC83209UHA Kompressor",
    "home:lg:vc83209uhas :: texnomart 2599000 Пылесос LG VC83209UHAS | alif 2599000 Пылесос LG VC83209UHAS, серебристый | idea 2599000 Пылесос LG VC83209UHAS | tezz 2777000 Пылесос  LG VC83209UHAS Kompressor",
@@ -474,21 +460,8 @@
    "home:braun:si5277gr :: woot 718000 Паровой утюг BRAUN SI5277GR | texnomart 784000 Утюг Braun SI5277GR | idea 799000 Утюг Braun SI5277GR | olcha 964000 Утюг Braun SI5277GR",
    "home:t:karcher fcv 4 :: texnomart 5949000 Вертикальный пылесос Karcher FCV 4 | alif 6400000 Пылесос Karcher FCV 4, серо-белый | karcher 6400000 Ручной моющий пылесос Karcher FCV 4",
    "home:t:karcher kva 2 :: texnomart 2430000 Вертикальный пылесос Karcher KVA 2 *EU | alif 2430000 Пылесос Karcher KVA 2,  белый | karcher 2430000 Аккумуляторный пылесос Karcher KVA 2",
-   "home:t:xiaomi truclean w20 wet dry vacuum :: alif 2699000 Пылесос Xiaomi  Truclean W20 Wet Dry Vacuum EU,  б | olcha 2700000 Пылесос Xiaomi Truclean W20 Wet Dry Vacuum | texnomart 3439000 Вертикальный пылесос Xiaomi Truclean W20 Wet Dry V"
-  ],
-  "watches": [
-   "watches:t:xiaomi redmi watch 5 :: mionline 599000 Умные часы Xiaomi Redmi Watch 5 Lite (черный) | alif 690000 Смарт-часы Xiaomi Redmi Watch 5 Lite, золотистый | texnomart 816000 Смарт часы Xiaomi Redmi Watch 5 Lite Black | idea 999000 Умные часы Xiaomi Redmi Watch 5 Lite Black",
-   "watches:t:honor choice watch 2 :: alif 820000 Смарт-часы Honor CHOICE Watch 2 Pro, черный | beeline 899000 Смарт-часы Honor Choice Watch 2 Pro, Black | texnomart 1159000 Смарт часы Honor Choice Watch 2 Pro Black",
-   "watches:t:huawei watch d2 :: beeline 3499000 Смарт-часы Huawei Watch D2, Black | texnomart 3583000 Смарт часы Huawei Watch D2 Black | alif 3675000 Смарт-часы Huawei Watch  D2, черный",
-   "watches:t:honor choice watch 2 epic :: beeline 1299000 Смарт-часы Honor Choice Watch 2 Epic, Black | texnomart 1553000 Смарт часы Honor Choice Watch 2 Epic Black",
-   "watches:t:huawei watch fit 5 :: texnomart 2299000 Смарт часы Huawei WATCH FIT 5 Black | alif 2299000 Смарт-часы Huawei Watch Fit 5, зеленый",
-   "watches:t:huawei watch 5 42mm :: texnomart 4299000 Смарт часы Huawei Watch 5 42mm White | alif 5299000 Смарт-часы Huawei Watch 5 42mm, бежевый",
-   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Graphite",
-   "watches:t:xiaomi mibro color :: mionline 449000 Умные часы Xiaomi Mibro Color (EU, черный) | texnomart 522000 Смарт часы Xiaomi Mibro Color",
-   "watches:t:xiaomi redmi watch 4 :: idea 1599000 Умные часы Xiaomi Redmi Watch 4 Silver Gray | texnomart 1926000 Смарт часы Xiaomi Redmi Watch 4 Silver Gray",
-   "watches:t:xiaomi watch s3 :: mionline 1590000 Умные часы Xiaomi Smart Watch S3 (EU, Белый) | texnomart 2748000 Смарт часы Xiaomi Watch S3 Black",
-   "watches:t:xiaomi watch s4 :: mionline 1990000 Умные часы Xiaomi Smart Watch S4 (EU, Белый) | texnomart 2540000 Смарт часы Xiaomi Watch S4 Black",
-   "watches:t:amazfit cheetah :: mionline 1990000 Умные часы Amazfit Cheetah (бело-зеленый) | alif 2798000 Смарт-часы Amazfit Cheetah , серый"
+   "home:t:xiaomi truclean w20 wet dry vacuum :: alif 2699000 Пылесос Xiaomi  Truclean W20 Wet Dry Vacuum EU,  б | olcha 2700000 Пылесос Xiaomi Truclean W20 Wet Dry Vacuum | texnomart 3439000 Вертикальный пылесос Xiaomi Truclean W20 Wet Dry V",
+   "home:t:karcher se 3 floor :: alif 3920000 Пылесос Karcher SE 3 Floor, белый | texnomart 4410000 Моющий пылесос Karcher SE 3 Floor | idea 4799000 Моющий пылесос Karcher  SE 3 Floor"
   ],
   "tv": [
    "tv:artel:a43kf5000 :: alif 2251000 Телевизор Artel A43KF5000, черный | texnomart 2676000 Телевизор Artel A43KF5000 | tezz 2756000 Телевизор  Artel ART A43KF5000 norm Черный | maxcom 2974600 Телевизор Artel TV A43KF5000",
@@ -504,20 +477,6 @@
    "tv:lg:55nu900b6la :: idea 7199000 Телевизор LG 55NU900B6LA | alif 7599000 Телевизор LG 55NU900B6LA Smart Tv 55\", Черный | texnomart 8399000 Телевизор LG 55NU900B6LA Smart",
    "tv:lg:65nu900b6la :: alif 9999000 Телевизор LG 65NU900B6LA 65\", чёрный | idea 9999000 Телевизор LG 65NU900B6LA | texnomart 11299000 Телевизор LG 65NU900B6LA Smart"
   ],
-  "climate": [
-   "climate:t:xiaomi humidifier 2 :: alif 450000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite, белы | mionline 499000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite EU | beeline 599000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite | texnomart 649000 Увлажнитель воздуха Xiaomi Humidifier 2 Smart",
-   "climate:dyson:ph05 :: macbro 11295000 Увлажнитель - очиститель воздуха Dyson Humidify+Co | olcha 11930000 Dyson PH05 Purifier Humidify + Cool PH2 De-NOx | alif 12859000 Очиститель воздуха Dyson Purifier Humidify+Cool PH",
-   "climate:dyson:bp04 :: mionline 12390000 Dyson очиститель воздуха BP04 | macbro 15440000 Очиститель воздуха Dyson Big+Quiet Formaldehyde BP | alif 16429000 Очиститель воздуха Dyson Big + Quiet Formaldehyde ",
-   "climate:ardesto:chb2000mbd :: alif 489000 Обогреватель Ardesto CHB-2000MBD, черный | beeline 549000 Конвекторный обогреватель Ardesto CHB-2000MBD | olcha 750000 Конвектор электрический ARDESTO CHB-2000MBD",
-   "climate:ardesto:chh2000mwc :: alif 389000 Обогреватель Ardesto CHH-2000MWC, белый | beeline 499000 Конвекторный обогреватель Ardesto CHH-2000MWC | olcha 599000 Электрический конвектор Ardesto CHH-2000MWC",
-   "climate:boneco:w200 :: alif 3890000 Очиститель воздуха Boneco  W200,   белый | macbro 3960000 Очистители воздуха Boneco W200 White | olcha 4300000 Очистители воздуха Boneco W200",
-   "climate:boneco:w300 :: olcha 4750000 Очистители воздуха Boneco W300 | macbro 4752000 Очистители воздуха Boneco W300 White | alif 4790000 Очиститель воздуха Boneco  W300,  белый",
-   "climate:philips:ac3737 :: olcha 5784000 Очиститель и увлажнитель воздуха Philips AC3737 | mionline 6909000 Очиститель воздуха Philips AC3737 | alif 8078000 Очиститель воздуха Philips  AC3737,  белый",
-   "climate:t:xiaomi mijia purifier :: alif 3998000 Очиститель воздуха Xiaomi Mijia Smart Air Purifier | beeline 4499000 Очиститель воздуха Xiaomi Mijia Smart Air Purifier | texnomart 5799000 Увлажнитель воздуха Xiaomi Mijia Smart Air Purifie",
-   "climate:t:xiaomi evaporative humidifier :: alif 1299000 Увлажнитель воздуха Xiaomi Smart Evaporative Humid | texnomart 1399000 Увлажнитель воздуха Xiaomi Smart Evaporative Humid | mionline 1399000 Увлажнитель воздуха Xiaomi Smart Evaporative Humid",
-   "climate:ardesto:fntc880 :: alif 489000 Вентилятор Ardesto FNT-C880 , белый | olcha 692000 Вентилятор Ardesto FNT-C880 (FNT-C880)",
-   "climate:artel:fs1626r :: texnomart 549000 Вентилятор Artel ART FS1626R | alif 679500 Вентилятор Artel ART FS-1626R , белый"
-  ],
   "fridges": [
    "fridges:artel:hd276 :: alif 2999000 Холодильник Artel ART HD-276 FND ECO, белый | idea 2999000 Холодильник Artel  ART HD-276 FND ECO Белый | olcha 3346354 Холодильник Artel ART HD-276 FND ECO White | tezz 4272000 Холодильник  Artel HD-276 FN Мокрый асфальт",
    "fridges:artel:hd345rnd :: alif 3766000 Холодильник Artel HD345RND ECO,  белый | olcha 4398000 Холодильник Artel-2к HD345RND Eco Белый | texnomart 4431000 Холодильник Artel HD345RND Eco Белый | tezz 4980000 Холодильник  Artel HD345RND ECO Белый",
@@ -532,11 +491,24 @@
    "fridges:artel:hd395fwen :: olcha 6146000 Холодильник Artel HD395FWEN Invertor | alif 6278000 Холодильник Artel HD395FWEN, белый | tezz 6475000 Холодильник  Artel HD395FWEN Белый INV",
    "fridges:artel:hd455rwene :: alif 6450000 Холодильник Artel 2k HD455RWENE, черный | olcha 6844000 Холодильник Artel HD455RWENE | tezz 7257000 Холодильник  Artel HD455RWENE С/Д Чер INV"
   ],
+  "climate": [
+   "climate:dyson:ph05 :: macbro 11295000 Увлажнитель - очиститель воздуха Dyson Humidify+Co | olcha 11930000 Dyson PH05 Purifier Humidify + Cool PH2 De-NOx | alif 12859000 Очиститель воздуха Dyson Purifier Humidify+Cool PH",
+   "climate:ardesto:chb2000mbd :: alif 489000 Обогреватель Ardesto CHB-2000MBD, черный | beeline 549000 Конвекторный обогреватель Ardesto CHB-2000MBD | olcha 750000 Конвектор электрический ARDESTO CHB-2000MBD",
+   "climate:ardesto:chh2000mwc :: alif 389000 Обогреватель Ardesto CHH-2000MWC, белый | beeline 499000 Конвекторный обогреватель Ardesto CHH-2000MWC | olcha 599000 Электрический конвектор Ardesto CHH-2000MWC",
+   "climate:boneco:w200 :: alif 3890000 Очиститель воздуха Boneco  W200,   белый | macbro 3960000 Очистители воздуха Boneco W200 White | olcha 4300000 Очистители воздуха Boneco W200",
+   "climate:boneco:w300 :: olcha 4750000 Очистители воздуха Boneco W300 | macbro 4752000 Очистители воздуха Boneco W300 White | alif 4790000 Очиститель воздуха Boneco  W300,  белый",
+   "climate:t:xiaomi humidifier 2 :: alif 450000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite, белы | beeline 599000 Увлажнитель воздуха Xiaomi Humidifier 2 Lite | texnomart 649000 Увлажнитель воздуха Xiaomi Humidifier 2 Smart",
+   "climate:t:xiaomi mijia purifier :: alif 3998000 Очиститель воздуха Xiaomi Mijia Smart Air Purifier | beeline 4499000 Очиститель воздуха Xiaomi Mijia Smart Air Purifier | texnomart 5799000 Увлажнитель воздуха Xiaomi Mijia Smart Air Purifie",
+   "climate:ardesto:fntc880 :: alif 489000 Вентилятор Ardesto FNT-C880 , белый | olcha 692000 Вентилятор Ardesto FNT-C880 (FNT-C880)",
+   "climate:artel:fs1626r :: texnomart 549000 Вентилятор Artel ART FS1626R | alif 679500 Вентилятор Artel ART FS-1626R , белый",
+   "climate:t:royal r wh 2.0 100l :: alif 1989999 Водонагреватель Royal R WH 2.0 100L,  белый | idea 1999000 Водонагреватель Royal R WH 2.0 100L премиум",
+   "climate:t:royal r wh 2.0 80l :: alif 1699500 Водонагреватель Royal R WH 2.0 80L, белый | idea 1899000 Водонагреватель Royal R WH 2.0 80L классик",
+   "climate:sonor:snrv50wh02me :: idea 999000 Водонагреватель Sonor SNR-V50WH02ME | alif 1698000 Водонагреватель Sonor SNR-V50WH02ME, белый"
+  ],
   "other": [
    "other:t:cougar armor elite :: olcha 2866600 Игровое кресло Cougar Armor Elite | avtech 3125850 Кресло Cougar Armor Elite White | maxcom 3127500 Игровое кресло Cougar Armor Elite (White, Black)",
    "other:t:cougar hotrod :: olcha 3866000 Игровое кресло Cougar Hotrod Черный/оранжевый | avtech 4158000 Кресло Cougar Hotrod Black | maxcom 4295100 Игровое кресло Cougar Hotrod Black",
    "other:t:cougar nxsys aero :: olcha 5066600 Кресло компьютерное игровое Cougar NxSys Aero Blac | avtech 5530140 Кресло Cougar NxSys Aero | maxcom 5699000 Игровое кресло Cougar NxSys Aero",
-   "other:t:xiaomi mi stick :: mionline 499000 Умная ТВ-приставка Xiaomi Mi TV Stick (черный) | woot 653000 TV-приставка Xiaomi Mi TV Stick 4K | idea 899000 Медиаприставка Xiaomi MI TV STICK",
    "other:powerlink:8xfe+sf108c :: woot 117000 2E PowerLink SF108C 8xFE, | olcha 164584 Коммутатор 2E PowerLink SF108C 8XFE неуправляемый ",
    "other::a4tech :: maxcom 139000 A4-Tech S-7-1 | woot 250000 Игровая мышь A4Tech X77 Black",
    "other:t:apple magic mouse 3 :: macbro 1138000 Беспроводная мышь Apple Magic Mouse 3 Silver | olcha 1350000 Apple Magic mouse 3 White",
@@ -544,7 +516,22 @@
    "other:ip:x305 :: avtech 1890000 IP-Телефон Fanvil X305 | maxcom 1890400 IP телефон Fanvil X305",
    "other:ip:grp2602g :: maxcom 903500 IP телефон Grandstream GRP2602G | idea 999000 IP телефон Grandstream IP NETWORK TELEPHONE GRP260",
    "other:ip:x1sp :: maxcom 597700 IP-телефон (VoIP) Fanvil X1SP 2 порта PoE 10/100 H | avtech 617000 IP-Телефон Fanvil X1SP",
-   "other:ip:x210 :: avtech 3428000 IP-Телефон Fanvil X210 | maxcom 3447200 IP-телефон- Fanvil X210"
+   "other:ip:x210 :: avtech 3428000 IP-Телефон Fanvil X210 | maxcom 3447200 IP-телефон- Fanvil X210",
+   "other:ip:x2cp :: avtech 620000 IP-Телефон Fanvil X2CP | maxcom 625500 IP-телефон для call-центров Fanvil X2CP"
+  ],
+  "watches": [
+   "watches:t:huawei watch d2 :: beeline 3499000 Смарт-часы Huawei Watch D2, Black | texnomart 3583000 Смарт часы Huawei Watch D2 Black | alif 3675000 Смарт-часы Huawei Watch  D2, черный",
+   "watches:t:xiaomi redmi watch 5 :: alif 690000 Смарт-часы Xiaomi Redmi Watch 5 Lite, золотистый | texnomart 816000 Смарт часы Xiaomi Redmi Watch 5 Lite Black | idea 999000 Умные часы Xiaomi Redmi Watch 5 Lite Black",
+   "watches:t:honor choice watch 2 epic :: beeline 1299000 Смарт-часы Honor Choice Watch 2 Epic, Black | texnomart 1553000 Смарт часы Honor Choice Watch 2 Epic Black",
+   "watches:t:honor choice watch 2 :: beeline 899000 Смарт-часы Honor Choice Watch 2 Pro, Black | texnomart 1159000 Смарт часы Honor Choice Watch 2 Pro Black",
+   "watches:t:huawei watch fit 5 :: texnomart 2299000 Смарт часы Huawei WATCH FIT 5 Black | alif 2299000 Смарт-часы Huawei Watch Fit 5, зеленый",
+   "watches:t:huawei watch 5 42mm :: texnomart 4299000 Смарт часы Huawei Watch 5 42mm White | alif 5299000 Смарт-часы Huawei Watch 5 42mm, бежевый",
+   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Blue",
+   "watches:t:xiaomi redmi watch 4 :: idea 1599000 Умные часы Xiaomi Redmi Watch 4 Silver Gray | texnomart 1926000 Смарт часы Xiaomi Redmi Watch 4 Silver Gray",
+   "watches:blackview:160kb+384kb :: woot 405000 Смарт-часы Blackview R3 Max 160KB+384KB Black UA | idea 459000 Смарт часы Blackview Smart watch R5 160KB+384KB Bl",
+   "watches:t:blackview r8 46 mm :: idea 499000 Смарт-часы Blackview R8 Pro 46 mm Black | woot 561000 Смарт-часы Blackview R8 Pro 46 mm Black",
+   "watches:blackview:512kb+64mb :: idea 519000 Смарт часы Blackview Smart watch X1 Nodic 512KB+64 | woot 522000 Смарт-часы Blackview X1 Nodic 512KB+64MB Black",
+   "watches:t:samsung galaxy watch 9 44mm :: idea 4099000 Смарт часы Samsung Galaxy Watch 9 (44mm) Graphite | alif 4740000 Смарт-часы Samsung Galaxy Watch 9 44mm, Graphite"
   ],
   "laptops": [
    "laptops:lenovo:i31315u:512-8 :: alif 6495000 Ноутбук Lenovo V15 G5 / i3-1315U / 8 ГБ / SDD 512  | olcha 6798000 LENOVO V15 G5 IRL I3-1315U 8GB 512GB 15,6 FHD BUSI",
@@ -561,7 +548,6 @@
    "laptops:lenovo:i71255u:16-512 :: woot 11942000 Ноутбук Lenovo ThinkBook 15 G4 IAP / i7-1255U / 16 | alif 12250000 Ноутбук Lenovo  IdeaPad 5 / i7-1255U / 16 GB / SSD"
   ],
   "tablets": [
-   "tablets:t:redmi pad 2 8 256gb :: mionline 4290000 Планшет Redmi Pad 2 Pro 8/256GB (EU, черный) | olcha 5250300 Redmi Pad 2 Pro SIM Silver 8/256GB",
    "tablets:huion:l310 :: woot 822000 Графический планшет Huion 6.3\"x3,9\" Inspiroy Frego | olcha 822500 Графический планшет Huion 6.3\"x3,9\" Inspiroy Frego",
    "tablets:huion:h420x :: woot 457000 Графический планшет Graphical tablet H420X Black | olcha 462917 Графический планшет Huion H420X",
    "tablets:apple:a3354:128 :: texnomart 6599000 Планшет Apple iPad 11\" A3354 A16 6/128GB Wi-Fi Blu | idea 7199000 Планшет Apple 11-inch iPad Wi-Fi 128GB Silver A335",
@@ -572,7 +558,8 @@
    "tablets:lenovo:tbx606x:64 :: olcha 3416667 Планшет Lenovo P11 TB-X606X 10.1\" 4/64GB | alif 3659000 Планшет Lenovo TB-X606X P11 4/64 ГБ, серый",
    "tablets:lenovo:tb8505x:32 :: olcha 2350000 Планшет Lenovo TB-8505X  2/32GB 8.0\" Grey | alif 2359000 Планшет Lenovo TB-8505X 2/32 ГБ, серый",
    "tablets:lenovo:tbj606l:128 :: olcha 4243333 Планшет Lenovo Tab P11 TB-J606L 4/128GB 11\" | alif 4665000 Планшет Lenovo P11 TB-J606L 4/128 ГБ, Graphite Gra",
-   "tablets:t:teclast m50 10.1 8 256 lte 6000 :: olcha 2862188 Планшет Teclast M50 Pro 10.1\" 8ГБ, 256ГБ, LTE, 600 | woot 2871000 Планшет Teclast M50 Pro 10.1\" 8ГБ, 256ГБ, LTE, 600"
+   "tablets:t:teclast m50 10.1 8 256 lte 6000 :: olcha 2862188 Планшет Teclast M50 Pro 10.1\" 8ГБ, 256ГБ, LTE, 600 | woot 2871000 Планшет Teclast M50 Pro 10.1\" 8ГБ, 256ГБ, LTE, 600",
+   "tablets:teclast:p30t:128-4 :: woot 1697000 Планшет Teclast P30T 10.1\" 4ГБ, 128ГБ, 6000мА•ч, A | olcha 1733854 Планшет Teclast P30T 10.1\" 4ГБ, 128ГБ, 6000мА•ч, A"
   ],
   "monitors": [
    "monitors::d2423b :: alif 1030000 Монитор 2E D2423B 24\", черный | olcha 1078751 Монитор 2E D2423B 23.8\" FHD 75Hz",
