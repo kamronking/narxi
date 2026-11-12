@@ -673,6 +673,48 @@ def tezz():
     rep['budget_left'] = budget
     return _fin(items, rep)
 
+def openshop():
+    """openshop.uz: category pages carry a schema.org ItemList (12 per page) with name, price, stock, image."""
+    rep, items, seen = _rep(), [], set()
+    cats = ['11-telefonlar-va-planshetlar', '8-video-va-kompyuter-texnikalari', '4-maishiy-texnika', '3-aksessuarlar-va-gadjetlar', '56-go-zallik-va-sog-lik']
+    budget = 700
+    for c in cats:
+        total = None
+        for page in range(1, 200):
+            if budget <= 0: break
+            url = f'https://openshop.uz/shop/category/{c}?lang=ru' + (f'&page={page}' if page > 1 else '')
+            try:
+                r = get(url); budget -= 1; rep['pages'] += 1
+                if r.status_code != 200: break
+                t = r.text
+            except Exception as e:
+                rep['errors'].append(f'{url}: {e!r}'[:160]); break
+            lst = None
+            for blk in re.findall(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', t, re.S):
+                try: j = json.loads(blk)
+                except Exception: continue
+                me = j.get('mainEntity') if isinstance(j, dict) else None
+                if me and me.get('@type') == 'ItemList': lst = me; break
+            if not lst: break
+            total = total or lst.get('numberOfItems') or 0
+            new = 0
+            for e in lst.get('itemListElement', []):
+                it = e.get('item') or {}; of = it.get('offers') or {}
+                u = (e.get('url') or '').split('?')[0]
+                title = _html.unescape(it.get('name') or '').strip()
+                try: price = int(float(of.get('price') or 0))
+                except Exception: price = 0
+                if not u or u in seen or not title or price <= 0: continue
+                if re.search(r'\bб/у\b|\bb/u\b|бывш', title, re.I): continue
+                seen.add(u); new += 1
+                img = (it.get('image') or [None])[0] if isinstance(it.get('image'), list) else it.get('image')
+                items.append({'store': 'openshop', 'title': title, 'price': price, 'old': None, 'url': u,
+                              'stock': 'ok' if 'InStock' in (of.get('availability') or '') else 'out', 'img': img, 'cat': cat_of_name(title)})
+            rep['per_cat'][c] = rep['per_cat'].get(c, 0) + new
+            if not new or page * 12 >= total: break
+    rep['budget_left'] = budget
+    return _fin(items, rep)
+
 STORES = {'texnomart': texnomart, 'olcha': olcha, 'alif': alif, 'beeline': beeline, 'macbro': macbro,
           'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'mionline': mionline, 'tezz': tezz, 'karcher': karcher}
 
