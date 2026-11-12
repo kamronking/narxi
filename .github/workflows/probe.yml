@@ -16,5 +16,5 @@ jobs:
       - run: python scraper/probe3.py
       - run: |
           git config user.name "narxi-bot"; git config user.email "narxi-bot@users.noreply.github.com"
-          git add docs/data/probe15; git commit -m "store probe" || exit 0
+          git add docs/data/probe16; git commit -m "store probe" || exit 0
           git pull --rebase origin main && git push
