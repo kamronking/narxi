@@ -1,0 +1,456 @@
+{
+ "rep": {
+  "pages": 151,
+  "items": 1750,
+  "errors": [],
+  "per_cat": {
+   "11-telefonlar-va-planshetlar": 252,
+   "8-video-va-kompyuter-texnikalari": 600,
+   "4-maishiy-texnika": 456,
+   "3-aksessuarlar-va-gadjetlar": 371,
+   "56-go-zallik-va-sog-lik": 71,
+   "phones": 192,
+   "other": 747,
+   "tablets": 44,
+   "laptops": 56,
+   "monitors": 41,
+   "climate": 36,
+   "printers": 7,
+   "tv": 36,
+   "washers": 29,
+   "kitchen": 143,
+   "home": 64,
+   "stoves": 41,
+   "fridges": 28,
+   "ac": 17,
+   "watches": 78,
+   "audio": 147,
+   "care": 44
+  },
+  "budget_left": 549
+ },
+ "n": 1750,
+ "cats": [
+  [
+   "other",
+   747
+  ],
+  [
+   "phones",
+   192
+  ],
+  [
+   "audio",
+   147
+  ],
+  [
+   "kitchen",
+   143
+  ],
+  [
+   "watches",
+   78
+  ],
+  [
+   "home",
+   64
+  ],
+  [
+   "laptops",
+   56
+  ],
+  [
+   "tablets",
+   44
+  ],
+  [
+   "care",
+   44
+  ],
+  [
+   "monitors",
+   41
+  ],
+  [
+   "stoves",
+   41
+  ],
+  [
+   "climate",
+   36
+  ],
+  [
+   "tv",
+   36
+  ],
+  [
+   "washers",
+   29
+  ],
+  [
+   "fridges",
+   28
+  ],
+  [
+   "ac",
+   17
+  ],
+  [
+   "printers",
+   7
+  ]
+ ],
+ "stock": {
+  "ok": 1750
+ },
+ "matched": 497,
+ "matched_by_cat": [
+  [
+   "phones",
+   154
+  ],
+  [
+   "other",
+   92
+  ],
+  [
+   "kitchen",
+   53
+  ],
+  [
+   "audio",
+   51
+  ],
+  [
+   "home",
+   26
+  ],
+  [
+   "care",
+   23
+  ],
+  [
+   "washers",
+   16
+  ],
+  [
+   "tv",
+   14
+  ],
+  [
+   "watches",
+   14
+  ],
+  [
+   "fridges",
+   11
+  ],
+  [
+   "stoves",
+   10
+  ],
+  [
+   "ac",
+   10
+  ],
+  [
+   "printers",
+   7
+  ],
+  [
+   "climate",
+   7
+  ],
+  [
+   "laptops",
+   6
+  ],
+  [
+   "tablets",
+   2
+  ],
+  [
+   "monitors",
+   1
+  ]
+ ],
+ "ex_match": [
+  [
+   "phones:xiaomi 17t 512gb",
+   "Смартфон Xiaomi 17T 12/512GB Черный",
+   8262000
+  ],
+  [
+   "phones:huawei nova y74 128gb",
+   "Смартфон Huawei Nova Y74 8/128GB Черный",
+   2167000
+  ],
+  [
+   "phones:samsung galaxy s26 ultra 256gb",
+   "Смартфон Samsung Galaxy S26 Ultra 5G 12/256GB Черный",
+   12899000
+  ],
+  [
+   "phones:samsung galaxy a27 256gb",
+   "Смартфон Samsung Galaxy A27 5G 8/256GB Черный",
+   4268000
+  ],
+  [
+   "phones:iphone 17 pro max 256gb",
+   "Смартфон Apple iPhone 17 Pro Max 256GB Silver (eSIM + eSIM)",
+   18399000
+  ],
+  [
+   "phones:iphone 17 pro max 256gb",
+   "Смартфон Apple iPhone 17 Pro Max 256GB Deep Blue (SIM + eSIM)",
+   16599000
+  ],
+  [
+   "phones:honor x5es 128gb",
+   "Смартфон Honor X5es 4/128ГБ Midnight Black",
+   2180000
+  ],
+  [
+   "phones:samsung galaxy s25 ultra 256gb",
+   "Смартфон Samsung Galaxy S25 Ultra 5G 12/256GB Titanium Gray",
+   12063000
+  ],
+  [
+   "phones:xiaomi redmi note 17 pro 256gb",
+   "Смартфон Xiaomi Redmi Note 17 Pro 5G 8/256GB Sky Blue",
+   4449000
+  ],
+  [
+   "phones:infinix smart 20 64gb",
+   "Смартфон Infinix Smart 20 4/64GB Shadow Black",
+   2089000
+  ],
+  [
+   "phones:honor x5es 128gb",
+   "Смартфон Honor X5es 4/128GB Фиолетовый",
+   2180000
+  ],
+  [
+   "other:t:apple pencil",
+   "Стилус Apple Pencil Pro White",
+   2099000
+  ],
+  [
+   "phones:samsung galaxy a27 128gb",
+   "Смартфон Samsung Galaxy A27 5G 6/128GB Светло-розовый",
+   3699000
+  ],
+  [
+   "phones:xiaomi redmi note 17 128gb",
+   "Смартфон Xiaomi Redmi Note 17 4/128GB Синий",
+   2650000
+  ],
+  [
+   "phones:honor x5es 64gb",
+   "Смартфон Honor X5es 4/64GB Голубой",
+   1884000
+  ],
+  [
+   "phones:iphone 18 pro 256gb",
+   "Смартфон Apple iPhone 18 Pro 256GB Burgundy (SIM + eSIM)",
+   21582000
+  ],
+  [
+   "phones:samsung galaxy a18 128gb",
+   "Смартфон Samsung Galaxy A18 4/128GB Серый",
+   2741000
+  ],
+  [
+   "phones:iphone duo 256gb",
+   "Смартфон Apple iPhone Duo Night Sky 256GB Black (eSIM + eSIM)",
+   37198000
+  ],
+  [
+   "phones:iphone duo 2048gb",
+   "Смартфон Apple iPhone Duo Night Sky 2TB Black (eSIM + eSIM)",
+   77459000
+  ],
+  [
+   "phones:iphone 18 pro max 256gb",
+   "Смартфон Apple iPhone 18 Pro Max 256GB Silver (eSIM + eSIM)",
+   21826000
+  ],
+  [
+   "phones:samsung galaxy a57 128gb",
+   "Смартфон Samsung Galaxy A57 5G 8/128GB Navy",
+   5173000
+  ],
+  [
+   "phones:xiaomi redmi note 17 pro 128gb",
+   "Смартфон Xiaomi Redmi Note 17 Pro 5G 6/128GB Черный",
+   3825000
+  ],
+  [
+   "phones:honor x5es 128gb",
+   "Смартфон Honor X5es 4/128GB Голубой",
+   2180000
+  ],
+  [
+   "phones:iphone 18 pro 512gb",
+   "Смартфон Apple iPhone 18 Pro 512GB Burgundy (SIM + eSIM)",
+   24979000
+  ],
+  [
+   "phones:iphone 18 pro 512gb",
+   "Смартфон Apple iPhone 18 Pro 512GB Silver (SIM + eSIM)",
+   24979000
+  ]
+ ],
+ "ex_items": [
+  [
+   "phones",
+   "Смартфон Xiaomi 17T 12/512GB Черный",
+   8262000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Huawei Nova Y74 8/128GB Черный",
+   2167000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Tecno Camon 50 8/256GB Moonshadow Black",
+   3877000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Samsung Galaxy S26 Ultra 5G 12/256GB Черный",
+   12899000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Samsung Galaxy A27 5G 8/256GB Черный",
+   4268000,
+   "ok"
+  ],
+  [
+   "other",
+   "Apple iPhone 15 Pro 256GB (Черный Титан) (SIM + eSIM) smartfoni (Apple Certified Refurbished iPhone)!",
+   12063000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Xiaomi Redmi Note 17 8/256GB Синий",
+   2999000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Apple iPhone 17 Pro Max 256GB Silver (eSIM + eSIM)",
+   18399000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Apple iPhone 17 Pro Max 256GB Deep Blue (SIM + eSIM)",
+   16599000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Honor X5es 4/128ГБ Midnight Black",
+   2180000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Samsung Galaxy S25 Ultra 5G 12/256GB Titanium Gray",
+   12063000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Honor X9e Pro 8/256GB Midnight Black",
+   5884000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Xiaomi Redmi Note 17 Pro 5G 8/256GB Sky Blue",
+   4449000,
+   "ok"
+  ],
+  [
+   "tablets",
+   "Планшет Samsung Galaxy Tab A11+ 11\" 6/128GB, Серый (WiFi)",
+   2989000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Infinix Smart 20 4/64GB Shadow Black",
+   2089000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Xiaomi Redmi Note 17 Pro Max 5Г 8/256GB Cloud Blush",
+   5299000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Honor X5es 4/128GB Фиолетовый",
+   2180000,
+   "ok"
+  ],
+  [
+   "other",
+   "Стилус Apple Pencil Pro White",
+   2099000,
+   "ok"
+  ],
+  [
+   "other",
+   "Стилус Apple Pencil Type-C",
+   1029000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Samsung Galaxy A27 5G 6/128GB Светло-розовый",
+   3699000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Xiaomi Redmi Note 17 4/128GB Синий",
+   2650000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Honor X5es 4/64GB Голубой",
+   1884000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Apple iPhone 18 Pro 256GB Burgundy (SIM + eSIM)",
+   21582000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Samsung Galaxy A18 4/128GB Серый",
+   2741000,
+   "ok"
+  ],
+  [
+   "phones",
+   "Смартфон Apple iPhone Duo Night Sky 256GB Black (eSIM + eSIM)",
+   37198000,
+   "ok"
+  ]
+ ]
+}
