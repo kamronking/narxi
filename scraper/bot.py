@@ -49,7 +49,7 @@ def tg(method, **data):
 def fmt(n): return f'{n:,}'.replace(',', ' ')
 
 STORE = {'texnomart': 'Texnomart', 'olcha': 'Olcha', 'alif': 'Alif Shop', 'beeline': 'Beeline Market', 'macbro': 'Macbro', 'idea': 'Idea',
-         'maxcom': 'Maxcom', 'woot': 'Woot', 'avtech': 'Avtech', 'mionline': 'Mi Online', 'tezz': 'Tezz', 'karcher': 'Kärcher'}
+         'maxcom': 'Maxcom', 'woot': 'Woot', 'avtech': 'Avtech', 'mionline': 'Mi Online', 'tezz': 'Tezz', 'karcher': 'Kärcher', 'openshop': 'OpenShop'}
 T = {
  'ru': {'set': '✅ Слежу за ценой\n\n{name}\nСейчас: {now} сум ({store})\nСообщу, когда будет ≤ {target} сум.',
         'reached': '🔔 Цена снизилась!\n\n{name}\nСейчас: {now} сум в {store}\nВаша цель: {target} сум\n\n{url}',

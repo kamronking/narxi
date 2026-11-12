@@ -716,7 +716,7 @@ def openshop():
     return _fin(items, rep)
 
 STORES = {'texnomart': texnomart, 'olcha': olcha, 'alif': alif, 'beeline': beeline, 'macbro': macbro,
-          'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'mionline': mionline, 'tezz': tezz, 'karcher': karcher}
+          'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'mionline': mionline, 'tezz': tezz, 'karcher': karcher, 'openshop': openshop}
 
 OTHER_CHUNKS = 8
 def khash(k):

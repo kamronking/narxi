@@ -6,7 +6,7 @@
 const SITE = 'https://narxi.site/';
 const ORIGIN_OK = o => /^https?:\/\/(www\.)?narxi\.site$/.test(o || '') || o === 'https://kamronking.github.io';
 const STORE = { texnomart: 'Texnomart', olcha: 'Olcha', alif: 'Alif Shop', beeline: 'Beeline Market', macbro: 'Macbro', idea: 'Idea',
-  maxcom: 'Maxcom', woot: 'Woot', avtech: 'Avtech', mionline: 'Mi Online', tezz: 'Tezz', karcher: 'Kärcher' };
+  maxcom: 'Maxcom', woot: 'Woot', avtech: 'Avtech', mionline: 'Mi Online', tezz: 'Tezz', karcher: 'Kärcher', openshop: 'OpenShop' };
 const T = {
   ru: { set: '✅ Слежу за ценой\n\n{name}\nСейчас: {now} сум ({store})\nСообщу, когда будет ≤ {target} сум.',
     phone: 'Чтобы зарегистрироваться в Narxi, нажмите кнопку ниже — Telegram передаст ваш номер. Это необязательно.',
