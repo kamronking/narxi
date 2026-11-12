@@ -1,9 +1,9 @@
 {
- "started": "2026-11-12T20:17:59.887781+05:00",
+ "started": "2026-11-12T21:04:19.522941+05:00",
  "stores": {
   "texnomart": {
    "pages": 1271,
-   "items": 1840,
+   "items": 1839,
    "errors": [],
    "per_cat": {
     "phones": 283,
@@ -16,7 +16,7 @@
     "fridges": 96,
     "washers": 101,
     "ac": 25,
-    "home": 172,
+    "home": 171,
     "kitchen": 399,
     "stoves": 123,
     "climate": 54,
@@ -42,11 +42,11 @@
     "printers": 8
    },
    "inst": {
-    "exact": 1470,
-    "est": 370,
+    "exact": 1464,
+    "est": 375,
     "factor": 1.7,
     "months": 24,
-    "known": 1630
+    "known": 1635
    }
   },
   "olcha": {
@@ -75,7 +75,7 @@
   },
   "alif": {
    "pages": 388,
-   "items": 7756,
+   "items": 7753,
    "errors": [],
    "per_cat": {
     "tv": 560,
@@ -85,7 +85,7 @@
     "phones": 588,
     "stoves": 599,
     "care": 226,
-    "watches": 343,
+    "watches": 342,
     "fridges": 599,
     "ac": 599,
     "printers": 263,
@@ -93,7 +93,7 @@
     "laptops": 720,
     "climate": 535,
     "home": 684,
-    "tablets": 179
+    "tablets": 177
    },
    "cats": 73,
    "budget_left": 112
@@ -260,7 +260,7 @@
  "ram_split": 25,
  "merged": 125,
  "brand_split": 14,
- "products": 22739,
+ "products": 22734,
  "matched_2plus": 1528,
  "cats": {
   "phones": [
@@ -268,11 +268,11 @@
    154
   ],
   "laptops": [
-   1574,
+   1573,
    16
   ],
   "tablets": [
-   465,
+   463,
    14
   ],
   "tv": [
@@ -288,7 +288,7 @@
    132
   ],
   "watches": [
-   335,
+   334,
    24
   ],
   "fridges": [
@@ -304,7 +304,7 @@
    77
   ],
   "home": [
-   1110,
+   1109,
    165
   ],
   "kitchen": [
@@ -340,13 +340,13 @@
   "Наушники вставные беспроводные Green Earbuds",
   "Смарт часы Green Active Pro Black",
   "Смарт часы Green Ultra Black",
-  "Мясорубка Аксион М61.02",
-  "Мясорубка Аксион М21.01",
-  "Мясорубка Аксион М12.11",
+  "Мясорубка Аксион М41.01",
   "Мясорубка Аксион М41.00",
   "Мясорубка Аксион М321.01",
-  "Мясорубка Аксион М41.01",
-  "Соковыжималка Аксион СЦ32.01 Чёрная",
+  "Мясорубка Аксион М21.01",
+  "Мясорубка Аксион М12.11",
+  "Мясорубка Аксион М61.02",
+  "Соковыжималка Аксион СЦ32.01",
   "Соковыжималка Аксион СЦ32.02 Джус"
  ],
  "keys_sample": {
@@ -356,8 +356,8 @@
    "phones:iphone 17 pro 256gb :: macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | alif 16999000 Смартфон Apple iPhone 17 Pro 256 ГБ eSIM, Cosmic O | beeline 17199000 Apple iPhone 17 Pro, 256 GB, SIM+eSIM | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | texnomart 17999000 Apple iPhone 17 Pro 12/256GB Серебристый | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver",
    "phones:iphone 18 pro 256gb :: beeline 19195000 Apple IPhone 18 Pro, 256 GB SIM+eSIM | alif 19799000 Смартфон Apple iPhone 18 Pro 256 ГБ (nanoSim+eSim) | olcha 20540000 Смартфон Apple iPhone 18 Pro 256 GB Silver | idea 20999000 Смартфон iPhone 18 Pro 256GB Glacier | texnomart 21199000 Apple iPhone 18 Pro 12/256GB Серебристый | macbro 21418000 iPhone 18 Pro Black 256GB Single SIM",
    "phones:iphone 18 pro 512gb :: beeline 22899000 Apple IPhone 18 Pro, 512 GB SIM+eSIM | texnomart 23499000 Apple iPhone 18 Pro 12/512GB Голубой | alif 23999000 Смартфон Apple iPhone 18 Pro 512 ГБ (nanoSim+eSim) | idea 24799000 Смартфон iPhone 18 Pro 512GB Black | olcha 24899000 Смартфон Apple iPhone 18 Pro 512 GB Glacier | macbro 25990000 iPhone 18 Pro Black 512GB Single SIM",
-   "phones:iphone 18 pro max 256gb :: beeline 20995000 Apple IPhone 18 Pro Max, 256 GB SIM+eSIM | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | alif 22580000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | macbro 22699000 iPhone 18 Pro Max Black 256GB Single SIM | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier | texnomart 23499000 Apple iPhone 18 Pro Max 12/256GB Голубой",
-   "phones:iphone 17 256gb :: alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Черный | idea 14299000 Смартфон iPhone 17 256GB Black",
+   "phones:iphone 18 pro max 256gb :: beeline 20995000 Apple IPhone 18 Pro Max, 256 GB SIM+eSIM | alif 22300000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | macbro 22699000 iPhone 18 Pro Max Black 256GB Single SIM | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier | texnomart 23499000 Apple iPhone 18 Pro Max 12/256GB Голубой",
+   "phones:iphone 17 256gb :: alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Белый | idea 14299000 Смартфон iPhone 17 256GB Black",
    "phones:honor x9d 256gb:r8 :: beeline 4789000 Honor X9d, 8/256 GB | olcha 4868000 Honor X9d 5G Red 8/256 GB | texnomart 5199000 Honor X9d 8/256GB Золотистый рассвет | idea 5199000 Смартфон Honor X9d 8/256 Midnight Black | alif 5299000 Смартфон Honor X9D 8/256 ГБ, Midnight",
    "phones:iphone air 256gb :: macbro 12990000 iPhone Air Space Black 256GB eSIM | olcha 13199000 Iphone Air 12/256 GB Light Gold | beeline 13359000 Apple iPhone Air, 256 GB, eSIM | texnomart 13999000 Apple iPhone Air 12/256GB Небесно-голубой | idea 14999000 Смартфон iPhone Air 256GB Space Black",
    "phones:samsung galaxy a27 128gb :: beeline 3550000 Samsung Galaxy A27 5G, 6/128 GB | olcha 3645000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4699000 Samsung Galaxy A27 5G 6/128GB Синий",
@@ -481,9 +481,9 @@
    "watches:t:honor choice watch 2 :: alif 820000 Смарт-часы Honor CHOICE Watch 2 Pro, черный | beeline 899000 Смарт-часы Honor Choice Watch 2 Pro, Black | texnomart 1159000 Смарт часы Honor Choice Watch 2 Pro Black",
    "watches:t:huawei watch d2 :: beeline 3499000 Смарт-часы Huawei Watch D2, Black | texnomart 3583000 Смарт часы Huawei Watch D2 Black | alif 3675000 Смарт-часы Huawei Watch  D2, черный",
    "watches:t:honor choice watch 2 epic :: beeline 1299000 Смарт-часы Honor Choice Watch 2 Epic, Black | texnomart 1553000 Смарт часы Honor Choice Watch 2 Epic Black",
-   "watches:t:huawei watch fit 5 :: texnomart 2299000 Смарт часы Huawei WATCH FIT 5 Green | alif 2299000 Смарт-часы Huawei Watch Fit 5, зеленый",
+   "watches:t:huawei watch fit 5 :: texnomart 2299000 Смарт часы Huawei WATCH FIT 5 Black | alif 2299000 Смарт-часы Huawei Watch Fit 5, зеленый",
    "watches:t:huawei watch 5 42mm :: texnomart 4299000 Смарт часы Huawei Watch 5 42mm White | alif 5299000 Смарт-часы Huawei Watch 5 42mm, бежевый",
-   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Graphite",
+   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Blue",
    "watches:t:xiaomi mibro color :: mionline 449000 Умные часы Xiaomi Mibro Color (EU, черный) | texnomart 522000 Смарт часы Xiaomi Mibro Color",
    "watches:t:xiaomi redmi watch 4 :: idea 1599000 Умные часы Xiaomi Redmi Watch 4 Silver Gray | texnomart 1926000 Смарт часы Xiaomi Redmi Watch 4 Silver Gray",
    "watches:t:xiaomi watch s3 :: mionline 1590000 Умные часы Xiaomi Smart Watch S3 (EU, Белый) | texnomart 2748000 Смарт часы Xiaomi Watch S3 Black",
