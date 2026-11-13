@@ -26,7 +26,10 @@
 <link rel="apple-touch-startup-image" href="app/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
 <link rel="apple-touch-startup-image" href="app/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.weserv.nl" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet"></noscript>
 <style>
 /* Layout: phone-width shell; brand hero, deal rail, brand chips, sort switch, 2-column grid, 4 bottom tabs; onboarding + registration overlay */
 :root{--bg:#f1f3ef;--surface:#fff;--surface2:#f3f6f1;--ink:#0d1c16;--muted:#5a6862;--line:#dfe5dd;
@@ -370,7 +373,10 @@ const som=n=>`${fmt(n)} ${t('som')}`;
 const mln=n=>`${(n/1e6).toLocaleString('ru-RU',{maximumFractionDigits:n>=1e7?1:2})} ${t('mln')}`;
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const FB=`<svg class="fb" viewBox="0 0 40 40"><rect x="11" y="3" width="18" height="34" rx="4" fill="#9fb3aa"/><rect x="13" y="7" width="14" height="25" rx="1.5" fill="#fff"/></svg>`;
-const img=(src,cls,st='')=>`<div class="${cls}${src?'':' noimg'}"${st?` style="${st}"`:''}>${src?`<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" onload="this.classList.add('ok')" onerror="this.parentNode.classList.add('noimg')">`:''}${FB}`;
+/* shop photos are often 1–2 MB originals: serve a resized WebP through a free image CDN, fall back to the original, then to the icon */
+const px=(src,w)=>src&&/^https?:/.test(src)?`https://images.weserv.nl/?url=${encodeURIComponent(src)}&w=${w}&h=${w}&fit=inside&we&output=webp&q=72`:src;
+window.imgErr=el=>{if(el.dataset.o&&el.src!==el.dataset.o){el.src=el.dataset.o;el.removeAttribute('data-o')}else el.parentNode.classList.add('noimg')};
+const img=(src,cls,st='',w=320,eager=false)=>`<div class="${cls}${src?'':' noimg'}"${st?` style="${st}"`:''}>${src?`<img src="${esc(px(src,w))}" data-o="${esc(src)}" alt="" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async" referrerpolicy="no-referrer" onload="this.classList.add('ok')" onerror="imgErr(this)">`:''}${FB}`;
 let toastT;function toast(s){const e=document.getElementById('toast');e.hidden=true;void e.offsetWidth;e.textContent=s;e.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>e.hidden=true,3200)}
 const BRANDS=[['Apple',/^iphone|^apple/],['Samsung',/^samsung|^galaxy/],['Xiaomi',/^xiaomi|^redmi|^poco|^mi /],['Honor',/^honor/],['Tecno',/^tecno/],['Infinix',/^infinix/],['Realme',/^realme/],['Vivo',/^vivo/],['OPPO',/^oppo/],['Huawei',/^huawei/],['Google',/^google|^pixel/],['Nothing',/^nothing/]];
 const khash=k=>{let h=0;for(const ch of k){h=(h*31+ch.codePointAt(0))%1000003}return h};
@@ -413,10 +419,10 @@ function renderTabs(){const T=[['home','M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6
   document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>go(b.dataset.t))}
 const agoTxt=()=>{const m=Math.max(0,Math.round((Date.now()-new Date(DATA.updated))/60000));return m<5?t('justNow'):m<60?t('minAgo',{n:m}):m<1440?t('hAgo',{n:Math.round(m/60)}):t('dAgo',{n:Math.round(m/1440)})};
 const updTxt=()=>new Date(DATA.updated).toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Tashkent'});
-function pcard(p,i=0){const b=best(p),g=gapOf(p);return `<button class="pc press in-up" style="--i:${i%12}" data-k="${esc(p.key)}">${img(p.img,'ph')}${g>0?`<span class="badge">−${mln(g)}</span>`:''}${belowUsual(p)?`<span class="ub">▼ ${t('belowUsual')}</span>`:''}</div>
+function pcard(p,i=0){const b=best(p),g=gapOf(p);return `<button class="pc press in-up" style="--i:${i%12}" data-k="${esc(p.key)}">${img(p.img,'ph','',320,i<4)}${g>0?`<span class="badge">−${mln(g)}</span>`:''}${belowUsual(p)?`<span class="ub">▼ ${t('belowUsual')}</span>`:''}</div>
   <div class="nm">${esc(p.name)}</div><div class="price">${LANG==='ru'?`<small>${t('from')}</small> `:''}${fmt(b.price)}<small>${t('som')}</small></div>${chgTag(p)}
   <div class="dots">${live(p).map(o=>`<span class="dot" style="background:${STORES[o.store].color}" title="${STORES[o.store].name}"></span>`).join('')}<span>${live(p).length} ${tn('storesN',live(p).length)}</span>${WATCH[p.key]?` · ${t('watching')}`:''}</div></button>`}
-function deal(p,i){const b=best(p),w=worst(p);return `<button class="deal press in-up" style="--i:${i}" data-k="${esc(p.key)}"><div class="top">${img(p.img,'ph','width:64px;flex:none')}</div><div style="min-width:0"><div class="gap" data-count="${gapOf(p)}">−${mln(gapOf(p))}</div><div class="nm">${esc(p.name)}</div></div></div>
+function deal(p,i){const b=best(p),w=worst(p);return `<button class="deal press in-up" style="--i:${i}" data-k="${esc(p.key)}"><div class="top">${img(p.img,'ph','width:64px;flex:none',160)}</div><div style="min-width:0"><div class="gap" data-count="${gapOf(p)}">−${mln(gapOf(p))}</div><div class="nm">${esc(p.name)}</div></div></div>
   <div class="pricepair"><div><span><span class="dot" style="background:${STORES[b.store].color};margin-right:6px"></span>${STORES[b.store].name}</span><b>${som(b.price)}</b></div><div class="hi"><span><span class="dot" style="background:${STORES[w.store].color};margin-right:6px"></span>${STORES[w.store].name}</span><b>${som(w.price)}</b></div></div></button>`}
 function bind(root=view){root.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{S.key=b.dataset.k;nav()})}
 let io=null;
@@ -467,7 +473,7 @@ function renderFind(){LIST=null;
     <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" enterkeyhint="search" placeholder="${t('searchAll')}" value="${esc(S.q)}" aria-label="${t('searchAll')}" autocomplete="off"></label></section>
    <div id="browse" style="display:flex;flex-direction:column;gap:18px">
     <section style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0">${t('popT')}</h2><div class="pop">${pops.map(x=>`<button data-pq="${esc(x)}">${esc(x)}</button>`).join('')}</div></section>
-    <section style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0">${t('catsT')}</h2><div class="btiles">${META.cats.map(c=>`<button class="btile press" data-ct="${c.id}"><span class="bi">${c.img?`<img src="${esc(c.img)}" alt="" loading="lazy" onerror="this.remove()">`:''}</span><b>${esc(LANG==='ru'?c.ru:c.uz)}</b><small>${fmt(c.n)} ${tn('models',c.n)}</small></button>`).join('')}</div></section></div>
+    <section style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0">${t('catsT')}</h2><div class="btiles">${META.cats.map(c=>`<button class="btile press" data-ct="${c.id}"><span class="bi">${c.img?`<img src="${esc(px(c.img,160))}" alt="" loading="lazy" onerror="this.remove()">`:''}</span><b>${esc(LANG==='ru'?c.ru:c.uz)}</b><small>${fmt(c.n)} ${tn('models',c.n)}</small></button>`).join('')}</div></section></div>
    <div id="catbar"></div>
    <div class="rescount" id="rc"></div>
    <section class="grid" id="grid"></section><div id="tail"></div>`;
@@ -576,7 +582,7 @@ function renderBattle(){const need=CMP.filter(k=>!PM[k]);if(need.length){view.in
   const row=(lab,cells)=>`<tr><th>${lab}</th>${cells.map(c=>`<td>${c}</td>`).join('')}</tr>`;
   view.innerHTML=`<div class="secthead"><h1 class="ptitle">${t('cmpT')}</h1><button class="btn ghost sm" id="cmpClr">${t('clear')}</button></div>
    <div class="cmpt"><table style="min-width:${78+P.length*132}px">
-   ${row('',P.map(p=>`${img(p.img,'pimg')}</div><button class="btn ghost sm" data-rmc="${esc(p.key)}" style="margin-top:6px">✕</button>`))}
+   ${row('',P.map(p=>`${img(p.img,'pimg','',360)}</div><button class="btn ghost sm" data-rmc="${esc(p.key)}" style="margin-top:6px">✕</button>`))}
    ${row('',P.map(p=>`<a href="#" data-k="${esc(p.key)}" style="color:inherit;font-weight:700">${esc(p.name)}</a>`))}
    ${row(t('bestPrice'),P.map((p,i)=>`<span class="${bp[i]===minP&&P.length>1?'win':''}">${som(bp[i])}</span><br><small class="muted">${STORES[best(p).store].name}</small>`))}
    ${row(t('stores2'),ns.map(n=>`<span class="${n===maxN&&ns.filter(x=>x===maxN).length===1?'win':''}">${n}</span>`))}
@@ -649,7 +655,7 @@ function drawAIFab(){let b=document.getElementById('aifab');if(!b){b=document.cr
 function renderProduct(p){if(!p){go('home');return}window.NX&&NX.ev('view_item',{item_name:p.name});const b=best(p),w=worst(p),v=verdict(p),wt=WATCH[p.key];const u=url=>url+(url.includes('?')?'&':'?')+'utm_source=narxi';
   const offs=[...p.offers].sort((a,c)=>(a.stock!=='ok')-(c.stock!=='ok')||a.price-c.price);const mxp=Math.max(...offs.map(o=>o.price));
   view.innerHTML=`<button class="back" id="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>${t('back')}</button>
-   ${img(p.img,'pimg in-up')}</div><h1 class="ptitle in-up" style="--i:1">${esc(p.name)}</h1>
+   ${img(p.img,'pimg in-up','',720,true)}</div><h1 class="ptitle in-up" style="--i:1">${esc(p.name)}</h1>
    <section class="bestcard in-up" style="--i:2"><span class="lbl">${t('cheapest')} · ${STORES[b.store].name}</span><span class="p">${som(b.price)}</span>${w.price>b.price?`<span class="sv">−${som(w.price-b.price)} ${t('save')}</span>`:''}</section>
    <button class="btn ghost press" id="cmpBtn" style="align-self:flex-start">⚖ ${CMP.includes(p.key)?t('cmpIn'):t('cmpAdd')}</button>
    <section class="card in-up" style="--i:3"><h2>${t('cmpT')}</h2><div class="small muted" style="margin:-4px 0 4px">${t('checked',{t:agoTxt()})} · ${t('exact')}</div>${offs.map((o,i)=>`<div class="bar ${o.stock==='ok'?'':'out'}"><div class="h"><span><span class="dot" style="background:${STORES[o.store].color}"></span>${STORES[o.store].name}${o===b?' <span class="tag save">✓</span>':''}</span><span class="price">${fmt(o.price)}</span></div>
