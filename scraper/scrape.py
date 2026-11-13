@@ -949,8 +949,11 @@ def main():
     deals = sorted([p for p in products if gap(p) > 0], key=lambda p: -gap(p))[:60]
     meta = {'updated': NOW.isoformat(timespec='minutes'),
             'stores': {s: {'items': r.get('items', 0) or r.get('stale_items', 0), 'ok': bool(r.get('items')), 'stale': bool(r.get('stale_items')), 'last_ok': r.get('last_ok')} for s, r in REPORT['stores'].items()},
-            'cats': cats_meta, 'deals': deals, 'idx': idx}
+            'cats': cats_meta, 'deals': deals,
+            # small first-paint list in the same order the home feed uses; the full index is its own cacheable file
+            'top': sorted([r for r in idx if r[4] > 1], key=lambda r: (-r[4], -r[5], r[3]))[:240]}
     (V2 / 'meta.json').write_text(json.dumps(meta, ensure_ascii=False, separators=(',', ':')))
+    (V2 / 'idx.json').write_text(json.dumps(idx, ensure_ascii=False, separators=(',', ':')))
     # legacy phone files (old app versions)
     phones = [dict(p, key=p['key'][7:]) for p in bycat.get('phones', [])]
     (OUT / 'latest.json').write_text(json.dumps({'updated': meta['updated'], 'stores': meta['stores'], 'products': phones}, ensure_ascii=False, separators=(',', ':')))

@@ -744,7 +744,10 @@ function drawOB(){if(obStep===-1){
 const pmap=()=>{const m={};IDX.forEach(r=>m[r[0]]=r[3]);return m};
 const diff=(o,n)=>{const c={};for(const k in n)if(o[k]&&o[k]!==n[k])c[k]=n[k]-o[k];return c};
 async function getData(){const v=Date.now();
-  try{const m=await fetch('data/v2/meta.json?v='+v,{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()});return m}
+  try{const m=await fetch('data/v2/meta.json?v='+v,{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()});
+    /* the full search index (~2.5 MB) is a separate, cacheable file: first paint uses the small 'top' list */
+    if(!m.idx){m.idx=m.top||[];m.idxP=fetch('data/v2/idx.json?v='+encodeURIComponent(m.updated)).then(r=>{if(!r.ok)throw 0;return r.json()})}
+    return m}
   catch(e){const [d,h]=await Promise.all([fetch('data/latest.json?v='+v,{cache:'no-store'}).then(r=>r.json()),fetch('data/history.json?v='+v,{cache:'no-store'}).then(r=>r.json()).catch(()=>({}))]);
     const ps=d.products.map(p=>({...p,key:'phones:'+p.key,cat:'phones'})).filter(p=>live(p).length);const H={};for(const k in h)H['phones:'+k]=h[k];
     const g=p=>{const l=live(p);if(l.length<2)return 0;const x=worst(p).price-best(p).price;return x<worst(p).price*.3?x:0};
@@ -753,11 +756,13 @@ function setData(m){META=m;IDX=m.idx;VER=encodeURIComponent(m.updated);const kee
   if(m.legacy){addProducts(m.legacy.ps);HIST=m.legacy.H;LOADED.phones=Promise.resolve()}addProducts(m.deals||[]);
   return ensureCats([...keep,...Object.keys(WATCH).map(catOf),S.key&&catOf(S.key),S.cat!=='all'&&S.cat])}
 const watchHits=()=>{const pr=pmap();return Object.keys(WATCH).filter(k=>pr[k]&&pr[k]<=WATCH[k]).map(k=>(IDX.find(r=>r[0]===k)||[])[1]).filter(Boolean)};
-getData().then(async m=>{await setData(m);const now=pmap(),seen=store.get('seenp',null);if(seen){CHG=diff(seen,now)}store.set('seenp',now);render();
+async function fullIdx(m){if(!m.idxP)return;try{const full=await m.idxP;if(META!==m)return;m.idx=full;IDX=full;delete m.idxP;
+  if(S.tab==='home'&&!S.key&&scrollY<400)render();else if(S.tab!=='home'&&!S.key)render()}catch(e){}}
+getData().then(async m=>{await setData(m);render();await fullIdx(m);const now=pmap(),seen=store.get('seenp',null);if(seen){CHG=diff(seen,now)}store.set('seenp',now);render();
   const n=Object.keys(CHG).length;const hits=watchHits();if(hits.length)toast(`${t('watchHit')} ${hits.join(', ')}`);else if(n)toast('🔔 '+t('sinceLast',{n}))}).catch(()=>{view.innerHTML=`<div class="empty">${t('loadErr')}</div>`});
 let busy=false;
 async function refresh(manual){if(busy||!DATA)return;busy=true;const rf=document.getElementById('rf');rf&&rf.classList.add('spin');if(manual)toast(t('refreshing'));
-  try{const old=pmap();const m=await getData();await setData(m);const now=pmap();const c=diff(old,now);Object.assign(CHG,c);store.set('seenp',now);const y=scrollY;render();scrollTo(0,y);
+  try{const old=pmap();const m=await getData();await setData(m);await fullIdx(m);const now=pmap();const c=diff(old,now);Object.assign(CHG,c);store.set('seenp',now);const y=scrollY;render();scrollTo(0,y);
     const n=Object.keys(c).length;if(n)toast('🔔 '+t('changed',{n}));else if(manual!=='auto')toast(t('fresh'));window.NX&&NX.ev('refresh',{changed:n})}
   catch(e){toast(t('loadErr'))}finally{busy=false}}
 /* pull to refresh */
