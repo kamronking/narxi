@@ -831,6 +831,28 @@ def main():
         for sid, items, rep in ex.map(run, list(STORES)):
             REPORT['stores'][sid] = rep
             all_items += items
+    # a store that fails one run (site down, DNS hiccup) keeps its last good offers for up to 24 h instead of vanishing
+    try:
+        prev_meta = json.loads((OUT / 'v2' / 'meta.json').read_text())
+    except Exception:
+        prev_meta = {}
+    REPORT['stale'] = {}
+    for sid, rep in REPORT['stores'].items():
+        if rep.get('items'):
+            rep['last_ok'] = NOW.isoformat(timespec='minutes'); continue
+        last = (prev_meta.get('stores', {}).get(sid) or {}).get('last_ok') or (prev_meta.get('updated') if (prev_meta.get('stores', {}).get(sid) or {}).get('ok') else None)
+        if not last or NOW - dt.datetime.fromisoformat(last) > dt.timedelta(hours=24):
+            continue
+        n = 0
+        for f in (OUT / 'v2' / 'c').glob('*.json'):
+            if f.name == 'other.json': continue
+            try: ps = json.loads(f.read_text())
+            except Exception: continue
+            for pr in ps:
+                for o in pr['offers']:
+                    if o.get('store') == sid:
+                        it = dict(o); it['cat'] = pr['cat']; it['img'] = pr.get('img'); all_items.append(it); n += 1
+        rep['last_ok'] = last; rep['stale_items'] = n; REPORT['stale'][sid] = n
     groups, unkeyed = {}, []
     # phones: same model+storage but different RAM (e.g. 4/64 vs 3/64) must not be one product.
     # If a model shows 2+ different RAM values across offers, split by RAM; offers without RAM stay separate.
@@ -926,7 +948,7 @@ def main():
     cats_meta.sort(key=lambda c: order.index(c['id']) if c['id'] in order else 99)
     deals = sorted([p for p in products if gap(p) > 0], key=lambda p: -gap(p))[:60]
     meta = {'updated': NOW.isoformat(timespec='minutes'),
-            'stores': {s: {'items': r.get('items', 0), 'ok': bool(r.get('items'))} for s, r in REPORT['stores'].items()},
+            'stores': {s: {'items': r.get('items', 0) or r.get('stale_items', 0), 'ok': bool(r.get('items')), 'stale': bool(r.get('stale_items')), 'last_ok': r.get('last_ok')} for s, r in REPORT['stores'].items()},
             'cats': cats_meta, 'deals': deals, 'idx': idx}
     (V2 / 'meta.json').write_text(json.dumps(meta, ensure_ascii=False, separators=(',', ':')))
     # legacy phone files (old app versions)
