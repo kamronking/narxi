@@ -1,12 +1,12 @@
 {
- "started": "2026-11-13T05:43:35.403990+05:00",
+ "started": "2026-11-13T08:17:57.546911+05:00",
  "stores": {
   "texnomart": {
    "pages": 1271,
-   "items": 1847,
+   "items": 1846,
    "errors": [],
    "per_cat": {
-    "phones": 291,
+    "phones": 290,
     "laptops": 25,
     "tablets": 38,
     "tv": 192,
@@ -42,11 +42,11 @@
     "printers": 8
    },
    "inst": {
-    "exact": 1451,
-    "est": 396,
+    "exact": 1442,
+    "est": 404,
     "factor": 1.7,
     "months": 24,
-    "known": 1615
+    "known": 1614
    }
   },
   "olcha": {
@@ -75,7 +75,7 @@
   },
   "alif": {
    "pages": 388,
-   "items": 7745,
+   "items": 7704,
    "errors": [],
    "per_cat": {
     "tv": 558,
@@ -83,7 +83,7 @@
     "kitchen": 559,
     "washers": 718,
     "phones": 587,
-    "stoves": 599,
+    "stoves": 560,
     "care": 226,
     "watches": 341,
     "fridges": 599,
@@ -92,8 +92,8 @@
     "monitors": 48,
     "laptops": 720,
     "climate": 534,
-    "home": 684,
-    "tablets": 176
+    "home": 683,
+    "tablets": 175
    },
    "cats": 73,
    "budget_left": 112
@@ -253,9 +253,9 @@
     "4-maishiy-texnika": 456,
     "3-aksessuarlar-va-gadjetlar": 371,
     "56-go-zallik-va-sog-lik": 71,
-    "phones": 231,
+    "phones": 230,
     "other": 818,
-    "tablets": 90,
+    "tablets": 91,
     "laptops": 56,
     "monitors": 41,
     "climate": 36,
@@ -275,14 +275,14 @@
   }
  },
  "ram_split": 25,
- "merged": 128,
+ "merged": 130,
  "brand_split": 13,
- "products": 22865,
- "matched_2plus": 1683,
+ "products": 22892,
+ "matched_2plus": 1691,
  "cats": {
   "phones": [
-   569,
-   185
+   568,
+   186
   ],
   "laptops": [
    1623,
@@ -329,8 +329,8 @@
    252
   ],
   "stoves": [
-   702,
-   78
+   730,
+   85
   ],
   "climate": [
    497,
@@ -352,34 +352,34 @@
  "unkeyed_sample": [
   "Керамическое защитное стекло Xiaomi Redmi Note 9T",
   "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
-  "Умная колонка Яндекс Станция Лайт 2 Графитовый",
   "Умная колонка Яндекс Станция Мини с часами с Алисой, Черный, 10Вт",
+  "Умная колонка Яндекс Станция Лайт 2 Графитовый",
   "Наушники вставные беспроводные Green Earbuds",
   "Смарт часы Green Active Pro Black",
   "Смарт часы Green Ultra Black",
   "Мясорубка Аксион М41.01",
   "Мясорубка Аксион М21.01",
+  "Мясорубка Аксион М41.00",
+  "Мясорубка Аксион М12.11",
   "Мясорубка Аксион М61.02",
   "Мясорубка Аксион М321.01",
-  "Мясорубка Аксион М12.11",
-  "Мясорубка Аксион М41.00",
-  "Соковыжималка Аксион СЦ32.01",
-  "Соковыжималка Аксион СЦ32.02 Джус"
+  "Соковыжималка Аксион СЦ32.02 Джус",
+  "Соковыжималка Аксион СЦ32.01"
  ],
  "keys_sample": {
   "phones": [
    "phones:iphone 17 pro max 256gb :: openshop 16599000 Смартфон Apple iPhone 17 Pro Max 256GB Deep Blue ( | macbro 17276000 iPhone 17 Pro Max Deep Blue 256GB eSIM | alif 17999000 Смартфон Apple iPhone 17 Pro Max 256 ГБ eSIM, Cosm | olcha 18200000 iPhone 17 Pro Max Cosmic Orange 256 GB | beeline 18499000 Apple iPhone 17 Pro Max, 256 GB, SIM+eSIM | texnomart 18999000 Apple iPhone 17 Pro Max 12/256GB Глубокий синий | idea 20399000 Смартфон iPhone 17 Pro Max 256GB Silver",
    "phones:samsung galaxy s26 ultra 256gb :: openshop 12899000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256GB Черн | olcha 13199000 Смартфон Samsung Galaxy S26 Ultra 5G Violet 256 ГБ | alif 13385000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256 ГБ, фи | beeline 13499000 Samsung Galaxy S26 Ultra, 12/256 GB | texnomart 13999000 Samsung Galaxy S26 Ultra 12/256GB Фиолетовый кобал | macbro 14225000 Смартфон Samsung Galaxy S26 Ultra Black 256GB 12GB | idea 15999000 Смартфон Samsung Galaxy S26 Ultra 12/256 Black",
    "phones:iphone 18 pro 256gb :: beeline 19195000 Apple IPhone 18 Pro, 256 GB SIM+eSIM | alif 19799000 Смартфон Apple iPhone 18 Pro 256 ГБ (nanoSim+eSim) | texnomart 19999000 Apple iPhone 18 Pro 12/256GB Серебристый | olcha 20540000 Смартфон Apple iPhone 18 Pro 256 GB Silver | openshop 20728000 Смартфон Apple iPhone 18 Pro 256GB Silver (SIM + e | idea 20999000 Смартфон iPhone 18 Pro 256GB Glacier | macbro 21418000 iPhone 18 Pro Black 256GB Single SIM",
-   "phones:iphone 18 pro 512gb :: beeline 22899000 Apple IPhone 18 Pro, 512 GB SIM+eSIM | texnomart 23499000 Apple iPhone 18 Pro 12/512GB Голубой | alif 23999000 Смартфон Apple iPhone 18 Pro 512 ГБ (nanoSim+eSim) | idea 24799000 Смартфон iPhone 18 Pro 512GB Black | olcha 24899000 Смартфон Apple iPhone 18 Pro 512 GB Glacier | openshop 24979000 Смартфон Apple iPhone 18 Pro 512GB Burgundy (SIM + | macbro 25990000 iPhone 18 Pro Black 512GB Single SIM",
+   "phones:iphone 18 pro 512gb :: beeline 22899000 Apple IPhone 18 Pro, 512 GB SIM+eSIM | texnomart 23499000 Apple iPhone 18 Pro 12/512GB Голубой | alif 23999000 Смартфон Apple iPhone 18 Pro 512 ГБ (nanoSim+eSim) | idea 24799000 Смартфон iPhone 18 Pro 512GB Black | olcha 24899000 Смартфон Apple iPhone 18 Pro 512 GB Glacier | openshop 24979000 Смартфон Apple iPhone 18 Pro 512GB Silver (SIM + e | macbro 25990000 iPhone 18 Pro Black 512GB Single SIM",
    "phones:iphone 18 pro max 256gb :: beeline 20995000 Apple IPhone 18 Pro Max, 256 GB SIM+eSIM | openshop 21826000 Смартфон Apple iPhone 18 Pro Max 256GB Silver (eSI | alif 22300000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | macbro 22699000 iPhone 18 Pro Max Black 256GB Single SIM | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier | texnomart 23499000 Apple iPhone 18 Pro Max 12/256GB Голубой",
-   "phones:iphone 17 256gb :: openshop 11925000 Смартфон Apple iPhone 17 256GB Sage (eSIM + eSIM) | alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Черный | idea 14299000 Смартфон iPhone 17 256GB Black",
+   "phones:iphone 17 256gb :: openshop 11925000 Смартфон Apple iPhone 17 256GB Sage (eSIM + eSIM) | alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Белый | idea 14299000 Смартфон iPhone 17 256GB Black",
    "phones:honor x9d 256gb:r8 :: beeline 4789000 Honor X9d, 8/256 GB | olcha 4868000 Honor X9d 5G Red 8/256 GB | openshop 5043000 Смартфон Honor X9d 5G 8/256GB Midnight Black | texnomart 5199000 Honor X9d 8/256GB Золотистый рассвет | idea 5199000 Смартфон Honor X9d 8/256 Midnight Black | alif 5299000 Смартфон Honor X9D 8/256 ГБ, Midnight",
    "phones:samsung galaxy a27 128gb :: beeline 3550000 Samsung Galaxy A27 5G, 6/128 GB | olcha 3645000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | openshop 3699000 Смартфон Samsung Galaxy A27 5G 6/128GB Светло-розо | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4699000 Samsung Galaxy A27 5G 6/128GB Синий",
    "phones:samsung galaxy a27 256gb :: beeline 3989000 Samsung Galaxy A27 5G, 8/256 GB | olcha 4189000 Смартфон Samsung Galaxy A27 5G 8/256GB Black | openshop 4268000 Смартфон Samsung Galaxy A27 5G 8/256GB Черный | texnomart 4399000 Samsung Galaxy A27 5G 8/256GB Синий | alif 4705000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black",
-   "phones:samsung galaxy a37 128gb :: beeline 4459000 Samsung Galaxy A37 5G, 8/128 GB | openshop 4462000 Смартфон Samsung Galaxy A37 5G 8/128GB Lavender | alif 4510000 Смартфон Samsung Galaxy A37 5G 8/128 ГБ, Charcoal  | olcha 4699000 Samsung Galaxy A37 Pink 8/128 Гб | texnomart 4890000 Samsung Galaxy A37 8/128GB Серый | idea 4899000 Смартфон SAMSUNG Galaxy A37 8/128 Gray (SM-A376EZA",
-   "phones:samsung galaxy a57 256gb :: beeline 5699000 Samsung Galaxy A57 5G, 8/256 GB | alif 5998000 Смартфон Samsung Galaxy A57 8/256 ГБ, navy | olcha 5999000 Samsung Galaxy A57 8/256 ГБ Lillac | openshop 6078000 Смартфон Samsung Galaxy A57 5G 8/256GB Серый | texnomart 6399000 Samsung Galaxy A57 8/256GB Серый | idea 6499000 Смартфон SAMSUNG Galaxy A57 8/256 Violet (SM-A576B",
-   "phones:samsung galaxy s26 256gb :: openshop 10531000 Смартфон Samsung Galaxy S26 5G 12/256GB Cobalt Vio | idea 10999000 Смартфон Samsung Galaxy S26 12/256 Black | olcha 11201073 Смартфон Samsung Galaxy S26 5G Violet 256 ГБ | beeline 11299000 Samsung Galaxy S26, 12/256 GB | macbro 12141000 Смартфон Samsung Galaxy S26 Black 256GB | texnomart 12199000 Samsung Galaxy S26 12/256GB Фиолетовый кобальт"
+   "phones:samsung galaxy a37 128gb :: beeline 4459000 Samsung Galaxy A37 5G, 8/128 GB | openshop 4462000 Смартфон Samsung Galaxy A37 5G 8/128GB Lavender | alif 4510000 Смартфон Samsung Galaxy A37 5G 8/128 ГБ, Charcoal  | olcha 4699000 Samsung Galaxy A37 Pink 8/128 Гб | texnomart 4890000 Samsung Galaxy A37 8/128GB Темно зеленый | idea 4899000 Смартфон SAMSUNG Galaxy A37 8/128 Gray (SM-A376EZA",
+   "phones:samsung galaxy a57 256gb :: beeline 5699000 Samsung Galaxy A57 5G, 8/256 GB | alif 5998000 Смартфон Samsung Galaxy A57 8/256 ГБ, navy | olcha 5999000 Samsung Galaxy A57 8/256 ГБ Lillac | openshop 6078000 Смартфон Samsung Galaxy A57 5G 8/256GB Navy | texnomart 6399000 Samsung Galaxy A57 8/256GB Темно-синий | idea 6499000 Смартфон SAMSUNG Galaxy A57 8/256 Violet (SM-A576B",
+   "phones:samsung galaxy s26 256gb :: openshop 10531000 Смартфон Samsung Galaxy S26 5G 12/256GB Cobalt Vio | idea 10999000 Смартфон Samsung Galaxy S26 12/256 Black | olcha 11201073 Смартфон Samsung Galaxy S26 5G Violet 256 ГБ | beeline 11299000 Samsung Galaxy S26, 12/256 GB | macbro 12141000 Смартфон Samsung Galaxy S26 Black 256GB | texnomart 12199000 Samsung Galaxy S26 12/256GB Черный"
   ],
   "audio": [
    "audio:t:apple airpods 4 :: openshop 1589000 Беспроводные наушники Apple AirPods 4, Белый | alif 1755000 Наушники Apple AirPods 4, белый | macbro 1785000 Наушники Apple AirPods 4 White | idea 1999000 Беспроводные наушники Apple AirPods 4 | texnomart 2258000 Наушники вставные беспроводные Apple AirPods 4 Whi | olcha 2300000 Беспроводные наушники Apple Airpods 4 | maxcom 2335200 Наушники Apple AirPods 4",
@@ -455,7 +455,7 @@
    "stoves:t:gefest 6300-02 0340 :: texnomart 5663000 Газовая плита Gefest 6300-02 0340 | tezz 5850000 Газовая плита  Gefest ПГ 6300-02 0340 | idea 6299000 Плита газовая GEFEST ПГ 6300-02 0340 | alif 6686000 Газовая плита Gefest 6300-02 0340Т, белый",
    "stoves:shivaki:6300k :: alif 2292000 Газовая плита Shivaki 6300-K Eco, серый | tezz 2553000 Комбинированные плиты  SHIVAKI 6300-K eco ГП Cepый | olcha 2579000 Газовые плитa Shivaki 6300-K Eco КП белый | idea 2799000 Газовая плита Shivaki 6300-K Eco Серый",
    "stoves:shivaki:6302k :: tezz 3004000 Комбинированные плиты  SHIVAKI 6302-K Бордовый | alif 3292000 Газовая плита Shivaki 6302-K, серый | olcha 3502604 Газовая плита Shivaki 6302-K КП Серый | idea 3599000 Комбинированная плита SHIVAKI 6302-K КП Серый",
-   "stoves:shivaki:6400g :: alif 2299000 Газовая плита Shivaki 6400-G Eco, серый | tezz 2475000 Газовая плита  SHIVAKI 6400-G eco ГП Серый | olcha 2494000 Газовая плита Shivaki 6400-G Eco ГП с ГК белый | idea 2599000 Газовая плита Shivaki 6400-G eco ГП Серый",
+   "stoves:shivaki:6400g :: alif 2375000 Газовая плита Shivaki 6400-G Eco,  белый | tezz 2475000 Газовая плита  SHIVAKI 6400-G eco ГП Серый | olcha 2494000 Газовая плита Shivaki 6400-G Eco ГП с ГК белый | idea 2599000 Газовая плита Shivaki 6400-G eco ГП Серый",
    "stoves:t:gefest 6100-02 0309 :: texnomart 4858000 Плита газовая Gefest 6100-02 0309 | tezz 5080000 Газовая плита  Gefest 6100-02 0309 | idea 5399000 Газовая плита GEFEST 6100-02 0309 | alif 5795000 Газовая плита Gefest ПГ 6100-02 0309, белый",
    "stoves:t:gefest 6100-02 0310 :: texnomart 4926000 Плита газовая Gefest 6100-02 0310 | tezz 5150000 Газовая плита  Gefest 6100-02 0310 | idea 5399000 Газовая плита GEFEST 6100-02 0310 | alif 5858000 Газовая плита Gefest ПГ 6100-02 0310, коричневый",
    "stoves:t:gefest 6300-02 0346 :: tezz 5476000 Газовая плита  Gefest 6300-02 0346 | idea 5999000 Газовая плита GEFEST ПГ 6300-02 0346 | alif 6299000 Газовая плита Gefest 6300-02 0346, черный | texnomart 7293000 Плита газовая Gefest 6300-02 0346",
@@ -498,9 +498,9 @@
    "watches:t:huawei watch d2 :: beeline 3499000 Смарт-часы Huawei Watch D2, Black | texnomart 3583000 Смарт часы Huawei Watch D2 Black | alif 3675000 Смарт-часы Huawei Watch  D2, черный",
    "watches:t:honor choice watch 2 epic :: beeline 1299000 Смарт-часы Honor Choice Watch 2 Epic, Black | texnomart 1553000 Смарт часы Honor Choice Watch 2 Epic Black",
    "watches:t:honor choice watch 2 :: beeline 899000 Смарт-часы Honor Choice Watch 2 Pro, Black | texnomart 1159000 Смарт часы Honor Choice Watch 2 Pro Black",
-   "watches:t:huawei watch fit 5 :: texnomart 2299000 Смарт часы Huawei WATCH FIT 5 Green | alif 2299000 Смарт-часы Huawei Watch Fit 5, зеленый",
+   "watches:t:huawei watch fit 5 :: texnomart 2299000 Смарт часы Huawei WATCH FIT 5 Black | alif 2299000 Смарт-часы Huawei Watch Fit 5, зеленый",
    "watches:t:huawei watch 5 42mm :: texnomart 4299000 Смарт часы Huawei Watch 5 42mm White | alif 5299000 Смарт-часы Huawei Watch 5 42mm, бежевый",
-   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Blue",
+   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Graphite",
    "watches:samsung:watch8 :: openshop 2889000 Умные часы Samsung Galaxy Watch8 44 мм, Silver | texnomart 3781000 Смарт часы Samsung Galaxy Watch8 40mm Graphite",
    "watches:t:xiaomi redmi watch 4 :: idea 1599000 Умные часы Xiaomi Redmi Watch 4 Silver Gray | texnomart 1926000 Смарт часы Xiaomi Redmi Watch 4 Silver Gray",
    "watches:blackview:160kb+384kb :: woot 405000 Смарт-часы Blackview R3 Max 160KB+384KB Black UA | idea 459000 Смарт часы Blackview Smart watch R5 160KB+384KB Bl",
