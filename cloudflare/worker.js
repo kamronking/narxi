@@ -165,6 +165,11 @@ async function handle(env, u) {
       reply_markup: { keyboard: [[{ text: L.btn, request_contact: true }]], resize_keyboard: true, one_time_keyboard: true } });
   } else if (text === '/myid') {
     await tg(env, 'sendMessage', { chat_id: chat, text: `Ваш chat id: ${chat}` });
+  } else if ((text === '/post_preview' || text === '/post_now') && env.ADMIN_CHAT && String(chat) === String(env.ADMIN_CHAT)) {
+    // /post_preview -> the morning post sent only to the admin; /post_now -> publish it in the channel right now
+    const to = text === '/post_now' ? (env.TG_CHANNEL || CHANNEL) : chat;
+    const r = await sendDeals(env, to);
+    await tg(env, 'sendMessage', { chat_id: chat, text: r && r.ok ? (text === '/post_now' ? `✅ Опубликовано в ${to}` : 'Это предпросмотр. Опубликовать в канал: /post_now\nКаждое утро в 8:17 пост уходит сам.') : `⚠️ Не получилось: ${(r && r.description) || 'нет ответа'}` });
   } else if (text.startsWith('/stats') && env.ADMIN_CHAT && String(chat) === String(env.ADMIN_CHAT)) {
     const day = Math.floor(Date.now() / 1000) - 86400, week = Math.floor(Date.now() / 1000) - 7 * 86400;
     // one person can register from several devices (phone + laptop) -> count people by phone, first time seen
@@ -217,6 +222,65 @@ async function handle(env, u) {
   }
 }
 
+// ---------- daily deals post to the Telegram channel ----------
+// Every morning (~08:17 Tashkent, the 03:17 UTC run of the cron below) the bot posts the top-5 price gaps to the channel.
+// The bot must be an admin of the channel with "Post messages". Channel name: variable TG_CHANNEL (e.g. @narxi_uz) or CHANNEL below.
+const CHANNEL = '@narxi_site';
+const MON = ['yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr'];
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const mlnS = n => (n / 1e6).toFixed(n >= 1e7 ? 1 : 2).replace(/\.?0+$/, '').replace('.', ',') + ' mln';
+async function dealsPost() {
+  const r = await fetch(SITE + 'data/v2/meta.json?t=' + Date.now(), { cf: { cacheTtl: 0 } });
+  const m = await r.json();
+  const rows = [];
+  for (const p of m.deals || []) {
+    const ok = p.offers.filter(o => o.stock === 'ok' && o.price > 0);
+    if (ok.length < 2 || p.cat === 'printers' || p.cat === 'other') continue;   // keep it to things most people buy
+    const lo = ok.reduce((a, o) => o.price < a.price ? o : a), hi = ok.reduce((a, o) => o.price > a.price ? o : a);
+    const gap = hi.price - lo.price;
+    if (gap <= 0 || gap >= hi.price * .3 || lo.store === hi.store || lo.price > 30e6) continue;   // >30% is usually a different model, not a deal
+    rows.push({ p, lo, hi, gap, n: ok.length, fam: p.name.toLowerCase().split(/\s+/).slice(0, 3).join(' ') });
+  }
+  rows.sort((a, b) => b.gap - a.gap);
+  const pick = [], fams = new Set(), cats = {};
+  for (const x of rows) {
+    if (fams.has(x.fam) || (cats[x.p.cat] || 0) >= 2) continue;   // no 5 sizes of one iPhone, max 2 per category
+    fams.add(x.fam); cats[x.p.cat] = (cats[x.p.cat] || 0) + 1; pick.push(x);
+    if (pick.length === 5) break;
+  }
+  if (!pick.length) return null;
+  const d = new Date(Date.now() + 5 * 3600e3);
+  const num = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣'];
+  const items = pick.map((x, i) => `${num[i]} <b>${esc(x.p.name.replace(/^[А-Яа-яЁё\s-]+(?=[A-Z0-9])/, ''))}</b>
+✅ ${fmt(x.lo.price)} so'm — ${esc(STORE[x.lo.store] || x.lo.store)}
+❌ ${fmt(x.hi.price)} so'm — ${esc(STORE[x.hi.store] || x.hi.store)}
+💰 Farq: <b>${mlnS(x.gap)} so'm</b> · <a href="${SITE}?p=${encodeURIComponent(x.p.key)}&utm_source=tg_channel">${x.n} do'kon narxi →</a>`).join('\n\n');
+  const text = `🔥 <b>Bugun qayerda arzon?</b> · ${d.getUTCDate()}-${MON[d.getUTCMonth()]}
+
+Bitta tovar — turli do'konda turli narx. Bugungi eng katta farqlar:
+
+${items}
+
+🔎 13 do'kon narxlari har 3 soatda yangilanadi: <a href="${SITE}?utm_source=tg_channel">narxi.site</a>
+#narxlar #chegirma`;
+  const img = pick[0].p.img ? `https://images.weserv.nl/?url=${encodeURIComponent(pick[0].p.img)}&w=800&h=800&fit=contain&cbg=white&output=jpg` : null;
+  return { text, img };
+}
+async function sendDeals(env, chat) {
+  const post = await dealsPost();
+  if (!post) return { ok: false, description: 'no deals' };
+  const body = { chat_id: chat, text: post.text, parse_mode: 'HTML' };
+  body.link_preview_options = post.img ? { url: post.img, prefer_large_media: true, show_above_text: true } : { is_disabled: true };
+  let r = await tg(env, 'sendMessage', body);
+  if (r && !r.ok && post.img) { body.link_preview_options = { is_disabled: true }; r = await tg(env, 'sendMessage', body) }
+  return r;
+}
+async function morningPost(env) {
+  const ch = env.TG_CHANNEL || CHANNEL;
+  const r = await sendDeals(env, ch);
+  if ((!r || !r.ok) && env.ADMIN_CHAT) await tg(env, 'sendMessage', { chat_id: env.ADMIN_CHAT, text: `⚠️ Утренний пост в ${ch} не отправился: ${(r && r.description) || 'нет ответа'}.\nПроверьте, что бот — админ канала с правом публиковать.` });
+}
+
 // ---------- price robot timer ----------
 // GitHub often skips its own scheduled runs, so Cloudflare's cron (Settings → Triggers → Cron: 17 */3 * * *) starts the
 // "collect prices" workflow. Needs secret GH_TOKEN: fine-grained GitHub token, repo kamronking/narxi only, Actions: Read and write.
@@ -230,7 +294,10 @@ async function startScraper(env) {
 }
 
 export default {
-  async scheduled(event, env, ctx) { ctx.waitUntil(startScraper(env)) },
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(startScraper(env));
+    if (new Date(event.scheduledTime).getUTCHours() === 3) ctx.waitUntil(morningPost(env));   // 08:17 Tashkent
+  },
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
     if (url.pathname === '/setup') {

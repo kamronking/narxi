@@ -798,6 +798,8 @@ async function refresh(manual){if(busy||!DATA)return;busy=true;const rf=document
   addEventListener('touchend',async()=>{if(y0===null)return;y0=null;el.classList.add('go');if(dy>=TH){el.style.transform='translateY(30px)';el.firstElementChild.style.animation='spin .8s linear infinite';await refresh(false);el.firstElementChild.style.animation=''}el.style.transform='translateY(-70px)';el.style.opacity=0});
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&DATA&&Date.now()-lastRf>15*60e3){lastRf=Date.now();refresh('auto')}})})();
 let lastRf=Date.now();
+// links from the Telegram channel: narxi.site/?p=<product key> opens that product, Back returns to home
+(function(){const q=new URLSearchParams(location.search),k=q.get('p');if(k&&/^[a-z_]+:.{1,160}$/.test(k)){history.replaceState({tab:'home',key:null,y:0},'',location.pathname);history.pushState({tab:'home',key:k,y:0},'');S.key=k;try{sessionStorage.setItem('ob_shown','1')}catch(e){}}})();
 render();
 (function(){const q=new URLSearchParams(location.search);if(q.has('reset')){try{['user','watch','seen','reg_ok','reg_id','synced','cmp','seenp','lang','lang_set','theme'].forEach(k=>localStorage.removeItem('narxi_'+k));sessionStorage.clear()}catch(e){}
   window.__resetting=true;const go2=()=>{try{sessionStorage.clear()}catch(e){}location.replace(location.pathname)};if(window.NX&&NX.signOut)NX.signOut().then(go2,go2);else setTimeout(()=>{(window.NX&&NX.signOut?NX.signOut():Promise.resolve()).then(go2,go2)},1500)}})();
