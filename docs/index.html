@@ -132,7 +132,7 @@ h2{font:700 17px/1.25 var(--ui);margin:0;letter-spacing:-.01em}
 /* product */
 .back{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:0;color:var(--muted);font-weight:600}
 .pimg{background:#fff;border-radius:24px;border:1px solid var(--line);aspect-ratio:4/3;display:grid;place-items:center;overflow:hidden}
-.pimg img{width:72%;height:88%;object-fit:contain;opacity:0;transition:opacity .4s}.pimg img.ok{opacity:1}.pimg .fb{display:none;width:80px}.pimg.noimg img{display:none}.pimg.noimg .fb{display:block}
+.pimg img{width:72%;height:88%;object-fit:contain;opacity:0;transition:opacity .2s}.pimg img.ok{opacity:1}.pimg .fb{display:none;width:80px}.pimg.noimg img{display:none}.pimg.noimg .fb{display:block}
 .ptitle{font:800 22px/1.15 var(--disp);letter-spacing:-.03em;margin:0;text-wrap:balance}
 .bestcard{background:var(--brand);color:#fff;border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:4px}
 .bestcard .lbl{font-size:12.5px;font-weight:600;opacity:.85}
@@ -296,7 +296,7 @@ nav button[aria-current="page"]::after{content:"";position:absolute;top:0;width:
  main.prodv{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:28px;row-gap:18px;align-items:start}
  main.prodv>*{grid-column:2}
  main.prodv>.back{grid-column:1/-1}
- main.prodv>.pimg{grid-column:1;grid-row:2/span 6;position:sticky;top:84px;aspect-ratio:1}
+ main.prodv>.pimg{grid-column:1;grid-row:1/span 6;position:sticky;top:84px;aspect-ratio:1}
 }
 @media(min-width:1080px){
  .app{max-width:1200px}
@@ -322,6 +322,8 @@ nav button[aria-current="page"]::after{content:"";position:absolute;top:0;width:
 #appsplash .t{width:108px;height:108px;border-radius:30px;background:#c8f169;color:#0f6b4f;font:900 74px/1 var(--disp,sans-serif);display:grid;place-items:center;animation:spl .7s cubic-bezier(.2,.8,.2,1)}
 #appsplash .w{color:#fff;font:900 44px/1 var(--disp,sans-serif);letter-spacing:-1px}
 #appsplash.out{opacity:0;transform:scale(1.04)}@keyframes spl{from{transform:scale(.7);opacity:0}to{transform:none;opacity:1}}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.2s;animation-timing-function:ease-out}
+html{-webkit-tap-highlight-color:transparent}
 </style>
 </head>
 <body>
@@ -383,8 +385,9 @@ const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const FB=`<svg class="fb" viewBox="0 0 40 40"><rect x="11" y="3" width="18" height="34" rx="4" fill="#9fb3aa"/><rect x="13" y="7" width="14" height="25" rx="1.5" fill="#fff"/></svg>`;
 /* shop photos are often 1–2 MB originals: serve a resized WebP through a free image CDN, fall back to the original, then to the icon */
 const px=(src,w)=>src&&/^https?:/.test(src)?`https://images.weserv.nl/?url=${encodeURIComponent(src)}&w=${w}&h=${w}&fit=inside&we&output=webp&q=72`:src;
+window.hiSwap=el=>{const u=el.dataset.hi;if(!u)return;delete el.dataset.hi;const i=new Image();i.onload=()=>{el.src=u};i.src=u};
 window.imgErr=el=>{if(el.dataset.o&&el.src!==el.dataset.o){el.src=el.dataset.o;el.removeAttribute('data-o')}else el.parentNode.classList.add('noimg')};
-const img=(src,cls,st='',w=320,eager=false)=>`<div class="${cls}${src?'':' noimg'}"${st?` style="${st}"`:''}>${src?`<img src="${esc(px(src,w))}" data-o="${esc(src)}" alt="" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async" referrerpolicy="no-referrer" onload="this.classList.add('ok')" onerror="imgErr(this)">`:''}${FB}`;
+const img=(src,cls,st='',w=320,eager=false)=>`<div class="${cls}${src?'':' noimg'}"${st?` style="${st}"`:''}>${src?`<img src="${esc(px(src,w>320?320:w))}"${w>320?` data-hi="${esc(px(src,w))}"`:''} data-o="${esc(src)}" alt="" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async" referrerpolicy="no-referrer" onload="this.classList.add('ok');hiSwap(this)" onerror="imgErr(this)">`:''}${FB}`;
 let toastT;function toast(s){const e=document.getElementById('toast');e.hidden=true;void e.offsetWidth;e.textContent=s;e.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>e.hidden=true,3200)}
 const BRANDS=[['Apple',/^iphone|^apple/],['Samsung',/^samsung|^galaxy/],['Xiaomi',/^xiaomi|^redmi|^poco|^mi /],['Honor',/^honor/],['Tecno',/^tecno/],['Infinix',/^infinix/],['Realme',/^realme/],['Vivo',/^vivo/],['OPPO',/^oppo/],['Huawei',/^huawei/],['Google',/^google|^pixel/],['Nothing',/^nothing/]];
 const khash=k=>{let h=0;for(const ch of k){h=(h*31+ch.codePointAt(0))%1000003}return h};
@@ -412,10 +415,14 @@ function verdict(p){const s=series(p.key),n=s.length,cur=best(p).price,old=Math.
   const pct=Math.round((1-cur/avg)*100);
   if(pct>=4)return {cls:'ok',txt:t('real',{p:pct,n})};if(pct<=-4)return {cls:'fake',txt:t('up',{p:-pct})};return {cls:'mid',txt:t('stable',{n})}}
 const initials=n=>(n||'?').trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();
-function nav(push=true){if(push)history.pushState({tab:S.tab,key:S.key},'');render();scrollTo(0,0)}
+let svT=0;const vt=f=>document.startViewTransition&&!matchMedia('(prefers-reduced-motion: reduce)').matches?document.startViewTransition(f):f();
+const saveY=()=>{try{history.replaceState({...(history.state||{tab:S.tab,key:S.key}),y:scrollY},'')}catch(e){}};
+function nav(push=true){if(push){clearTimeout(svT);saveY();history.pushState({tab:S.tab,key:S.key,y:0},'')}vt(()=>{render();scrollTo(0,0)})}
+addEventListener('scroll',()=>{clearTimeout(svT);svT=setTimeout(saveY,150)},{passive:true});
+function restoreY(y){if(!y){scrollTo(0,0);return}let n=0;const f=()=>{if(document.documentElement.scrollHeight>=y+innerHeight||n++>40)scrollTo(0,y);else setTimeout(f,50)};f()}
 function go(tab,extra={}){Object.assign(S,{tab,key:null},extra);nav()}
 function goBack(){if(history.state&&history.length>1)history.back();else go('home')}
-addEventListener('popstate',e=>{if(!ob.hidden&&obStep>0){obStep--;drawOB();history.pushState({tab:S.tab,key:S.key},'');return}if(!ob.hidden){closeOB();return}const st=e.state||{tab:'home',key:null};S.tab=st.tab||'home';S.key=st.key||null;render();scrollTo(0,0)});
+addEventListener('popstate',e=>{if(!ob.hidden&&obStep>0){obStep--;drawOB();history.pushState({tab:S.tab,key:S.key},'');return}if(!ob.hidden){closeOB();return}const st=e.state||{tab:'home',key:null};S.tab=st.tab||'home';S.key=st.key||null;vt(()=>{render();restoreY(st.y||0)})});
 history.replaceState({tab:'home',key:null},'');
 function render(){document.documentElement.lang=LANG;setTimeout(drawCmpBar,0);setTimeout(drawAIFab,0);view.classList.toggle('prodv',!!S.key);const av=document.getElementById('hdrAv');av.textContent=USER?initials(USER.name):'?';av.onclick=()=>go('profile');const hb=document.getElementById('hback');hb.hidden=!(S.key||S.tab!=='home');hb.onclick=goBack;
   renderTabs();if(!DATA&&S.tab!=='profile')return;
@@ -496,14 +503,14 @@ function renderFind(){LIST=null;
     bar.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{S.brand=b.dataset.b;bar.querySelectorAll('[data-b]').forEach(x=>x.setAttribute('aria-pressed',x===b));upd(true)});
     bar.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{S.sort=b.dataset.s;const sg=document.getElementById('seg');sg.dataset.v=S.sort==='cheap'?1:0;sg.querySelectorAll('[data-s]').forEach(x=>x.setAttribute('aria-pressed',x===b));upd(true)});
     document.getElementById('both').onclick=e=>{S.both=!S.both;e.currentTarget.setAttribute('aria-pressed',S.both);upd(true)}};
-  const upd=(keepBar)=>{const hasQ=!!S.q.trim();browse.hidden=hasQ||S.cat!=='all';if(!keepBar)drawBar();
+  const upd=(keepBar,keepLim)=>{const hasQ=!!S.q.trim();browse.hidden=hasQ||S.cat!=='all';if(!keepBar)drawBar();
     const n=filtered().length;document.getElementById('rc').innerHTML=(hasQ||S.cat!=='all')?aiChip()+esc(t('results',{n:fmt(n)})):'';
-    document.getElementById('rc').hidden=!(hasQ||S.cat!=='all');S.limit=24;if(hasQ||S.cat!=='all')drawGrid(true);else{document.getElementById('grid').innerHTML='';document.getElementById('tail').innerHTML=''}};
+    document.getElementById('rc').hidden=!(hasQ||S.cat!=='all');if(!keepLim)S.limit=24;if(hasQ||S.cat!=='all')drawGrid(true);else{document.getElementById('grid').innerHTML='';document.getElementById('tail').innerHTML=''}};
   let tq;qi.oninput=()=>{S.q=qi.value;if(S.q)S.brand='all';clearTimeout(tq);tq=setTimeout(()=>upd(),180);logQ(S.q)};
   qi.onkeydown=e=>{if(e.key==='Enter')qi.blur()};
   view.querySelectorAll('[data-pq]').forEach(b=>b.onclick=()=>{S.q=qi.value=b.dataset.pq;logQ(S.q,'popular');S.brand='all';upd();window.scrollTo({top:0,behavior:'smooth'})});
   view.querySelectorAll('[data-ct]').forEach(b=>b.onclick=()=>{S.cat=b.dataset.ct;S.brand='all';S.both=false;upd();window.scrollTo({top:0,behavior:'smooth'})});
-  upd()}
+  upd(false,true)}
 let drawTok=0;
 async function drawGrid(reset){const keys=filtered();const g=document.getElementById('grid'),tail=document.getElementById('tail');if(!g)return;const tok=++drawTok;
   if(reset)g.innerHTML='';const have=g.children.length;const slice=keys.slice(have,S.limit);
@@ -662,8 +669,8 @@ function drawAIFab(){let b=document.getElementById('aifab');if(!b){b=document.cr
   b.hidden=!!S.key||!['home','find'].includes(S.tab);if(b.hidden)closeAI()}
 function renderProduct(p){if(!p){go('home');return}window.NX&&NX.ev('view_item',{item_name:p.name});const b=best(p),w=worst(p),v=verdict(p),wt=WATCH[p.key];const u=url=>url+(url.includes('?')?'&':'?')+'utm_source=narxi';
   const offs=[...p.offers].sort((a,c)=>(a.stock!=='ok')-(c.stock!=='ok')||a.price-c.price);const mxp=Math.max(...offs.map(o=>o.price));
-  view.innerHTML=`<button class="back" id="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>${t('back')}</button>
-   ${img(p.img,'pimg in-up','',720,true)}</div><h1 class="ptitle in-up" style="--i:1">${esc(p.name)}</h1>
+  view.innerHTML=`
+   ${img(p.img,'pimg','',720,true)}</div><h1 class="ptitle in-up" style="--i:1">${esc(p.name)}</h1>
    <section class="bestcard in-up" style="--i:2"><span class="lbl">${t('cheapest')} · ${STORES[b.store].name}</span><span class="p">${som(b.price)}</span>${w.price>b.price?`<span class="sv">−${som(w.price-b.price)} ${t('save')}</span>`:''}</section>
    <button class="btn ghost press" id="cmpBtn" style="align-self:flex-start">⚖ ${CMP.includes(p.key)?t('cmpIn'):t('cmpAdd')}</button>
    <section class="card in-up" style="--i:3"><h2>${t('cmpT')}</h2><div class="small muted" style="margin:-4px 0 4px">${t('checked',{t:agoTxt()})} · ${t('exact')}</div>${offs.map((o,i)=>`<div class="bar ${o.stock==='ok'?'':'out'}"><div class="h"><span><span class="dot" style="background:${STORES[o.store].color}"></span>${STORES[o.store].name}${o===b?' <span class="tag save">✓</span>':''}</span><span class="price">${fmt(o.price)}</span></div>
@@ -673,7 +680,7 @@ function renderProduct(p){if(!p){go('home');return}window.NX&&NX.ev('view_item',
    <section class="card in-up wrong" style="--i:4"><b>${t('wrongT')}</b><span class="small muted">${t('wrongP')}</span><a class="btn sm ghost press" id="wrongBtn" href="${CONTACT+'?text='+encodeURIComponent(t('wrongMsg')+'\n\n'+p.name+'\n'+offs.map(o=>STORES[o.store].name+' — '+fmt(o.price)+' '+t('som')).join('\n'))}" target="_blank" rel="noopener" style="align-self:flex-start">${t('wrongBtn')} · @narx_support ↗</a></section>
    ${histCard(p)}
    <section class="card in-up" style="--i:5"><span class="small muted">${t('watchT')}</span><div class="watch"><input id="wv" inputmode="numeric" placeholder="${t('watchPh')}" value="${fmt(wt||Math.round(b.price*.95/1000)*1000)}" aria-label="${t('watchPh')}"><button class="btn sm press" id="wb">${wt?t('watching'):t('watchBtn')}</button></div>${BOT?`<a class="btn press" id="tgw" style="background:#229ED9" target="_blank" rel="noopener">✈ ${t('tgNotify')}</a><span class="small muted">${t('tgSub')}</span>`:''}</section>`;
-  document.getElementById('back').onclick=goBack;drawInst(offs);drawCmpBar();
+  drawInst(offs);drawCmpBar();
   document.getElementById('cmpBtn').onclick=e=>{if(CMP.includes(p.key))CMP=CMP.filter(k=>k!==p.key);else{if(CMP.length>=3){toast(t('cmpMax'));return}CMP.push(p.key)}saveCmp();e.currentTarget.textContent='⚖ '+(CMP.includes(p.key)?t('cmpIn'):t('cmpAdd'))};
   document.getElementById('wrongBtn').onclick=()=>{window.NX&&NX.ev('report_wrong',{item_name:p.name})};
   const tgw=document.getElementById('tgw');if(tgw){const upd=()=>{const val=parseInt(document.getElementById('wv').value.replace(/\D/g,''),10)||b.price;tgw.href=`https://t.me/${BOT}?start=${LANG}_w${pid(p.key)}_${Math.max(1,Math.round(val/1000))}_${catOf(p.key)}`};upd();document.getElementById('wv').addEventListener('input',upd);tgw.onclick=()=>{window.NX&&NX.ev('tg_alert',{item_name:p.name})}}
