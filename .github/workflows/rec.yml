@@ -1,0 +1,27 @@
+name: record site walkthrough
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  rec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Install Playwright
+        working-directory: tools/rec
+        run: npm init -y >/dev/null && npm i playwright@1.48.2 && npx playwright install --with-deps chromium
+      - name: Record
+        working-directory: tools/rec
+        run: node rec.mjs
+      - name: Encode
+        working-directory: tools/rec/out
+        run: |
+          sudo apt-get install -y ffmpeg >/dev/null
+          ffmpeg -y -f concat -safe 0 -i list.txt -vf "fps=30,scale=1080:1920:flags=lanczos,format=yuv420p" -c:v libx264 -preset slow -crf 16 site.mp4
+      - name: Push to rec branch
+        run: |
+          mkdir /tmp/pub && cp tools/rec/out/site.mp4 tools/rec/out/marks.json tools/rec/out/frames.json /tmp/pub/
+          cd /tmp/pub && git init -q && git checkout -q -b rec && git add . && git -c user.name=narxi-dev -c user.email=narxi-dev@users.noreply.github.com commit -qm "site walkthrough recording"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" rec
