@@ -1,17 +1,19 @@
 {
- "started": "2026-11-15T12:13:37.454905+05:00",
+ "started": "2026-11-15T14:18:06.999785+05:00",
  "stores": {
   "texnomart": {
-   "pages": 1263,
-   "items": 1840,
-   "errors": [],
+   "pages": 1261,
+   "items": 1841,
+   "errors": [
+    "https://texnomart.uz/ru/katalog/morozilnye-kamery-lg/: HTTP 500"
+   ],
    "per_cat": {
     "phones": 289,
     "laptops": 23,
     "tablets": 36,
     "tv": 192,
     "monitors": 5,
-    "audio": 145,
+    "audio": 146,
     "watches": 90,
     "fridges": 96,
     "washers": 101,
@@ -42,13 +44,13 @@
     "printers": 8
    },
    "inst": {
-    "exact": 1447,
-    "est": 393,
+    "exact": 1449,
+    "est": 392,
     "factor": 1.7,
     "months": 24,
-    "known": 1617
+    "known": 1607
    },
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   },
   "olcha": {
    "pages": 599,
@@ -73,18 +75,18 @@
     "stoves": 157
    },
    "in_stock": 11980,
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   },
   "alif": {
    "pages": 388,
-   "items": 7734,
+   "items": 7736,
    "errors": [],
    "per_cat": {
     "tv": 540,
     "audio": 523,
     "kitchen": 567,
     "washers": 719,
-    "phones": 588,
+    "phones": 590,
     "stoves": 594,
     "care": 244,
     "watches": 346,
@@ -99,14 +101,14 @@
    },
    "cats": 73,
    "budget_left": 112,
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   },
   "beeline": {
    "pages": 39,
-   "items": 377,
+   "items": 376,
    "errors": [],
    "per_cat": {
-    "phones": 261,
+    "phones": 260,
     "tablets": 10,
     "watches": 34,
     "laptops": 7,
@@ -114,7 +116,7 @@
     "climate": 7,
     "kitchen": 4
    },
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   },
   "macbro": {
    "pages": 4,
@@ -132,7 +134,7 @@
     "care": 21,
     "monitors": 4
    },
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   },
   "idea": {
    "pages": 53,
@@ -157,7 +159,7 @@
     "printers": 16,
     "ac": 41
    },
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   },
   "maxcom": {
    "pages": 170,
@@ -176,7 +178,7 @@
    },
    "cats": 50,
    "budget_left": 0,
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   },
   "woot": {
    "pages": 114,
@@ -199,7 +201,7 @@
    },
    "cats": 48,
    "budget_left": 46,
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   },
   "avtech": {
    "pages": 224,
@@ -214,29 +216,17 @@
    },
    "cats": 121,
    "budget_left": 96,
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   },
   "mionline": {
-   "pages": 200,
-   "items": 1477,
+   "pages": 0,
+   "items": 0,
    "errors": [],
-   "per_cat": {
-    "other": 533,
-    "home": 285,
-    "kitchen": 134,
-    "tv": 14,
-    "watches": 84,
-    "audio": 174,
-    "phones": 2,
-    "washers": 1,
-    "printers": 2,
-    "climate": 143,
-    "care": 90,
-    "tablets": 15
-   },
-   "cats": 144,
-   "budget_left": 0,
-   "last_ok": "2026-11-15T12:13+05:00"
+   "per_cat": {},
+   "cats": 0,
+   "budget_left": 200,
+   "last_ok": "2026-11-15T12:13+05:00",
+   "stale_items": 1167
   },
   "tezz": {
    "pages": 91,
@@ -253,7 +243,7 @@
    },
    "cats": 12,
    "budget_left": 109,
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   },
   "karcher": {
    "pages": 4,
@@ -266,7 +256,7 @@
     "tablets": 1,
     "care": 2
    },
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   },
   "openshop": {
    "pages": 165,
@@ -278,16 +268,16 @@
     "4-maishiy-texnika": 456,
     "3-aksessuarlar-va-gadjetlar": 372,
     "56-go-zallik-va-sog-lik": 71,
-    "phones": 254,
-    "other": 783,
-    "tablets": 77,
-    "laptops": 80,
-    "monitors": 48,
+    "phones": 238,
+    "tablets": 93,
+    "other": 784,
+    "laptops": 77,
+    "monitors": 50,
     "printers": 14,
     "climate": 24,
     "audio": 166,
-    "kitchen": 144,
-    "tv": 27,
+    "kitchen": 145,
+    "tv": 26,
     "washers": 34,
     "ac": 26,
     "home": 58,
@@ -297,34 +287,36 @@
     "care": 45
    },
    "budget_left": 535,
-   "last_ok": "2026-11-15T12:13+05:00"
+   "last_ok": "2026-11-15T14:18+05:00"
   }
  },
- "stale": {},
+ "stale": {
+  "mionline": 1167
+ },
  "ram_split": 24,
  "merged": 139,
- "brand_split": 11,
- "products": 23880,
- "matched_2plus": 1773,
+ "brand_split": 13,
+ "products": 23889,
+ "matched_2plus": 1781,
  "cats": {
   "phones": [
-   569,
-   183
+   570,
+   188
   ],
   "laptops": [
-   1644,
+   1641,
    20
   ],
   "tablets": [
-   507,
-   15
+   514,
+   17
   ],
   "tv": [
-   931,
+   930,
    134
   ],
   "monitors": [
-   423,
+   425,
    17
   ],
   "audio": [
@@ -352,7 +344,7 @@
    188
   ],
   "kitchen": [
-   1225,
+   1226,
    290
   ],
   "stoves": [
@@ -372,41 +364,41 @@
    78
   ],
   "other": [
-   11321,
-   169
+   11323,
+   170
   ]
  },
  "unkeyed_sample": [
   "Керамическое защитное стекло Xiaomi Redmi Note 9T",
-  "Умная колонка Яндекс Станция Лайт 2 Графитовый",
   "Умная колонка Яндекс Станция Мини с часами с Алисой, Черный, 10Вт",
   "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
+  "Умная колонка Яндекс Станция Лайт 2 Графитовый",
   "Наушники вставные беспроводные Green Earbuds",
-  "Смарт часы Green Active Pro Black",
   "Смарт часы Green Ultra Black",
-  "Мясорубка Аксион М41.01",
-  "Мясорубка Аксион М41.00",
-  "Мясорубка Аксион М321.01",
+  "Смарт часы Green Active Pro Black",
   "Мясорубка Аксион М12.11",
   "Мясорубка Аксион М21.01",
   "Мясорубка Аксион М61.02",
-  "Соковыжималка Аксион СЦ32.01 Чёрная",
+  "Мясорубка Аксион М321.01",
+  "Мясорубка Аксион М41.00",
+  "Мясорубка Аксион М41.01",
+  "Соковыжималка Аксион СЦ32.01",
   "Соковыжималка Аксион СЦ32.02 Джус"
  ],
  "keys_sample": {
   "phones": [
    "phones:iphone 17 pro max 256gb :: openshop 16599000 Смартфон Apple iPhone 17 Pro Max 256GB Deep Blue ( | macbro 17276000 iPhone 17 Pro Max Deep Blue 256GB eSIM | olcha 18200000 iPhone 17 Pro Max Cosmic Orange 256 GB | alif 18399000 Смартфон Apple iPhone 17 Pro Max 256 ГБ (nanoSim+e | beeline 18499000 Apple iPhone 17 Pro Max, 256 GB, SIM+eSIM | texnomart 18999000 Apple iPhone 17 Pro Max 12/256GB Оранжевый | idea 20399000 Смартфон iPhone 17 Pro Max 256GB Silver",
    "phones:iphone air 256gb :: macbro 12990000 iPhone Air Space Black 256GB eSIM | olcha 13199000 Iphone Air 12/256 GB Light Gold | beeline 13359000 Apple iPhone Air, 256 GB, eSIM | alif 13599000 Смартфон Apple iPhone Air 256 ГБ eSim, Light Gold | openshop 13664000 Смартфон Apple iPhone Air 256GB Sky Blue | texnomart 13999000 Apple iPhone Air 12/256GB Небесно-голубой | idea 14999000 Смартфон iPhone Air 256GB Space Black",
-   "phones:samsung galaxy s26 ultra 256gb :: openshop 12899000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256GB Черн | olcha 13199000 Смартфон Samsung Galaxy S26 Ultra 5G Violet 256 ГБ | alif 13385000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256 ГБ, фи | beeline 13499000 Samsung Galaxy S26 Ultra, 12/256 GB | texnomart 13999000 Samsung Galaxy S26 Ultra 12/256GB Фиолетовый кобал | macbro 14225000 Смартфон Samsung Galaxy S26 Ultra Black 256GB 12GB | idea 15999000 Смартфон Samsung Galaxy S26 Ultra 12/256 Black",
-   "phones:iphone 17 pro 256gb :: openshop 15833000 Смартфон Apple iPhone 17 Pro 256GB Cosmic Orange ( | macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | beeline 17399000 Apple iPhone 17 Pro, 256 GB, SIM+eSIM | alif 17599000 Смартфон Apple iPhone 17 Pro 256 ГБ (nanoSim+eSim) | texnomart 17999000 Apple iPhone 17 Pro 12/256GB Серебристый | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver",
+   "phones:iphone 17 pro 256gb :: macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | openshop 17068000 Смартфон Apple iPhone 17 Pro 256GB Cosmic Orange ( | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | beeline 17399000 Apple iPhone 17 Pro, 256 GB, SIM+eSIM | alif 17599000 Смартфон Apple iPhone 17 Pro 256 ГБ (nanoSim+eSim) | texnomart 17999000 Apple iPhone 17 Pro 12/256GB Оранжевый | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver",
    "phones:iphone 18 pro 512gb :: beeline 22899000 Apple IPhone 18 Pro, 512 GB SIM+eSIM | texnomart 23499000 Apple iPhone 18 Pro 12/512GB Голубой | alif 23999000 Смартфон Apple iPhone 18 Pro 512 ГБ (nanoSim+eSim) | idea 24799000 Смартфон iPhone 18 Pro 512GB Black | olcha 24899000 Смартфон Apple iPhone 18 Pro 512 GB Glacier | openshop 24979000 Смартфон Apple iPhone 18 Pro 512GB Burgundy (SIM + | macbro 25990000 iPhone 18 Pro Black 512GB Single SIM",
    "phones:iphone 18 pro max 256gb :: beeline 20995000 Apple IPhone 18 Pro Max, 256 GB SIM+eSIM | openshop 21826000 Смартфон Apple iPhone 18 Pro Max 256GB Silver (eSI | macbro 21990000 iPhone 18 Pro Max Silver 256GB Single SIM | alif 22300000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | texnomart 22790000 Apple iPhone 18 Pro Max 12/256GB Голубой | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier",
-   "phones:iphone 17 256gb :: openshop 11925000 Смартфон Apple iPhone 17 256GB Lavender (eSIM + eS | alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Фиолетовый | idea 14299000 Смартфон iPhone 17 256GB Black",
+   "phones:iphone 17 256gb :: openshop 11925000 Смартфон Apple iPhone 17 256GB Lavender (eSIM + eS | alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | beeline 12999000 Apple iPhone 17, 256 GB, SIM+eSIM | texnomart 13699000 Apple iPhone 17 8/256GB Белый | idea 14299000 Смартфон iPhone 17 256GB Black",
    "phones:honor x9d 256gb:r8 :: beeline 4789000 Honor X9d, 8/256 GB | olcha 4868000 Honor X9d 5G Red 8/256 GB | openshop 5043000 Смартфон Honor X9d 5G 8/256GB Midnight Black | texnomart 5199000 Honor X9d 8/256GB Золотистый рассвет | idea 5199000 Смартфон Honor X9d 8/256 Midnight Black | alif 5299000 Смартфон Honor X9D 8/256 ГБ, Midnight",
-   "phones:samsung galaxy a27 128gb :: beeline 3550000 Samsung Galaxy A27 5G, 6/128 GB | olcha 3645000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | openshop 3699000 Смартфон Samsung Galaxy A27 5G 6/128GB Черный | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4699000 Samsung Galaxy A27 5G 6/128GB Light Pink",
-   "phones:samsung galaxy a27 256gb :: beeline 3989000 Samsung Galaxy A27 5G, 8/256 GB | olcha 4190000 Смартфон Samsung Galaxy A27 5G 8/256GB Pink | openshop 4268000 Смартфон Samsung Galaxy A27 5G 8/256GB Черный | texnomart 4399000 Samsung Galaxy A27 5G 8/256GB Черный | alif 4705000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black",
-   "phones:samsung galaxy a37 128gb :: beeline 4459000 Samsung Galaxy A37 5G, 8/128 GB | openshop 4462000 Смартфон Samsung Galaxy A37 5G 8/128GB Lavender | alif 4510000 Смартфон Samsung Galaxy A37 5G 8/128 ГБ, Charcoal  | olcha 4799000 Samsung Galaxy A37 Pink 8/128 Гб | texnomart 4890000 Samsung Galaxy A37 8/128GB Серый | idea 4899000 Смартфон SAMSUNG Galaxy A37 8/128 Gray (SM-A376EZA",
-   "phones:samsung galaxy s26 256gb :: openshop 10531000 Смартфон Samsung Galaxy S26 5G 12/256GB Черный | idea 10999000 Смартфон Samsung Galaxy S26 12/256 Black | olcha 11201073 Смартфон Samsung Galaxy S26 5G Violet 256 ГБ | beeline 11299000 Samsung Galaxy S26, 12/256 GB | macbro 12141000 Смартфон Samsung Galaxy S26 Black 256GB | texnomart 12199000 Samsung Galaxy S26 12/256GB Фиолетовый кобальт"
+   "phones:samsung galaxy a27 128gb :: beeline 3550000 Samsung Galaxy A27 5G, 6/128 GB | olcha 3645000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | openshop 3699000 Смартфон Samsung Galaxy A27 5G 6/128GB Светло-зеле | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4699000 Samsung Galaxy A27 5G 6/128GB Синий",
+   "phones:samsung galaxy a37 128gb :: beeline 4459000 Samsung Galaxy A37 5G, 8/128 GB | openshop 4462000 Смартфон Samsung Galaxy A37 5G 8/128GB Черный | alif 4510000 Смартфон Samsung Galaxy A37 5G 8/128 ГБ, Charcoal  | olcha 4799000 Samsung Galaxy A37 Pink 8/128 Гб | texnomart 4890000 Samsung Galaxy A37 8/128GB Серый | idea 4899000 Смартфон SAMSUNG Galaxy A37 8/128 Gray (SM-A376EZA",
+   "phones:samsung galaxy s26 256gb :: openshop 10531000 Смартфон Samsung Galaxy S26 5G 12/256GB Cobalt Vio | idea 10999000 Смартфон Samsung Galaxy S26 12/256 Black | olcha 11201073 Смартфон Samsung Galaxy S26 5G Violet 256 ГБ | beeline 11299000 Samsung Galaxy S26, 12/256 GB | macbro 12141000 Смартфон Samsung Galaxy S26 Black 256GB | texnomart 12199000 Samsung Galaxy S26 12/256GB Черный",
+   "phones:samsung galaxy s26 ultra 256gb :: olcha 13199000 Смартфон Samsung Galaxy S26 Ultra 5G Violet 256 ГБ | alif 13385000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256 ГБ, фи | beeline 13499000 Samsung Galaxy S26 Ultra, 12/256 GB | texnomart 13999000 Samsung Galaxy S26 Ultra 12/256GB Фиолетовый кобал | macbro 14225000 Смартфон Samsung Galaxy S26 Ultra Black 256GB 12GB | idea 15999000 Смартфон Samsung Galaxy S26 Ultra 12/256 Black",
+   "phones:iphone 18 pro 256gb :: beeline 19195000 Apple IPhone 18 Pro, 256 GB SIM+eSIM | alif 19799000 Смартфон Apple iPhone 18 Pro 256 ГБ (nanoSim+eSim) | openshop 20099000 Смартфон Apple iPhone 18 Pro 256GB Silver (eSIM +  | olcha 20540000 Смартфон Apple iPhone 18 Pro 256 GB Silver | idea 20999000 Смартфон iPhone 18 Pro 256GB Glacier | macbro 21418000 iPhone 18 Pro Black 256GB Single SIM"
   ],
   "audio": [
    "audio:t:apple airpods 4 :: openshop 1589000 Беспроводные наушники Apple AirPods 4, Белый | alif 1755000 Наушники Apple AirPods 4, белый | macbro 1785000 Наушники Apple AirPods 4 White | idea 1999000 Беспроводные наушники Apple AirPods 4 | texnomart 2258000 Наушники вставные беспроводные Apple AirPods 4 Whi | olcha 2300000 Беспроводные наушники Apple Airpods 4 | maxcom 2335200 Наушники Apple AirPods 4",
@@ -508,13 +500,13 @@
   ],
   "home": [
    "home:braun:is9090bk :: olcha 5001000 Утюг с парогенератором Braun CareStyle IS9090BK | woot 5527000 Парогенератор BRAUN IS9090BK | idea 6499000 Утюг с пaрогенератором IS9090BK | alif 8820000 Отпариватель Braun IS9090BK, чёрный",
-   "home:t:karcher vc 3 :: mionline 2149000 Пылесос KARCHER VC 3 Plus (проводной) | alif 2199000 Пылесос Karcher VC 3 Plus, Белый | idea 2199000 Пылесос для сухой уборки Karcher VC 3 Plus | olcha 2656250 Пылесос Karcher VC 3 Plus",
+   "home:t:karcher vc 3 :: alif 1920000 Пылесос с контейнером для пыли Karcher VC 3 Plus P | mionline 2149000 Пылесос KARCHER VC 3 Plus (проводной) | idea 2199000 Пылесос для сухой уборки Karcher VC 3 Plus | olcha 2656250 Пылесос Karcher VC 3 Plus",
    "home:lg:vc83109uhaq :: texnomart 2699000 Пылесос LG VC83109UHAQ | idea 2699000 Пылесос LG VC83109UHAQ | alif 2749000 Пылесос LG VC83109UHAQ, Чёрный / серый | tezz 2875000 Пылесос  LG VC83109UHAQ",
    "home:lg:vc83209uha :: texnomart 2549000 Пылесос LG VC83209UHA | alif 2599000 Пылесос LG VC83209UHA, серый-красный | idea 2599000 Пылесос LG VC83209UHA | tezz 2777000 Пылесос  LG VC83209UHA Kompressor",
    "home:lg:vc83209uhas :: texnomart 2599000 Пылесос LG VC83209UHAS | alif 2599000 Пылесос LG VC83209UHAS, серебристый | idea 2599000 Пылесос LG VC83209UHAS | tezz 2777000 Пылесос  LG VC83209UHAS Kompressor",
    "home:lg:vc83209uhav :: texnomart 2849000 Пылесос LG VC83209UHAV | idea 2899000 Пылесос LG VC83209UHAV | alif 2949000 Пылесос LG VC83209UHAV, Luna Grey | tezz 3156000 Пылесос  LG VC83209UHAV",
    "home:lg:vk69662n :: tezz 1293000 Пылесос  LG VK69662N | texnomart 1299000 Пылесос LG VK69662N | idea 1299000 Пылесос LG VK69662N | alif 1705000 Пылесос LG VK69662N, черный / красный",
-   "home:lg:vk89609hq :: tezz 2470000 Пылесос  LG VK89609HQ | idea 2499000 Пылесос LG VK89609HQ | alif 2598000 Пылесос LG VK89609HQ Kompressor / TurboCyclone, си | texnomart 2657000 Пылесос LG VK89609HQ",
+   "home:lg:vk89609hq :: tezz 2470000 Пылесос  LG VK89609HQ | idea 2499000 Пылесос LG VK89609HQ | texnomart 2657000 Пылесос LG VK89609HQ | alif 2890000 Пылесос LG VK89609HQ, черный-серый",
    "home:premier:prmvc20w4036 :: alif 1199000 Пылесос Premier PRM-VC20W4036/PB, синий | idea 1199000 Пылесос Premier PRM-VC20W4036/PB | openshop 1266000 Пылесос Premier Premier PRM-VC20W4036PB | olcha 1479432 Пылесос Premier PRM-VC20W4036PB",
    "home:braun:si5277gr :: woot 718000 Паровой утюг BRAUN SI5277GR | texnomart 784000 Утюг Braun SI5277GR | idea 799000 Утюг Braun SI5277GR | olcha 964000 Утюг Braun SI5277GR",
    "home:t:karcher fcv 4 :: texnomart 5949000 Вертикальный пылесос Karcher FCV 4 | alif 6400000 Пылесос Karcher FCV 4, серо-белый | karcher 6400000 Ручной моющий пылесос Karcher FCV 4",
@@ -572,9 +564,23 @@
    "other:t:xiaomi mi stick :: mionline 499000 Умная ТВ-приставка Xiaomi Mi TV Stick (черный) | woot 653000 TV-приставка Xiaomi Mi TV Stick 4K | idea 899000 Медиаприставка Xiaomi MI TV STICK",
    "other:avt:mgw930 :: woot 196000 Проводная игровая мышь AVT GAMING MGW930 | avtech 197925 Мышь AVT GAMING MGW930 | openshop 209000 Мышь AVT gaming MGW930",
    "other:logitech:g402 :: openshop 522000 Игровая мышь Logitech G402 Hyperion Fury | woot 666000 Мышь Logitech G402 USB | maxcom 681100 Мышь Logitech G402 Hyperion Fury FPS",
+   "other:logitech:m280 :: idea 269000 Беспроводная мышь Logitech M280 Black | openshop 275000 Мышка Logitech M280, Черный | woot 300000 Мышь Logitech M280 USB",
    "other:powerlink:8xfe+sf108c :: woot 117000 2E PowerLink SF108C 8xFE, | olcha 164584 Коммутатор 2E PowerLink SF108C 8XFE неуправляемый ",
-   "other::a4tech :: maxcom 139000 A4-Tech S-7-1 | woot 250000 Игровая мышь A4Tech X77 Black",
-   "other:t:apple magic mouse 3 :: macbro 1138000 Беспроводная мышь Apple Magic Mouse 3 Silver | olcha 1350000 Apple Magic mouse 3 White"
+   "other::a4tech :: maxcom 139000 A4-Tech S-7-1 | woot 250000 Игровая мышь A4Tech X77 Black"
+  ],
+  "tablets": [
+   "tablets:huion:h420x :: woot 457000 Графический планшет Graphical tablet H420X Black | olcha 462917 Графический планшет Huion H420X | openshop 465000 Графический планшет Huion Inspiroy H420X",
+   "tablets:t:redmi pad 2 8 256gb :: mionline 4290000 Планшет Redmi Pad 2 Pro 8/256GB (EU, черный) | olcha 5250300 Redmi Pad 2 Pro SIM Silver 8/256GB",
+   "tablets:huion:l310 :: woot 822000 Графический планшет Huion 6.3\"x3,9\" Inspiroy Frego | olcha 822500 Графический планшет Huion 6.3\"x3,9\" Inspiroy Frego",
+   "tablets:huion:hs64 :: woot 770000 Графический планшет Huion HS64 SE,Black | openshop 784000 Графический планшет Huion HS64, Чёрный",
+   "tablets:huion:rte100 :: openshop 426000 Графический планшет Huion Inspiroy, Чёрный (RTE-10 | woot 587000 Графический планшет Huion Inspiroy RTE-100 Black",
+   "tablets:apple:a3354:128 :: texnomart 6599000 Планшет Apple iPad 11\" A3354 A16 6/128GB Wi-Fi Blu | idea 7199000 Планшет Apple 11-inch iPad Wi-Fi 128GB Silver A335",
+   "tablets:lenovo:tbj606f:64 :: olcha 3816667 Планшет Lenovo P11 TB-J606F 4/64GB 10.1\" | alif 4145000 Планшет Lenovo TB-J606F P11 4/64 ГБ, белый",
+   "tablets:lenovo:tbj616x:64 :: olcha 4150000 Планшет Lenovo P11 TB-J616X 4/64GB 10.1\" | alif 4550000 Планшет Lenovo TB-J616X P11 4/64 ГБ, серый",
+   "tablets:lenovo:tbx606f:64 :: olcha 3070000 Планшет Lenovo P11 TB-X606F 4/64GB 10.1\" | alif 3555000 Планшет Lenovo P11 TB-X606F 4/64 ГБ, серый",
+   "tablets:lenovo:tbx606x:128 :: olcha 3550000 Планшет Lenovo P11 TB-X606X 10.1\" 4/128GB | alif 3819000 Планшет Lenovo TB-X606X P11 4/128 ГБ, Graphite Gra",
+   "tablets:lenovo:tbx606x:64 :: olcha 3416667 Планшет Lenovo P11 TB-X606X 10.1\" 4/64GB | alif 3659000 Планшет Lenovo TB-X606X P11 4/64 ГБ, серый",
+   "tablets:lenovo:tb8505x:32 :: olcha 2350000 Планшет Lenovo TB-8505X  2/32GB 8.0\" Grey | alif 2359000 Планшет Lenovo TB-8505X 2/32 ГБ, серый"
   ],
   "watches": [
    "watches:t:huawei watch fit 5 :: texnomart 2299000 Смарт часы Huawei WATCH FIT 5 Black | alif 2299000 Смарт-часы Huawei Watch Fit 5, зеленый | openshop 2949000 Умные часы Huawei Watch Fit 5 Pro, White",
@@ -583,11 +589,11 @@
    "watches:t:honor choice watch 2 :: beeline 899000 Смарт-часы Honor Choice Watch 2 Pro, Black | texnomart 1159000 Смарт часы Honor Choice Watch 2 Pro Black",
    "watches:t:huawei watch 5 42mm :: texnomart 4299000 Смарт часы Huawei Watch 5 42mm White | alif 5299000 Смарт-часы Huawei Watch 5 42mm, бежевый",
    "watches:t:huawei watch d2 :: beeline 3499000 Смарт-часы Huawei Watch D2, Black | texnomart 3583000 Смарт часы Huawei Watch D2 Black",
-   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Graphite",
+   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Blue",
    "watches:samsung:watch8 :: openshop 2889000 Умные часы Samsung Galaxy Watch8 44 мм, Graphite | texnomart 3781000 Смарт часы Samsung Galaxy Watch8 40mm Silver",
    "watches:t:xiaomi mibro color :: mionline 449000 Умные часы Xiaomi Mibro Color (EU, черный) | texnomart 522000 Смарт часы Xiaomi Mibro Color",
    "watches:t:xiaomi redmi watch 4 :: idea 1599000 Умные часы Xiaomi Redmi Watch 4 Silver Gray | texnomart 1926000 Смарт часы Xiaomi Redmi Watch 4 Silver Gray",
-   "watches:t:xiaomi watch s3 :: mionline 1590000 Умные часы Xiaomi Smart Watch S3 (EU, Белый) | texnomart 2748000 Смарт часы Xiaomi Watch S3 Black",
+   "watches:t:xiaomi watch s3 :: mionline 1590000 Умные часы Xiaomi Smart Watch S3 (EU, Белый) | texnomart 2748000 Смарт часы Xiaomi Watch S3 Silver",
    "watches:t:xiaomi watch s4 :: mionline 1990000 Умные часы Xiaomi Smart Watch S4 (EU, Белый) | texnomart 2540000 Смарт часы Xiaomi Watch S4 Black"
   ],
   "monitors": [
@@ -617,20 +623,6 @@
    "laptops:hp:i31315u:512-8 :: maxcom 6296700 Ноутбук HP Laptop Intel Core i3-1315U / 8GB / SSD  | alif 6299000 Ноутбук HP LP 250 G10 / i3-1315U / 8 GB / SSD 512 ",
    "laptops:huawei:i512450h:16-512 :: olcha 9207916 Ноутбук HUAWEI MATE BOOK D16 I5-12450H 16/512 GB 1 | alif 11990000 Ноутбук Huawei MateBook D16 / i5-12450H / 16 GB / ",
    "laptops:huawei:i512450h:512-8 :: alif 9312500 Ноутбук Huawei MateBook D14 / i5-12450H / 8 GB / S | olcha 9867916 Ноутбук HUAWEI MATE BOOK D16 I5-12450H 8/512 GB 16"
-  ],
-  "tablets": [
-   "tablets:t:redmi pad 2 8 256gb :: mionline 4290000 Планшет Redmi Pad 2 Pro 8/256GB (EU, черный) | olcha 5250300 Redmi Pad 2 Pro SIM Silver 8/256GB",
-   "tablets:huion:l310 :: woot 822000 Графический планшет Huion 6.3\"x3,9\" Inspiroy Frego | olcha 822500 Графический планшет Huion 6.3\"x3,9\" Inspiroy Frego",
-   "tablets:huion:h420x :: woot 457000 Графический планшет Graphical tablet H420X Black | olcha 462917 Графический планшет Huion H420X",
-   "tablets:huion:rte100 :: openshop 426000 Графический планшет Huion Inspiroy, Чёрный (RTE-10 | woot 587000 Графический планшет Huion Inspiroy RTE-100 Black",
-   "tablets:apple:a3354:128 :: texnomart 6599000 Планшет Apple iPad 11\" A3354 A16 6/128GB Wi-Fi Blu | idea 7199000 Планшет Apple 11-inch iPad Wi-Fi 128GB Silver A335",
-   "tablets:lenovo:tbj606f:64 :: olcha 3816667 Планшет Lenovo P11 TB-J606F 4/64GB 10.1\" | alif 4145000 Планшет Lenovo TB-J606F P11 4/64 ГБ, белый",
-   "tablets:lenovo:tbj616x:64 :: olcha 4150000 Планшет Lenovo P11 TB-J616X 4/64GB 10.1\" | alif 4550000 Планшет Lenovo TB-J616X P11 4/64 ГБ, серый",
-   "tablets:lenovo:tbx606f:64 :: olcha 3070000 Планшет Lenovo P11 TB-X606F 4/64GB 10.1\" | alif 3555000 Планшет Lenovo P11 TB-X606F 4/64 ГБ, серый",
-   "tablets:lenovo:tbx606x:128 :: olcha 3550000 Планшет Lenovo P11 TB-X606X 10.1\" 4/128GB | alif 3819000 Планшет Lenovo TB-X606X P11 4/128 ГБ, Graphite Gra",
-   "tablets:lenovo:tbx606x:64 :: olcha 3416667 Планшет Lenovo P11 TB-X606X 10.1\" 4/64GB | alif 3659000 Планшет Lenovo TB-X606X P11 4/64 ГБ, серый",
-   "tablets:lenovo:tb8505x:32 :: olcha 2350000 Планшет Lenovo TB-8505X  2/32GB 8.0\" Grey | alif 2359000 Планшет Lenovo TB-8505X 2/32 ГБ, серый",
-   "tablets:lenovo:tbj606l:128 :: olcha 4243333 Планшет Lenovo Tab P11 TB-J606L 4/128GB 11\" | alif 4665000 Планшет Lenovo P11 TB-J606L 4/128 ГБ, Graphite Gra"
   ]
  }
 }
