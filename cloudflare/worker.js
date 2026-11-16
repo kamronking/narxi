@@ -221,6 +221,8 @@ async function handle(env, u) {
     }
     await db.del('bot/broadcast');
     await tg(env, 'sendMessage', { chat_id: chat, text: `✅ Рассылка отправлена: ${ok}\n❌ Не доставлено: ${fail} (заблокировали бота)` });
+  } else if ((text === '/plan' || text === '/plan_evening') && isAdmin) {
+    await planReminder(env, text === '/plan_evening');
   } else if (text === '/admin' && isAdmin) {
     await tg(env, 'setMyCommands', { commands: [{ command: 'start', description: 'Boshlash / Начать' }, { command: 'help', description: 'Yordam / Поддержка' }, { command: 'list', description: 'Kuzatuvlarim / Мои отслеживания' }, { command: 'stop', description: "Xabarlarni o'chirish / Отключить уведомления" }] });
     await tg(env, 'setMyCommands', { scope: { type: 'chat', chat_id: chat }, commands: [{ command: 'admin', description: 'Панель админа' }, { command: 'stats', description: 'Статистика' }, { command: 'post_preview', description: 'Пост: предпросмотр' }, { command: 'post_now', description: 'Пост в канал' }, { command: 'broadcast', description: 'Рассылка' }, { command: 'help', description: 'Поддержка' }] });
@@ -301,6 +303,34 @@ async function morningPost(env) {
   if ((!r || !r.ok) && env.ADMIN_CHAT) await tg(env, 'sendMessage', { chat_id: env.ADMIN_CHAT, text: `⚠️ Утренний пост в ${ch} не отправился: ${(r && r.description) || 'нет ответа'}.\nПроверьте, что бот — админ канала с правом публиковать.` });
 }
 
+
+// ---------- personal plan reminders for the admin (Kamron) ----------
+const PLAN_URL = 'https://kp-million-plan.pages.dev/';
+const PLAN = [
+ ['Первые деньги',['Обойти 15 магазинов в Гулистане с предложением SMM','Прайс: 3 рилса — 350 тыс., ведение — 1–1,5 млн','Портфолио: 3 лучших рилса в одном посте','Первый платный клиент до 30 ноября','1 млн сум дохода до 31 декабря','Отзыв от каждого клиента','3 клиента в Ташкенте в январе','5 млн сум в месяц к июлю 2027']],
+ ['Narxi: деньги',['Проверка «настоящая скидка» к 27 ноября','Написать 5 магазинам про партнёрку 2–3%','Первая партнёрская ссылка до 31 декабря','Страницы товаров для Google','Считать переходы в магазины каждую неделю','10 продаж через Narxi в месяц к марту 2027','100 продаж в месяц к концу 2027','Питч для инвестора, 10 слайдов']],
+ ['Аудитория',['3 рилса в неделю','1 уличный опрос в неделю','Отвечать на все «+» в течение 2 часов','1 000 подписчиков канала до 31 декабря','5 000 в Instagram до 31 марта 2027','10 000 в Instagram до 30 июня 2027','1 коллаборация с блогером в месяц','Разбор статистики каждое воскресенье']],
+ ['Продажи и общение',['Скрипт продажи SMM: написать и выучить','10 холодных сообщений в неделю','Записывать каждое «нет» и причину','Питч Narxi за 60 секунд: каждый день','Переговоры с 1 магазином в неделю','1 книга о продажах в месяц','Рассказать о Narxi на 1 мероприятии','Найти ментора-предпринимателя']],
+ ['Финансы',['Записывать все доходы и расходы каждый день','Откладывать 20% с каждого дохода','Отдельная карта для денег проекта','Не брать кредиты на покупки','Отчёт месяца: заработал / отложил','Подушка на 3 месяца к концу 2027','Пройти курс по основам инвестиций','Первая инвестиция после подушки']],
+ ['Навыки',['Английский 30 мин в день','IELTS 6.5 к концу 2027','Код Narxi: 30 мин в день','Монтаж: 1 видео в день','1 книга или курс по маркетингу в месяц','Разбирать 1 успешный стартап в неделю','Автоматизировать 1 задачу с ИИ в месяц','1 видео-монолог на камеру в неделю']],
+ ['Окружение и семья',['Показывать родителям 1 результат в месяц','Подарок родителям с первого дохода','3 знакомых предпринимателя в Ташкенте','1 бизнес-мероприятие в месяц','Заявка в акселератор (IT Park и др.) в 2027','Дневник прогресса в Telegram раз в неделю','1 вечер в неделю с теми, кто растёт','Помочь 1 человеку бесплатно в месяц']],
+ ['Здоровье и режим',['Сон 7–8 часов, подъём в одно время','Спорт 3 раза в неделю по 30 мин','План дня вечером накануне','6 часов работы блоками по 90 мин','Без соцсетей до обеда (кроме работы)','Разбор недели в воскресенье, 30 мин','Без фастфуда 5 дней в неделю','1 день полного отдыха в неделю']]
+];
+function planTasks(day) {
+  // 3 different directions each day, rotating; actions advance week by week
+  const out = [];
+  for (let j = 0; j < 3; j++) { const d = (day * 3 + j) % 8; const a = (Math.floor(day / 3) + j) % 8; out.push(`• ${PLAN[d][0]}: ${PLAN[d][1][a]}`) }
+  return out.join('\n');
+}
+async function planReminder(env, evening) {
+  if (!env.ADMIN_CHAT) return;
+  const day = Math.floor((Date.now() + 5 * 3600e3) / 864e5);
+  const text = evening
+    ? '🌙 Вечер. Отметь в плане, что сделал сегодня — зелёные клетки = видимый результат.\nЗавтра утром напиши Claude «утро».'
+    : `☀️ Доброе утро! Цель: 1 000 000 $ к 25 годам.\n\n3 задачи на сегодня:\n${planTasks(day)}\n\nХочешь задачи под твой прогресс — напиши Claude «утро».`;
+  await tg(env, 'sendMessage', { chat_id: env.ADMIN_CHAT, text, reply_markup: { inline_keyboard: [[{ text: '📋 Открыть план', url: PLAN_URL }]] } });
+}
+
 // ---------- price robot timer ----------
 // GitHub often skips its own scheduled runs, so Cloudflare's cron (Settings → Triggers → Cron: 17 */3 * * *) starts the
 // "collect prices" workflow. Needs secret GH_TOKEN: fine-grained GitHub token, repo kamronking/narxi only, Actions: Read and write.
@@ -317,6 +347,9 @@ export default {
   async scheduled(event, env, ctx) {
     ctx.waitUntil(startScraper(env));
     if (new Date(event.scheduledTime).getUTCHours() === 3) ctx.waitUntil(morningPost(env));   // 08:17 Tashkent
+    const hU = new Date(event.scheduledTime).getUTCHours();
+    if (hU === 3) ctx.waitUntil(planReminder(env, false));   // 08:17 Tashkent
+    if (hU === 15) ctx.waitUntil(planReminder(env, true));   // 20:17 Tashkent
   },
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
