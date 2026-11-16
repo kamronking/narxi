@@ -381,6 +381,8 @@ const STORES={texnomart:{name:'Texnomart',color:'#e3262c'},olcha:{name:'Olcha',c
 const CONTACT='https://t.me/narx_support';
 const BOT='Narxi_uz_bot';
 const IG='https://instagram.com/narxi.site';
+const TGCH='https://t.me/narxi_site';
+const tgL=()=>LANG==='ru'?{b:'Канал со скидками',p:'Каждое утро — самые большие разницы в ценах за день. Telegram @narxi_site'}:{b:'Chegirmalar kanali',p:"Har kuni ertalab — kunning eng katta narx farqlari. Telegram @narxi_site"};
 const igL=()=>LANG==='ru'?{b:'Подпишись в Instagram',p:'Скидки дня, сравнения и новые магазины — в Instagram @narxi.site'}:{b:"Instagram'da obuna bo'ling",p:"Kunlik chegirmalar, taqqoslashlar va yangi do'konlar — Instagram @narxi.site'da"};
 const IGSVG='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
 const igBtn=(cls='')=>`<a class="igbtn press ${cls}" href="${IG}" target="_blank" rel="noopener" onclick="window.NX&&NX.ev('ig_click',{where:S.tab})">${IGSVG}<span>${igL().b}</span></a>`;
@@ -708,6 +710,7 @@ function renderProfile(){const REG=store.get('reg_ok',false);const ks=Object.key
     <div class="row">${ic('lang')}<span class="tx">${t('lang')}</span><span class="mini"><button data-l="uz" aria-pressed="${LANG==='uz'}">O'zbek</button><button data-l="ru" aria-pressed="${LANG==='ru'}">Русский</button></span></div>
     <div class="row">${ic('theme')}<span class="tx">${t('theme')}</span><span class="mini"><button data-th="light" aria-pressed="${THEME==='light'}">${t('tLight')}</button><button data-th="dark" aria-pressed="${THEME==='dark'}">${t('tDark')}</button><button data-th="auto" aria-pressed="${THEME==='auto'}">${t('tAuto')}</button></span></div>
     <a class="igrow" href="${IG}" target="_blank" rel="noopener">${IGSVG}<span class="tx">${igL().b}</span>↗</a>
+    <a class="igrow tgrow" href="${TGCH}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21.5 4.5L2.8 11.7c-.9.4-.9 1 0 1.3l4.7 1.5 1.8 5.6c.2.6.4.8.8.8.3 0 .5-.1.8-.4l2.6-2.5 4.9 3.6c.9.5 1.5.2 1.7-.8l3-14.2c.3-1.3-.5-1.8-1.4-1.4z" fill="#229ED9"/></svg><span class="tx">${tgL().b}</span>↗</a>
     <button id="toAbout">${ic('info')}<span class="tx">${t('aboutT')}</span>›</button>
     <button id="obAgain">${ic('play')}<span class="tx">${t('again')}</span>›</button>
     ${REG?`<button id="logout">${ic('out')}<span class="tx" style="color:var(--bad)">${t('logout')}</span></button>`:''}
@@ -719,7 +722,8 @@ function renderProfile(){const REG=store.get('reg_ok',false);const ks=Object.key
   const lo=document.getElementById('logout');if(lo)lo.onclick=()=>{USER=null;store.del('user');store.del('reg_ok');store.del('reg_id');try{sessionStorage.setItem('reg_shown','1')}catch(e){}window.NX&&NX.logout();render()}}
 function renderContact(){view.innerHTML=`<h1 class="ptitle in-up">${t('cT')}</h1>
   <section class="card in-up" style="--i:1;align-items:flex-start;max-width:640px"><div class="tgav">N</div><b style="font-size:18px">@narx_support</b><p style="margin:0">${t('cP1')}</p><p style="margin:0" class="muted">${t('cP2')}</p><a class="btn press" href="${CONTACT+'?text='+encodeURIComponent(t('hiMsg'))}" target="_blank" rel="noopener">${t('cBtn')} ↗</a></section>
-  <section class="card in-up" style="--i:2;align-items:flex-start;max-width:640px"><b style="font-size:18px">@narxi.site</b><p style="margin:0" class="muted">${igL().p}</p>${igBtn()}</section>
+  <section class="card in-up" style="--i:2;align-items:flex-start;max-width:640px"><b style="font-size:18px">@narxi_site</b><p style="margin:0" class="muted">${tgL().p}</p><a class="btn press" style="background:#229ED9;align-self:flex-start" href="${TGCH}" target="_blank" rel="noopener">✈ ${tgL().b} ↗</a></section>
+  <section class="card in-up" style="--i:3;align-items:flex-start;max-width:640px"><b style="font-size:18px">@narxi.site</b><p style="margin:0" class="muted">${igL().p}</p>${igBtn()}</section>
   <button class="btn ghost press" id="cAbout" style="align-self:flex-start">${t('aboutT')} ›</button>`;document.getElementById('cAbout').onclick=()=>go('about')}
 function renderAbout(){view.innerHTML=`<h1 class="ptitle in-up">${t('aboutT')}</h1><section class="card in-up" style="--i:1"><p style="margin:0">${t('a1')}</p><p style="margin:0">${t('a2')}</p><p style="margin:0">${t('a3')}</p></section>
   <section class="card in-up" style="--i:2">${Object.entries(DATA.stores).map(([s,v])=>`<div style="display:flex;justify-content:space-between;align-items:center"><span><span class="dot" style="background:${STORES[s].color};margin-right:8px"></span><b>${STORES[s].name}</b></span>${v.ok||v.ok===undefined?`<span class="tag save">${t('connected')} · ${v.items}</span>`:v.stale?`<span class="tag plain">${t('stStale')} · ${v.items}</span>`:`<span class="tag plain">${t('stDown')}</span>`}</div>`).join('')}${SOON.map(s=>`<div style="display:flex;justify-content:space-between"><span class="muted">${s}</span><span class="tag plain">${t('soon')}</span></div>`).join('')}</section>
