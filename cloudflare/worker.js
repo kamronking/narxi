@@ -14,14 +14,16 @@ const T = {
     hello: 'Привет! Я бот Narxi. Откройте товар на сайте и нажмите «Уведомить в Telegram» — я сообщу, когда цена упадёт.\n\n' + SITE + '\n📢 Скидки каждый день: @narxi_site',
     list: 'Вы следите за:\n{items}\n\nОтписаться от всего: /stop', empty: 'Пока ничего не отслеживается.', stopped: 'Готово, уведомления отключены.',
     nf: 'Товар не найден — возможно, он больше не продаётся.',
-    back: '↩ Вернуться на сайт Narxi', reg: '📱 Регистрация в Narxi\n\nЧтобы завершить регистрацию, нажмите кнопку «📱 Поделиться номером» внизу. Без номера регистрация невозможна.', notOwn: '⚠️ Это не ваш номер. Нажмите кнопку «📱 Поделиться номером» внизу — нужен номер именно вашего Telegram-аккаунта.', needBtn: '👇 Пожалуйста, нажмите кнопку «📱 Поделиться номером» внизу экрана. Номер вручную вводить не нужно — Telegram отправит его сам.', regok: '✅ Готово! Вы зарегистрированы в Narxi. Вернитесь на сайт: ' + SITE },
+    back: '↩ Вернуться на сайт Narxi', kbHelp: '🆘 Поддержка', kbList: '📋 Мои отслеживания', kbSite: '🌐 Сайт Narxi', kbChan: '📢 Канал со скидками',
+    help: 'Есть вопрос, ошибка в цене или предложение? Напишите в поддержку — ответим как можно скорее.', helpBtn: '✍️ Написать в поддержку', siteTxt: 'Сравнивайте цены 13 магазинов на сайте:', siteBtn: '🌐 Открыть narxi.site', chanTxt: 'Каждое утро — самые большие разницы в ценах за день:', chanBtn: '📢 Открыть канал', reg: '📱 Регистрация в Narxi\n\nЧтобы завершить регистрацию, нажмите кнопку «📱 Поделиться номером» внизу. Без номера регистрация невозможна.', notOwn: '⚠️ Это не ваш номер. Нажмите кнопку «📱 Поделиться номером» внизу — нужен номер именно вашего Telegram-аккаунта.', needBtn: '👇 Пожалуйста, нажмите кнопку «📱 Поделиться номером» внизу экрана. Номер вручную вводить не нужно — Telegram отправит его сам.', regok: '✅ Готово! Вы зарегистрированы в Narxi. Вернитесь на сайт: ' + SITE },
   uz: { set: "✅ Narxni kuzatyapman\n\n{name}\nHozir: {now} so'm ({store})\nNarx {target} so'm yoki undan past bo'lsa xabar beraman.",
     phone: "Narxi'da ro'yxatdan o'tish uchun pastdagi tugmani bosing — Telegram raqamingizni yuboradi. Bu majburiy emas.",
     btn: '📱 Raqamni yuborish', thanks: "🙏 Rahmat! Raqam tasdiqlandi, siz Narxi'da ro'yxatdan o'tdingiz.",
     hello: "Salom! Men Narxi botiman. Saytda tovarni oching va «Telegram'da xabar berish» tugmasini bosing — narx tushganda yozaman.\n\n" + SITE + "\n📢 Har kuni chegirmalar: @narxi_site",
     list: "Kuzatuvdagi tovarlar:\n{items}\n\nHammasini o'chirish: /stop", empty: 'Hozircha hech narsa kuzatilmayapti.', stopped: "Tayyor, xabarlar o'chirildi.",
     nf: 'Tovar topilmadi — balki endi sotilmayapti.',
-    back: "↩ Narxi saytiga qaytish", reg: "📱 Narxi'da ro'yxatdan o'tish\n\nRo'yxatdan o'tishni yakunlash uchun pastdagi «📱 Raqamni yuborish» tugmasini bosing. Raqamsiz ro'yxatdan o'tib bo'lmaydi.", notOwn: "⚠️ Bu sizning raqamingiz emas. Pastdagi «📱 Raqamni yuborish» tugmasini bosing — aynan sizning Telegram raqamingiz kerak.", needBtn: "👇 Iltimos, ekran pastidagi «📱 Raqamni yuborish» tugmasini bosing. Raqamni qo'lda yozish shart emas — Telegram o'zi yuboradi.", regok: "✅ Tayyor! Siz Narxi'da ro'yxatdan o'tdingiz. Saytga qayting: " + SITE },
+    back: "↩ Narxi saytiga qaytish", kbHelp: "🆘 Yordam", kbList: "📋 Kuzatuvlarim", kbSite: "🌐 Narxi sayti", kbChan: "📢 Chegirmalar kanali",
+    help: "Savol, narxda xato yoki taklif bormi? Supportga yozing — imkon qadar tez javob beramiz.", helpBtn: "✍️ Supportga yozish", siteTxt: "13 ta do'kon narxini saytda solishtiring:", siteBtn: "🌐 narxi.site'ni ochish", chanTxt: "Har kuni ertalab — kunning eng katta narx farqlari:", chanBtn: "📢 Kanalni ochish", reg: "📱 Narxi'da ro'yxatdan o'tish\n\nRo'yxatdan o'tishni yakunlash uchun pastdagi «📱 Raqamni yuborish» tugmasini bosing. Raqamsiz ro'yxatdan o'tib bo'lmaydi.", notOwn: "⚠️ Bu sizning raqamingiz emas. Pastdagi «📱 Raqamni yuborish» tugmasini bosing — aynan sizning Telegram raqamingiz kerak.", needBtn: "👇 Iltimos, ekran pastidagi «📱 Raqamni yuborish» tugmasini bosing. Raqamni qo'lda yozish shart emas — Telegram o'zi yuboradi.", regok: "✅ Tayyor! Siz Narxi'da ro'yxatdan o'tdingiz. Saytga qayting: " + SITE },
 };
 const backBtn = (L, id) => ({ inline_keyboard: [[{ text: L.back, url: SITE + '?reg=' + id }]] });
 const fill = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k]);
@@ -115,8 +117,15 @@ async function handle(env, u) {
   let lang = pl || (me0 && me0.lang) || ((frm.language_code || '').startsWith('uz') ? 'uz' : 'ru'), L = T[lang];
   if (pl && (!me0 || me0.lang !== pl)) await db.set(`tg_users/${chat}`, { lang: pl });
   const photo = m.photo && m.photo.length ? m.photo[m.photo.length - 1].file_id : null;  // admin broadcast with a picture: photo + caption '/broadcast ...'
-  const text = (m.text || m.caption || '').trim(), now = Math.floor(Date.now() / 1000);
+  let text = (m.text || m.caption || '').trim(); const now = Math.floor(Date.now() / 1000);
   const askKb = { keyboard: [[{ text: L.btn, request_contact: true }]], resize_keyboard: true, one_time_keyboard: false, is_persistent: true };
+  const isAdmin = env.ADMIN_CHAT && String(chat) === String(env.ADMIN_CHAT);
+  const userKb = () => ({ keyboard: [[{ text: L.kbList }, { text: L.kbHelp }], [{ text: L.kbSite }, { text: L.kbChan }]], resize_keyboard: true, is_persistent: true });
+  const adminKb = { keyboard: [[{ text: '📊 Статистика' }, { text: '👀 Пост: предпросмотр' }], [{ text: '📢 Пост в канал' }, { text: '✉️ Рассылка' }], [{ text: '✅ Отправить рассылку' }, { text: '❌ Отменить рассылку' }]], resize_keyboard: true, is_persistent: true };
+  const menuKb = () => isAdmin ? adminKb : userKb();
+  // menu buttons are plain text messages: turn them into the matching command
+  const BTN = { '📊 Статистика': '/stats', '👀 Пост: предпросмотр': '/post_preview', '📢 Пост в канал': '/post_now', '✉️ Рассылка': '/broadcast', '✅ Отправить рассылку': '/send_broadcast', '❌ Отменить рассылку': '/cancel_broadcast' };
+  for (const l of Object.values(T)) { BTN[l.kbHelp] = '/help'; BTN[l.kbList] = '/list'; BTN[l.kbSite] = '/site'; BTN[l.kbChan] = '/channel' }
   if (m.contact) {
     if (m.contact.user_id !== frm.id) {  // someone else's contact card — not a verification
       await tg(env, 'sendMessage', { chat_id: chat, text: L.notOwn, reply_markup: askKb }); return;
@@ -129,11 +138,12 @@ async function handle(env, u) {
       if (env.ADMIN_CHAT && !(prev && prev.phone)) {
         await tg(env, 'sendMessage', { chat_id: env.ADMIN_CHAT, text: `🆕 Новый пользователь Narxi\n\n👤 ${frm.first_name || ''} ${frm.last_name || ''}${frm.username ? ' (@' + frm.username + ')' : ''}\n📱 ${m.contact.phone_number}\n🌐 язык: ${lang}${prev && prev.site_uid ? '\n✅ с сайта' : ''}` });
       }
-      await tg(env, 'sendMessage', { chat_id: chat, text: prev && prev.site_uid ? L.regok : L.thanks, reply_markup: { remove_keyboard: true } });
+      await tg(env, 'sendMessage', { chat_id: chat, text: prev && prev.site_uid ? L.regok : L.thanks, reply_markup: menuKb() });
       if (prev && prev.site_uid) await tg(env, 'sendMessage', { chat_id: chat, text: '👇', reply_markup: backBtn(L, prev.site_uid) });
     }
     return;
   }
+  if (BTN[text] && (BTN[text].startsWith('/help') || BTN[text].startsWith('/list') || BTN[text].startsWith('/site') || BTN[text].startsWith('/channel') || isAdmin)) text = BTN[text];
   if (!text.startsWith('/')) {
     const u0 = await db.get(`tg_users/${chat}`);
     if (u0 && u0.site_uid && !u0.phone) { await tg(env, 'sendMessage', { chat_id: chat, text: L.needBtn, reply_markup: askKb }); return; }
@@ -211,6 +221,16 @@ async function handle(env, u) {
     }
     await db.del('bot/broadcast');
     await tg(env, 'sendMessage', { chat_id: chat, text: `✅ Рассылка отправлена: ${ok}\n❌ Не доставлено: ${fail} (заблокировали бота)` });
+  } else if (text === '/admin' && isAdmin) {
+    await tg(env, 'setMyCommands', { commands: [{ command: 'start', description: 'Boshlash / Начать' }, { command: 'help', description: 'Yordam / Поддержка' }, { command: 'list', description: 'Kuzatuvlarim / Мои отслеживания' }, { command: 'stop', description: "Xabarlarni o'chirish / Отключить уведомления" }] });
+    await tg(env, 'setMyCommands', { scope: { type: 'chat', chat_id: chat }, commands: [{ command: 'admin', description: 'Панель админа' }, { command: 'stats', description: 'Статистика' }, { command: 'post_preview', description: 'Пост: предпросмотр' }, { command: 'post_now', description: 'Пост в канал' }, { command: 'broadcast', description: 'Рассылка' }, { command: 'help', description: 'Поддержка' }] });
+    await tg(env, 'sendMessage', { chat_id: chat, text: '🛠 Панель админа. Кнопки внизу:\n📊 Статистика — регистрации\n👀 / 📢 — утренний пост: посмотреть или опубликовать\n✉️ Рассылка — как отправить сообщение всем\n✅ / ❌ — отправить или отменить подготовленную рассылку', reply_markup: adminKb });
+  } else if (text.startsWith('/help')) {
+    await tg(env, 'sendMessage', { chat_id: chat, text: L.help, reply_markup: { inline_keyboard: [[{ text: L.helpBtn, url: 'https://t.me/narx_support' }]] } });
+  } else if (text.startsWith('/site')) {
+    await tg(env, 'sendMessage', { chat_id: chat, text: L.siteTxt, reply_markup: { inline_keyboard: [[{ text: L.siteBtn, url: SITE + '?utm_source=tg_bot' }]] } });
+  } else if (text.startsWith('/channel')) {
+    await tg(env, 'sendMessage', { chat_id: chat, text: L.chanTxt, reply_markup: { inline_keyboard: [[{ text: L.chanBtn, url: 'https://t.me/narxi_site' }]] } });
   } else if (text.startsWith('/list')) {
     const al = await db.byChat(chat);
     await tg(env, 'sendMessage', { chat_id: chat, text: al.length ? fill(L.list, { items: al.map(a => `• ${a.name} — ≤ ${fmt(a.target)}`).join('\n') }) : L.empty });
@@ -218,7 +238,7 @@ async function handle(env, u) {
     for (const a of await db.byChat(chat)) await db.del(`tg_alerts/${a.id}`);
     await tg(env, 'sendMessage', { chat_id: chat, text: L.stopped });
   } else {
-    await tg(env, 'sendMessage', { chat_id: chat, text: L.hello });
+    await tg(env, 'sendMessage', { chat_id: chat, text: L.hello, reply_markup: menuKb() });
   }
 }
 
