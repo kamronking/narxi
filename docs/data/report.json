@@ -1,14 +1,12 @@
 {
- "started": "2026-11-16T23:18:20.094124+05:00",
+ "started": "2026-11-17T02:17:59.297199+05:00",
  "stores": {
   "texnomart": {
-   "pages": 1259,
-   "items": 1841,
-   "errors": [
-    "https://texnomart.uz/ru/katalog/gazovaya-plita-s-duhovkoj/: ChunkedEncodingError(ProtocolError('Response ended prematurely'))"
-   ],
+   "pages": 1261,
+   "items": 1839,
+   "errors": [],
    "per_cat": {
-    "phones": 286,
+    "phones": 284,
     "laptops": 22,
     "tablets": 37,
     "tv": 192,
@@ -44,13 +42,13 @@
     "printers": 8
    },
    "inst": {
-    "exact": 1459,
-    "est": 382,
+    "exact": 1450,
+    "est": 389,
     "factor": 1.7,
     "months": 24,
-    "known": 1622
+    "known": 1629
    },
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   },
   "olcha": {
    "pages": 599,
@@ -75,21 +73,21 @@
     "tv": 118
    },
    "in_stock": 11980,
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   },
   "alif": {
    "pages": 388,
-   "items": 7751,
+   "items": 7749,
    "errors": [],
    "per_cat": {
     "tv": 544,
     "audio": 535,
     "kitchen": 566,
     "washers": 719,
-    "phones": 598,
+    "phones": 597,
     "stoves": 594,
     "care": 243,
-    "watches": 346,
+    "watches": 345,
     "fridges": 599,
     "ac": 599,
     "printers": 260,
@@ -101,7 +99,7 @@
    },
    "cats": 73,
    "budget_left": 112,
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   },
   "beeline": {
    "pages": 22,
@@ -116,7 +114,7 @@
     "climate": 7,
     "kitchen": 4
    },
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   },
   "macbro": {
    "pages": 4,
@@ -134,7 +132,7 @@
     "care": 21,
     "monitors": 4
    },
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   },
   "idea": {
    "pages": 53,
@@ -159,7 +157,7 @@
     "fridges": 70,
     "ac": 41
    },
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   },
   "maxcom": {
    "pages": 170,
@@ -178,7 +176,7 @@
    },
    "cats": 50,
    "budget_left": 0,
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   },
   "woot": {
    "pages": 114,
@@ -201,7 +199,7 @@
    },
    "cats": 48,
    "budget_left": 46,
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   },
   "avtech": {
    "pages": 224,
@@ -216,7 +214,7 @@
    },
    "cats": 121,
    "budget_left": 96,
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   },
   "mionline": {
    "pages": 0,
@@ -241,7 +239,7 @@
    },
    "cats": 12,
    "budget_left": 109,
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   },
   "karcher": {
    "pages": 4,
@@ -254,7 +252,7 @@
     "tablets": 1,
     "care": 2
    },
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   },
   "openshop": {
    "pages": 165,
@@ -267,44 +265,44 @@
     "3-aksessuarlar-va-gadjetlar": 376,
     "56-go-zallik-va-sog-lik": 72,
     "phones": 242,
-    "other": 840,
-    "tablets": 77,
-    "laptops": 65,
-    "monitors": 35,
-    "climate": 26,
+    "tablets": 81,
+    "other": 824,
+    "monitors": 42,
+    "climate": 29,
+    "laptops": 64,
     "printers": 5,
     "audio": 151,
-    "fridges": 29,
+    "ac": 22,
+    "fridges": 30,
     "kitchen": 149,
     "stoves": 39,
-    "home": 52,
     "tv": 24,
-    "washers": 34,
-    "ac": 22,
-    "watches": 73,
+    "washers": 35,
+    "home": 50,
+    "watches": 76,
     "care": 49
    },
    "budget_left": 535,
-   "last_ok": "2026-11-16T23:18+05:00"
+   "last_ok": "2026-11-17T02:17+05:00"
   }
  },
  "stale": {},
  "ram_split": 16,
  "merged": 130,
  "brand_split": 13,
- "products": 22783,
- "matched_2plus": 1732,
+ "products": 22778,
+ "matched_2plus": 1731,
  "cats": {
   "phones": [
-   509,
+   508,
    170
   ],
   "laptops": [
    1627,
-   21
+   20
   ],
   "tablets": [
-   494,
+   497,
    16
   ],
   "tv": [
@@ -312,31 +310,31 @@
    137
   ],
   "monitors": [
-   413,
-   13
+   419,
+   14
   ],
   "audio": [
    1435,
-   145
+   144
   ],
   "watches": [
    345,
    24
   ],
   "fridges": [
-   740,
+   741,
    96
   ],
   "washers": [
    571,
-   113
+   114
   ],
   "ac": [
-   808,
-   89
+   807,
+   88
   ],
   "home": [
-   936,
+   934,
    176
   ],
   "kitchen": [
@@ -348,7 +346,7 @@
    75
   ],
   "climate": [
-   489,
+   491,
    54
   ],
   "care": [
@@ -357,29 +355,29 @@
   ],
   "printers": [
    311,
-   73
+   74
   ],
   "other": [
-   10800,
-   184
+   10787,
+   183
   ]
  },
  "unkeyed_sample": [
   "Керамическое защитное стекло Xiaomi Redmi Note 9T",
+  "Умная колонка Яндекс Станция Лайт 2 Графитовый",
   "Умная колонка Яндекс Станция Мини с часами с Алисой, Черный, 10Вт",
   "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
-  "Умная колонка Яндекс Станция Лайт 2 Графитовый",
   "Наушники вставные беспроводные Green Earbuds",
   "Смарт часы Green Active Pro Black",
   "Смарт часы Green Ultra Black",
+  "Мясорубка Аксион М41.01",
+  "Мясорубка Аксион М41.00",
   "Мясорубка Аксион М61.02",
   "Мясорубка Аксион М21.01",
-  "Мясорубка Аксион М41.00",
   "Мясорубка Аксион М12.11",
-  "Мясорубка Аксион М41.01",
   "Мясорубка Аксион М321.01",
   "Соковыжималка Аксион СЦ32.01 Чёрная",
-  "Соковыжималка Аксион СЦ32.02 Джус"
+  "Соковыжималка Аксион СЦ32.01"
  ],
  "keys_sample": {
   "audio": [
@@ -399,16 +397,16 @@
   "phones": [
    "phones:iphone 17 pro max 256gb :: openshop 16599000 Смартфон Apple iPhone 17 Pro Max 256GB Deep Blue ( | macbro 17276000 iPhone 17 Pro Max Deep Blue 256GB eSIM | alif 17979000 Смартфон Apple iPhone 17 Pro Max 256 ГБ (nanoSim+e | olcha 18199000 iPhone 17 Pro Max Deep Blue 256 GB | texnomart 18999000 Apple iPhone 17 Pro Max 12/256GB Оранжевый | idea 20099000 Смартфон iPhone 17 Pro Max 256GB Silver",
    "phones:iphone air 256gb :: macbro 12990000 iPhone Air Space Black 256GB eSIM | olcha 13199000 Iphone Air 12/256 GB Light Gold | alif 13599000 Смартфон Apple iPhone Air 256 ГБ eSim, Light Gold | openshop 13664000 Смартфон Apple iPhone Air 256GB Space Black | texnomart 13999000 Apple iPhone Air 12/256GB Небесно-голубой | idea 14999000 Смартфон iPhone Air 256GB Space Black",
-   "phones:samsung galaxy s26 ultra 256gb :: openshop 12899000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256GB Черн | alif 13384000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256 ГБ, фи | olcha 13445000 Смартфон Samsung Galaxy S26 Ultra 5G Violet 256 ГБ | texnomart 13999000 Samsung Galaxy S26 Ultra 12/256GB Фиолетовый кобал | macbro 14225000 Смартфон Samsung Galaxy S26 Ultra Black 256GB 12GB | idea 15999000 Смартфон Samsung Galaxy S26 Ultra 12/256 Black",
-   "phones:iphone 17 pro 256gb :: openshop 15833000 Смартфон Apple iPhone 17 Pro 256GB Cosmic Orange ( | macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | alif 17599000 Смартфон Apple iPhone 17 Pro 256 ГБ (nanoSim+eSim) | texnomart 17999000 Apple iPhone 17 Pro 12/256GB Серебристый | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver",
-   "phones:iphone 18 pro max 256gb :: openshop 21826000 Смартфон Apple iPhone 18 Pro Max 256GB Silver (eSI | alif 21900000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | macbro 21990000 iPhone 18 Pro Max Silver 256GB Single SIM | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | texnomart 22790000 Apple iPhone 18 Pro Max 12/256GB Голубой | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier",
-   "phones:iphone 17 256gb :: openshop 12078000 Смартфон Apple iPhone 17 256GB White (SIM + SIM) | alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | texnomart 13699000 Apple iPhone 17 8/256GB Белый | idea 14299000 Смартфон iPhone 17 256GB Black",
+   "phones:iphone 17 pro 256gb :: openshop 16084000 Смартфон Apple iPhone 17 Pro 256GB Deep Blue (eSIM | macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | alif 17599000 Смартфон Apple iPhone 17 Pro 256 ГБ (nanoSim+eSim) | texnomart 17999000 Apple iPhone 17 Pro 12/256GB Оранжевый | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver",
+   "phones:iphone 18 pro max 256gb :: alif 21900000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | openshop 21948000 Смартфон Apple iPhone 18 Pro Max 256GB Black (eSIM | macbro 21990000 iPhone 18 Pro Max Silver 256GB Single SIM | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | texnomart 22790000 Apple iPhone 18 Pro Max 12/256GB Голубой | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier",
+   "phones:iphone 17 256gb :: openshop 12078000 Смартфон Apple iPhone 17 256GB White (SIM + SIM) | alif 12256000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | texnomart 13699000 Apple iPhone 17 8/256GB Черный | idea 14299000 Смартфон iPhone 17 256GB Black",
    "phones:honor 600 lite 256gb :: olcha 4729000 Смартфон Honor 600 Lite 8/256GB Desert Gold | openshop 4899000 Смартфон Honor 600 Lite 8/256GB Серый | idea 4999000 Смартфон Honor 600 Lite 8/256 Desert Gold | texnomart 5230000 Honor 600 Lite 8/256GB Серый Бархат | alif 5490000 Смартфон Honor 600 Lite 8/256 ГБ, Gravity Grey",
    "phones:honor x9d 256gb:r8 :: olcha 4868000 Honor X9d 5G Red 8/256 GB | openshop 5043000 Смартфон Honor X9d 5G 8/256GB Sunrise Gold | texnomart 5199000 Honor X9d 8/256GB Золотистый рассвет | idea 5199000 Смартфон Honor X9d 8/256 Midnight Black | alif 5299000 Смартфон Honor X9D 8/256 ГБ, Midnight",
-   "phones:samsung galaxy a27 128gb :: olcha 3644000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | openshop 3699000 Смартфон Samsung Galaxy A27 5G 6/128GB Синий | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | texnomart 3999000 Samsung Galaxy A27 5G 6/128GB Light Pink | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink",
-   "phones:samsung galaxy a37 128gb :: alif 4459000 Смартфон Samsung Galaxy A37 5G 8/128 ГБ, Charcoal  | openshop 4462000 Смартфон Samsung Galaxy A37 5G 8/128GB Черный | olcha 4799000 Samsung Galaxy A37 Pink 8/128 Гб | texnomart 4890000 Samsung Galaxy A37 8/128GB Темно зеленый | idea 4899000 Смартфон SAMSUNG Galaxy A37 8/128 Gray (SM-A376EZA",
+   "phones:samsung galaxy a27 128gb :: olcha 3644000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | openshop 3699000 Смартфон Samsung Galaxy A27 5G 6/128GB Светло-розо | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4788000 Samsung Galaxy A27 5G 6/128GB Черный",
+   "phones:samsung galaxy a27 256gb :: olcha 4189000 Смартфон Samsung Galaxy A27 5G 8/256GB Black | openshop 4268000 Смартфон Samsung Galaxy A27 5G 8/256GB Черный | texnomart 4399000 Samsung Galaxy A27 5G 8/256GB Черный | alif 4705000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black",
+   "phones:samsung galaxy a37 128gb :: alif 4459000 Смартфон Samsung Galaxy A37 5G 8/128 ГБ, Charcoal  | openshop 4462000 Смартфон Samsung Galaxy A37 5G 8/128GB Зеленый | olcha 4799000 Samsung Galaxy A37 Pink 8/128 Гб | texnomart 4890000 Samsung Galaxy A37 8/128GB Серый | idea 4899000 Смартфон SAMSUNG Galaxy A37 8/128 Gray (SM-A376EZA",
    "phones:samsung galaxy s26 256gb :: openshop 10531000 Смартфон Samsung Galaxy S26 5G 12/256GB Черный | idea 10999000 Смартфон Samsung Galaxy S26 12/256 Black | olcha 11201073 Смартфон Samsung Galaxy S26 5G Violet 256 ГБ | macbro 12141000 Смартфон Samsung Galaxy S26 Black 256GB | texnomart 12199000 Samsung Galaxy S26 12/256GB Черный",
-   "phones:samsung galaxy s26 512gb :: openshop 12566000 Смартфон Samsung Galaxy S26 5G 12/512GB Черный | idea 12999000 Смартфон Samsung Galaxy S26 12/512 Black | olcha 13499000 Смартфон Samsung Galaxy S26 5G Black 512 ГБ | texnomart 13779000 Samsung Galaxy S26 12/512GB Черный | macbro 13949000 Смартфон Samsung Galaxy S26 Black 512GB"
+   "phones:samsung galaxy s26 512gb :: openshop 12566000 Смартфон Samsung Galaxy S26 5G 12/512GB Cobalt Vio | idea 12999000 Смартфон Samsung Galaxy S26 12/512 Black | olcha 13499000 Смартфон Samsung Galaxy S26 5G Black 512 ГБ | texnomart 13779000 Samsung Galaxy S26 12/512GB Черный | macbro 13949000 Смартфон Samsung Galaxy S26 Black 512GB"
   ],
   "kitchen": [
    "kitchen:braun:mq55236mbk :: woot 833000 Погружной блендер BRAUN MQ55236MBK | openshop 919000 Блендер Braun MQ55236MBK | olcha 1097000 Блендер Braun MQ55236 | alif 1125000 Блендер Braun MQ55236MBK, черный | idea 1149000 Погружной блендер Braun MQ55236MBK",
@@ -438,6 +436,20 @@
    "care:bq:hd1211m :: openshop 453000 Фен BQ HD1211M Черно-золотой | alif 502000 Фен и фен-щётки BQ HD1211M, черно-золотистый | olcha 618000 Фен для сушки и укладки волос BQ HD1211M LUXURY CO",
    "care:dyson:hd18 :: olcha 6278000 Фен Dyson Supersonic r HD18 Professional Vinca blu | alif 7140000 Фен Dyson Supersonic HD18 Professional R, Prussian | macbro 7450000 Фен Dyson HD18 Supersonic R Pro, Vinca Blue/Topaz "
   ],
+  "ac": [
+   "ac:aux:aswh18a4 :: tezz 6083000 Бытовой кондиционер  AUX ASW-H18A4/FADR | idea 6490000 Кондиционер  Sitronic ASW-H18A4/CHDC-LT | openshop 6786000 Кондиционер Sitronic Venturi Inverter 18 (ASW-H18A | alif 6999000 Кондиционер AUX ASW-H18A4/JLR,  белый | texnomart 7504000 Кондиционер AUX ASW-H18A4/QDR",
+   "ac:premier:prm12mgspainv :: idea 3499000 Кондиционер Premier PRM-12MGSPA-INV/W | olcha 3844000 Кондиционер Premier PRM-12MGSPA-INV/W Magnate GMCC | openshop 3999000 Кондиционер Premier Magnate PRM-12MGSPA-INV/B Inve | alif 4333000 Кондиционер Premier Magnate PRM-12MGSPA-INV/W, бел",
+   "ac:premier:prmfr12snr1inv :: olcha 5184000 Кондиционер Premier PRMFR-12SNR1-INV/2S Forever In | idea 5490000 Кондиционер  Premier  PRMFR-12SNR1-INV/2G | alif 5980000 Кондиционер Premier PRMFR-12SNR1-INV Forever, чёрн | tezz 6893000 Бытовой кондиционер  Premier FOREVER PRMFR-12SNR1-",
+   "ac:t:artel marvarid 12 :: alif 3498990 Кондиционер Artel Marvarid 12 Inverter, белый | olcha 3639000 Кондиционер Artel Marvarid 12 Inverter | tezz 4474000 Бытовой кондиционер  Artel Marvarid 12",
+   "ac:lg:b12ts :: texnomart 7399000 Кондиционер LG B12TS | tezz 8050000 Бытовой кондиционер  LG DUAL INVERTER B12TS | alif 8112000 Кондиционер LG DUAL INVERTER B12TS, белый",
+   "ac:lg:b18ts :: texnomart 8999000 Кондиционер LG B18TS | tezz 9598000 Бытовой кондиционер  LG DUAL INVERTER B18TS | alif 9600000 Кондиционер LG B18TS, белый",
+   "ac:lg:d12tt :: olcha 6905000 Кондиционер LG Mega Dual Plus 12 Inverter (D12TT) | alif 7175000 Кондиционер LG D12TT, белый | texnomart 8114000 Кондиционер LG D12TT",
+   "ac:lg:b24ts :: olcha 11303000 Кондиционер LG B24TS PROCOOL, DUAL INVERTER | tezz 12694000 Бытовой кондиционер  LG DUAL INVERTER B24TS | alif 12800000 Кондиционер LG DUAL INVERTER B24TS, белый",
+   "ac:premier:prmbs12fddsinv :: openshop 4965000 Кондиционер Premier Boysun PRMBS-12FDDS-INV/B | olcha 5084000 Кондиционер Premier PRMBS-12FDDS-INV/W Boysun DC I | alif 5980000 Кондиционер Premier PRMBS-12FDDS-INV/W Boysun, бел",
+   "ac:premier:prmcr12snr1inv :: openshop 4496000 Кондиционер Premier Crown PRMCR-12SNR1-INV | alif 5099000 Кондиционер Premier PRMCR-12SNR1 Crown INV, белый | tezz 6893000 Бытовой кондиционер  Premier CROWN PRMCR-12SNR1-IN",
+   "ac:premier:prm12srspainv :: openshop 4279000 Кондиционер Premier Sereno PRM-12SRSPA-INV/DS | olcha 4348000 Кондиционер Premier PRM-12SRSPA-INV/DS  Sereno GMC | idea 4499000 Кондиционер Premier PRM-12SRSPA-INV/WS",
+   "ac:premier:prmfr18snr1inv :: olcha 7981771 Кондиционер Premier PRMFR-18SNR1-INV/2S Forever In | tezz 8991000 Бытовой кондиционер  Premier FOREVER PRMFR-18SNR1- | alif 9793000 Кондиционер Premier PRMFR-18SNR1-INV Forever, белы"
+  ],
   "printers": [
    "printers:canon:g3430 :: texnomart 1999000 Принтер Canon IJ MFP PIXMA G3430 МФУ 3в1 Черный | woot 2036000 Принтер МФУ Canon Pixma G3430 | olcha 2145000 Принтер МФУ Canon Pixma G3430 | alif 2190000 МФУ Canon Pixma G3430, черный | idea 2199000 МФУ струйное Canon PIXMA G3430 EUM/EMB",
    "printers:canon:g2430 :: woot 1892000 Принтер МФУ Canon PIXMA G2430 | olcha 1988000 Принтер МФУ Canon PIXMA G2430 | idea 2099000 МФУ Canon PIXMA G2430 | alif 2711000 Принтер Canon  PIXMA G2430, черный",
@@ -460,7 +472,7 @@
    "washers:lg:f2j3ws1w :: olcha 4712000 Стиральная машина LG F2J3WS1W Inverter | tezz 5118000 Стиральная машина  LG F2J3WS1W | alif 5651875 Стиральная машина LG F2J3WS1W, белый | texnomart 5931000 Стиральная машина LG F2J3WS1W",
    "washers:lg:f2t9gw9p :: idea 6999000 Стиральная машина LG F2T9GW9P | tezz 7240000 Стиральная машина  LG F2T9GW9P | texnomart 7391000 Стиральная машина LG F2T9GW9P | alif 7399000 Стиральная машина LG F2T9GW9P 8.5 кг, серый",
    "washers:lg:f2v3ps6w :: alif 5298000 Стиральная машина LG F2V3PS6W 8 кг, белый | texnomart 5499000 Стиральная машина LG F2V3PS6W | tezz 5764000 Стиральная машина  LG F2V3PS6W | idea 5999000 Стиральная машина LG F2V3PS6W 8 кг",
-   "washers:lg:f2v5ps2s :: alif 5999000 Стиральная машина LG F2V5PS2S 8 кг, серый | tezz 6022000 Стиральная машина  LG F2V5PS2S | texnomart 6599000 Стиральная машина LG F2V5PS2S | idea 6599000 Стиральная машина LG F2V5PS2S 8 кг",
+   "washers:lg:f2v5ps2s :: alif 5999000 Стиральная машина LG F2V5PS2S 8 кг, серый | tezz 6022000 Стиральная машина  LG F2V5PS2S | idea 6599000 Стиральная машина LG F2V5PS2S 8 кг | texnomart 7499000 Стиральная машина LG F2V5PS2S",
    "washers:lg:f2v7fr2p :: olcha 8411000 Стиральная машина LG F2V7FR2P 9 кг | alif 8799000 Стиральная машина LG F2V7FR2P 9 кг, серый | idea 8899000 Стиральная машина LG F2V7FR2P 9  кг | texnomart 9114000 Стиральная машина LG F2V7FR2P",
    "washers:lg:f2v9fw9p :: alif 7199000 Стиральная машина LG F2V9FW9P 9 кг, серый | texnomart 7499000 Стиральная машина LG F2V9FW9P | tezz 7527000 Стиральная машина  LG F2V9FW9P | idea 8299000 Стиральная машина LG F2V9FW9P 9 кг",
    "washers:lg:f4v5vg2s :: alif 8999000 Стиральная машина LG F4V5VG2S, серебристый  | idea 8999000 Стиральная машина с сушкой LG F4V5VG2S | tezz 9061000 Стиральная машина с сушкой  LG F4V5VG2S | texnomart 9251000 Стиральная машина LG F4V5VG2S",
@@ -480,20 +492,6 @@
    "stoves:shivaki:6401g :: tezz 2833000 Газовая плита  SHIVAKI 6401-G Белый | alif 2992000 Газовая плита Shivaki 6401-G с ГК,  коричневый | olcha 3216146 Газовая плита Shivaki 6401-G ГП с ГК (Серый)",
    "stoves:shivaki:6301k :: tezz 2880000 Комбинированные плиты  SHIVAKI 6301-K Белый | alif 3148000 Газовая плита Shivaki 6301-K,  коричневый | olcha 3543000 Газовая плита Shivaki 6301-K КП с ГК"
   ],
-  "ac": [
-   "ac:premier:prm12mgspainv :: idea 3499000 Кондиционер Premier PRM-12MGSPA-INV/W | olcha 3844000 Кондиционер Premier PRM-12MGSPA-INV/W Magnate GMCC | openshop 3999000 Кондиционер Premier Magnate PRM-12MGSPA-INV/B Inve | alif 4333000 Кондиционер Premier Magnate PRM-12MGSPA-INV/W, бел",
-   "ac:premier:prmfr12snr1inv :: olcha 5184000 Кондиционер Premier PRMFR-12SNR1-INV/2S Forever In | idea 5490000 Кондиционер  Premier  PRMFR-12SNR1-INV/2G | alif 5980000 Кондиционер Premier PRMFR-12SNR1-INV Forever, чёрн | tezz 6893000 Бытовой кондиционер  Premier FOREVER PRMFR-12SNR1-",
-   "ac:aux:aswh18a4 :: tezz 6083000 Бытовой кондиционер  AUX ASW-H18A4/FADR | alif 6999000 Кондиционер AUX ASW-H18A4/JLR,  белый | texnomart 7504000 Кондиционер AUX ASW-H18A4/QDR",
-   "ac:t:artel marvarid 12 :: alif 3498990 Кондиционер Artel Marvarid 12 Inverter, белый | olcha 3639000 Кондиционер Artel Marvarid 12 Inverter | tezz 4474000 Бытовой кондиционер  Artel Marvarid 12",
-   "ac:lg:b12ts :: texnomart 7399000 Кондиционер LG B12TS | tezz 8050000 Бытовой кондиционер  LG DUAL INVERTER B12TS | alif 8112000 Кондиционер LG DUAL INVERTER B12TS, белый",
-   "ac:lg:b18ts :: texnomart 8999000 Кондиционер LG B18TS | tezz 9598000 Бытовой кондиционер  LG DUAL INVERTER B18TS | alif 9600000 Кондиционер LG B18TS, белый",
-   "ac:lg:d12tt :: olcha 6905000 Кондиционер LG Mega Dual Plus 12 Inverter (D12TT) | alif 7175000 Кондиционер LG D12TT, белый | texnomart 8114000 Кондиционер LG D12TT",
-   "ac:lg:b24ts :: olcha 11303000 Кондиционер LG B24TS PROCOOL, DUAL INVERTER | tezz 12694000 Бытовой кондиционер  LG DUAL INVERTER B24TS | alif 12800000 Кондиционер LG DUAL INVERTER B24TS, белый",
-   "ac:premier:prmbs12fddsinv :: openshop 4965000 Кондиционер Premier Boysun PRMBS-12FDDS-INV/B | olcha 5084000 Кондиционер Premier PRMBS-12FDDS-INV/W Boysun DC I | alif 5980000 Кондиционер Premier PRMBS-12FDDS-INV/W Boysun, бел",
-   "ac:premier:prmcr12snr1inv :: openshop 4496000 Кондиционер Premier Crown PRMCR-12SNR1-INV | alif 5099000 Кондиционер Premier PRMCR-12SNR1 Crown INV, белый | tezz 6893000 Бытовой кондиционер  Premier CROWN PRMCR-12SNR1-IN",
-   "ac:premier:prm12srspainv :: openshop 4279000 Кондиционер Premier Sereno PRM-12SRSPA-INV/DS | olcha 4348000 Кондиционер Premier PRM-12SRSPA-INV/DS  Sereno GMC | idea 4499000 Кондиционер Premier PRM-12SRSPA-INV/WS",
-   "ac:premier:prmfr18snr1inv :: olcha 7981771 Кондиционер Premier PRMFR-18SNR1-INV/2S Forever In | tezz 8991000 Бытовой кондиционер  Premier FOREVER PRMFR-18SNR1- | alif 9793000 Кондиционер Premier PRMFR-18SNR1-INV Forever, белы"
-  ],
   "home": [
    "home:braun:is9090bk :: olcha 5001000 Утюг с парогенератором Braun CareStyle IS9090BK | woot 5527000 Парогенератор BRAUN IS9090BK | idea 6499000 Утюг с пaрогенератором IS9090BK | alif 8820000 Отпариватель Braun IS9090BK, чёрный",
    "home:lg:vc83109uhaq :: texnomart 2699000 Пылесос LG VC83109UHAQ | idea 2699000 Пылесос LG VC83109UHAQ | alif 2749000 Пылесос LG VC83109UHAQ, Чёрный / серый | tezz 2875000 Пылесос  LG VC83109UHAQ",
@@ -506,7 +504,7 @@
    "home:t:karcher fcv 4 :: texnomart 5949000 Вертикальный пылесос Karcher FCV 4 | alif 6400000 Пылесос Karcher FCV 4, серо-белый | karcher 6400000 Ручной моющий пылесос Karcher FCV 4",
    "home:t:karcher kva 2 :: texnomart 2430000 Вертикальный пылесос Karcher KVA 2 *EU | alif 2430000 Пылесос Karcher KVA 2,  белый | karcher 2430000 Аккумуляторный пылесос Karcher KVA 2",
    "home:t:xiaomi truclean w20 wet dry vacuum :: alif 2699000 Пылесос Xiaomi  Truclean W20 Wet Dry Vacuum EU,  б | olcha 2700000 Пылесос Xiaomi Truclean W20 Wet Dry Vacuum | texnomart 3439000 Вертикальный пылесос Xiaomi Truclean W20 Wet Dry V",
-   "home:t:karcher se 3 floor :: alif 3920000 Пылесос Karcher SE 3 Floor, белый | texnomart 4410000 Моющий пылесос Karcher SE 3 Floor | idea 4799000 Моющий пылесос Karcher  SE 3 Floor"
+   "home:t:karcher se 3 floor :: alif 3920000 Пылесос Karcher SE 3 Floor, белый | idea 4799000 Моющий пылесос Karcher  SE 3 Floor | texnomart 4900000 Моющий пылесос Karcher SE 3 Floor"
   ],
   "tv": [
    "tv:premier:55prm2030qsv :: texnomart 4555000 Телевизор Premier 55PRM2030QSV Smart | olcha 4945000 Телевизор Premier 55PRM2030QSV 55\" QLED | idea 4999000 Телевизор Premier 55PRM2030QSV (WebOS QLED) | alif 5099000 Телевизор Premier 55PRM2030QSV, черный",
@@ -565,6 +563,7 @@
    "tablets:lenovo:tbj606l:128 :: olcha 4243333 Планшет Lenovo Tab P11 TB-J606L 4/128GB 11\" | alif 4665000 Планшет Lenovo P11 TB-J606L 4/128 ГБ, Graphite Gra"
   ],
   "other": [
+   "other:logitech:g213 :: openshop 835000 Клавиатура Logitech G213 Prodigy Corded RGB Gaming | maxcom 1084200 Клавиатура Logitech G G213 Prodigy Black USB | woot 1109000 Клавиатура Logitech G213 Prodigy USB",
    "other:netis:p124gh :: avtech 1896300 Коммутатор Netis P124GH | openshop 1899000 Коммутатор Netis P124GH | olcha 2272917 Коммутатор Netis P124GH",
    "other:t:cougar armor elite :: olcha 2866600 Игровое кресло Cougar Armor Elite | avtech 3125850 Кресло Cougar Armor Elite White | maxcom 3127500 Игровое кресло Cougar Armor Elite (White, Black)",
    "other:t:cougar hotrod :: olcha 3866000 Игровое кресло Cougar Hotrod Черный/оранжевый | avtech 4158000 Кресло Cougar Hotrod Black | maxcom 4295100 Игровое кресло Cougar Hotrod Black",
@@ -575,19 +574,18 @@
    "other:t:apple watch 2 49mm :: macbro 10990000 Часы Apple Watch Ultra 2 49mm  Dark Green Green | olcha 11200000 Apple Watch Ультра 2 49MM",
    "other:ecosoft:fpv34eco :: openshop 157000 Bодяной фильтр Ecosoft FPV34ECO | olcha 201042 Фильтр магистральный Ecosoft 10\", прозрачная колба",
    "other:ip:x305 :: avtech 1890000 IP-Телефон Fanvil X305 | maxcom 1890400 IP телефон Fanvil X305",
-   "other:ip:grp2601w :: maxcom 764500 IP телефон Grandstream GRP2601W | idea 899000 IP телефон Grandstream IP NETWORK TELEPHONE GRP260",
-   "other:ip:grp2602g :: maxcom 903500 IP телефон Grandstream GRP2602G | idea 999000 IP телефон Grandstream IP NETWORK TELEPHONE GRP260"
+   "other:ip:grp2601w :: maxcom 764500 IP телефон Grandstream GRP2601W | idea 899000 IP телефон Grandstream IP NETWORK TELEPHONE GRP260"
   ],
   "watches": [
-   "watches:t:huawei watch fit 5 :: openshop 2099000 Умные часы Huawei Watch Fit 5, Purple | texnomart 2299000 Смарт часы Huawei WATCH FIT 5 Black | alif 2299000 Смарт-часы Huawei Watch Fit 5, зеленый",
+   "watches:t:huawei watch fit 5 :: openshop 2099000 Умные часы Huawei Watch Fit 5, Purple | texnomart 2299000 Смарт часы Huawei WATCH FIT 5 Green | alif 2299000 Смарт-часы Huawei Watch Fit 5, зеленый",
    "watches:t:huawei watch d2 :: beeline 3499000 Смарт-часы Huawei Watch D2, Black | texnomart 3583000 Смарт часы Huawei Watch D2 Black | alif 3675000 Смарт-часы Huawei Watch  D2, черный",
    "watches:t:xiaomi redmi watch 5 :: alif 690000 Смарт-часы Xiaomi Redmi Watch 5 Lite, золотистый | texnomart 816000 Смарт часы Xiaomi Redmi Watch 5 Lite Black | idea 999000 Умные часы Xiaomi Redmi Watch 5 Lite gold",
    "watches:t:honor choice watch 2 epic :: beeline 1299000 Смарт-часы Honor Choice Watch 2 Epic, Black | texnomart 1553000 Смарт часы Honor Choice Watch 2 Epic Black",
    "watches:t:honor choice watch 2 :: beeline 899000 Смарт-часы Honor Choice Watch 2 Pro, Black | texnomart 1159000 Смарт часы Honor Choice Watch 2 Pro Black",
    "watches:t:huawei watch fit 5 orange :: openshop 2949000 Умные часы Huawei Watch Fit 5 Pro, Orange | texnomart 2999000 Смарт часы Huawei WATCH FIT 5 Pro Orange",
    "watches:t:huawei watch 5 42mm :: texnomart 4299000 Смарт часы Huawei Watch 5 42mm White | alif 5299000 Смарт-часы Huawei Watch 5 42mm, бежевый",
-   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Blue",
-   "watches:samsung:watch8 :: openshop 2699000 Умные часы Samsung Galaxy Watch8 40 мм, Graphite | texnomart 3781000 Смарт часы Samsung Galaxy Watch8 40mm Graphite",
+   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Graphite",
+   "watches:samsung:watch8 :: openshop 2699000 Умные часы Samsung Galaxy Watch8 40 мм, Graphite | texnomart 3781000 Смарт часы Samsung Galaxy Watch8 40mm Silver",
    "watches:t:xiaomi redmi watch 4 :: idea 1599000 Умные часы Xiaomi Redmi Watch 4 Silver Gray | texnomart 1926000 Смарт часы Xiaomi Redmi Watch 4 Silver Gray",
    "watches:blackview:160kb+384kb :: woot 405000 Смарт-часы Blackview R3 Max 160KB+384KB Black UA | idea 459000 Смарт часы Blackview Smart watch R5 160KB+384KB Bl",
    "watches:t:blackview r8 46 mm :: idea 499000 Смарт-часы Blackview R8 Pro 46 mm Black | woot 561000 Смарт-часы Blackview R8 Pro 46 mm Black"
@@ -597,18 +595,19 @@
    "laptops:acer:5120u+a1551m56a1:512-8 :: olcha 7276272 Ноутбук Acer A15-51M-56A1 Core 5-120U 8GB 512GB 15 | maxcom 7811800 Ноутбук Acer  A15-51M-56A1 (Core 5-120U, 8GB, 512G",
    "laptops:acer:al1652p31ut+i31305u:256-8 :: olcha 7021666 Ноутбук Acer Aspire Lite AL16-52P-31UT I3-1305U 8G | alif 7400000 Ноутбук Acer Aspire Lite AL16-52P-31UT / i3-1305U ",
    "laptops:acer:i513420h:16-512 :: maxcom 9076700 Ноутбук Acer NITRO V 15 (Core I5-13420H / 16GB / 5 | alif 15732000 Ноутбук Acer Nitro LITE / i5-13420H / 16 GB / SSD ",
-   "laptops:t:apple macbook 16 m5 36 2tb :: openshop 48199000 Ноутбук Apple MacBook Pro 16\" M5 Max 36/2TB Silver | olcha 64245500 Ноутбук Apple MacBook Pro 16 M5 Max 36/2TB",
    "laptops:t:apple macbook 16 m5 48 2tb :: openshop 57730000 Ноутбук Apple MacBook Pro 16\" M5 Max 48/2TB Silver | olcha 73700000 Ноутбук Apple MacBook Pro 16 M5 Max 48/2TB",
    "laptops:asus:e1504g+i3n305:256-4 :: olcha 6031666 Ноутбук Asus E1504G I3-N305 4GB 256GB 15,6 FHD Coo | alif 6499000 Ноутбук Asus E1504G / i3-N305 / 4 GB / SSD 256 GB ",
    "laptops:hp:15fc0171nia+7120u:256-8 :: olcha 5720000 Ноутбук HP 15-fc0171nia AMD Athlon 7120U / 8GB / 2 | alif 5994000 Ноутбук HP Laptop 15-fc0171nia / 7120U / 8 ГБ / SD",
    "laptops:hp:i31315u:512-8 :: maxcom 6296700 Ноутбук HP Laptop Intel Core i3-1315U / 8GB / SSD  | alif 6299000 Ноутбук HP LP 250 G10 / i3-1315U / 8 GB / SSD 512 ",
    "laptops:huawei:i512450h:16-512 :: olcha 9207916 Ноутбук HUAWEI MATE BOOK D16 I5-12450H 16/512 GB 1 | alif 11990000 Ноутбук Huawei MateBook D16 / i5-12450H / 16 GB / ",
    "laptops:huawei:i512450h:512-8 :: alif 9312500 Ноутбук Huawei MateBook D14 / i5-12450H / 8 GB / S | olcha 9867916 Ноутбук HUAWEI MATE BOOK D16 I5-12450H 8/512 GB 16",
-   "laptops:huawei:i31215u:512-8 :: olcha 6325000 Ноутбук Huawei MateBook D16 MCLF-X I3-1215U 8GB 51 | alif 8465000 Ноутбук Huawei MateBook D16 MCLF-X / i3-1215U / 8 "
+   "laptops:huawei:i31215u:512-8 :: olcha 6325000 Ноутбук Huawei MateBook D16 MCLF-X I3-1215U 8GB 51 | alif 8465000 Ноутбук Huawei MateBook D16 MCLF-X / i3-1215U / 8 ",
+   "laptops:lenovo:i51235u:512-8 :: alif 7770000 Ноутбук Lenovo V15 G3 / i5-1235U / 8 GB / SSD 512  | maxcom 10536200 Ноутбук Lenovo IdeaPad 5 / Intel Core i5-1235U / 8"
   ],
   "monitors": [
    "monitors:beyrbi:2edgeif2 :: openshop 999000 Кронштейн для монитора настольный 2E Beyrbi 17\"-32 | olcha 1061459 Кронштейн Beyrbi 2E 2EdgeIF2",
    "monitors::d2423b :: alif 1030000 Монитор 2E D2423B 24\", черный | olcha 1078751 Монитор 2E D2423B 23.8\" FHD 75Hz",
+   "monitors:gaming:2er2723bv01ua+r2723bv :: openshop 2032000 Игровой монитор 2E Gaming 27\" Curved, 165 Гц, R272 | maxcom 2335200 Монитор 2E GAMING R2723BV 27″ (2E-R2723BV-01.UA)",
    "monitors:gaming:g2423b :: olcha 1669792 Монитор 2E GAMING G2423B 23.8\" FHD 165Hz | alif 1876000 Монитор 2E Gaming G2423B 23.8\", Черный",
    "monitors:gaming:g2724bu :: olcha 1990104 Монитор 2E GAMING 27\" G2724BU HDMI, DP, Type-C, IP | alif 2082000 Монитор 2E Gaming G2724BU, чёрный",
    "monitors:gaming:r2723bv :: alif 1999000 Монитор 2E Gaming R2723BV, Черный | olcha 2054168 Монитор 2E GAMING R2723BV 27\" FHD 165Hz",
@@ -617,8 +616,7 @@
    "monitors:lg:29wp500b :: woot 3459000 Ультраширокий монитор 29\" LG UltraWide 29WP500-B I | maxcom 3905900 Монитор LG UltraWide 29WP500-B 29\"",
    "monitors:premier:24prm100 :: alif 999000 Монитор Premier 24PRM100 LEDM 24\",  Черный | avtech 1190000 Монитор Premier 24PRM100LEDM 24\"",
    "monitors:premier:27prm100 :: idea 1299000 Монитор Premier 27PRM100 LEDM | avtech 1350000 Монитор Premier 27PRM100LEDM 27\"",
-   "monitors:samsung:ls24f430uaixci+s43gc :: woot 2702000 Монитор 24\" Samsung S4 S43GC LS24F430UAIXCI IPS Fu | openshop 2758000 Монитор Samsung LS24F430UAIXCI 24\"",
-   "monitors:samsung:ls27f320gaixci :: texnomart 1899000 Монитор Samsung S3 LS27F320GAIXCI | woot 2180000 Монитор 27\" Samsung S3 S32GF LS27F320GAIXCI IPS Fu"
+   "monitors:samsung:ls24f430uaixci+s43gc :: woot 2702000 Монитор 24\" Samsung S4 S43GC LS24F430UAIXCI IPS Fu | openshop 2758000 Монитор Samsung LS24F430UAIXCI 24\""
   ]
  }
 }
