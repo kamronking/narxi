@@ -1,5 +1,5 @@
 {
- "started": "2026-11-17T05:18:00.231303+05:00",
+ "started": "2026-11-17T08:18:01.224058+05:00",
  "stores": {
   "texnomart": {
    "pages": 1261,
@@ -42,13 +42,13 @@
     "printers": 8
    },
    "inst": {
-    "exact": 1459,
-    "est": 380,
+    "exact": 1450,
+    "est": 389,
     "factor": 1.7,
     "months": 24,
     "known": 1622
    },
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   },
   "olcha": {
    "pages": 599,
@@ -73,7 +73,7 @@
     "tv": 118
    },
    "in_stock": 11980,
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   },
   "alif": {
    "pages": 388,
@@ -99,7 +99,7 @@
    },
    "cats": 73,
    "budget_left": 112,
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   },
   "beeline": {
    "pages": 22,
@@ -114,7 +114,7 @@
     "climate": 7,
     "kitchen": 4
    },
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   },
   "macbro": {
    "pages": 4,
@@ -132,7 +132,7 @@
     "care": 21,
     "monitors": 4
    },
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   },
   "idea": {
    "pages": 53,
@@ -157,7 +157,7 @@
     "fridges": 70,
     "ac": 41
    },
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   },
   "maxcom": {
    "pages": 170,
@@ -176,7 +176,7 @@
    },
    "cats": 50,
    "budget_left": 0,
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   },
   "woot": {
    "pages": 114,
@@ -199,7 +199,7 @@
    },
    "cats": 48,
    "budget_left": 46,
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   },
   "avtech": {
    "pages": 224,
@@ -214,7 +214,7 @@
    },
    "cats": 121,
    "budget_left": 96,
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   },
   "mionline": {
    "pages": 0,
@@ -239,7 +239,7 @@
    },
    "cats": 12,
    "budget_left": 109,
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   },
   "karcher": {
    "pages": 4,
@@ -252,7 +252,7 @@
     "tablets": 1,
     "care": 2
    },
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   },
   "openshop": {
    "pages": 165,
@@ -265,11 +265,11 @@
     "3-aksessuarlar-va-gadjetlar": 376,
     "56-go-zallik-va-sog-lik": 72,
     "tablets": 79,
-    "phones": 246,
-    "other": 820,
-    "monitors": 42,
-    "climate": 28,
-    "laptops": 64,
+    "phones": 245,
+    "other": 813,
+    "laptops": 66,
+    "monitors": 45,
+    "climate": 31,
     "printers": 5,
     "audio": 151,
     "washers": 34,
@@ -283,23 +283,23 @@
     "care": 49
    },
    "budget_left": 535,
-   "last_ok": "2026-11-17T05:18+05:00"
+   "last_ok": "2026-11-17T08:18+05:00"
   }
  },
  "stale": {},
  "ram_split": 16,
- "merged": 129,
- "brand_split": 13,
- "products": 22779,
- "matched_2plus": 1725,
+ "merged": 130,
+ "brand_split": 15,
+ "products": 22786,
+ "matched_2plus": 1722,
  "cats": {
   "phones": [
    507,
    169
   ],
   "laptops": [
-   1627,
-   20
+   1630,
+   19
   ],
   "tablets": [
    496,
@@ -310,7 +310,7 @@
    137
   ],
   "monitors": [
-   419,
+   422,
    14
   ],
   "audio": [
@@ -346,7 +346,7 @@
    74
   ],
   "climate": [
-   490,
+   492,
    54
   ],
   "care": [
@@ -358,26 +358,26 @@
    74
   ],
   "other": [
-   10785,
-   182
+   10784,
+   180
   ]
  },
  "unkeyed_sample": [
   "Керамическое защитное стекло Xiaomi Redmi Note 9T",
+  "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
   "Умная колонка Яндекс Станция Лайт 2 Графитовый",
   "Умная колонка Яндекс Станция Мини с часами с Алисой, Черный, 10Вт",
-  "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
   "Наушники вставные беспроводные Green Earbuds",
   "Смарт часы Green Active Pro Black",
   "Смарт часы Green Ultra Black",
-  "Мясорубка Аксион М41.01",
-  "Мясорубка Аксион М61.02",
-  "Мясорубка Аксион М12.11",
   "Мясорубка Аксион М21.01",
+  "Мясорубка Аксион М12.11",
+  "Мясорубка Аксион М61.02",
   "Мясорубка Аксион М41.00",
   "Мясорубка Аксион М321.01",
+  "Мясорубка Аксион М41.01",
   "Соковыжималка Аксион СЦ32.01",
-  "Соковыжималка Аксион СЦ32.02 Джус"
+  "Соковыжималка Аксион СЦ32.01 Чёрная"
  ],
  "keys_sample": {
   "audio": [
@@ -550,28 +550,28 @@
   ],
   "other": [
    "other:logitech:g213 :: openshop 835000 Клавиатура Logitech G213 Prodigy Corded RGB Gaming | maxcom 1084200 Клавиатура Logitech G G213 Prodigy Black USB | woot 1109000 Клавиатура Logitech G213 Prodigy USB",
+   "other:logitech:mk235 :: openshop 268000 Беспроводной комплект клавиатуры и мыши Logitech M | woot 430000 Клавиатура и мышь Logitech MK235 USB | idea 449000 Клавиатура+мышь беспроводная Logitech MK235  ",
    "other:netis:p124gh :: avtech 1896300 Коммутатор Netis P124GH | openshop 1899000 Коммутатор Netis P124GH | olcha 2272917 Коммутатор Netis P124GH",
    "other:t:cougar armor elite :: olcha 2866600 Игровое кресло Cougar Armor Elite | avtech 3125850 Кресло Cougar Armor Elite White | maxcom 3127500 Игровое кресло Cougar Armor Elite (White, Black)",
    "other:t:cougar hotrod :: olcha 3866000 Игровое кресло Cougar Hotrod Черный/оранжевый | avtech 4158000 Кресло Cougar Hotrod Black | maxcom 4295100 Игровое кресло Cougar Hotrod Black",
    "other:t:cougar nxsys aero :: olcha 5066600 Кресло компьютерное игровое Cougar NxSys Aero Blac | avtech 5530140 Кресло Cougar NxSys Aero | maxcom 5699000 Игровое кресло Cougar NxSys Aero",
+   "other:logitech:g402 :: openshop 522000 Игровая мышь Logitech G402 Hyperion Fury | woot 666000 Мышь Logitech G402 USB | maxcom 681100 Мышь Logitech G402 Hyperion Fury FPS",
    "other:powerlink:8xfe+sf108c :: woot 117000 2E PowerLink SF108C 8xFE, | olcha 164584 Коммутатор 2E PowerLink SF108C 8XFE неуправляемый ",
    "other::a4tech :: maxcom 139000 A4-Tech S-7-1 | woot 250000 Игровая мышь A4Tech X77 Black",
    "other:t:apple magic mouse 3 :: macbro 1138000 Беспроводная мышь Apple Magic Mouse 3 Silver | olcha 1350000 Apple Magic mouse 3 White",
    "other:t:apple watch 2 49mm :: macbro 10990000 Часы Apple Watch Ultra 2 49mm  Dark Green Green | olcha 11200000 Apple Watch Ультра 2 49MM",
-   "other:ecosoft:fpv34eco :: openshop 157000 Bодяной фильтр Ecosoft FPV34ECO | olcha 201042 Фильтр магистральный Ecosoft 10\", прозрачная колба",
-   "other:ip:x305 :: avtech 1890000 IP-Телефон Fanvil X305 | maxcom 1890400 IP телефон Fanvil X305",
-   "other:ip:grp2601w :: maxcom 764500 IP телефон Grandstream GRP2601W | idea 899000 IP телефон Grandstream IP NETWORK TELEPHONE GRP260"
+   "other:ecosoft:fpv34eco :: openshop 157000 Bодяной фильтр Ecosoft FPV34ECO | olcha 201042 Фильтр магистральный Ecosoft 10\", прозрачная колба"
   ],
   "watches": [
-   "watches:t:huawei watch fit 5 :: openshop 2099000 Умные часы Huawei Watch Fit 5, Purple | texnomart 2299000 Смарт часы Huawei WATCH FIT 5 Green | alif 2299000 Смарт-часы Huawei Watch Fit 5, зеленый",
+   "watches:t:huawei watch fit 5 :: openshop 2099000 Умные часы Huawei Watch Fit 5, Purple | texnomart 2299000 Смарт часы Huawei WATCH FIT 5 White | alif 2299000 Смарт-часы Huawei Watch Fit 5, зеленый",
    "watches:t:huawei watch d2 :: beeline 3499000 Смарт-часы Huawei Watch D2, Black | texnomart 3583000 Смарт часы Huawei Watch D2 Black | alif 3675000 Смарт-часы Huawei Watch  D2, черный",
    "watches:t:xiaomi redmi watch 5 :: alif 690000 Смарт-часы Xiaomi Redmi Watch 5 Lite, золотистый | texnomart 816000 Смарт часы Xiaomi Redmi Watch 5 Lite Black | idea 999000 Умные часы Xiaomi Redmi Watch 5 Lite gold",
    "watches:t:honor choice watch 2 epic :: beeline 1299000 Смарт-часы Honor Choice Watch 2 Epic, Black | texnomart 1553000 Смарт часы Honor Choice Watch 2 Epic Black",
    "watches:t:honor choice watch 2 :: beeline 899000 Смарт-часы Honor Choice Watch 2 Pro, Black | texnomart 1159000 Смарт часы Honor Choice Watch 2 Pro Black",
    "watches:t:huawei watch fit 5 orange :: openshop 2949000 Умные часы Huawei Watch Fit 5 Pro, Orange | texnomart 2999000 Смарт часы Huawei WATCH FIT 5 Pro Orange",
    "watches:t:huawei watch 5 42mm :: texnomart 4299000 Смарт часы Huawei Watch 5 42mm White | alif 5299000 Смарт-часы Huawei Watch 5 42mm, бежевый",
-   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Blue",
-   "watches:samsung:watch8 :: openshop 2699000 Умные часы Samsung Galaxy Watch8 40 мм, Graphite | texnomart 3781000 Смарт часы Samsung Galaxy Watch8 40mm Silver",
+   "watches:t:samsung galaxy watch 5 44mm :: idea 3799000 Умные часы Samsung Galaxy Watch 5 (44mm) blue | texnomart 4164000 Смарт часы Samsung Galaxy Watch 5 44mm Graphite",
+   "watches:samsung:watch8 :: openshop 2699000 Умные часы Samsung Galaxy Watch8 40 мм, Graphite | texnomart 3781000 Смарт часы Samsung Galaxy Watch8 40mm Graphite",
    "watches:t:xiaomi redmi watch 4 :: idea 1599000 Умные часы Xiaomi Redmi Watch 4 Silver Gray | texnomart 1926000 Смарт часы Xiaomi Redmi Watch 4 Silver Gray",
    "watches:blackview:160kb+384kb :: woot 405000 Смарт-часы Blackview R3 Max 160KB+384KB Black UA | idea 459000 Смарт часы Blackview Smart watch R5 160KB+384KB Bl",
    "watches:t:blackview r8 46 mm :: idea 499000 Смарт-часы Blackview R8 Pro 46 mm Black | woot 561000 Смарт-часы Blackview R8 Pro 46 mm Black"
