@@ -643,7 +643,10 @@ const WORKER='https://narxi-bot.numonjonovkamron.workers.dev',WORKERS=['https://
 async function wfetch(path){for(const base of WORKERS){try{const c=new AbortController(),tm=setTimeout(()=>c.abort(),4000);const r=await fetch(base+path,{signal:c.signal});clearTimeout(tm);if(r.ok)return r}catch(e){}}throw new Error('worker unreachable')}
 async function regStatus(){if(store.get('reg_ok',false))return true;if(!WORKER)return false;
   const ids=[...new Set([store.get('reg_id',null),window.NX?await NX.uid():null].filter(Boolean))];
-  for(const id of ids)try{const r=await wfetch(`/reg?id=${encodeURIComponent(id)}`);const j=await r.json();if(j.ok){store.set('reg_id',id);store.set('reg_ok',true);if(j.name&&(!USER||!USER.name)){USER={name:j.name,phone:'',city:'',brands:[],since:Date.now()};store.set('user',USER);window.NX&&NX.saveUser&&NX.saveUser(USER,WATCH,LANG);render()}window.NX&&NX.ev('sign_up',{method:'telegram'});return true}}catch(e){}return false}
+  for(const id of ids)try{const r=await wfetch(`/reg?id=${encodeURIComponent(id)}`);const j=await r.json();if(j.ok){store.set('reg_id',id);store.set('reg_ok',true);if(j.name&&(!USER||!USER.name)){USER={name:j.name,phone:'',city:'',brands:[],since:j.since||Date.now()};store.set('user',USER);window.NX&&NX.saveUser&&NX.saveUser(USER,WATCH,LANG);render()}else syncSince(j);window.NX&&NX.ev('sign_up',{method:'telegram'});return true}}catch(e){}return false}
+// the profile "days with Narxi" counter must start at the person's FIRST registration (not reset after sign-out or on a new device)
+function syncSince(j){if(!j||!j.since)return;if(USER&&(!USER.since||j.since<USER.since)){USER.since=j.since;store.set('user',USER);window.NX&&NX.saveUser&&NX.saveUser(USER,WATCH,LANG);render()}store.set('since_sync',1)}
+(async()=>{if(!store.get('reg_ok',false)||store.get('since_sync',0))return;const id=store.get('reg_id',null);if(!id)return;try{const r=await wfetch(`/reg?id=${encodeURIComponent(id)}`);syncSince(await r.json())}catch(e){}})();
 // came back to the tab without the bot's link: re-check quietly (only if a registration was started here)
 document.addEventListener('visibilitychange',async()=>{if(document.visibilityState!=='visible'||store.get('reg_ok',false)||!store.get('reg_id',null))return;
   if(await regStatus()){document.getElementById('regsheet')?.remove();toast(t('rgOk'));render()}});
@@ -805,7 +808,7 @@ let lastRf=Date.now();
 // links from the Telegram channel: narxi.site/?p=<product key> opens that product, Back returns to home
 (function(){const q=new URLSearchParams(location.search),k=q.get('p');if(k&&/^[a-z_]+:.{1,160}$/.test(k)){history.replaceState({tab:'home',key:null,y:0},'',location.pathname);history.pushState({tab:'home',key:k,y:0},'');S.key=k;try{sessionStorage.setItem('ob_shown','1')}catch(e){}}})();
 render();
-(function(){const q=new URLSearchParams(location.search);if(q.has('reset')){try{['user','watch','seen','reg_ok','reg_id','synced','cmp','seenp','lang','lang_set','theme'].forEach(k=>localStorage.removeItem('narxi_'+k));sessionStorage.clear()}catch(e){}
+(function(){const q=new URLSearchParams(location.search);if(q.has('reset')){try{['user','watch','seen','reg_ok','reg_id','synced','since_sync','cmp','seenp','lang','lang_set','theme'].forEach(k=>localStorage.removeItem('narxi_'+k));sessionStorage.clear()}catch(e){}
   window.__resetting=true;const go2=()=>{try{sessionStorage.clear()}catch(e){}location.replace(location.pathname)};if(window.NX&&NX.signOut)NX.signOut().then(go2,go2);else setTimeout(()=>{(window.NX&&NX.signOut?NX.signOut():Promise.resolve()).then(go2,go2)},1500)}})();
 const firstVisitOfSession=!sessionStorage.getItem('ob_shown');
 (function(){const q=new URLSearchParams(location.search);const rid=q.get('reg');if(rid&&/^[A-Za-z0-9]{10,40}$/.test(rid)){store.set('reg_id',rid);history.replaceState(null,'',location.pathname)}})();

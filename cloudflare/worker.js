@@ -358,10 +358,15 @@ export default {
       const r = await tg(env, 'setWebhook', { url: `${url.origin}/hook`, secret_token: env.WEBHOOK_SECRET, allowed_updates: ['message'], drop_pending_updates: false });
       return new Response(JSON.stringify(r), { headers: { 'content-type': 'application/json' } });
     }
-    if (url.pathname === '/reg') {  // site asks: is this visitor registered? (yes/no only, no personal data)
-      const id = url.searchParams.get('id') || '';
-      const d = /^[A-Za-z0-9]{10,40}$/.test(id) ? await fs(env).get(`site_reg/${id}`) : null;
-      return new Response(JSON.stringify(d ? { ok: true, name: d.first_name || '' } : { ok: false }), { headers: { 'content-type': 'application/json', 'access-control-allow-origin': ORIGIN_OK(req.headers.get('origin')) ? req.headers.get('origin') : 'https://narxi.site', 'vary': 'origin', 'cache-control': 'no-store' } });
+    if (url.pathname === '/reg') {  // site asks: is this visitor registered? (yes/no, first name, first registration date)
+      const id = url.searchParams.get('id') || '', db = fs(env);
+      const d = /^[A-Za-z0-9]{10,40}$/.test(id) ? await db.get(`site_reg/${id}`) : null;
+      // the same person can register again after "sign out" or from another device: report their FIRST registration date
+      let since = d ? d.at || null : null;
+      if (d && (d.phone || d.chat)) try {
+        for (const r of await db.all('site_reg')) if (r.at && ((d.phone && r.phone === d.phone) || (d.chat && r.chat === d.chat)) && (!since || r.at < since)) since = r.at;
+      } catch (e) {}
+      return new Response(JSON.stringify(d ? { ok: true, name: d.first_name || '', since: since ? since * 1000 : null } : { ok: false }), { headers: { 'content-type': 'application/json', 'access-control-allow-origin': ORIGIN_OK(req.headers.get('origin')) ? req.headers.get('origin') : 'https://narxi.site', 'vary': 'origin', 'cache-control': 'no-store' } });
     }
     if (url.pathname === '/hook' && req.method === 'POST') {
       if (req.headers.get('x-telegram-bot-api-secret-token') !== env.WEBHOOK_SECRET) return new Response('forbidden', { status: 403 });
