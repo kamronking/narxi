@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+        <loc>https://openshop.uz/sitemap/page1.xml</loc>
+        <lastmod>2026-11-18T03:00:03+05:00</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://openshop.uz/sitemap/category1.xml</loc>
+        <lastmod>2026-11-15T16:01:53+05:00</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://openshop.uz/sitemap/product1.xml</loc>
+        <lastmod>2026-11-18T01:45:35+05:00</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://openshop.uz/sitemap/product2.xml</loc>
+        <lastmod>2026-11-18T01:05:34+05:00</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://openshop.uz/sitemap/product3.xml</loc>
+        <lastmod>2026-11-18T01:38:15+05:00</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://openshop.uz/sitemap/brand1.xml</loc>
+        <lastmod>2026-11-15T16:00:37+05:00</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://openshop.uz/sitemap/blog1.xml</loc>
+        <lastmod>2026-11-18T02:58:50+05:00</lastmod>
+    </sitemap>
+</sitemapindex>

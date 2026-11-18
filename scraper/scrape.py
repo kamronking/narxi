@@ -673,8 +673,24 @@ def tezz():
     rep['budget_left'] = budget
     return _fin(items, rep)
 
+def _os_products(t):
+    """openshop.uz (Next.js): products live in the self.__next_f payload as React Query data objects."""
+    try:
+        s = ''.join(json.loads('"' + x + '"') for x in re.findall(r'self\.__next_f\.push\(\[1,"((?:[^"\\]|\\.)*)"\]\)', t))
+    except Exception:
+        return []
+    out, dec = [], json.JSONDecoder()
+    for m in re.finditer(r'\{"id":\d+,"name":', s):
+        try:
+            o, _ = dec.raw_decode(s, m.start())
+        except Exception:
+            continue
+        if isinstance(o, dict) and o.get('slug') and isinstance(o.get('price'), dict):
+            out.append(o)
+    return out
+
 def openshop():
-    """openshop.uz: category pages carry a schema.org ItemList (12 per page) with name, price, stock, image."""
+    """openshop.uz: category pages; product data (name, price, old price, stock, image) from the Next.js payload."""
     rep, items, seen = _rep(), [], set()
     cats = ['11-telefonlar-va-planshetlar', '8-video-va-kompyuter-texnikalari', '4-maishiy-texnika', '3-aksessuarlar-va-gadjetlar', '56-go-zallik-va-sog-lik']
     budget = 700
@@ -689,34 +705,32 @@ def openshop():
                 t = r.text
             except Exception as e:
                 rep['errors'].append(f'{url}: {e!r}'[:160]); break
-            lst = None
-            for blk in re.findall(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', t, re.S):
-                try: j = json.loads(blk)
-                except Exception: continue
-                me = j.get('mainEntity') if isinstance(j, dict) else None
-                if me and me.get('@type') == 'ItemList': lst = me; break
-            if not lst: break
-            total = total or lst.get('numberOfItems') or 0
+            if total is None:
+                m = re.search(r'"numberOfItems":\s*(\d+)', t)
+                total = int(m.group(1)) if m else 0
             new = 0
-            for e in lst.get('itemListElement', []):
-                it = e.get('item') or {}; of = it.get('offers') or {}
-                u = (e.get('url') or '').split('?')[0]
-                title = _html.unescape(it.get('name') or '').strip()
-                try: price = int(float(of.get('price') or 0))
+            for o in _os_products(t):
+                u = 'https://openshop.uz/shop/product/' + o['slug']
+                title = _html.unescape(o.get('name') or '').strip()
+                pr = o['price']
+                try: price = int(float(pr.get('total') or 0))
                 except Exception: price = 0
-                if not u or u in seen or not title or price <= 0: continue
-                if re.search(r'\bб/у\b|\bb/u\b|бывш', title, re.I): continue
+                try: old = int(float(pr.get('old_price') or 0))
+                except Exception: old = 0
+                if u in seen or not title or price <= 0 or o.get('is_published') is False: continue
+                if re.search(r'\bб/у\b|\bb/u\b|бывш|refurbished', title, re.I): continue
                 seen.add(u); new += 1
-                img = (it.get('image') or [None])[0] if isinstance(it.get('image'), list) else it.get('image')
-                items.append({'store': 'openshop', 'title': title, 'price': price, 'old': None, 'url': u,
-                              'stock': 'ok' if 'InStock' in (of.get('availability') or '') else 'out', 'img': img, 'cat': cat_of_name(title)})
+                items.append({'store': 'openshop', 'title': title, 'price': price, 'old': old if old > price else None, 'url': u,
+                              'stock': 'ok' if o.get('is_stock') else 'out', 'img': o.get('thumbnail_img'), 'cat': cat_of_name(title)})
             rep['per_cat'][c] = rep['per_cat'].get(c, 0) + new
-            if not new or page * 12 >= total: break
+            if not new or (total and page * 24 >= total): break
     rep['budget_left'] = budget
     return _fin(items, rep)
 
+# mionline: since Nov 2026 the whole site sits behind a Cloudflare bot challenge (403 "Just a moment..."),
+# so it is switched off; mionline() stays here to re-enable if they open access or give us a feed.
 STORES = {'texnomart': texnomart, 'olcha': olcha, 'alif': alif, 'beeline': beeline, 'macbro': macbro,
-          'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'mionline': mionline, 'tezz': tezz, 'karcher': karcher, 'openshop': openshop}
+          'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'tezz': tezz, 'karcher': karcher, 'openshop': openshop}
 
 OTHER_CHUNKS = 8
 def khash(k):
