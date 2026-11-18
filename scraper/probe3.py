@@ -24,4 +24,4 @@ for name, u in URLS.items():
     except Exception as e:
         res[name] = {'url': u, 'err': repr(e)[:200]}
 json.dump(res, open(f'{OUT}/summary.json', 'w'), ensure_ascii=False, indent=1)
-print('ok')
+print(json.dumps(res, ensure_ascii=False, indent=1))
