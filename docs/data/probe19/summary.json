@@ -1,0 +1,98 @@
+{
+ "mi_robots": {
+  "url": "https://mionline.uz/robots.txt",
+  "st": 403,
+  "final": "https://mionline.uz/robots.txt",
+  "ct": "text/html; charset=UTF-8",
+  "allowed": true,
+  "len": 5549,
+  "locs": 0,
+  "ldjson": 0,
+  "challenge": true,
+  "head": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-erbTFUnKZ0kNouhIqeYVDy&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges"
+ },
+ "mi_jetcat": {
+  "url": "https://mionline.uz/jetsitemap-categories-lang-ru.xml",
+  "st": 403,
+  "final": "https://mionline.uz/jetsitemap-categories-lang-ru.xml",
+  "ct": "text/html; charset=UTF-8",
+  "allowed": true,
+  "len": 5660,
+  "locs": 0,
+  "ldjson": 0,
+  "challenge": true,
+  "head": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-oFDElUZjYOC6IutjUGryLN&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges"
+ },
+ "mi_sitemap": {
+  "url": "https://mionline.uz/sitemap.xml",
+  "st": 403,
+  "final": "https://mionline.uz/sitemap.xml",
+  "ct": "text/html; charset=UTF-8",
+  "allowed": true,
+  "len": 5573,
+  "locs": 0,
+  "ldjson": 0,
+  "challenge": true,
+  "head": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-nIPJP0v4Ds8jiJnTEUmQna&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges"
+ },
+ "mi_home": {
+  "url": "https://mionline.uz/",
+  "st": 403,
+  "final": "https://mionline.uz/",
+  "ct": "text/html; charset=UTF-8",
+  "allowed": true,
+  "len": 5519,
+  "locs": 0,
+  "ldjson": 0,
+  "challenge": true,
+  "head": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-TreycRopdUmeoaBjvWVOYA&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges"
+ },
+ "os_robots": {
+  "url": "https://openshop.uz/robots.txt",
+  "st": 200,
+  "final": "https://openshop.uz/robots.txt",
+  "ct": "text/plain",
+  "allowed": true,
+  "len": 529,
+  "locs": 0,
+  "ldjson": 0,
+  "challenge": false,
+  "head": "User-agent: *\nDisallow: /admin/\nDisallow: /user/\nDisallow: /bag\nDisallow: /wishlist\n\n# Qidiruv sahifalari (/shop?search=, /shop/search/) hozircha ataylab ochiq:\n# Google ularning noindex'ini ko'rib, indeksdan tushirishi kerak. Search Console'da\n# ular indeksdan tushgach (taxminan noyabr boshi) quyidagilar qo'shiladi:\n# Disallow: /shop/search/\n# Disallow: /shop?search=\n\nUser-agent: Yandex\nDisallow: /admin/\nDisallow: /user/\nDisallow: /bag\nDisallow: /wishlist\nClean-param: search /shop\n\nSitemap: https://openshop.uz/sitemap.xml\n"
+ },
+ "os_cat": {
+  "url": "https://openshop.uz/shop/category/11-telefonlar-va-planshetlar?lang=ru",
+  "st": 200,
+  "final": "https://openshop.uz/shop/category/11-telefonlar-va-planshetlar?lang=ru",
+  "ct": "text/html; charset=utf-8",
+  "allowed": true,
+  "len": 1005188,
+  "locs": 0,
+  "ldjson": 8,
+  "challenge": false,
+  "head": "<!DOCTYPE html><html lang=\"ru\" translate=\"no\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\"/><link rel=\"preload\" as=\"image\" href=\"https://web.openshop.uz/img/page/social/instagram.webp\"/><link rel=\"preload\" as=\"image\" href=\"https://web.openshop.uz/img/page/social/facebook.webp\"/><link rel=\"preload\" as=\"image\" href=\"https://web.openshop.uz/img/page/social/youtube.webp\"/><link rel=\"preload\" as=\"image\" href=\"https://web.openshop.uz/img/page/social/telegram.webp\"/><link rel=\"preload\" as=\"image\" href=\"https://api."
+ },
+ "os_home": {
+  "url": "https://openshop.uz/",
+  "st": 200,
+  "final": "https://openshop.uz/?lang=uz",
+  "ct": "text/html; charset=utf-8",
+  "allowed": true,
+  "len": 243081,
+  "locs": 0,
+  "ldjson": 4,
+  "challenge": false,
+  "head": "<!DOCTYPE html><html lang=\"uz\" translate=\"no\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\"/><link rel=\"preload\" as=\"image\" href=\"https://asset.openshop.uz/uploads/page/uz.png\"/><link rel=\"preload\" as=\"image\" href=\"https://asset.openshop.uz/uploads/static/1177c1907668dead5f4765246a3999c7.svg\"/><link rel=\"preload\" as=\"image\" href=\"https://asset.openshop.uz/uploads/static/1e3887818f673f82be6e5e70aaba6308.svg\"/><link rel=\"preload\" as=\"image\" href=\"https://asset.openshop.uz/uploads/static/f75614ab8a722550e9347ee8"
+ },
+ "os_sitemap": {
+  "url": "https://openshop.uz/sitemap.xml",
+  "st": 200,
+  "final": "https://openshop.uz/sitemap.xml",
+  "ct": "text/xml",
+  "allowed": true,
+  "len": 1108,
+  "locs": 7,
+  "ldjson": 0,
+  "challenge": false,
+  "head": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/page1.xml</loc>\n        <lastmod>2026-11-18T03:00:03+05:00</lastmod>\n    </sitemap>\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/category1.xml</loc>\n        <lastmod>2026-11-15T16:01:53+05:00</lastmod>\n    </sitemap>\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/product1.xml</loc>\n        <lastmod>2026-11-18T01:45:35+05:00</lastmod>\n    </sitemap>\n    <sitemap>\n        <loc>https://openshop.uz/sitemap/product2.xml</l"
+ }
+}
