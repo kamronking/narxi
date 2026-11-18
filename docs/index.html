@@ -75,6 +75,16 @@ h2{font:700 17px/1.25 var(--ui);margin:0;letter-spacing:-.01em}
 @keyframes float{to{transform:translate(-30px,20px) scale(1.15)}}
 .hero h1{font:800 26px/1.08 var(--disp);letter-spacing:-.035em;margin:0;text-wrap:balance}
 .hero h1 em{font-style:normal;color:var(--lime)}
+.hl{display:flex;flex-direction:column;gap:12px;min-width:0}
+.hcard{display:none}
+@media(min-width:700px){.hero{display:grid;grid-template-columns:minmax(0,1fr) 340px;align-items:center;column-gap:24px}
+ .hcard{display:block;text-align:left;background:#fff;color:#0d1c16;border:0;border-radius:20px;padding:16px;font:inherit;cursor:pointer;box-shadow:0 18px 40px rgba(0,0,0,.25);transform:rotate(1.5deg);transition:transform .25s var(--ease),opacity .26s}
+ .hcard:hover{transform:rotate(0) translateY(-3px)}.hcard.swap{opacity:0}
+ .hcin{display:flex;flex-direction:column;gap:8px}.hctop{display:flex;gap:12px;align-items:center}.hctop .ph{border-radius:12px;background:#f3f5f2}
+ .hclbl{font-size:12px;font-weight:700;color:#5b6b64;text-transform:uppercase;letter-spacing:.04em}.hcnm{font-weight:700;font-size:15px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .hcrow{display:flex;justify-content:space-between;align-items:center;font-size:14px;padding:7px 10px;border-radius:10px;background:#f6f7f5}.hcrow b{font-weight:800}.hcrow .dot{margin-right:6px}
+ .hcrow.best{background:#e6f4ee}.hcrow.best b{color:#0c5a43}.hcrow:not(.best) b{color:#c24141;text-decoration:line-through;text-decoration-thickness:1.5px}
+ .hcsave{align-self:flex-start;background:var(--lime);color:#0c3a2b;font-weight:800;font-size:14px;border-radius:999px;padding:5px 12px}}
 .facts{display:flex;gap:6px;flex-wrap:wrap;font-size:12.5px}
 .facts span{background:rgba(255,255,255,.14);border-radius:999px;padding:4px 10px;white-space:nowrap}
 .live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lime);margin-right:6px;vertical-align:1px;animation:pulse 1.6s infinite}
@@ -479,11 +489,23 @@ const brandCounts=()=>{const c={};IDX.forEach(r=>{if(S.cat!=='all'&&r[2]!==S.cat
 const rfIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v5h-5"/></svg>';
 const deals=()=>(META.deals||[]).map(p=>PM[p.key]||p).filter(p=>gapOf(p)>0&&gapOf(p)<worst(p).price*.3);
 const EXUZ=['noutbuk 8 mln gacha','telefon 3 mln gacha','muzlatgich Samsung 10 mln gacha','televizor 5-8 mln'],EXRU=['ноутбук до 8 млн','телефон до 3 млн','холодильник Samsung до 10 млн','телевизор 5-8 млн'];
+/* hero: live price-gap card on wide screens, rotates through today's best gaps (phones/laptops/TV first) */
+let HERO_T=null,HERO_I=0;
+function heroPick(D){const pri=['phones','tablets','laptops','tv'];const a=D.filter(p=>pri.includes(p.key.split(':')[0])),b=D.filter(p=>!pri.includes(p.key.split(':')[0]));return [...a,...b].slice(0,6)}
+function heroInner(p){const b=best(p),w=worst(p);return `<div class="hcin"><div class="hctop">${img(p.img,'ph','width:76px;height:76px;flex:none',200)}</div><div style="min-width:0"><div class="hclbl">${LANG==='ru'?'Разница сегодня':'Bugungi farq'}</div><div class="hcnm">${esc(p.name)}</div></div></div>
+  <div class="hcrow best"><span><span class="dot" style="background:${STORES[b.store].color}"></span>${STORES[b.store].name}</span><b>${som(b.price)}</b></div>
+  <div class="hcrow"><span><span class="dot" style="background:${STORES[w.store].color}"></span>${STORES[w.store].name}</span><b>${som(w.price)}</b></div>
+  <div class="hcsave">−${mln(gapOf(p))} ${LANG==='ru'?'экономия':'tejaysiz'} →</div></div>`}
+function heroCard(D){clearInterval(HERO_T);const L=heroPick(D);if(!L.length)return '';HERO_I=HERO_I%L.length;
+  setTimeout(()=>{const el=document.getElementById('hcard');if(!el)return;el.onclick=()=>{S.key=el.dataset.k;nav()};
+    if(L.length>1)HERO_T=setInterval(()=>{const c=document.getElementById('hcard');if(!c){clearInterval(HERO_T);return}if(document.hidden)return;
+      c.classList.add('swap');setTimeout(()=>{HERO_I=(HERO_I+1)%L.length;const p=L[HERO_I];c.dataset.k=p.key;c.innerHTML=heroInner(p);c.classList.remove('swap')},260)},4500)},0);
+  const p=L[HERO_I];return `<button class="hcard press" id="hcard" data-k="${esc(p.key)}" aria-label="${esc(p.name)}">${heroInner(p)}</button>`}
 function renderHome(){const D=deals();
   LIST=()=>IDX.filter(r=>r[4]>1).sort((a,b)=>b[4]-a[4]||b[5]-a[5]).map(r=>r[0]);
   view.innerHTML=`<div class="greet in-up">${t('hi')}, <b>${esc(USER?USER.name.split(' ')[0]:t('guest'))}</b> 👋</div>
-   <section class="hero in-up" style="--i:1"><h1>${t('h1a')} <em>${t('h1b')}</em></h1>
-    <div class="facts"><button class="live rf" id="rf">${t('upd')} ${updTxt()} ${rfIcon}</button><span>${fmt(IDX.length)} ${tn('models',IDX.length)}</span><span>${Object.keys(DATA.stores).length} ${tn('storesN',Object.keys(DATA.stores).length)}</span></div>${igBtn('sm')}</section>
+   <section class="hero in-up" style="--i:1"><div class="hl"><h1>${t('h1a')} <em>${t('h1b')}</em></h1>
+    <div class="facts"><button class="live rf" id="rf">${t('upd')} ${updTxt()} ${rfIcon}</button><span>${fmt(IDX.length)} ${tn('models',IDX.length)}</span><span>${Object.keys(DATA.stores).length} ${tn('storesN',Object.keys(DATA.stores).length)}</span></div>${igBtn('sm')}</div>${heroCard(D)}</section>
    <div class="chips" role="group" id="hcats">${META.cats.map(c=>`<button data-hc="${c.id}">${esc(LANG==='ru'?c.ru:c.uz)}<span class="n">${fmt(c.n)}</span></button>`).join('')}</div>
    ${D.length?`<section style="display:flex;flex-direction:column;gap:10px"><div class="secthead"><h2>${t('biggest')}</h2><span class="small muted">${t('bigSub')}</span></div><div class="rail">${D.slice(0,8).map(deal).join('')}</div></section>`:''}
    <div class="secthead"><h2>${t('topT')}</h2><button class="btn ghost sm" id="seeAll">${t('seeAll')}</button></div>
