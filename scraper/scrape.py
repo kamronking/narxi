@@ -435,7 +435,10 @@ def num(s):
     s = re.sub(r'[^\d]', '', str(s or ''))
     return int(s) if s else 0
 def _rep(): return {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}}
+BUNDLE = re.compile(r'\+\s*(?:toner|тонер|запр)|тонер в комплекте', re.I)
 def _fin(items, rep):
+    # an offer bundled with toner/refill is not the same product as the bare model: keep it out of comparisons
+    items = [it for it in items if not BUNDLE.search(it.get('title') or '')]
     for it in items: rep['per_cat'][it['cat']] = rep['per_cat'].get(it['cat'], 0) + 1
     rep['items'] = len(items); rep['errors'] = rep['errors'][:20]
     return items, rep
