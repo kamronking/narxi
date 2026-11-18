@@ -52,7 +52,7 @@ header a{color:#fff;text-decoration:none;font-weight:800;font-size:20px}header .
 .top img{width:120px;height:120px;object-fit:contain;flex:none}.best{font-size:14px;color:#5b6b64}.best b{display:block;font-size:28px;color:#0c5a43;line-height:1.2}
 .save{display:inline-block;background:#e6f4ee;color:#0c5a43;font-weight:700;font-size:13px;border-radius:999px;padding:3px 10px;margin-top:6px}
 table{width:100%;border-collapse:collapse}td{padding:12px 6px;border-top:1px solid #eef0ee;vertical-align:middle}tr:first-child td{border-top:0}
-.st{font-weight:700}.ot{display:block;font-weight:400;font-size:12px;color:#5b6b64;line-height:1.35;margin-top:2px}.simt{display:inline-block;font-size:11px;font-weight:700;background:#e6f4ee;color:#0c5a43;border-radius:6px;padding:0 6px;margin-right:5px}.pr{text-align:right;white-space:nowrap;font-weight:800}.pr s{display:block;color:#98a29d;font-weight:400;font-size:13px}.pr small{display:block;color:#5b6b64;font-weight:400;font-size:12px}
+.cn{font-size:13px;color:#5b6b64;background:#f3f5f2;border-radius:10px;padding:8px 10px;margin:-2px 0 8px}.st{font-weight:700}.ot{display:block;font-weight:400;font-size:12px;color:#5b6b64;line-height:1.35;margin-top:2px}.simt{display:inline-block;font-size:11px;font-weight:700;background:#e6f4ee;color:#0c5a43;border-radius:6px;padding:0 6px;margin-right:5px}.pr{text-align:right;white-space:nowrap;font-weight:800}.pr s{display:block;color:#98a29d;font-weight:400;font-size:13px}.pr small{display:block;color:#5b6b64;font-weight:400;font-size:12px}
 .lnk{text-align:right;white-space:nowrap}.lnk a{font-size:14px;font-weight:600}.cta{display:block;text-align:center;background:#0c5a43;color:#fff;text-decoration:none;font-weight:700;border-radius:12px;padding:14px;margin:4px 0 14px}
 h2{font-size:18px;margin:0 0 10px}ul.l{list-style:none;padding:0;margin:0}ul.l li{padding:8px 0;border-top:1px solid #eef0ee;display:flex;justify-content:space-between;gap:10px}ul.l li:first-child{border-top:0}
 ul.l span{white-space:nowrap;color:#5b6b64;font-size:14px}.ru{font-size:14px;color:#5b6b64}footer{font-size:13px;color:#5b6b64;text-align:center;padding:20px 16px 40px}
@@ -63,7 +63,7 @@ def page(title, desc, canon, body, ld=None):
     return f"""<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{canon}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Narxi"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{canon}">
-<meta name="theme-color" content="#0c5a43"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/narx/s.css?v=2">{lds}</head><body>
+<meta name="theme-color" content="#0c5a43"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/narx/s.css?v=3">{lds}</head><body>
 <header><div class="w"><a href="/">Narxi</a><a class="go" href="/">Barcha narxlar →</a></div></header><main class="w">{body}</main>
 <footer>Narxi — O'zbekistondagi onlayn do'konlar narxlarini solishtirish. Narxlar har 3 soatda yangilanadi. · <a href="/narx/">Katalog</a></footer></body></html>"""
 
@@ -139,7 +139,7 @@ def main():
             body = (f'<div class=bc><a href="/">Narxi</a> › <a href="/narx/{c["id"]}/">{e(cu)}</a> › {e(r["name"])}</div>'
                     f'<h1>{e(r["name"])} narxi</h1><p class=sub>{n} ta do\'kon · narxlar har 3 soatda yangilanadi</p>'
                     f'<div class="card top">{img}<div class=best>Eng arzon narx — {e(STORES.get(r["offs"][0]["store"], ""))}<b>{som(mn)} so\'m</b>{save}</div></div>'
-                    f'<div class=card><h2>Do\'konlardagi narxlar</h2><table>{"".join(trs)}</table></div>'
+                    f'<div class=card><h2>Do\'konlardagi narxlar</h2><p class=cn>Narx rang va versiyaga qarab farq qilishi mumkin — biz ularni ajratmaymiz. Kerakli variantni do\'kon saytida tanlang.</p><table>{"".join(trs)}</table></div>'
                     f'<a class=cta href="{app}">Narx tushsa xabar olish — Narxi\'da ochish</a>'
                     f'<p class=ru>Цена {e(r["name"])} в Ташкенте и Узбекистане: от {som(mn)} сум' + (f' до {som(mx)} сум' if n > 1 else '') +
                     f' в {n} магазинах. Сравните цены и купите там, где дешевле.</p>'

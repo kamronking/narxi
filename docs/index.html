@@ -75,6 +75,7 @@ h2{font:700 17px/1.25 var(--ui);margin:0;letter-spacing:-.01em}
 @keyframes float{to{transform:translate(-30px,20px) scale(1.15)}}
 .hero h1{font:800 26px/1.08 var(--disp);letter-spacing:-.035em;margin:0;text-wrap:balance}
 .hero h1 em{font-style:normal;color:var(--lime)}
+.cnote{font-size:12.5px;line-height:1.4;background:rgba(127,127,127,.1);border-radius:10px;padding:8px 10px;margin:0 0 6px}
 .otl{font-size:12.5px;line-height:1.35;color:var(--muted);margin:1px 0 6px;overflow-wrap:anywhere}
 .simt{display:inline-block;font-size:11px;font-weight:800;border-radius:6px;padding:1px 7px;margin-right:6px;vertical-align:1px;background:rgba(127,127,127,.15);color:var(--ink)}
 .simt.esim{background:#e3ecff;color:#2346a8}.simt.sim{background:#e6f4ee;color:#0c5a43}.simt.dual{background:#fff0d9;color:#8a5200}.simt.none{background:transparent;border:1px dashed rgba(127,127,127,.5);color:var(--muted)}
@@ -719,7 +720,7 @@ function renderProduct(p){if(!p){go('home');return}window.NX&&NX.ev('view_item',
    ${img(p.img,'pimg','',720,true)}</div><h1 class="ptitle in-up" style="--i:1">${esc(p.name)}</h1>
    <section class="bestcard in-up" style="--i:2"><span class="lbl">${t('cheapest')} · ${STORES[b.store].name}</span><span class="p">${som(b.price)}</span>${w.price>b.price?`<span class="sv">−${som(w.price-b.price)} ${t('save')}</span>`:''}</section>
    <button class="btn ghost press" id="cmpBtn" style="align-self:flex-start">⚖ ${CMP.includes(p.key)?t('cmpIn'):t('cmpAdd')}</button>
-   <section class="card in-up" style="--i:3"><h2>${t('cmpT')}</h2><div class="small muted" style="margin:-4px 0 4px">${t('checked',{t:agoTxt()})} · ${t('exact')}</div>${offs.map((o,i)=>`<div class="bar ${o.stock==='ok'?'':'out'}"><div class="h"><span><span class="dot" style="background:${STORES[o.store].color}"></span>${STORES[o.store].name}${o===b?' <span class="tag save">✓</span>':''}</span><span class="price">${fmt(o.price)}</span></div>
+   <section class="card in-up" style="--i:3"><h2>${t('cmpT')}</h2><div class="small muted" style="margin:-4px 0 4px">${t('checked',{t:agoTxt()})} · ${t('exact')}</div><div class="cnote">${LANG==='ru'?'ℹ️ Цена может отличаться в зависимости от цвета и версии — мы их не разделяем. Выберите нужный вариант на сайте магазина.':"ℹ️ Narx rang va versiyaga qarab farq qilishi mumkin — biz ularni ajratmaymiz. Kerakli variantni do'kon saytida tanlang."}</div>${offs.map((o,i)=>`<div class="bar ${o.stock==='ok'?'':'out'}"><div class="h"><span><span class="dot" style="background:${STORES[o.store].color}"></span>${STORES[o.store].name}${o===b?' <span class="tag save">✓</span>':''}</span><span class="price">${fmt(o.price)}</span></div>
      ${o.title?`<div class="otl">${simTag(o,p)}${esc(o.title)}</div>`:''}<div class="tr"><div class="fl" style="width:${Math.max(8,o.price/mxp*100)}%;background:${o===b?'var(--save)':STORES[o.store].color};animation-delay:${.2+i*.12}s"></div></div>
      <div class="meta"><span>${o.stock==='ok'?t('inStock'):t('out')}${o.old?` · <span class="old">${fmt(o.old)}</span>`:''}</span>${o.url?`<a class="btn sm ghost press" href="${esc(u(o.url))}" target="_blank" rel="noopener" data-sc="${esc(o.store)}" data-n="${esc(p.name)}" data-p="${o.price}" data-c="${esc(catOf(p.key))}" data-best="${o===b?1:0}">${t('open')} ↗</a>`:''}</div>${trustOf(o,offs)}</div>`).join('')}</section>
    ${instCard(offs)}
