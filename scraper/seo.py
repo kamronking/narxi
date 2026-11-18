@@ -29,6 +29,16 @@ def slugify(s):
     s = ''.join(TR.get(c, c) for c in s.lower())
     return re.sub(r'-+', '-', re.sub(r'[^a-z0-9]+', '-', s)).strip('-')[:90] or 'model'
 
+def sim_of(t):
+    t = (t or '').lower()
+    if re.search(r'e-?sim\s*\+\s*e-?sim|dual\s*e-?sim', t): return 'esim'
+    if re.search(r'dual\s*sim|2\s*sim|две\s*sim|(^|[^e])sim\s*\+\s*sim', t): return 'dual'
+    if re.search(r'nano-?sim|single\s*sim|(^|[^e-])sim\s*\+\s*e-?sim|sim\s*va\s*e-?sim', t): return 'sim'
+    if re.search(r'e-?sim', t): return 'esim'
+    return None
+
+SIML = {'esim': 'Faqat eSIM', 'sim': 'SIM + eSIM', 'dual': '2 ta SIM', None: "SIM turi ko'rsatilmagan"}
+
 def som(n):
     return f'{int(n):,}'.replace(',', ' ')
 
@@ -42,7 +52,7 @@ header a{color:#fff;text-decoration:none;font-weight:800;font-size:20px}header .
 .top img{width:120px;height:120px;object-fit:contain;flex:none}.best{font-size:14px;color:#5b6b64}.best b{display:block;font-size:28px;color:#0c5a43;line-height:1.2}
 .save{display:inline-block;background:#e6f4ee;color:#0c5a43;font-weight:700;font-size:13px;border-radius:999px;padding:3px 10px;margin-top:6px}
 table{width:100%;border-collapse:collapse}td{padding:12px 6px;border-top:1px solid #eef0ee;vertical-align:middle}tr:first-child td{border-top:0}
-.st{font-weight:700}.pr{text-align:right;white-space:nowrap;font-weight:800}.pr s{display:block;color:#98a29d;font-weight:400;font-size:13px}.pr small{display:block;color:#5b6b64;font-weight:400;font-size:12px}
+.st{font-weight:700}.ot{display:block;font-weight:400;font-size:12px;color:#5b6b64;line-height:1.35;margin-top:2px}.simt{display:inline-block;font-size:11px;font-weight:700;background:#e6f4ee;color:#0c5a43;border-radius:6px;padding:0 6px;margin-right:5px}.pr{text-align:right;white-space:nowrap;font-weight:800}.pr s{display:block;color:#98a29d;font-weight:400;font-size:13px}.pr small{display:block;color:#5b6b64;font-weight:400;font-size:12px}
 .lnk{text-align:right;white-space:nowrap}.lnk a{font-size:14px;font-weight:600}.cta{display:block;text-align:center;background:#0c5a43;color:#fff;text-decoration:none;font-weight:700;border-radius:12px;padding:14px;margin:4px 0 14px}
 h2{font-size:18px;margin:0 0 10px}ul.l{list-style:none;padding:0;margin:0}ul.l li{padding:8px 0;border-top:1px solid #eef0ee;display:flex;justify-content:space-between;gap:10px}ul.l li:first-child{border-top:0}
 ul.l span{white-space:nowrap;color:#5b6b64;font-size:14px}.ru{font-size:14px;color:#5b6b64}footer{font-size:13px;color:#5b6b64;text-align:center;padding:20px 16px 40px}
@@ -53,7 +63,7 @@ def page(title, desc, canon, body, ld=None):
     return f"""<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{canon}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Narxi"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{canon}">
-<meta name="theme-color" content="#0c5a43"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/narx/s.css?v=1">{lds}</head><body>
+<meta name="theme-color" content="#0c5a43"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/narx/s.css?v=2">{lds}</head><body>
 <header><div class="w"><a href="/">Narxi</a><a class="go" href="/">Barcha narxlar →</a></div></header><main class="w">{body}</main>
 <footer>Narxi — O'zbekistondagi onlayn do'konlar narxlarini solishtirish. Narxlar har 3 soatda yangilanadi. · <a href="/narx/">Katalog</a></footer></body></html>"""
 
@@ -115,7 +125,9 @@ def main():
             for o in r['offs']:
                 old = f"<s>{som(o['old'])}</s>" if o.get('old') and o['old'] > o['price'] else ''
                 inst = f"<small>oyiga {som(o['inst'])} × {o['instm']}</small>" if o.get('inst') and o.get('instm') else ''
-                trs.append(f"<tr><td class=st>{e(STORES.get(o['store'], o['store']))}</td><td class=pr>{old}{som(o['price'])} so'm{inst}</td>"
+                sim = f"<span class=simt>{SIML[sim_of(o.get('title'))]}</span>" if r['key'].startswith('phones:iphone') else ''
+                ttl = f"<small class=ot>{sim}{e(o.get('title'))}</small>" if o.get('title') else ''
+                trs.append(f"<tr><td class=st>{e(STORES.get(o['store'], o['store']))}{ttl}</td><td class=pr>{old}{som(o['price'])} so'm{inst}</td>"
                            f"<td class=lnk><a href=\"{e(o['url'])}\" rel=\"nofollow noopener\" target=\"_blank\">Do'konga →</a></td></tr>")
             sim = [x for x in rows if x is not r and x['brand'] == r['brand']]
             sim.sort(key=lambda x: abs(x['min'] - mn))

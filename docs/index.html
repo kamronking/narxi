@@ -75,6 +75,9 @@ h2{font:700 17px/1.25 var(--ui);margin:0;letter-spacing:-.01em}
 @keyframes float{to{transform:translate(-30px,20px) scale(1.15)}}
 .hero h1{font:800 26px/1.08 var(--disp);letter-spacing:-.035em;margin:0;text-wrap:balance}
 .hero h1 em{font-style:normal;color:var(--lime)}
+.otl{font-size:12.5px;line-height:1.35;color:var(--muted);margin:1px 0 6px;overflow-wrap:anywhere}
+.simt{display:inline-block;font-size:11px;font-weight:800;border-radius:6px;padding:1px 7px;margin-right:6px;vertical-align:1px;background:rgba(127,127,127,.15);color:var(--ink)}
+.simt.esim{background:#e3ecff;color:#2346a8}.simt.sim{background:#e6f4ee;color:#0c5a43}.simt.dual{background:#fff0d9;color:#8a5200}.simt.none{background:transparent;border:1px dashed rgba(127,127,127,.5);color:var(--muted)}
 .hl{display:flex;flex-direction:column;gap:12px;min-width:0}
 .hcard{display:none}
 @media(min-width:700px){.hero{display:grid;grid-template-columns:minmax(0,1fr) 340px;align-items:center;column-gap:24px}
@@ -487,7 +490,14 @@ const dlt=v=>{const a=Math.abs(v);return a>=1e6?mln(a):`${Math.round(a/1000)} ${
 function chgTag(p){const d=CHG[p.key];if(!d)return '';return `<span class="chg ${d<0?'dn':'up'}">${d<0?'▼':'▲'} ${dlt(d)}</span>`}
 const brandCounts=()=>{const c={};IDX.forEach(r=>{if(S.cat!=='all'&&r[2]!==S.cat)return;const b=bname(r[1],r[0]);c[b]=(c[b]||0)+1});return Object.entries(c).sort((a,b)=>b[1]-a[1])};
 const rfIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v5h-5"/></svg>';
-const deals=()=>(META.deals||[]).map(p=>PM[p.key]||p).filter(p=>gapOf(p)>0&&gapOf(p)<worst(p).price*.3);
+/* iPhone SIM variant from the store's own title: 'esim' (no tray), 'sim' (nano-SIM + eSIM), 'dual' (2 physical SIM), null = not stated */
+const simOf=t=>{t=(t||'').toLowerCase();if(/e-?sim\s*\+\s*e-?sim|dual\s*e-?sim/.test(t))return 'esim';if(/dual\s*sim|2\s*sim|две\s*sim|(^|[^e])sim\s*\+\s*sim/.test(t))return 'dual';
+  if(/nano-?sim|single\s*sim|(^|[^e-])sim\s*\+\s*e-?sim|sim\s*va\s*e-?sim/.test(t))return 'sim';if(/e-?sim/.test(t))return 'esim';return null};
+const isIph=k=>/^phones:iphone/.test(k||'');
+const SIML={esim:['Faqat eSIM','Только eSIM'],sim:['SIM + eSIM','SIM + eSIM'],dual:['2 ta SIM','2 SIM'],none:["SIM turi ko'rsatilmagan",'Тип SIM не указан']};
+const simTag=(o,p)=>{if(!isIph(p.key))return '';const v=simOf(o.title)||'none';return `<span class="simt ${v}">${SIML[v][LANG==='ru'?1:0]}</span>`};
+const simClash=p=>{if(!isIph(p.key))return false;const a=simOf(best(p).title),b=simOf(worst(p).title);return !!(a&&b&&a!==b)};
+const deals=()=>(META.deals||[]).map(p=>PM[p.key]||p).filter(p=>gapOf(p)>0&&gapOf(p)<worst(p).price*.3&&!simClash(p));
 const EXUZ=['noutbuk 8 mln gacha','telefon 3 mln gacha','muzlatgich Samsung 10 mln gacha','televizor 5-8 mln'],EXRU=['ноутбук до 8 млн','телефон до 3 млн','холодильник Samsung до 10 млн','телевизор 5-8 млн'];
 /* hero: live price-gap card on wide screens, rotates through today's best gaps (phones/laptops/TV first) */
 let HERO_T=null,HERO_I=0;
@@ -710,7 +720,7 @@ function renderProduct(p){if(!p){go('home');return}window.NX&&NX.ev('view_item',
    <section class="bestcard in-up" style="--i:2"><span class="lbl">${t('cheapest')} · ${STORES[b.store].name}</span><span class="p">${som(b.price)}</span>${w.price>b.price?`<span class="sv">−${som(w.price-b.price)} ${t('save')}</span>`:''}</section>
    <button class="btn ghost press" id="cmpBtn" style="align-self:flex-start">⚖ ${CMP.includes(p.key)?t('cmpIn'):t('cmpAdd')}</button>
    <section class="card in-up" style="--i:3"><h2>${t('cmpT')}</h2><div class="small muted" style="margin:-4px 0 4px">${t('checked',{t:agoTxt()})} · ${t('exact')}</div>${offs.map((o,i)=>`<div class="bar ${o.stock==='ok'?'':'out'}"><div class="h"><span><span class="dot" style="background:${STORES[o.store].color}"></span>${STORES[o.store].name}${o===b?' <span class="tag save">✓</span>':''}</span><span class="price">${fmt(o.price)}</span></div>
-     <div class="tr"><div class="fl" style="width:${Math.max(8,o.price/mxp*100)}%;background:${o===b?'var(--save)':STORES[o.store].color};animation-delay:${.2+i*.12}s"></div></div>
+     ${o.title?`<div class="otl">${simTag(o,p)}${esc(o.title)}</div>`:''}<div class="tr"><div class="fl" style="width:${Math.max(8,o.price/mxp*100)}%;background:${o===b?'var(--save)':STORES[o.store].color};animation-delay:${.2+i*.12}s"></div></div>
      <div class="meta"><span>${o.stock==='ok'?t('inStock'):t('out')}${o.old?` · <span class="old">${fmt(o.old)}</span>`:''}</span>${o.url?`<a class="btn sm ghost press" href="${esc(u(o.url))}" target="_blank" rel="noopener" data-sc="${esc(o.store)}" data-n="${esc(p.name)}" data-p="${o.price}" data-c="${esc(catOf(p.key))}" data-best="${o===b?1:0}">${t('open')} ↗</a>`:''}</div>${trustOf(o,offs)}</div>`).join('')}</section>
    ${instCard(offs)}
    <section class="card in-up wrong" style="--i:4"><b>${t('wrongT')}</b><span class="small muted">${t('wrongP')}</span><a class="btn sm ghost press" id="wrongBtn" href="${CONTACT+'?text='+encodeURIComponent(t('wrongMsg')+'\n\n'+p.name+'\n'+offs.map(o=>STORES[o.store].name+' — '+fmt(o.price)+' '+t('som')).join('\n'))}" target="_blank" rel="noopener" style="align-self:flex-start">${t('wrongBtn')} · @narx_support ↗</a></section>
