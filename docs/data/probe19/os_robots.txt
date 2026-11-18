@@ -1,0 +1,20 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /user/
+Disallow: /bag
+Disallow: /wishlist
+
+# Qidiruv sahifalari (/shop?search=, /shop/search/) hozircha ataylab ochiq:
+# Google ularning noindex'ini ko'rib, indeksdan tushirishi kerak. Search Console'da
+# ular indeksdan tushgach (taxminan noyabr boshi) quyidagilar qo'shiladi:
+# Disallow: /shop/search/
+# Disallow: /shop?search=
+
+User-agent: Yandex
+Disallow: /admin/
+Disallow: /user/
+Disallow: /bag
+Disallow: /wishlist
+Clean-param: search /shop
+
+Sitemap: https://openshop.uz/sitemap.xml
