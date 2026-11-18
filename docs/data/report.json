@@ -1,5 +1,5 @@
 {
- "started": "2026-11-18T05:18:01.817436+05:00",
+ "started": "2026-11-18T08:17:58.013325+05:00",
  "stores": {
   "texnomart": {
    "pages": 1260,
@@ -42,13 +42,13 @@
     "printers": 8
    },
    "inst": {
-    "exact": 1465,
-    "est": 369,
+    "exact": 1453,
+    "est": 381,
     "factor": 1.7,
     "months": 24,
-    "known": 1622
+    "known": 1613
    },
-   "last_ok": "2026-11-18T05:18+05:00"
+   "last_ok": "2026-11-18T08:17+05:00"
   },
   "olcha": {
    "pages": 599,
@@ -73,11 +73,11 @@
     "tv": 118
    },
    "in_stock": 11980,
-   "last_ok": "2026-11-18T05:18+05:00"
+   "last_ok": "2026-11-18T08:17+05:00"
   },
   "alif": {
    "pages": 387,
-   "items": 7737,
+   "items": 7733,
    "errors": [],
    "per_cat": {
     "tv": 543,
@@ -92,14 +92,14 @@
     "ac": 599,
     "printers": 262,
     "monitors": 57,
-    "laptops": 720,
+    "laptops": 718,
     "climate": 501,
     "home": 678,
-    "tablets": 171
+    "tablets": 169
    },
    "cats": 73,
    "budget_left": 113,
-   "last_ok": "2026-11-18T05:18+05:00"
+   "last_ok": "2026-11-18T08:17+05:00"
   },
   "beeline": {
    "pages": 23,
@@ -114,7 +114,7 @@
     "climate": 7,
     "kitchen": 4
    },
-   "last_ok": "2026-11-18T05:18+05:00"
+   "last_ok": "2026-11-18T08:17+05:00"
   },
   "macbro": {
    "pages": 4,
@@ -132,7 +132,7 @@
     "care": 21,
     "monitors": 4
    },
-   "last_ok": "2026-11-18T05:18+05:00"
+   "last_ok": "2026-11-18T08:17+05:00"
   },
   "idea": {
    "pages": 53,
@@ -157,7 +157,7 @@
     "fridges": 70,
     "ac": 41
    },
-   "last_ok": "2026-11-18T05:18+05:00"
+   "last_ok": "2026-11-18T08:17+05:00"
   },
   "maxcom": {
    "pages": 170,
@@ -176,7 +176,7 @@
    },
    "cats": 50,
    "budget_left": 0,
-   "last_ok": "2026-11-18T05:18+05:00"
+   "last_ok": "2026-11-18T08:17+05:00"
   },
   "woot": {
    "pages": 114,
@@ -199,7 +199,7 @@
    },
    "cats": 48,
    "budget_left": 46,
-   "last_ok": "2026-11-18T05:18+05:00"
+   "last_ok": "2026-11-18T08:17+05:00"
   },
   "avtech": {
    "pages": 224,
@@ -214,7 +214,7 @@
    },
    "cats": 121,
    "budget_left": 96,
-   "last_ok": "2026-11-18T05:18+05:00"
+   "last_ok": "2026-11-18T08:17+05:00"
   },
   "mionline": {
    "pages": 0,
@@ -225,21 +225,21 @@
    "budget_left": 200
   },
   "tezz": {
-   "pages": 90,
-   "items": 1817,
+   "pages": 91,
+   "items": 1836,
    "errors": [],
    "per_cat": {
     "tv": 384,
     "other": 57,
     "ac": 363,
     "fridges": 531,
-    "stoves": 168,
+    "stoves": 187,
     "washers": 155,
     "home": 159
    },
    "cats": 12,
-   "budget_left": 110,
-   "last_ok": "2026-11-18T05:18+05:00"
+   "budget_left": 109,
+   "last_ok": "2026-11-18T08:17+05:00"
   },
   "karcher": {
    "pages": 4,
@@ -252,7 +252,7 @@
     "tablets": 1,
     "care": 2
    },
-   "last_ok": "2026-11-18T05:18+05:00"
+   "last_ok": "2026-11-18T08:17+05:00"
   },
   "openshop": {
    "pages": 165,
@@ -265,11 +265,11 @@
     "3-aksessuarlar-va-gadjetlar": 384,
     "56-go-zallik-va-sog-lik": 72,
     "phones": 238,
-    "tablets": 91,
-    "other": 805,
-    "laptops": 70,
+    "tablets": 90,
+    "other": 808,
+    "laptops": 69,
     "monitors": 48,
-    "climate": 24,
+    "climate": 25,
     "printers": 10,
     "tv": 29,
     "kitchen": 155,
@@ -278,31 +278,31 @@
     "washers": 30,
     "stoves": 41,
     "fridges": 14,
-    "audio": 170,
-    "watches": 64,
+    "watches": 63,
+    "audio": 169,
     "care": 49
    },
    "budget_left": 535,
-   "last_ok": "2026-11-18T05:18+05:00"
+   "last_ok": "2026-11-18T08:17+05:00"
   }
  },
  "stale": {},
  "ram_split": 15,
  "merged": 137,
  "brand_split": 15,
- "products": 22954,
- "matched_2plus": 1785,
+ "products": 22972,
+ "matched_2plus": 1787,
  "cats": {
   "phones": [
    505,
    168
   ],
   "laptops": [
-   1631,
+   1630,
    23
   ],
   "tablets": [
-   504,
+   501,
    14
   ],
   "tv": [
@@ -315,7 +315,7 @@
   ],
   "audio": [
    1423,
-   147
+   146
   ],
   "watches": [
    343,
@@ -342,11 +342,11 @@
    297
   ],
   "stoves": [
-   718,
-   79
+   735,
+   81
   ],
   "climate": [
-   485,
+   486,
    52
   ],
   "care": [
@@ -358,39 +358,39 @@
    77
   ],
   "other": [
-   10775,
-   165
+   10779,
+   166
   ]
  },
  "unkeyed_sample": [
   "Керамическое защитное стекло Xiaomi Redmi Note 9T",
-  "Умная колонка Яндекс Станция Лайт 2 Графитовый",
-  "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
   "Умная колонка Яндекс Станция Мини с часами с Алисой, Черный, 10Вт",
+  "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
+  "Умная колонка Яндекс Станция Лайт 2 Графитовый",
   "Наушники вставные беспроводные Green Earbuds",
-  "Смарт часы Green Ultra Black",
   "Смарт часы Green Active Pro Black",
-  "Мясорубка Аксион М41.00",
-  "Мясорубка Аксион М321.01",
+  "Смарт часы Green Ultra Black",
+  "Мясорубка Аксион М21.01",
   "Мясорубка Аксион М12.11",
   "Мясорубка Аксион М61.02",
-  "Мясорубка Аксион М21.01",
+  "Мясорубка Аксион М321.01",
+  "Мясорубка Аксион М41.00",
   "Мясорубка Аксион М41.01",
-  "Соковыжималка Аксион СЦ32.01",
-  "Соковыжималка Аксион СЦ32.02 Джус"
+  "Соковыжималка Аксион СЦ32.02 Джус",
+  "Соковыжималка Аксион СЦ32.01"
  ],
  "keys_sample": {
   "phones": [
-   "phones:iphone 17 pro max 256gb :: openshop 16599000 Смартфон Apple iPhone 17 Pro Max 256GB Deep Blue ( | macbro 17276000 iPhone 17 Pro Max Deep Blue 256GB eSIM | alif 17979000 Смартфон Apple iPhone 17 Pro Max 256 ГБ (nanoSim+e | olcha 18199000 iPhone 17 Pro Max Deep Blue 256 GB | texnomart 18999000 Apple iPhone 17 Pro Max 12/256GB Глубокий синий | idea 20099000 Смартфон iPhone 17 Pro Max 256GB Silver",
+   "phones:iphone 17 pro max 256gb :: openshop 16599000 Смартфон Apple iPhone 17 Pro Max 256GB Deep Blue ( | macbro 17276000 iPhone 17 Pro Max Deep Blue 256GB eSIM | alif 17979000 Смартфон Apple iPhone 17 Pro Max 256 ГБ (nanoSim+e | olcha 18199000 iPhone 17 Pro Max Deep Blue 256 GB | texnomart 18999000 Apple iPhone 17 Pro Max 12/256GB Оранжевый | idea 20099000 Смартфон iPhone 17 Pro Max 256GB Silver",
    "phones:iphone air 256gb :: macbro 12990000 iPhone Air Space Black 256GB eSIM | olcha 13199000 Iphone Air 12/256 GB Light Gold | alif 13599000 Смартфон Apple iPhone Air 256 ГБ eSim, Light Gold | openshop 13664000 Смартфон Apple iPhone Air 256GB Cloud White | texnomart 13999000 Apple iPhone Air 12/256GB Небесно-голубой | idea 14999000 Смартфон iPhone Air 256GB Space Black",
-   "phones:samsung galaxy s26 ultra 256gb :: openshop 12899000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256GB Черн | alif 13384000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256 ГБ, фи | olcha 13445000 Смартфон Samsung Galaxy S26 Ultra 5G Violet 256 ГБ | texnomart 13999000 Samsung Galaxy S26 Ultra 12/256GB Фиолетовый кобал | macbro 14225000 Смартфон Samsung Galaxy S26 Ultra Black 256GB 12GB | idea 15999000 Смартфон Samsung Galaxy S26 Ultra 12/256 Black",
-   "phones:iphone 17 pro 256gb :: openshop 15833000 Смартфон Apple iPhone 17 Pro 256GB Cosmic Orange ( | macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | alif 17599000 Смартфон Apple iPhone 17 Pro 256 ГБ (nanoSim+eSim) | texnomart 17999000 Apple iPhone 17 Pro 12/256GB Серебристый | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver",
+   "phones:samsung galaxy s26 ultra 256gb :: openshop 12899000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256GB Белы | alif 13384000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256 ГБ, фи | olcha 13445000 Смартфон Samsung Galaxy S26 Ultra 5G Violet 256 ГБ | texnomart 13999000 Samsung Galaxy S26 Ultra 12/256GB Фиолетовый кобал | macbro 14225000 Смартфон Samsung Galaxy S26 Ultra Black 256GB 12GB | idea 15999000 Смартфон Samsung Galaxy S26 Ultra 12/256 Black",
+   "phones:iphone 17 pro 256gb :: openshop 15833000 Смартфон Apple iPhone 17 Pro 256GB Cosmic Orange ( | macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | alif 17599000 Смартфон Apple iPhone 17 Pro 256 ГБ (nanoSim+eSim) | texnomart 17999000 Apple iPhone 17 Pro 12/256GB Оранжевый | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver",
    "phones:iphone 18 pro 512gb :: texnomart 23499000 Apple iPhone 18 Pro 12/512GB Голубой | alif 23999000 Смартфон Apple iPhone 18 Pro 512 ГБ (nanoSim+eSim) | idea 24799000 Смартфон iPhone 18 Pro 512GB Black | openshop 24979000 Смартфон Apple iPhone 18 Pro 512GB (SIM + eSIM) Bl | olcha 24999000 Смартфон Apple iPhone 18 Pro 512 GB Glacier | macbro 25990000 iPhone 18 Pro Black 512GB Single SIM",
-   "phones:iphone 18 pro max 256gb :: openshop 21826000 Смартфон Apple iPhone 18 Pro Max 256GB Silver (eSI | alif 21899000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | macbro 21990000 iPhone 18 Pro Max Silver 256GB Single SIM | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | texnomart 22790000 Apple iPhone 18 Pro Max 12/256GB Голубой | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier",
+   "phones:iphone 18 pro max 256gb :: alif 21800000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | openshop 21826000 Смартфон Apple iPhone 18 Pro Max 256GB Silver (eSI | macbro 21990000 iPhone 18 Pro Max Silver 256GB Single SIM | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | texnomart 22790000 Apple iPhone 18 Pro Max 12/256GB Голубой | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier",
    "phones:iphone 17 256gb :: openshop 12078000 Смартфон Apple iPhone 17 256GB Black (SIM + SIM) | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | alif 12999000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | texnomart 13699000 Apple iPhone 17 8/256GB Фиолетовый | idea 14299000 Смартфон iPhone 17 256GB Black",
    "phones:honor x9d 256gb:r8 :: olcha 4868000 Honor X9d 5G Red 8/256 GB | openshop 5043000 Смартфон Honor X9d 5G 8/256GB Reddish Brown | texnomart 5199000 Honor X9d 8/256GB Золотистый рассвет | idea 5199000 Смартфон Honor X9d 8/256 Midnight Black | alif 5299000 Смартфон Honor X9D 8/256 ГБ, Midnight",
-   "phones:samsung galaxy a27 128gb :: olcha 3644000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | openshop 3699000 Смартфон Samsung Galaxy A27 5G 6/128GB Синий | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4788000 Samsung Galaxy A27 5G 6/128GB Light Pink",
-   "phones:samsung galaxy a27 256gb :: olcha 4189000 Смартфон Samsung Galaxy A27 5G 8/256GB Black | openshop 4268000 Смартфон Samsung Galaxy A27 5G 8/256GB Светло-зеле | texnomart 4399000 Samsung Galaxy A27 5G 8/256GB Синий | alif 4705000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black",
+   "phones:samsung galaxy a27 128gb :: olcha 3644000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | openshop 3699000 Смартфон Samsung Galaxy A27 5G 6/128GB Синий | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4788000 Samsung Galaxy A27 5G 6/128GB Черный",
+   "phones:samsung galaxy a27 256gb :: olcha 4189000 Смартфон Samsung Galaxy A27 5G 8/256GB Black | openshop 4268000 Смартфон Samsung Galaxy A27 5G 8/256GB Светло-зеле | texnomart 4399000 Samsung Galaxy A27 5G 8/256GB Черный | alif 4705000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black",
    "phones:samsung galaxy s26 256gb :: openshop 10531000 Смартфон Samsung Galaxy S26 5G 12/256GB Черный | idea 10999000 Смартфон Samsung Galaxy S26 12/256 Black | olcha 11799000 Смартфон Samsung Galaxy S26 5G Violet 256 ГБ | texnomart 11999000 Samsung Galaxy S26 12/256GB Черный | macbro 12141000 Смартфон Samsung Galaxy S26 Black 256GB",
    "phones:samsung galaxy s26 512gb :: openshop 12566000 Смартфон Samsung Galaxy S26 5G 12/512GB Белый | texnomart 12999000 Samsung Galaxy S26 12/512GB Черный | idea 12999000 Смартфон Samsung Galaxy S26 12/512 Black | olcha 13499000 Смартфон Samsung Galaxy S26 5G Black 512 ГБ | macbro 13949000 Смартфон Samsung Galaxy S26 Black 512GB"
   ],
@@ -563,8 +563,6 @@
    "fridges:artel:hd360fwen :: olcha 5832000 Холодильник Artel HD360FWEN Invertor | tezz 6020000 Холодильник  Artel HD360FWEN Белый INV | alif 6944000 Холодильник Artel HD360FWEN, белый"
   ],
   "other": [
-   "other:logitech:c270 :: openshop 389000 Веб-камера Logitech C270 | idea 399000 Веб-камера Logitech C270 (HD WebCam) | macbro 429000 LOGITECH C270 HD",
-   "other:netis:p124gh :: avtech 1896300 Коммутатор Netis P124GH | openshop 1899000 Коммутатор Netis P124GH | olcha 2272917 Коммутатор Netis P124GH",
    "other:t:cougar armor elite :: olcha 2866600 Игровое кресло Cougar Armor Elite | avtech 3125850 Кресло Cougar Armor Elite White | maxcom 3127500 Игровое кресло Cougar Armor Elite (White, Black)",
    "other:t:cougar hotrod :: olcha 3866000 Игровое кресло Cougar Hotrod Черный/оранжевый | avtech 4158000 Кресло Cougar Hotrod Black | maxcom 4295100 Игровое кресло Cougar Hotrod Black",
    "other:t:cougar nxsys aero :: olcha 5066600 Кресло компьютерное игровое Cougar NxSys Aero Blac | avtech 5530140 Кресло Cougar NxSys Aero | maxcom 5699000 Игровое кресло Cougar NxSys Aero",
@@ -574,7 +572,9 @@
    "other:t:apple magic mouse 3 :: macbro 1138000 Беспроводная мышь Apple Magic Mouse 3 Silver | olcha 1350000 Apple Magic mouse 3 White",
    "other:t:apple watch 2 49mm :: macbro 10990000 Часы Apple Watch Ultra 2 49mm  Dark Green Green | olcha 11200000 Apple Watch Ультра 2 49MM",
    "other:ecosoft:fpv34eco :: openshop 157000 Bодяной фильтр Ecosoft FPV34ECO | olcha 201042 Фильтр магистральный Ecosoft 10\", прозрачная колба",
-   "other:ip:x305 :: avtech 1890000 IP-Телефон Fanvil X305 | maxcom 1890400 IP телефон Fanvil X305"
+   "other:ip:x305 :: avtech 1890000 IP-Телефон Fanvil X305 | maxcom 1890400 IP телефон Fanvil X305",
+   "other:ip:grp2601w :: maxcom 764500 IP телефон Grandstream GRP2601W | idea 899000 IP телефон Grandstream IP NETWORK TELEPHONE GRP260",
+   "other:ip:grp2602g :: maxcom 903500 IP телефон Grandstream GRP2602G | idea 999000 IP телефон Grandstream IP NETWORK TELEPHONE GRP260"
   ],
   "monitors": [
    "monitors:husto:2edgeifusb :: openshop 689000 Кронштейн для монитора настольный 2E Husto USB3.0  | olcha 720833 2E Кронштейн Husto 2EdgeIFUSB",
