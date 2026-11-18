@@ -37,7 +37,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.weserv.nl" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet"></noscript>
+<noscript><noscript><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet"></noscript></noscript>
 <style>
 /* Layout: phone-width shell; brand hero, deal rail, brand chips, sort switch, 2-column grid, 4 bottom tabs; onboarding + registration overlay */
 :root{--bg:#f1f3ef;--surface:#fff;--surface2:#f3f6f1;--ink:#0d1c16;--muted:#5a6862;--line:#dfe5dd;
@@ -345,22 +345,22 @@ if(document.readyState!=='loading')setTimeout(hide,500);else document.addEventLi
 <div class="toast" id="toast" hidden></div>
 <div class="ob" id="ob" hidden><div class="wrap" id="obw"></div></div>
 <script type="module">
-// Firebase: anonymous sign-in + users/{uid} profile in Firestore (rules: each user reads/writes only own doc)
+// Firebase: anonymous sign-in + users/{uid} profile in Firestore (rules: each user reads/writes only own doc).
+// app + analytics load at once; auth + firestore (~150 KB) are imported on first use, so they don't slow the first paint.
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
-import {getAuth,signInAnonymously,onAuthStateChanged,signOut} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
-import {getFirestore,doc,setDoc,getDoc,serverTimestamp} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 import {getAnalytics,logEvent,isSupported} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js';
 const app=initializeApp({apiKey:"AIzaSyDEYJSizAw2-y-GWOMB6rv-9qo3I7WATr0",authDomain:"narxi-e5d33.firebaseapp.com",projectId:"narxi-e5d33",storageBucket:"narxi-e5d33.firebasestorage.app",messagingSenderId:"883970808369",appId:"1:883970808369:web:5977a9ee5f6b8852841310",measurementId:"G-N60WD8MVL1"});
 let GA=null;isSupported().then(ok=>{if(ok)GA=getAnalytics(app)}).catch(()=>{});
-const auth=getAuth(app),db=getFirestore(app);
-async function uid(){if(auth.currentUser)return auth.currentUser.uid;const c=await signInAnonymously(auth);return c.user.uid}
+let FB=null;
+const fb=()=>FB||(FB=Promise.all([import('https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js'),import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js')]).then(([A,F])=>({A,F,auth:A.getAuth(app),db:F.getFirestore(app)})).catch(e=>{FB=null;throw e}));
+async function uid(){const {A,auth}=await fb();if(auth.currentUser)return auth.currentUser.uid;const c=await A.signInAnonymously(auth);return c.user.uid}
 window.NX={
   async uid(){try{return await uid()}catch(e){return null}},
-  async signOut(){try{await auth.signOut()}catch(e){}},
-  async saveUser(u,watch,lang){console.log('[narxi] saveUser');try{const id=await uid();await setDoc(doc(db,'users',id),{name:u.name,phone:u.phone,city:u.city,brands:u.brands||[],since:u.since,lang,watch:watch||{},updated:serverTimestamp()},{merge:true});return true}catch(e){console.warn('[narxi] saveUser failed',e&&e.code,e&&e.message);return false}},
-  async saveWatch(watch){try{if(!auth.currentUser)return;await setDoc(doc(db,'users',auth.currentUser.uid),{watch,updated:serverTimestamp()},{merge:true})}catch(e){console.warn('saveWatch',e)}},
-  async load(){try{const id=await new Promise(r=>{const un=onAuthStateChanged(auth,x=>{un();r(x?x.uid:null)})});if(!id)return null;const s=await getDoc(doc(db,'users',id));return s.exists()?s.data():null}catch(e){return null}},
-  async logout(){try{await signOut(auth)}catch(e){}},
+  async signOut(){try{const {auth}=await fb();await auth.signOut()}catch(e){}},
+  async saveUser(u,watch,lang){console.log('[narxi] saveUser');try{const id=await uid();const {F,db}=await fb();await F.setDoc(F.doc(db,'users',id),{name:u.name,phone:u.phone,city:u.city,brands:u.brands||[],since:u.since,lang,watch:watch||{},updated:F.serverTimestamp()},{merge:true});return true}catch(e){console.warn('[narxi] saveUser failed',e&&e.code,e&&e.message);return false}},
+  async saveWatch(watch){try{const {F,db,auth}=await fb();if(!auth.currentUser)return;await F.setDoc(F.doc(db,'users',auth.currentUser.uid),{watch,updated:F.serverTimestamp()},{merge:true})}catch(e){console.warn('saveWatch',e)}},
+  async load(){try{const {A,F,db,auth}=await fb();const id=await new Promise(r=>{const un=A.onAuthStateChanged(auth,x=>{un();r(x?x.uid:null)})});if(!id)return null;const s=await F.getDoc(F.doc(db,'users',id));return s.exists()?s.data():null}catch(e){return null}},
+  async logout(){try{const {A,auth}=await fb();await A.signOut(auth)}catch(e){}},
   ev(name,params){try{if(GA)logEvent(GA,name,params||{})}catch(e){}}
 };
 window.NX_READY=1;window.dispatchEvent(new Event('nx-ready'));
@@ -728,7 +728,7 @@ function renderContact(){view.innerHTML=`<h1 class="ptitle in-up">${t('cT')}</h1
   <section class="card in-up" style="--i:2;align-items:flex-start;max-width:640px"><b style="font-size:18px">@narxi_site</b><p style="margin:0" class="muted">${tgL().p}</p><a class="btn press" style="background:#229ED9;align-self:flex-start" href="${TGCH}" target="_blank" rel="noopener">✈ ${tgL().b} ↗</a></section>
   <section class="card in-up" style="--i:3;align-items:flex-start;max-width:640px"><b style="font-size:18px">@narxi.site</b><p style="margin:0" class="muted">${igL().p}</p>${igBtn()}</section>
   <button class="btn ghost press" id="cAbout" style="align-self:flex-start">${t('aboutT')} ›</button>`;document.getElementById('cAbout').onclick=()=>go('about')}
-function renderAbout(){view.innerHTML=`<h1 class="ptitle in-up">${t('aboutT')}</h1><section class="card in-up" style="--i:1"><p style="margin:0">${t('a1')}</p><p style="margin:0">${t('a2')}</p><p style="margin:0">${t('a3')}</p></section>
+function renderAbout(){view.innerHTML=`<h1 class="ptitle in-up">${t('aboutT')}</h1><section class="card in-up" style="--i:1"><p style="margin:0">${t('a1')}</p><p style="margin:0">${t('a2')}</p><p style="margin:0">${t('a3')}</p><p style="margin:0"><a href="/narx/" style="color:inherit;font-weight:600">📋 ${LANG==='ru'?'Каталог цен по моделям':'Modellar bo\'yicha narxlar katalogi'} →</a></p></section>
   <section class="card in-up" style="--i:2">${Object.entries(DATA.stores).map(([s,v])=>`<div style="display:flex;justify-content:space-between;align-items:center"><span><span class="dot" style="background:${STORES[s].color};margin-right:8px"></span><b>${STORES[s].name}</b></span>${v.ok||v.ok===undefined?`<span class="tag save">${t('connected')} · ${v.items}</span>`:v.stale?`<span class="tag plain">${t('stStale')} · ${v.items}</span>`:`<span class="tag plain">${t('stDown')}</span>`}</div>`).join('')}${SOON.map(s=>`<div style="display:flex;justify-content:space-between"><span class="muted">${s}</span><span class="tag plain">${t('soon')}</span></div>`).join('')}</section>
   <section class="card in-up" style="--i:3"><h2 style="margin:0">${t('shopT')}</h2><p style="margin:0">${t('shopP')}</p><a class="btn sm press" href="${CONTACT}" target="_blank" rel="noopener" style="align-self:flex-start">Telegram: @narx_support ↗</a></section>
   <p class="small muted" style="margin:0">${t('a5')}</p>`}
@@ -778,7 +778,9 @@ const diff=(o,n)=>{const c={};for(const k in n)if(o[k]&&o[k]!==n[k])c[k]=n[k]-o[
 async function getData(){const v=Date.now();
   try{const m=await fetch('data/v2/meta.json?v='+v,{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()});
     /* the full search index (~2.5 MB) is a separate, cacheable file: first paint uses the small 'top' list */
-    if(!m.idx){m.idx=m.top||[];m.idxP=fetch('data/v2/idx.json?v='+encodeURIComponent(m.updated)).then(r=>{if(!r.ok)throw 0;return r.json()})}
+    if(!m.idx){m.idx=m.top||[];m.idxP=new Promise((ok,no)=>{let s=0;const go=e=>{if(s||(e&&e.type==='scroll'&&e.target!==document))return;s=1;['pointerdown','keydown','scroll','touchstart'].forEach(e=>removeEventListener(e,go,true));fetch('data/v2/idx.json?v='+encodeURIComponent(m.updated)).then(r=>{if(!r.ok)throw 0;return r.json()}).then(ok,no)};
+      /* ~550 KB gzipped: wait for the first tap/scroll/typing (or 5 s) so it never competes with the first paint on mobile */
+      ['pointerdown','keydown','scroll','touchstart'].forEach(e=>addEventListener(e,go,{capture:true,passive:true}));setTimeout(go,5000)})}
     return m}
   catch(e){const [d,h]=await Promise.all([fetch('data/latest.json?v='+v,{cache:'no-store'}).then(r=>r.json()),fetch('data/history.json?v='+v,{cache:'no-store'}).then(r=>r.json()).catch(()=>({}))]);
     const ps=d.products.map(p=>({...p,key:'phones:'+p.key,cat:'phones'})).filter(p=>live(p).length);const H={};for(const k in h)H['phones:'+k]=h[k];
@@ -815,7 +817,7 @@ const firstVisitOfSession=!sessionStorage.getItem('ob_shown');
 if(!window.__resetting&&!store.get('reg_ok',false)&&firstVisitOfSession){try{sessionStorage.setItem('ob_shown','1');sessionStorage.setItem('reg_shown','1')}catch(e){}
   if(store.get('reg_id',null)){regStatus().then(ok=>{if(ok){toast(t('rgOk'));render()}else openOB(0)})}else openOB(0)}
 setTimeout(function waitNX(n){if(!window.NX&&n<20)return setTimeout(()=>waitNX(n+1),500);regStatus().then(ok=>{if(ok&&!ob.hidden&&!regFromProfile){ob.hidden=true;render()}})},1500,0);
-const nxBoot=async()=>{if(USER){if(!store.get('synced',0)){const ok=await NX.saveUser(USER,WATCH,LANG);if(ok){store.set('synced',1);toast('☁️ '+t('saved'))}}return}const d=await NX.load();if(d&&d.name){USER={name:d.name,phone:d.phone,city:d.city,brands:d.brands||[],since:d.since||Date.now()};store.set('user',USER);if(d.watch){WATCH={...d.watch,...WATCH};store.set('watch',WATCH)}store.set('seen',1);if(!ob.hidden)ob.hidden=true;render()}};if(window.NX_READY)nxBoot();else addEventListener('nx-ready',nxBoot);
+const nxBoot=async()=>{if(USER){if(!store.get('synced',0)){const ok=await NX.saveUser(USER,WATCH,LANG);if(ok){store.set('synced',1);toast('☁️ '+t('saved'))}}return}const d=await NX.load();if(d&&d.name){USER={name:d.name,phone:d.phone,city:d.city,brands:d.brands||[],since:d.since||Date.now()};store.set('user',USER);if(d.watch){WATCH={...d.watch,...WATCH};store.set('watch',WATCH)}store.set('seen',1);if(!ob.hidden)ob.hidden=true;render()}};const nxLater=()=>setTimeout(nxBoot,USER?2500:4000);if(window.NX_READY)nxLater();else addEventListener('nx-ready',nxLater);
 </script>
 </body>
 </html>

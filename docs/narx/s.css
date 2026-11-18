@@ -1,0 +1,13 @@
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f6f7f5;color:#13201b}
+a{color:#0c5a43}.w{max-width:760px;margin:0 auto;padding:16px}header{background:#0c5a43;color:#fff}header .w{display:flex;justify-content:space-between;align-items:center;padding:12px 16px}
+header a{color:#fff;text-decoration:none;font-weight:800;font-size:20px}header .go{font-size:14px;font-weight:600;border:1px solid #ffffff80;border-radius:999px;padding:6px 14px}
+.bc{font-size:13px;color:#5b6b64;margin:4px 0 10px}.bc a{color:#5b6b64}h1{font-size:26px;line-height:1.2;margin:0 0 6px}.sub{color:#5b6b64;margin:0 0 16px;font-size:14px}
+.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 1px 3px #0000000f;margin-bottom:14px}.top{display:flex;gap:16px;align-items:center}
+.top img{width:120px;height:120px;object-fit:contain;flex:none}.best{font-size:14px;color:#5b6b64}.best b{display:block;font-size:28px;color:#0c5a43;line-height:1.2}
+.save{display:inline-block;background:#e6f4ee;color:#0c5a43;font-weight:700;font-size:13px;border-radius:999px;padding:3px 10px;margin-top:6px}
+table{width:100%;border-collapse:collapse}td{padding:12px 6px;border-top:1px solid #eef0ee;vertical-align:middle}tr:first-child td{border-top:0}
+.st{font-weight:700}.pr{text-align:right;white-space:nowrap;font-weight:800}.pr s{display:block;color:#98a29d;font-weight:400;font-size:13px}.pr small{display:block;color:#5b6b64;font-weight:400;font-size:12px}
+.lnk{text-align:right;white-space:nowrap}.lnk a{font-size:14px;font-weight:600}.cta{display:block;text-align:center;background:#0c5a43;color:#fff;text-decoration:none;font-weight:700;border-radius:12px;padding:14px;margin:4px 0 14px}
+h2{font-size:18px;margin:0 0 10px}ul.l{list-style:none;padding:0;margin:0}ul.l li{padding:8px 0;border-top:1px solid #eef0ee;display:flex;justify-content:space-between;gap:10px}ul.l li:first-child{border-top:0}
+ul.l span{white-space:nowrap;color:#5b6b64;font-size:14px}.ru{font-size:14px;color:#5b6b64}footer{font-size:13px;color:#5b6b64;text-align:center;padding:20px 16px 40px}
+@media(max-width:520px){h1{font-size:22px}.top img{width:90px;height:90px}.best b{font-size:24px}.lnk a{font-size:13px}}
