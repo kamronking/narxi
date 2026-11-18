@@ -1,12 +1,12 @@
 {
- "started": "2026-11-18T20:17:58.705390+05:00",
+ "started": "2026-11-18T23:18:04.575922+05:00",
  "stores": {
   "texnomart": {
    "pages": 1261,
-   "items": 1842,
+   "items": 1843,
    "errors": [],
    "per_cat": {
-    "phones": 279,
+    "phones": 280,
     "laptops": 22,
     "tablets": 38,
     "tv": 194,
@@ -42,22 +42,20 @@
     "printers": 8
    },
    "inst": {
-    "exact": 1436,
-    "est": 406,
+    "exact": 1468,
+    "est": 375,
     "factor": 1.7,
     "months": 24,
-    "known": 1614
+    "known": 1628
    },
-   "last_ok": "2026-11-18T20:17+05:00"
+   "last_ok": "2026-11-18T23:18+05:00"
   },
   "olcha": {
-   "pages": 598,
-   "items": 11960,
-   "errors": [
-    "p322: ChunkedEncodingError(ProtocolError('Response ended prematurely'))"
-   ],
+   "pages": 599,
+   "items": 11980,
+   "errors": [],
    "per_cat": {
-    "other": 9229,
+    "other": 9249,
     "phones": 315,
     "tablets": 134,
     "climate": 137,
@@ -74,19 +72,19 @@
     "ac": 128,
     "tv": 118
    },
-   "in_stock": 11960,
-   "last_ok": "2026-11-18T20:17+05:00"
+   "in_stock": 11980,
+   "last_ok": "2026-11-18T23:18+05:00"
   },
   "alif": {
-   "pages": 387,
-   "items": 7734,
+   "pages": 388,
+   "items": 7731,
    "errors": [],
    "per_cat": {
     "tv": 546,
-    "audio": 534,
+    "audio": 531,
     "kitchen": 567,
     "washers": 718,
-    "phones": 585,
+    "phones": 584,
     "stoves": 586,
     "care": 249,
     "watches": 354,
@@ -97,11 +95,11 @@
     "laptops": 720,
     "climate": 499,
     "home": 678,
-    "tablets": 180
+    "tablets": 181
    },
    "cats": 73,
-   "budget_left": 113,
-   "last_ok": "2026-11-18T20:17+05:00"
+   "budget_left": 112,
+   "last_ok": "2026-11-18T23:18+05:00"
   },
   "beeline": {
    "pages": 23,
@@ -116,7 +114,7 @@
     "climate": 7,
     "kitchen": 4
    },
-   "last_ok": "2026-11-18T20:17+05:00"
+   "last_ok": "2026-11-18T23:18+05:00"
   },
   "macbro": {
    "pages": 4,
@@ -134,32 +132,32 @@
     "care": 21,
     "monitors": 4
    },
-   "last_ok": "2026-11-18T20:17+05:00"
+   "last_ok": "2026-11-18T23:18+05:00"
   },
   "idea": {
    "pages": 53,
-   "items": 1897,
+   "items": 1898,
    "errors": [],
    "per_cat": {
-    "other": 411,
-    "laptops": 66,
-    "tv": 61,
-    "kitchen": 278,
-    "audio": 164,
+    "other": 415,
+    "laptops": 67,
+    "tv": 60,
+    "kitchen": 284,
+    "audio": 162,
     "care": 95,
-    "phones": 233,
-    "home": 146,
-    "watches": 45,
-    "tablets": 20,
-    "climate": 35,
-    "stoves": 134,
+    "phones": 232,
+    "home": 143,
+    "watches": 46,
+    "tablets": 19,
+    "climate": 36,
+    "stoves": 131,
     "monitors": 9,
-    "washers": 73,
+    "washers": 72,
     "printers": 16,
     "fridges": 70,
     "ac": 41
    },
-   "last_ok": "2026-11-18T20:17+05:00"
+   "last_ok": "2026-11-18T23:18+05:00"
   },
   "maxcom": {
    "pages": 170,
@@ -178,7 +176,7 @@
    },
    "cats": 50,
    "budget_left": 0,
-   "last_ok": "2026-11-18T20:17+05:00"
+   "last_ok": "2026-11-18T23:18+05:00"
   },
   "woot": {
    "pages": 114,
@@ -201,7 +199,7 @@
    },
    "cats": 48,
    "budget_left": 46,
-   "last_ok": "2026-11-18T20:17+05:00"
+   "last_ok": "2026-11-18T23:18+05:00"
   },
   "avtech": {
    "pages": 225,
@@ -216,7 +214,7 @@
    },
    "cats": 121,
    "budget_left": 95,
-   "last_ok": "2026-11-18T20:17+05:00"
+   "last_ok": "2026-11-18T23:18+05:00"
   },
   "mionline": {
    "pages": 0,
@@ -241,7 +239,7 @@
    },
    "cats": 12,
    "budget_left": 109,
-   "last_ok": "2026-11-18T20:17+05:00"
+   "last_ok": "2026-11-18T23:18+05:00"
   },
   "karcher": {
    "pages": 4,
@@ -254,7 +252,7 @@
     "tablets": 1,
     "care": 2
    },
-   "last_ok": "2026-11-18T20:17+05:00"
+   "last_ok": "2026-11-18T23:18+05:00"
   },
   "openshop": {
    "pages": 5,
@@ -278,23 +276,23 @@
  "ram_split": 15,
  "merged": 129,
  "brand_split": 19,
- "products": 22740,
+ "products": 22763,
  "matched_2plus": 1690,
  "cats": {
   "phones": [
-   504,
+   503,
    168
   ],
   "laptops": [
-   1632,
+   1633,
    20
   ],
   "tablets": [
-   504,
+   503,
    14
   ],
   "tv": [
-   925,
+   926,
    145
   ],
   "monitors": [
@@ -302,7 +300,7 @@
    15
   ],
   "audio": [
-   1436,
+   1433,
    147
   ],
   "watches": [
@@ -318,19 +316,19 @@
    109
   ],
   "ac": [
-   830,
+   831,
    83
   ],
   "home": [
-   942,
+   941,
    179
   ],
   "kitchen": [
-   1135,
+   1139,
    266
   ],
   "stoves": [
-   704,
+   706,
    72
   ],
   "climate": [
@@ -338,7 +336,7 @@
    48
   ],
   "care": [
-   466,
+   469,
    50
   ],
   "printers": [
@@ -346,41 +344,41 @@
    75
   ],
   "other": [
-   10690,
+   10707,
    154
   ]
  },
  "unkeyed_sample": [
   "Керамическое защитное стекло Xiaomi Redmi Note 9T",
-  "Умная портативная колонка Яндекс Станция Стрит с Алисой, 30 Вт Black",
-  "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
   "Умная колонка Яндекс Станция Лайт 2 Графитовый",
   "Умная портативная колонка Яндекс Станция Стрит с Алисой, 30 Вт Green",
   "Умная портативная колонка Яндекс Станция Стрит с Алисой, 30 Вт Grey",
+  "Умная колонка Яндекс Станция Лайт с Алисой, Лимон, 5Вт",
   "Умная колонка Яндекс Станция Мини с часами с Алисой, Черный, 10Вт",
+  "Умная портативная колонка Яндекс Станция Стрит с Алисой, 30 Вт Black",
   "Наушники вставные беспроводные Green Earbuds",
-  "Смарт часы Green Ultra Black",
   "Смарт часы Green Active Pro Black",
-  "Мясорубка Аксион М41.01",
-  "Мясорубка Аксион М21.01",
+  "Смарт часы Green Ultra Black",
   "Мясорубка Аксион М12.11",
-  "Мясорубка Аксион М321.01",
-  "Мясорубка Аксион М41.00"
+  "Мясорубка Аксион М61.02",
+  "Мясорубка Аксион М41.00",
+  "Мясорубка Аксион М21.01",
+  "Мясорубка Аксион М321.01"
  ],
  "keys_sample": {
   "phones": [
-   "phones:iphone 17 pro max 256gb :: openshop 16599000 Смартфон Apple iPhone 17 Pro Max 256GB Deep Blue ( | macbro 17276000 iPhone 17 Pro Max Deep Blue 256GB eSIM | alif 17999000 Смартфон Apple iPhone 17 Pro Max 256 ГБ eSIM, Cosm | olcha 18199000 iPhone 17 Pro Max Deep Blue 256 GB | texnomart 18999000 Apple iPhone 17 Pro Max 12/256GB Глубокий синий | idea 20099000 Смартфон iPhone 17 Pro Max 256GB Silver",
+   "phones:iphone 17 pro max 256gb :: openshop 16599000 Смартфон Apple iPhone 17 Pro Max 256GB Deep Blue ( | macbro 17276000 iPhone 17 Pro Max Deep Blue 256GB eSIM | alif 17999000 Смартфон Apple iPhone 17 Pro Max 256 ГБ eSIM, Cosm | olcha 18199000 iPhone 17 Pro Max Deep Blue 256 GB | texnomart 18999000 Apple iPhone 17 Pro Max 12/256GB Оранжевый | idea 20099000 Смартфон iPhone 17 Pro Max 256GB Silver",
    "phones:iphone air 256gb :: macbro 12990000 iPhone Air Space Black 256GB eSIM | olcha 13199000 Iphone Air 12/256 GB Light Gold | alif 13599000 Смартфон Apple iPhone Air 256 ГБ eSim, Light Gold | openshop 13664000 Смартфон Apple iPhone Air 256GB Sky Blue | texnomart 13999000 Apple iPhone Air 12/256GB Небесно-голубой | idea 14999000 Смартфон iPhone Air 256GB Space Black",
    "phones:samsung galaxy s26 ultra 256gb :: openshop 12899000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256GB Черн | alif 13384000 Смартфон Samsung Galaxy S26 Ultra 5G 12/256 ГБ, фи | olcha 13445000 Смартфон Samsung Galaxy S26 Ultra 5G Violet 256 ГБ | texnomart 13999000 Samsung Galaxy S26 Ultra 12/256GB Фиолетовый кобал | macbro 14225000 Смартфон Samsung Galaxy S26 Ultra Black 256GB 12GB | idea 15999000 Смартфон Samsung Galaxy S26 Ultra 12/256 Black",
    "phones:iphone 17 pro 256gb :: openshop 15833000 Смартфон Apple iPhone 17 Pro 256GB Cosmic Orange ( | macbro 16298000 iPhone 17 Pro Silver 256GB eSIM | olcha 17232000 iPhone 17 Pro 12/256 GB Cosmic Orange | alif 17599000 Смартфон Apple iPhone 17 Pro 256 ГБ (nanoSim+eSim) | texnomart 17999000 Apple iPhone 17 Pro 12/256GB Серебристый | idea 18699000 Смартфон iPhone 17 Pro 256GB Silver",
+   "phones:iphone 18 pro 256gb :: alif 19777000 Смартфон Apple iPhone 18 Pro 256 ГБ (nanoSim+eSim) | texnomart 19999000 Apple iPhone 18 Pro 12/256GB Серебристый | openshop 20099000 Смартфон Apple iPhone 18 Pro 256GB Silver (eSIM +  | olcha 20540000 Смартфон Apple iPhone 18 Pro 256 GB Silver | idea 20999000 Смартфон iPhone 18 Pro 256GB Glacier | macbro 21418000 iPhone 18 Pro Black 256GB Single SIM",
    "phones:iphone 18 pro 512gb :: texnomart 23499000 Apple iPhone 18 Pro 12/512GB Голубой | alif 23999000 Смартфон Apple iPhone 18 Pro 512 ГБ (nanoSim+eSim) | idea 24799000 Смартфон iPhone 18 Pro 512GB Black | openshop 24979000 Смартфон Apple iPhone 18 Pro 512GB Silver (SIM + e | olcha 24999000 Смартфон Apple iPhone 18 Pro 512 GB Glacier | macbro 25990000 iPhone 18 Pro Black 512GB Single SIM",
-   "phones:iphone 18 pro max 256gb :: alif 21799000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | openshop 21826000 Смартфон Apple iPhone 18 Pro Max 256GB Silver (eSI | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | macbro 22699000 iPhone 18 Pro Max Black 256GB Single SIM | texnomart 22790000 Apple iPhone 18 Pro Max 12/256GB Голубой | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier",
+   "phones:iphone 18 pro max 256gb :: alif 21700000 Смартфон Apple iPhone 18 Pro Max 256 ГБ (nanoSim+e | openshop 21826000 Смартфон Apple iPhone 18 Pro Max 256GB Silver (eSI | olcha 22500000 Смартфон Apple iPhone 18 Pro Max Silver 256 GB | texnomart 22790000 Apple iPhone 18 Pro Max 12/256GB Голубой | idea 22799000 Смартфон iPhone 18 Pro Max 256GB Glacier | macbro 22990000 iPhone 18 Pro Max Black 256GB Single SIM",
    "phones:iphone 17 256gb :: openshop 11925000 Смартфон Apple iPhone 17 256GB Lavender (eSIM + eS | macbro 12830000 iPhone 17 Lavender 256GB Single SIM | alif 12999000 Смартфон Apple iPhone 17 256 ГБ (nanoSim+eSim), La | texnomart 13699000 Apple iPhone 17 8/256GB Фиолетовый | idea 14299000 Смартфон iPhone 17 256GB Black",
    "phones:honor x9d 256gb:r8 :: olcha 4868000 Honor X9d 5G Red 8/256 GB | openshop 5043000 Смартфон Honor X9d 5G 8/256GB Reddish Brown | texnomart 5199000 Honor X9d 8/256GB Золотистый рассвет | idea 5199000 Смартфон Honor X9d 8/256 Midnight Black | alif 5299000 Смартфон Honor X9D 8/256 ГБ, Midnight",
    "phones:samsung galaxy a18 128gb:r4 :: olcha 2699000 Смартфон Samsung Galaxy A18 4G Silver 4/128GB | openshop 2741000 Смартфон Samsung Galaxy A18 4/128GB Голубой | texnomart 2749000 Samsung Galaxy A18 4/128GB Черный | idea 2799000 Смартфон Samsung Galaxy A18 4/128 Black | alif 2998000 Смартфон Samsung Galaxy A18 4/128 ГБ, Black",
-   "phones:samsung galaxy a27 128gb :: olcha 3644000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | openshop 3699000 Смартфон Samsung Galaxy A27 5G 6/128GB Черный | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4788000 Samsung Galaxy A27 5G 6/128GB Light Pink",
-   "phones:samsung galaxy a27 256gb :: olcha 4189000 Смартфон Samsung Galaxy A27 5G 8/256GB Black | openshop 4268000 Смартфон Samsung Galaxy A27 5G 8/256GB Светло-зеле | alif 4398000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | texnomart 4399000 Samsung Galaxy A27 5G 8/256GB Черный | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black",
-   "phones:samsung galaxy a37 128gb :: alif 4459000 Смартфон Samsung Galaxy A37 5G 8/128 ГБ, Charcoal  | openshop 4462000 Смартфон Samsung Galaxy A37 5G 8/128GB Зеленый | olcha 4799000 Samsung Galaxy A37 Pink 8/128 Гб | texnomart 4890000 Samsung Galaxy A37 8/128GB Темно зеленый | idea 4899000 Смартфон SAMSUNG Galaxy A37 8/128 Gray (SM-A376EZA"
+   "phones:samsung galaxy a27 128gb :: olcha 3644000 Смартфон Samsung Galaxy A27 5G 6/128GB Black | openshop 3699000 Смартфон Samsung Galaxy A27 5G 6/128GB Черный | macbro 3996000 Смартфон Samsung Galaxy A27 Black 128GB | idea 4199000 Смартфон Samsung Galaxy A27 5G 6/128 Light Pink | texnomart 4788000 Samsung Galaxy A27 5G 6/128GB Синий",
+   "phones:samsung galaxy a27 256gb :: olcha 4189000 Смартфон Samsung Galaxy A27 5G 8/256GB Black | openshop 4268000 Смартфон Samsung Galaxy A27 5G 8/256GB Светло-зеле | alif 4398000 Смартфон Samsung Galaxy A27 5G 8/256 ГБ, Black | texnomart 4399000 Samsung Galaxy A27 5G 8/256GB Черный | idea 4999000 Смартфон Samsung Galaxy A27 5G 8/256 Black"
   ],
   "audio": [
    "audio:t:apple airpods 4 :: alif 1755000 Наушники Apple AirPods 4, белый | macbro 1785000 Наушники Apple AirPods 4 White | idea 1999000 Беспроводные наушники Apple AirPods 4 | texnomart 2258000 Наушники вставные беспроводные Apple AirPods 4 Whi | olcha 2300000 Беспроводные наушники Apple Airpods 4 | maxcom 2335200 Наушники Apple AirPods 4",
@@ -401,14 +399,14 @@
    "care:dyson:hd16 :: macbro 5850000 Фен Dyson Supersonic Nural HD16, Strawberry Bronze | olcha 6109000 Фен Dyson Supersonic Nural HD16 Kanzan Pink | texnomart 6430000 Фен Dyson HD16 Ceramic Pink | alif 6660000 Фен Dyson Supersonic HD16 Nural, Strawberry Bronze | woot 6917000 Фен Dyson Strawberry HD16 Nural",
    "care:dyson:hs09 :: openshop 7299000 Многофункциональный стайлер и фен Dyson Airwrap HS | macbro 8296000 Мультистайлер Dyson Airwrap HS09 Red Velvet | olcha 9074000 Стайлер Dyson Airwrap Coanda 2x HS09 Amber Silk | alif 9339000 Стайлер Dyson Airwrap HS09,  розовый",
    "care:dyson:hs05 :: openshop 6161000 Фен Dyson Supersonic HS05, Синий | woot 7309000 Мультистайлер Dyson Airwrap Complete Long HS05 | olcha 7592000 Стайлер Dyson Airwrap HS05 Long Strawberry Long | macbro 7830000 Мультистайлер Dyson Airwrap Complete Long Volumise",
+   "care:philips:bhs510 :: idea 999000 Выпрямитель волос Philips BHS510/00 | olcha 1100000 Выпрямитель для волос Philips BHS510/00 | texnomart 1275000 Выпрямитель для волос Philips BHS510/00",
    "care:rowenta:sf8120f0 :: texnomart 849000 Выпрямитель для волос Rowenta SF8120F0 | woot 1318000 Выпрямитель для волос Rowenta Ultimate Experience  | idea 1499000 Выпрямитель для волос Rowenta Ultimate Experience ",
    "care:dyson:hs08 :: olcha 5905000 Стайлер Dyson HS08 Airwrap i.d. Ceramic Patina/Top | macbro 6630000 Мультистайлер Dyson Airwrap ID HS08 Ceramic Patina | alif 8099000 Мультистайлер Dyson Airwrap HS08, розовый",
    "care:panasonic:ergd61k520 :: alif 785000 Триммер Panasonic ER-GD61-K520, чёрный | woot 933000 Триммер Panasonic ER-GD61-K520 | idea 1290000 Триммер Panasonic ER-GD61-K520",
    "care:ardesto:hdy220pro :: alif 309000 Фен Ardesto HD-Y220PRO, черный | openshop 327000 Фен Ardesto HD-Y220PRO | olcha 347604 Фен Ardesto HD-Y220PRO",
    "care:dyson:hd18 :: olcha 6278000 Фен Dyson Supersonic r HD18 Professional Vinca blu | alif 7140000 Фен Dyson Supersonic HD18 Professional R, Prussian | macbro 7450000 Фен Dyson HD18 Supersonic R Pro, Vinca Blue/Topaz ",
    "care:xiaomi:h300 :: alif 389000 Фен Xiaomi Mi Ionic Hair Dryer H300 EU, белый | woot 431000 Фен Xiaomi Mi Ionic Hair Dryer H300 EU | texnomart 497000 Фен MI Ionic H300",
-   "care:panasonic:ehna65k865 :: alif 1249000 Фен Panasonic EH-NA65-K865, Черный | openshop 1771000 Фен Panasonic EH-NA65-K865 | idea 1890000  Фен Panasonic EH-NA65-K865",
-   "care:xiaomi:h101 :: alif 259000 Фен Xiaomi Compact Hair Dryer H101, белый | texnomart 299000 Фен Xiaomi H101 (Pink) | woot 352000 Фен Xiaomi Compact Hair Dryer H101 White EU"
+   "care:panasonic:ehna65k865 :: alif 1249000 Фен Panasonic EH-NA65-K865, Черный | openshop 1771000 Фен Panasonic EH-NA65-K865 | idea 1890000  Фен Panasonic EH-NA65-K865"
   ],
   "printers": [
    "printers:canon:g3430 :: texnomart 1999000 Принтер Canon IJ MFP PIXMA G3430 МФУ 3в1 Черный | woot 2036000 Принтер МФУ Canon Pixma G3430 | olcha 2145000 Принтер МФУ Canon Pixma G3430 | alif 2190000 МФУ Canon Pixma G3430, черный | idea 2199000 МФУ струйное Canon PIXMA G3430 EUM/EMB",
@@ -510,8 +508,8 @@
   ],
   "watches": [
    "watches:t:huawei watch d2 :: beeline 3299000 Смарт-часы Huawei Watch D2, Gold | texnomart 3583000 Смарт часы Huawei Watch D2 Black | alif 3675000 Смарт-часы Huawei Watch  D2, черный | openshop 3764000 Умные часы Huawei Watch D2 Gold",
-   "watches:t:huawei watch fit 5 :: alif 2199000 Смарт-часы Huawei Watch Fit 5, зеленый | texnomart 2299000 Смарт часы Huawei WATCH FIT 5 Green | openshop 2949000 Умные часы Huawei Watch Fit 5 Pro, White",
-   "watches:t:xiaomi redmi watch 5 :: alif 690000 Смарт-часы Xiaomi Redmi Watch 5 Lite, золотистый | texnomart 816000 Смарт часы Xiaomi Redmi Watch 5 Lite Black | idea 999000 Умные часы Xiaomi Redmi Watch 5 Lite Black",
+   "watches:t:huawei watch fit 5 :: alif 2199000 Смарт-часы Huawei Watch Fit 5, зеленый | texnomart 2299000 Смарт часы Huawei WATCH FIT 5 White | openshop 2949000 Умные часы Huawei Watch Fit 5 Pro, White",
+   "watches:t:xiaomi redmi watch 5 :: alif 690000 Смарт-часы Xiaomi Redmi Watch 5 Lite, золотистый | texnomart 816000 Смарт часы Xiaomi Redmi Watch 5 Lite Black | idea 999000 Умные часы Xiaomi Redmi Watch 5 Lite gold",
    "watches:t:honor choice watch 2 epic :: beeline 1299000 Смарт-часы Honor Choice Watch 2 Epic, Black | texnomart 1553000 Смарт часы Honor Choice Watch 2 Epic Black",
    "watches:t:honor choice watch 2 :: beeline 899000 Смарт-часы Honor Choice Watch 2 Pro, Black | texnomart 1159000 Смарт часы Honor Choice Watch 2 Pro Black",
    "watches:t:huawei watch 5 42mm :: texnomart 4299000 Смарт часы Huawei Watch 5 42mm White | alif 5299000 Смарт-часы Huawei Watch 5 42mm, бежевый",
@@ -572,7 +570,7 @@
    "monitors::d2423b :: alif 1030000 Монитор 2E D2423B 24\", черный | olcha 1078751 Монитор 2E D2423B 23.8\" FHD 75Hz",
    "monitors:gaming:g2423b :: olcha 1669792 Монитор 2E GAMING G2423B 23.8\" FHD 165Hz | alif 1876000 Монитор 2E Gaming G2423B 23.8\", Черный",
    "monitors:gaming:g2724bu :: olcha 1990104 Монитор 2E GAMING 27\" G2724BU HDMI, DP, Type-C, IP | alif 2082000 Монитор 2E Gaming G2724BU, чёрный",
-   "monitors:gaming:r2723bv :: alif 1855000 Монитор 2E Gaming R2723BV, Черный | olcha 2054168 Монитор 2E GAMING R2723BV 27\" FHD 165Hz",
+   "monitors:gaming:r2723bv :: alif 1999000 Монитор 2E Gaming R2723BV, Черный | olcha 2054168 Монитор 2E GAMING R2723BV 27\" FHD 165Hz",
    "monitors:hp:6n4c4aa :: alif 6122000 Монитор HP 6N4C4AA, Черный | woot 6460000 Монитор 27\" HP E27k G5 4K (6N4C4AA) IPS UHD (3840x",
    "monitors:hp:b11w6at :: alif 2568000 Монитор HP B11W6AT, Черный | woot 2662000 Монитор 27\" HP Series 5 527da (B11W6AT) IPS Full H",
    "monitors:lg:29wp500b :: woot 3459000 Ультраширокий монитор 29\" LG UltraWide 29WP500-B I | maxcom 3905900 Монитор LG UltraWide 29WP500-B 29\"",
