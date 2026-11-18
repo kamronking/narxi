@@ -3,7 +3,7 @@ on:
   schedule:
     - cron: '47 */6 * * *'   # fallback only; the real 3-hour timer is Cloudflare cron in cloudflare/worker.js (GitHub often skips its own schedule)
   push:
-    paths: ['scraper/scrape.py', '.github/workflows/scrape.yml']
+    paths: ['scraper/scrape.py', 'scraper/seo.py', '.github/workflows/scrape.yml']
   workflow_dispatch:
 permissions:
   contents: write
@@ -20,15 +20,17 @@ jobs:
         with: {python-version: '3.12'}
       - run: pip install requests
       - run: python scraper/scrape.py
+      - run: python scraper/seo.py   # static model pages + sitemap for Google
       - run: |
           git config user.name "narxi-bot"
           git config user.email "narxi-bot@users.noreply.github.com"
           # keep this run's data, put it on top of the latest main (code may have changed meanwhile)
-          cp -r docs/data /tmp/newdata
+          cp -r docs/data /tmp/newdata; cp -r docs/narx /tmp/newnarx; cp docs/sitemap.xml /tmp/sitemap.xml
           for i in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main
             rm -rf docs/data && cp -r /tmp/newdata docs/data
-            git add -A docs/data
+            rm -rf docs/narx && cp -r /tmp/newnarx docs/narx && cp /tmp/sitemap.xml docs/sitemap.xml
+            git add -A docs/data docs/narx docs/sitemap.xml
             git commit -q -m "prices $(date -u +%Y-%m-%dT%H:%MZ)" || exit 0
             git push -q origin HEAD:main && exit 0
             sleep $((i * 5))
