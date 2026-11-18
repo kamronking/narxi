@@ -222,6 +222,7 @@ svg.chart path.ln{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 1.
 .lpick{display:grid;grid-template-columns:1fr 1fr;gap:10px}.lpick.tp{grid-template-columns:repeat(3,1fr)}
 .lpick button{border:2px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:inherit;border-radius:16px;padding:16px 10px;font:600 15px var(--ui)}
 .lpick button b{font-size:17px}.lpick button[aria-pressed="true"]{border-color:var(--lime,#c6f36b);background:rgba(198,243,107,.18)}
+#langsheet .lpick button{border-color:rgba(127,127,127,.3);background:transparent;padding:18px 10px}#langsheet .lpick button:active{transform:scale(.97)}#langsheet h2 span{display:block;font-size:16px;font-weight:600;opacity:.6;margin-top:2px}
 .wrong{gap:8px}
 .irow{display:flex;flex-direction:column;gap:4px;padding:8px 0;border-top:1px solid var(--line)}.irow:first-of-type{border-top:0}
 .irow .h{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:600;font-size:14px}.irow .h span:first-child{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -814,8 +815,20 @@ render();
   window.__resetting=true;const go2=()=>{try{sessionStorage.clear()}catch(e){}location.replace(location.pathname)};if(window.NX&&NX.signOut)NX.signOut().then(go2,go2);else setTimeout(()=>{(window.NX&&NX.signOut?NX.signOut():Promise.resolve()).then(go2,go2)},1500)}})();
 const firstVisitOfSession=!sessionStorage.getItem('ob_shown');
 (function(){const q=new URLSearchParams(location.search);const rid=q.get('reg');if(rid&&/^[A-Za-z0-9]{10,40}$/.test(rid)){store.set('reg_id',rid);history.replaceState(null,'',location.pathname)}})();
+/* first visit: open the home page at once; a small sheet asks for the language, registration is offered later */
+function langSheet(){if(document.getElementById('langsheet'))return;const el=document.createElement('div');el.id='langsheet';el.className='regwrap';
+  el.innerHTML=`<div class="regsheet in-up" role="dialog" aria-modal="true"><h2>Tilni tanlang<span>Выберите язык</span></h2>
+   <div class="lpick"><button data-pl="uz" aria-pressed="${LANG==='uz'}"><b>🇺🇿 O'zbekcha</b></button><button data-pl="ru" aria-pressed="${LANG==='ru'}"><b>🇷🇺 Русский</b></button></div>
+   <p class="small muted" style="text-align:center">Keyin Profil bo'limida o'zgartirish mumkin · Можно изменить в Профиле</p></div>`;
+  document.body.appendChild(el);
+  const done=l=>{if(l){LANG=l;store.set('lang',LANG)}store.set('lang_set',1);el.remove();render();window.NX&&NX.ev('pick_lang',{lang:LANG});scheduleReg()};
+  el.querySelectorAll('[data-pl]').forEach(b=>b.onclick=()=>done(b.dataset.pl));el.onclick=e=>{if(e.target===el)done()}}
+const REG_DELAY=45000;
+function scheduleReg(){if(store.get('reg_ok',false))return;setTimeout(function tryReg(){if(store.get('reg_ok',false))return;
+  if(!ob.hidden||document.getElementById('langsheet')||document.getElementById('regsheet'))return setTimeout(tryReg,10000);regNudge(true)},REG_DELAY)}
+function softStart(){if(!store.get('lang_set',0))setTimeout(langSheet,1200);else scheduleReg()}
 if(!window.__resetting&&!store.get('reg_ok',false)&&firstVisitOfSession){try{sessionStorage.setItem('ob_shown','1');sessionStorage.setItem('reg_shown','1')}catch(e){}
-  if(store.get('reg_id',null)){regStatus().then(ok=>{if(ok){toast(t('rgOk'));render()}else openOB(0)})}else openOB(0)}
+  if(store.get('reg_id',null)){regStatus().then(ok=>{if(ok){toast(t('rgOk'));render()}else softStart()})}else softStart()}
 setTimeout(function waitNX(n){if(!window.NX&&n<20)return setTimeout(()=>waitNX(n+1),500);regStatus().then(ok=>{if(ok&&!ob.hidden&&!regFromProfile){ob.hidden=true;render()}})},1500,0);
 const nxBoot=async()=>{if(USER){if(!store.get('synced',0)){const ok=await NX.saveUser(USER,WATCH,LANG);if(ok){store.set('synced',1);toast('☁️ '+t('saved'))}}return}const d=await NX.load();if(d&&d.name){USER={name:d.name,phone:d.phone,city:d.city,brands:d.brands||[],since:d.since||Date.now()};store.set('user',USER);if(d.watch){WATCH={...d.watch,...WATCH};store.set('watch',WATCH)}store.set('seen',1);if(!ob.hidden)ob.hidden=true;render()}};const nxLater=()=>setTimeout(nxBoot,USER?2500:4000);if(window.NX_READY)nxLater();else addEventListener('nx-ready',nxLater);
 </script>
