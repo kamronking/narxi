@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>ISHONCH</title>
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0E2F5A" />
+
+  <!-- O-07 â Organization structured data (static; brand-level, every page). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ISHONCH",
+    "url": "https://ecom.ishonchsavdo.uz",
+    "logo": "https://ecom.ishonchsavdo.uz/logo.png?v=2",
+    "sameAs": ["https://t.me/ishonchsavdo_bot"]
+  }
+  </script>
+
+  <!-- O-08 â WebSite + SearchAction so Google can show a sitelinks search box. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ISHONCH",
+    "url": "https://ecom.ishonchsavdo.uz",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://ecom.ishonchsavdo.uz/catalog?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Pre-paint shell resolution, in dependency order: UI version â colour
+       scheme â browser chrome colour. All three must land before first paint,
+       and the last two read the first, so they share one block.
+
+       UI version (docs/ecom/ui_switch/04-UI-SWITCH.md): ?ui= URL param (sticks
+       via localStorage, for QA / dark-launch links) â VITE_UI_DEFAULT build env
+       â the literal fallback below. That fallback is the TRACKED default:
+       flipping it IS the flip, reverting it is the rollback. A no-commit
+       emergency rollback instead sets VITE_UI_DEFAULT in the server's
+       (gitignored) frontend/.env and rebuilds â a real env var outranks both
+       the .env file and this fallback.
+
+       The localStorage key carries a generation suffix. A QA pin must not
+       outlive the flip it was made before: otherwise everyone who ever opened
+       ?ui=â¦ or used the 7-tap toggle is frozen on that version, invisible to
+       the default AND to a default rollback. Bump the suffix (here and in
+       lib/uiVersion.js) whenever the tracked default changes. -->
+  <script>
+    (function () {
+      var ui = 'v2';
+      try {
+        var q = new URLSearchParams(location.search).get('ui');
+        if (q === 'v1' || q === 'v2') localStorage.setItem('ui_version_3', q);
+        var d = '%VITE_UI_DEFAULT%';
+        if (d.charAt(0) === '%') d = ''; // env var not defined at build time
+        ui = localStorage.getItem('ui_version_3') || d || 'v2';
+        ui = ui === 'v2' ? 'v2' : 'v1';
+      } catch (e) {
+        ui = 'v2'; // storage/URL unavailable â fall back to the SHIPPING UI
+      }
+      document.documentElement.dataset.ui = ui;
+
+      // Colour scheme from the non-secret click-ctx marker (Â§5.1, M7).
+      // Format: click-ctx=<present>.<theme>.<locale>. nginx can't stamp the
+      // class into the content-hashed static shell, so we read the marker here;
+      // ThemeContext (auto mode on Click) then only reconciles.
+      // Suppressed under v2: it ships light-only until its dark tokens are
+      // signed off (index.css's html[data-ui='v2'].dark is still a draft), and
+      // ThemeContext forces the same â without this, Click on a dark SuperApp
+      // would paint draft dark for a frame before being reconciled to light.
+      var dark = false;
+      if (ui !== 'v2') {
+        var m = /(?:^|;\s*)click-ctx=[^.]*\.(dark|light)\./.exec(document.cookie);
+        dark = !!m && m[1] === 'dark';
+        if (dark) document.documentElement.classList.add('dark');
+      }
+
+      // Chrome colour (Android address bar, PWA splash + task switcher). The
+      // static <meta> above can't follow data-ui, so it is restamped here: v1
+      // keeps its navy untouched, v2 matches the surface its header actually
+      // paints (index.css --surface). The dark value is dormant until v2 dark
+      // ships, but stays correct so it needs no second edit then.
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) {
+        meta.setAttribute(
+          'content',
+          ui === 'v2' ? (dark ? '#1B222B' : '#FFFFFF') : '#0E2F5A',
+        );
+      }
+    })();
+  </script>
+
+  <!-- R-13: only load the Telegram SDK (~20 KB + a DNS hop) when we're
+       actually inside Telegram. Regular browsers never pay for it. Detection:
+       tgWebApp data in the URL hash, or the Android/iOS webview proxy. -->
+  <script>
+    (function () {
+      var inTelegram =
+        /tgWebApp/.test(location.hash) ||
+        typeof window.TelegramWebviewProxy !== 'undefined' ||
+        window.Telegram != null;
+      if (inTelegram) {
+        var s = document.createElement('script');
+        s.src = 'https://telegram.org/js/telegram-web-app.js';
+        s.async = false;
+        document.head.appendChild(s);
+      }
+    })();
+  </script>
+
+  <!-- Click MiniApp SDK â only inside the Click SuperApp WebView. Mirrors the
+       Telegram block: a WebView-only host SDK, never paid for on the open web.
+       Detection uses the SAME first-byte signal as resolveChannel() (Â§2.1): the
+       non-secret click-ctx cookie nginx sets from the document request, or a
+       ?click=1 launch param. window.ClickSDK is NOT used to detect Click â it
+       loads too late (C1). Gated on VITE_CLICK_ENABLED so a build can ship Click
+       as dead code (undefined var â the literal stays â !== 'true' â off). -->
+  <script>
+    (function () {
+      var enabled = 'true' === 'true';
+      // ?click=1 is a DEV/staging override only (mirrors resolveChannel, C1): in
+      // prod the nginx-set click-ctx cookie is the SOLE signal, so a plain ecom
+      // visitor can't force-load the Click SDK by appending ?click=1.
+      var debugClick = '%VITE_CLICK_DEBUG%' === 'true';
+      var inClick =
+        /(?:^|;\s*)click-ctx=/.test(document.cookie) ||
+        (debugClick && /[?&]click=1\b/.test(location.search));
+      if (!enabled || !inClick) return;
+      if (window.ClickSDK == null) {
+        var s = document.createElement('script');
+        s.src = 'https://s3.click.uz/click-one-backend/miniapp-sdk.js';
+        // The load is async w.r.t. main.jsx no matter what, so expose a promise
+        // the host adapter awaits before ClickSDK.init() (Â§2.3). Never blocks paint.
+        window.__clickSdkReady = new Promise(function (resolve, reject) {
+          s.onload = resolve;
+          s.onerror = reject;
+        });
+        document.head.appendChild(s);
+      }
+      // Dev-only mock bridge (Â§10.2). Vendored to /vendor; self-activates. Must
+      // stay unset in prod ('%VITE_CLICK_DEBUG%' â literal â off).
+      if ('%VITE_CLICK_DEBUG%' === 'true') {
+        var d = document.createElement('script');
+        d.src = '/vendor/click-debug.global.js';
+        document.head.appendChild(d);
+      }
+    })();
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--tg-theme-bg-color, #f5f5f5); color: var(--tg-theme-text-color, #333); }
+    #root { min-height: 100vh; }
+  </style>
+  <script type="module" crossorigin src="/assets/index-B63iQ860.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-B_rSj4xI.css">
+<link rel="manifest" href="/manifest.webmanifest"></head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
