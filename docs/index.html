@@ -343,6 +343,25 @@ html{-webkit-tap-highlight-color:transparent}
 .igbtn.sm{padding:8px 13px;font-size:14px;margin-top:12px}
 .igrow{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
 .igrow svg{color:#dc2743}
+
+/* ===== Glass look (default; "Yorug'" theme keeps the classic light look) ===== */
+:root:not([data-theme="light"]){--bg:#062a20;--surface:rgba(255,255,255,.085);--surface2:rgba(255,255,255,.07);--ink:#ffffff;--muted:#b7cbc1;--line:rgba(255,255,255,.17);
+ --brand:#0c5a43;--brand2:#34c08f;--save:#c8f169;--save-bg:rgba(200,241,105,.16);--bad:#ff9d93;--bad-bg:rgba(255,141,128,.15);--chipsel:#c8f169;--chipsel-ink:#0d1c16;
+ --shadow:inset 0 1px 0 rgba(255,255,255,.14),0 18px 40px rgba(0,0,0,.28);color-scheme:dark}
+:root:not([data-theme="light"]) body{background:#062a20}
+:root:not([data-theme="light"]) body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+ background:radial-gradient(600px 520px at 0% 0%,rgba(15,122,89,.85),transparent 70%),radial-gradient(480px 460px at 100% 28%,rgba(200,241,105,.22),transparent 70%),
+ radial-gradient(560px 520px at 10% 78%,rgba(52,192,143,.30),transparent 70%),radial-gradient(520px 480px at 100% 100%,rgba(12,90,67,.9),transparent 70%),#062a20}
+:root:not([data-theme="light"]) :is(.card,.deal,.menu,.reg,.pc,.btile,.stat,.hcard){border:1px solid var(--line);box-shadow:var(--shadow)}
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+ :root:not([data-theme="light"]) :is(.card,.deal,.menu,.reg,.pc,.btile){backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%)}}
+:root:not([data-theme="light"]) .hero{background:rgba(12,90,67,.55);border:1px solid rgba(255,255,255,.2);box-shadow:var(--shadow);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+:root:not([data-theme="light"]) .regsheet{background:rgba(6,42,32,.92);border:1px solid var(--line);border-bottom:0;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+:root:not([data-theme="light"]) .hcard{background:rgba(255,255,255,.1);color:#fff}
+:root:not([data-theme="light"]) .hcard .hcrow{background:rgba(255,255,255,.08)}:root:not([data-theme="light"]) .hcard .hcrow.best{background:rgba(200,241,105,.18)}
+:root:not([data-theme="light"]) .hcard .hcrow.best b{color:#c8f169}:root:not([data-theme="light"]) .hcard .hcrow:not(.best) b{color:#ff9d93}:root:not([data-theme="light"]) .hcard .hclbl{color:#b7cbc1}
+:root:not([data-theme="light"]) .simt.esim{background:rgba(120,160,255,.2);color:#c9d8ff}:root:not([data-theme="light"]) .simt.sim{background:rgba(200,241,105,.18);color:#e2ff9e}:root:not([data-theme="light"]) .simt.dual{background:rgba(255,190,90,.2);color:#ffd9a3}
+@media (prefers-reduced-transparency:reduce){:root:not([data-theme="light"]) :is(.card,.deal,.menu,.reg,.pc,.btile,.hero){backdrop-filter:none;-webkit-backdrop-filter:none;background:#0d3a2d}}
 </style>
 </head>
 <body>
@@ -390,7 +409,7 @@ const store={get(k,d){try{const v=localStorage.getItem('narxi_'+k);return v?JSON
 let LANG=store.get('lang','uz');const t=(k,o={})=>{const v=TX[LANG][k]??k;return typeof v==='string'?v.replace(/\{(\w+)\}/g,(_,x)=>o[x]):v}; const RUF={models:['модель','модели','моделей'],storesN:['магазин','магазина','магазинов']}; let tlq=null,lastQ='';const logQ=(q,src='typed')=>{clearTimeout(tlq);const v=(q||'').trim().toLowerCase();if(v.length<2)return;tlq=setTimeout(()=>{if(v===lastQ)return;lastQ=v;window.NX&&NX.ev('search',{search_term:v.slice(0,100),source:src,lang:LANG})},src==='popular'?0:1500)};
 document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[data-sc]');if(!a)return;const pr=+a.dataset.p||0;window.NX&&NX.ev('store_click',{store:a.dataset.sc,item_name:a.dataset.n,item_category:a.dataset.c,price:pr,value:pr,currency:'UZS',cheapest:a.dataset.best==='1'})});
 const tn=(k,n)=>{if(LANG!=='ru'||!RUF[k])return t(k);const a=Math.abs(n)%100,b=a%10;return RUF[k][a>10&&a<20?2:b===1?0:b>=2&&b<=4?1:2]};
-let THEME=store.get('theme','auto');const applyTheme=()=>{if(THEME==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.dataset.theme=THEME;const dk=THEME==='dark'||(THEME==='auto'&&matchMedia('(prefers-color-scheme: dark)').matches);document.querySelectorAll('meta[name=theme-color]').forEach(m=>m.setAttribute('content',dk?'#08100d':'#0f6b4f'))};applyTheme();
+let THEME=store.get('theme','auto');const applyTheme=()=>{if(THEME==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.dataset.theme=THEME;const dk=THEME!=='light';document.querySelectorAll('meta[name=theme-color]').forEach(m=>m.setAttribute('content',dk?'#062a20':'#0f6b4f'))};applyTheme();
 let USER=store.get('user',null);
 const STORES={texnomart:{name:'Texnomart',color:'#e3262c'},olcha:{name:'Olcha',color:'#00a651'},alif:{name:'Alif Shop',color:'#14b8a6'},beeline:{name:'Beeline Market',color:'#f5b700'},macbro:{name:'Macbro',color:'#7c8591'},idea:{name:'Idea',color:'#ff6a13'},maxcom:{name:'Maxcom',color:'#fcb800'},woot:{name:'Woot',color:'#2a6df4'},avtech:{name:'Avtech',color:'#1e2a78'},mionline:{name:'Mi Online',color:'#ff6900'},tezz:{name:'Tezz',color:'#d61f69'},karcher:{name:'Kärcher',color:'#ffd200'},openshop:{name:'OpenShop',color:'#ff3d00'}};
 const CONTACT='https://t.me/narx_support';
