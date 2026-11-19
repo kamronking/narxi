@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <link rel=dns-prefetch href=//connect.facebook.net>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>ishonch.shop - O'zbekistonning eng yaxshi onlayn do'koni.</title>
+    <meta name=description
+          content="O'zbekistondagi eng yirik onlayn do'kon. Keng assortimentdagi mahsulotlar, qulay narxlar va tezkor yetkazib berish xizmati.">
+    <meta name=keywords
+          content="onlayn do'kon, elektron tijorat, O'zbekiston, online savdo, arzon narxlar, yetkazib berish">
+    <meta property=og:title content="Online Do'kon | Sifatli mahsulotlar qulay narxlarda">
+    <meta property=og:description
+          content="O'zbekistondagi eng yirik onlayn do'kon. Keng assortimentdagi mahsulotlar, qulay narxlar va tezkor yetkazib berish xizmati.">
+    <meta property=og:image content="https://cdn.yuboraman.uz/media/products/ef5ef7b9-0c1d-4af5-ae7f-592216cfddff.jpg">
+    <meta property=og:url content="https://ishonch.shop">
+    <meta property=og:type content=website>
+    <meta name=twitter:card content=summary_large_image>
+    <meta name=twitter:title content="Online Do'kon | Sifatli mahsulotlar qulay narxlarda">
+    <meta name=twitter:description
+          content="O'zbekistondagi eng yirik onlayn do'kon. Keng assortimentdagi mahsulotlar, qulay narxlar va tezkor yetkazib berish xizmati.">
+    <meta name=twitter:image content="https://cdn.yuboraman.uz/media/products/ef5ef7b9-0c1d-4af5-ae7f-592216cfddff.jpg">
+    <meta name=robots content="index, follow">
+    <meta name=language content=uz>
+    <meta name=author content="https://ishonch.shop">
+    <meta name=copyright content="Copyright © 2024 ishonch.shop">
+    <link rel=canonical href="https://ishonch.shop/stream/dt4xV/">
+
+    <link href="https://cdn.yuboraman.uz/static/templates/flash_sale_blue.css?v=0.3" rel=stylesheet>
+    
+<script>
+(function (w, d) {
+  "use strict";
+  if (w.__ya) return;                         // idempotent (belt-and-suspenders)
+  var PIX = "2531500074037594";                     // client pixel id (may be '')
+  var LS_EID = "ya_eid", LS_AM = "ya_am";
+  var AM_VER = 1, AM_TTL = 30 * 24 * 3600 * 1000;   // 30 days in ms
+  var HEX64 = /^[a-f0-9]{64}$/;
+  // ad-click params (UTM + campaign/adset/ad ids): kept as {v,ts,p} for 7 days.
+  // This allowlist is the only gate - no other URL key is ever stored or posted.
+  var LS_ATTR = "ya_attr", ATTR_VER = 1, ATTR_TTL = 7 * 24 * 3600 * 1000;   // 7 days in ms
+  var ATTR_MAX = 100;                          // longest value kept, in chars
+  var ATTR_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term",
+                   "utm_id", "campaign_id", "adset_id", "ad_id", "site_source_name"];
+
+  function lsGet(k){ try { return w.localStorage.getItem(k); } catch(e){ return null; } }
+  function lsSet(k,v){ try { w.localStorage.setItem(k,v); return true; } catch(e){ return false; } }
+  function lsDel(k){ try { w.localStorage.removeItem(k); } catch(e){} }
+  function ssGet(k){ try { return w.sessionStorage.getItem(k); } catch(e){ return null; } }
+  function ssSet(k,v){ try { w.sessionStorage.setItem(k,v); } catch(e){} }
+
+  function uuid(){
+    try { if (w.crypto && w.crypto.randomUUID) return w.crypto.randomUUID(); } catch(e){}
+    try {
+      var b = new Uint8Array(16); w.crypto.getRandomValues(b);
+      b[6]=(b[6]&0x0f)|0x40; b[8]=(b[8]&0x3f)|0x80; var h=[];
+      for (var i=0;i<16;i++) h.push((b[i]+0x100).toString(16).slice(1));
+      return h.slice(0,4).join('')+'-'+h.slice(4,6).join('')+'-'+h.slice(6,8).join('')
+           +'-'+h.slice(8,10).join('')+'-'+h.slice(10,16).join('');
+    } catch(e){}
+    return 'x'+Date.now().toString(16)+Math.random().toString(16).slice(2,10);
+  }
+
+  // stable external_id: localStorage-backed, sanitized to server regex charset
+  var _eid = lsGet(LS_EID);
+  if (!_eid || _eid.length < 8 || _eid.length > 64) {
+    _eid = uuid().replace(/[^A-Za-z0-9_-]/g, '');
+    lsSet(LS_EID, _eid);
+  }
+  function eid(){ return _eid; }
+
+  // normalization MIRRORS users.py _normalize_am_* (cross-event hash parity)
+  function normName(s){ if(!s) return '';
+    return (''+s).trim().split(' ')[0].replace(/[^A-Za-zЀ-ӿ]+/g,'').toLowerCase().slice(0,50); }
+  function normPhone(s){ if(!s) return ''; return (''+s).replace(/\D+/g,'').slice(0,15); }
+
+  function q(name){ try { return new URLSearchParams(w.location.search).get(name); } catch(e){ return null; } }
+  function cookie(name){ var m = d.cookie.match(new RegExp('(?:^|; )'+name+'=([^;]+)')); return m ? m[1] : null; }
+
+  // fbc rebuild from fbclid (Meta backstop): set/update when absent or stale
+  (function(){
+    var fbclid = q('fbclid'); if (!fbclid || !/^[A-Za-z0-9_-]{1,512}$/.test(fbclid)) return;
+    var cur = cookie('_fbc');
+    if (cur && cur.slice(-fbclid.length) === fbclid) return;   // same click → keep
+    try { d.cookie = '_fbc=fb.1.'+Date.now()+'.'+fbclid+'; path=/; max-age=7776000; samesite=lax; secure'; } catch(e){}
+  })();
+
+  // ad-click params. A value is trimmed, and DROPPED - never cut, a cut id is a
+  // forged one - when it is empty, over 100 chars, or still holds an unexpanded
+  // double-brace ad macro.
+  function attrClean(v){
+    if (typeof v !== 'string') return '';
+    v = v.trim();
+    return (!v || v.length > ATTR_MAX || /\{\{/.test(v)) ? '' : v;
+  }
+
+  // the valid allowlisted values that get(key) yields; null when there is none
+  function attrPick(get){
+    var out = {}, seen = false, i, k, v;
+    for (i = 0; i < ATTR_KEYS.length; i++) {
+      k = ATTR_KEYS[i]; v = attrClean(get(k));
+      if (v) { out[k] = v; seen = true; }
+    }
+    return seen ? out : null;
+  }
+
+  // the stored click, when it parses, has the right shape and its ts lies in
+  // (now - 7 days, now + 60 s]; an expired, a future-dated (written by a clock
+  // that ran fast) or an unparsable record is ignored AND removed
+  function attrFromStore(){
+    var raw = lsGet(LS_ATTR); if (!raw) return null;
+    var o, now = Date.now();                   // one clock for both bounds
+    try { o = JSON.parse(raw); } catch(e){ o = null; }
+    if (!o || o.v !== ATTR_VER || typeof o.ts !== 'number' || !isFinite(o.ts) ||
+        !o.p || typeof o.p !== 'object' ||
+        (now-o.ts) >= ATTR_TTL || o.ts > now + 60000) {   // 60 s of clock skew
+      lsDel(LS_ATTR); return null;
+    }
+    return attrPick(function(k){ return o.p[k]; });
+  }
+
+  // last click wins: a URL with at least one valid click param replaces the
+  // stored record whole; a URL with none leaves the record alone. Wrapped
+  // because an exception here would skip the window.__ya setup below.
+  (function(){
+    try {
+      var p = attrPick(q);
+      if (p) lsSet(LS_ATTR, JSON.stringify({ v: ATTR_VER, ts: Date.now(), p: p }));
+    } catch(e){}
+  })();
+
+  function readPersisted(){
+    var raw = lsGet(LS_AM); if (!raw) return null;
+    var o; try { o = JSON.parse(raw); } catch(e){ return null; }
+    if (!o || o.v !== AM_VER || !o.ts || (Date.now()-o.ts) > AM_TTL || !o.h) return null;
+    var out = {}, seen = false, k;
+    for (k in o.h) { if (HEX64.test(o.h[k])) { out[k]=o.h[k]; seen=true; } }
+    return seen ? out : null;
+  }
+
+  // AM object for LANDING init: external_id + persisted hashes (returning visitor)
+  function am(){ var o = {}; if (_eid) o.external_id = _eid;
+    var p = readPersisted(); if (p) for (var k in p) o[k]=p[k]; return o; }
+
+  // late enrich: re-init pixel with just-typed plaintext PII (pixel hashes it)
+  function enrich(){
+    if (!w.fbq || !PIX) return;
+    var n = d.getElementById('name'), ph = d.getElementById('phone'), o = {};
+    if (_eid) o.external_id = _eid;
+    var fn = n ? normName(n.value) : ''; if (fn) o.fn = fn;
+    var pp = ph ? normPhone(ph.value) : ''; if (pp) o.ph = pp;
+    o.country = 'uz';
+    try { w.fbq('init', PIX, o); } catch(e){}
+  }
+
+  // one hidden field, skipped when empty or when the template already posts it
+  // (this listener runs in the CAPTURE phase, i.e. BEFORE each landing's own
+  // submit handler — several of them append their own `fbclid`)
+  function addField(form, name, value){
+    if (!value || form.querySelector('input[name="'+name+'"]')) return;
+    var i = d.createElement('input'); i.type='hidden'; i.name=name; i.value=value;
+    form.appendChild(i);
+  }
+
+  // The click params to post: the current URL's when it carries any valid one,
+  // else a stored click younger than 7 days. One hidden input per allowlisted
+  // key; addField skips a name the form already posts.
+  function appendClick(form){
+    var p = attrPick(q) || attrFromStore(), i;
+    if (!p) return;
+    for (i = 0; i < ATTR_KEYS.length; i++) addField(form, ATTR_KEYS[i], p[ATTR_KEYS[i]]);
+  }
+
+  // The click signals live in COOKIES and in the URL — `/order/` can only ever
+  // see what the form carries, so anything not attached here is invisible to
+  // the server-side CAPI event no matter how well the browser Pixel matched.
+  // Until this shipped, no landing posted `fbc` or `fbp` at all (half posted
+  // `fbclid` alone, half posted nothing), which is why Events Manager read
+  // `fbc` at 10% on PageView and at zero on every CRM event. `fbclid` rides
+  // along beside `fbc` deliberately: the `_fbc` rebuild higher up in this file
+  // seeds the cookie from it, but a browser that refuses cookies outright
+  // still hands the server a click id it can rebuild from (`_fbc_or_synth`).
+  function appendHidden(form){
+    if (!form) return;
+    addField(form, 'external_id', _eid);
+    addField(form, 'fbp', cookie('_fbp'));
+    addField(form, 'fbc', cookie('_fbc'));
+    addField(form, 'fbclid', q('fbclid'));
+    try { appendClick(form); } catch(e){}   // attribution must never block the order
+  }
+
+  // capture phase → runs BEFORE the template's own submit handler
+  d.addEventListener('submit', function(ev){
+    var f = ev.target;
+    if (f && f.id === 'orderForm') { appendHidden(f); enrich(); }
+  }, true);
+
+  // ---------- thanks.html helpers ----------
+  function sha256hex(str){
+    try {
+      if (!w.crypto || !w.crypto.subtle) return null;   // non-secure ctx → skip
+      return w.crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function(h){
+        var a = new Uint8Array(h), s=''; for (var i=0;i<a.length;i++) s += (a[i]+0x100).toString(16).slice(1);
+        return s;
+      });
+    } catch(e){ return null; }
+  }
+  function persist(serverAm){
+    if (!serverAm) return;
+    var out = {}, jobs = [];
+    ['ph','fn','ct','st','country'].forEach(function(k){
+      if (!serverAm[k]) return;
+      var pr = sha256hex(serverAm[k]); if (!pr) return;
+      jobs.push(pr.then(function(hx){ out[k]=hx; }));
+    });
+    if (!jobs.length) return;
+    Promise.all(jobs).then(function(){ lsSet(LS_AM, JSON.stringify({ v: AM_VER, ts: Date.now(), h: out })); }).catch(function(){});
+  }
+  function thanksAm(serverAm, serverEid){
+    if (serverEid && serverEid !== _eid) { _eid = serverEid; lsSet(LS_EID, serverEid); } // reconcile
+    var o = {}; if (_eid) o.external_id = _eid;
+    if (serverAm && Object.keys(serverAm).length) { for (var k in serverAm) o[k]=serverAm[k]; } // fresh: plaintext
+    else { var p = readPersisted(); if (p) for (var j in p) o[j]=p[j]; }                        // refresh: hashes
+    return o;
+  }
+  function orderId(streamKey, serverId, kind){
+    var k = 'ya_oid_'+kind+'_'+streamKey, v = ssGet(k);
+    if (serverId) { v = serverId; ssSet(k, v); } else if (!v) { v = uuid(); ssSet(k, v); }
+    return v;
+  }
+
+  w.__ya = { eid: eid, am: am, enrich: enrich, persist: persist, thanksAm: thanksAm, orderId: orderId };
+})(window, document);
+</script>
+    <script>
+(function () {
+  "use strict";
+
+  if (typeof fetch !== "function" || typeof Promise !== "function" ||
+      typeof URLSearchParams !== "function" || typeof FormData !== "function" ||
+      typeof HTMLFormElement === "undefined" ||
+      typeof HTMLFormElement.prototype.submit !== "function") {
+    return;
+  }
+
+  var FORM_ID = "orderForm";
+  var BACKOFF_MS = [1000, 2000, 4000, 8000, 15000, 30000];
+  var ATTEMPT_MS = 15000;
+  var BUDGET_MS = 60000;
+  var NONCE_RE = /^[A-Za-z0-9_-]{16,64}$/;
+  var RETRYING_TEXT = "Aloqa uzildi — buyurtma qayta yuborilmoqda…";
+  var OFFLINE_TEXT = "Aloqa yo'q — buyurtmangiz hali yuborilmadi.";
+  var RETRY_LABEL = "Qayta yuborish";
+
+  var nativeSubmit = HTMLFormElement.prototype.submit;
+  var inFlight = null;
+  var lastForm = null;
+  var statusBox = null;
+  var statusLine = null;
+  var retryButton = null;
+
+  function randomHex() {
+    var bytes = [];
+    var hex = "";
+    var source;
+    var buffer;
+    var i;
+    try {
+      source = window.crypto;
+      if (source && typeof source.getRandomValues === "function") {
+        buffer = new Uint8Array(16);
+        source.getRandomValues(buffer);
+        for (i = 0; i < 16; i += 1) {
+          bytes.push(buffer[i]);
+        }
+      }
+    } catch (error) {
+      bytes = [];
+    }
+    if (bytes.length !== 16) {
+      bytes = [];
+      for (i = 0; i < 16; i += 1) {
+        bytes.push(Math.floor(Math.random() * 256));
+      }
+    }
+    for (i = 0; i < 16; i += 1) {
+      hex += (bytes[i] < 16 ? "0" : "") + bytes[i].toString(16);
+    }
+    return hex;
+  }
+
+  function nonceInput(form) {
+    var input = form.querySelector("input[name='nonce']");
+    if (!input) {
+      input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "nonce";
+      form.appendChild(input);
+    }
+    return input;
+  }
+
+  function showStatus(form, text, withButton) {
+    if (!statusBox) {
+      statusBox = document.createElement("div");
+      statusBox.setAttribute("aria-live", "polite");
+      statusBox.style.cssText =
+        "margin:12px 0 0;font-size:14px;line-height:1.4;text-align:center;";
+      statusLine = document.createElement("div");
+      retryButton = document.createElement("button");
+      retryButton.type = "button";
+      retryButton.textContent = RETRY_LABEL;
+      retryButton.style.cssText =
+        "margin:8px 0 0;padding:10px 18px;font-size:15px;cursor:pointer;";
+      retryButton.addEventListener("click", retryClicked, false);
+      statusBox.appendChild(statusLine);
+      statusBox.appendChild(retryButton);
+      form.appendChild(statusBox);
+    }
+    statusLine.textContent = text;
+    retryButton.style.display = withButton ? "" : "none";
+    statusBox.style.display = "";
+  }
+
+  function hideStatus() {
+    if (statusBox) {
+      statusBox.style.display = "none";
+    }
+  }
+
+  function statusShown() {
+    return statusBox !== null && statusBox.style.display !== "none";
+  }
+
+  function offerRetry(form) {
+    try {
+      showStatus(form, OFFLINE_TEXT, true);
+    } catch (error) {
+      return;
+    }
+  }
+
+  function finish(attempt) {
+    attempt.done = true;
+    clearTimeout(attempt.timer);
+  }
+
+  function end(run) {
+    if (inFlight === run) {
+      inFlight = null;
+    }
+    clearTimeout(run.wait);
+    if (run.attempt) {
+      finish(run.attempt);
+    }
+  }
+
+  function submitNatively(run) {
+    end(run);
+    try {
+      hideStatus();
+      nativeSubmit.call(run.form);
+    } catch (error) {
+      offerRetry(run.form);
+    }
+  }
+
+  function guarded(run, step) {
+    try {
+      step();
+    } catch (error) {
+      submitNatively(run);
+    }
+  }
+
+  function live(run, attempt) {
+    return inFlight === run && run.attempt === attempt && !attempt.done;
+  }
+
+  function succeed(run, redirect) {
+    end(run);
+    hideStatus();
+    nonceInput(run.form).value = randomHex();
+    location.assign(redirect);
+  }
+
+  function retryLater(run) {
+    var wait = run.step < BACKOFF_MS.length ? BACKOFF_MS[run.step] : -1;
+    if (wait < 0 || Date.now() + wait - run.started > BUDGET_MS) {
+      end(run);
+      offerRetry(run.form);
+      return;
+    }
+    run.step += 1;
+    showStatus(run.form, RETRYING_TEXT, false);
+    run.wait = setTimeout(function () {
+      if (inFlight === run) {
+        guarded(run, function () {
+          fire(run);
+        });
+      }
+    }, wait);
+  }
+
+  function answer(run, payload) {
+    var data = payload ? payload.data : null;
+    var redirect = data ? data.redirect : null;
+    if (payload && payload.success === true && typeof redirect === "string" &&
+        redirect.indexOf("/success/") === 0) {
+      succeed(run, redirect);
+    } else if (data && data.retry === true) {
+      retryLater(run);
+    } else {
+      submitNatively(run);
+    }
+  }
+
+  function classify(run, attempt, response) {
+    var status = response.status;
+    var type = "";
+    if (response.type === "opaqueredirect") {
+      finish(attempt);
+      submitNatively(run);
+      return;
+    }
+    if (status === 200) {
+      type = String(response.headers.get("content-type") || "").toLowerCase();
+    }
+    if (type.indexOf("application/json") !== -1) {
+      response.json().then(function (payload) {
+        if (live(run, attempt)) {
+          finish(attempt);
+          guarded(run, function () {
+            answer(run, payload);
+          });
+        }
+      }, function () {
+        if (live(run, attempt)) {
+          finish(attempt);
+          submitNatively(run);
+        }
+      });
+      return;
+    }
+    finish(attempt);
+    if (status === 408 || status === 425 || status === 429 ||
+        (status >= 500 && status <= 599)) {
+      retryLater(run);
+    } else {
+      submitNatively(run);
+    }
+  }
+
+  function fire(run) {
+    var attempt = { done: false, timer: null };
+    var controller = null;
+    var init = {
+      method: "POST",
+      body: run.body,
+      headers: { "Accept": "application/json" },
+      credentials: "same-origin",
+      redirect: "manual"
+    };
+    if (typeof AbortController === "function") {
+      try {
+        controller = new AbortController();
+        init.signal = controller.signal;
+      } catch (error) {
+        controller = null;
+      }
+    }
+    run.attempt = attempt;
+    attempt.timer = setTimeout(function () {
+      if (!live(run, attempt)) {
+        return;
+      }
+      finish(attempt);
+      guarded(run, function () {
+        if (controller) {
+          controller.abort();
+        }
+        retryLater(run);
+      });
+    }, ATTEMPT_MS);
+    fetch("/order/", init).then(function (response) {
+      if (live(run, attempt)) {
+        guarded(run, function () {
+          classify(run, attempt, response);
+        });
+      }
+    }, function () {
+      if (live(run, attempt)) {
+        finish(attempt);
+        guarded(run, function () {
+          retryLater(run);
+        });
+      }
+    });
+  }
+
+  function send(form) {
+    var run;
+    if (inFlight) {
+      return;
+    }
+    run = { form: form, body: null, started: 0, step: 0, attempt: null, wait: null };
+    inFlight = run;
+    lastForm = form;
+    guarded(run, function () {
+      var input = nonceInput(form);
+      if (!NONCE_RE.test(String(input.value))) {
+        input.value = randomHex();
+      }
+      if (statusShown()) {
+        showStatus(form, RETRYING_TEXT, false);
+      }
+      run.body = new URLSearchParams(new FormData(form));
+      run.started = Date.now();
+      fire(run);
+    });
+  }
+
+  function retryClicked() {
+    if (lastForm) {
+      send(lastForm);
+    }
+  }
+
+  window.addEventListener("submit", function (event) {
+    var form = event.target;
+    if (form && form.id === FORM_ID && !event.defaultPrevented) {
+      event.preventDefault();
+      send(form);
+    }
+  }, false);
+
+  window.addEventListener("pageshow", function (event) {
+    if (!event.persisted) {
+      return;
+    }
+    try {
+      if (inFlight) {
+        end(inFlight);
+      }
+      hideStatus();
+      if (lastForm) {
+        nonceInput(lastForm).value = randomHex();
+      }
+    } catch (error) {
+      return;
+    }
+  }, false);
+
+  HTMLFormElement.prototype.submit = function () {
+    if (this && this.id === FORM_ID) {
+      send(this);
+      return;
+    }
+    return nativeSubmit.apply(this, arguments);
+  };
+})();
+</script>
+    <script async>let lastHash = window.location.hash;
+    window.pixelLoaded = !1;
+    !function (f, b, e, v, n, t, s) {
+        if (window.location.hash !== lastHash && window.pixelLoaded) return;
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+        window.pixelLoaded = !0;
+        fbq('init', '2531500074037594', window.__ya.am());
+        fbq('track', 'PageView')
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    window.addEventListener('hashchange', function () {
+        lastHash = window.location.hash
+    });</script>
+    <noscript><img height=1 width=1 style=display:none
+                   src="https://www.facebook.com/tr?id=2531500074037594&ev=PageView&noscript=1"></noscript>
+</head>
+<body>
+<header class="header">
+    <div class="header-container">
+        <button class="quick-order-btn"
+                onclick="event.preventDefault();document.getElementById('form').scrollIntoView({behavior:'smooth'})">
+            Hoziroq buyurtma bering
+        </button>
+    </div>
+</header>
+<div class="hero">
+    <div class="container">
+        <div class="countdown-container">
+            <h2 class="countdown-title">Aksiya tugashiga</h2>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">
+                        <script>let t = new Date,
+                            n = new Date(t.getFullYear(), t.getMonth(), t.getDate(), 23, 59, 59, 999),
+                            r = n.getTime() - t.getTime();
+                        document.write(String(Math.floor(r / 36e5)).padStart(2, "0"))</script>
+                    </div>
+                    <div class="countdown-label">Soat</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">
+                        <script>document.write(String(Math.floor(r % 36e5 / 6e4)).padStart(2, "0"))</script>
+                    </div>
+                    <div class="countdown-label">Daqiqa</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">
+                        <script>document.write(String(Math.floor(r % 6e4 / 1e3)).padStart(2, "0"))</script>
+                    </div>
+                    <div class="countdown-label">Soniya</div>
+                </div>
+            </div>
+        </div>
+        <div class="product-container">
+            <div class="product-grid">
+                <img src="https://cdn.yuboraman.uz/media/products/ef5ef7b9-0c1d-4af5-ae7f-592216cfddff.jpg" alt="Mening joynamozim" class="product-image"
+                     height="300" width="300">
+                <div class="product-info">
+                    <h2>Tag Recede – Bee Venom Treatment Spray</h2>
+                    <div class="product-description">
+                        <p>✨ Нега айнан шу восита?
+✅ Оғриқсиз қўлланади
+✅ Табиий таркиб — асалари заҳари асосида
+✅ Қисқа вақтда таъсир қилади
+✅ Ўсманинг илдизигача таъсир қилади
+✅ Терини шикастламайди, чандиқ қолдирмайди</p>
+                    </div>
+                    <div class="product-price">
+                        <div class="product-price">
+                            <span class="old-price">115,000 so'm</span>
+                            <div class="price-main">
+                                <span class="new-price">69,000 so'm</span>
+                                <span class="discount-badge">-40%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                            </svg>
+                            <span>Yuqori sifatli mahsulot</span>
+                        </div>
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                            <span>Bepul maslahat 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <div class="feature-title">Yetkazib berish</div>
+                <div class="feature-value">
+                    ✅ O'zbekiston bo'ylab tezkor yetkazib berish
+                </div>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                </svg>
+                <div class="feature-title">Mahsulot soni</div>
+                <div class="feature-value">cheklangan</div>
+            </div>
+        </div>
+        <div class="form-container" id="form">
+            <h2 class="form-title">Buyurtma berish</h2>
+            <form id="orderForm" method="POST" action="/order/">
+                <input type="hidden" name="stream" value="dt4xV" required>
+
+                <div class="form-group">
+                    <label class="form-label" for="name">Ismingizni kiriting:</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                        <input class="form-input" id="name" name="name" placeholder="Iltimos, ismingizni kiriting..."
+                               required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="phone">Telefon raqamingizni kiriting:</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24">
+                            <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+                        </svg>
+                        <input type="tel" class="form-input" id="phone" name="phone" placeholder="+998 XX XXX XX XX"
+                               required value="+998" maxlength="17">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="region">Yetkazib berish manzilingizni tanlang:</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                        </svg>
+                        <select class="form-select" id="region" name="province" required>
+                            <option value="">Hududni tanlang</option>
+                            <option value="Toshkent shahri">Toshkent shahri</option>
+                            <option value="Andijon">Andijon</option>
+                            <option value="Buxoro">Buxoro</option>
+                            <option value="Fargona">Farg'ona</option>
+                            <option value="Jizzax">Jizzax</option>
+                            <option value="Namangan">Namangan</option>
+                            <option value="Navoiy">Navoiy</option>
+                            <option value="Qashqadaryo">Qashqadaryo</option>
+                            <option value="Qoraqalpog'iston">Qoraqalpog'iston</option>
+                            <option value="Samarqand">Samarqand</option>
+                            <option value="Sirdaryo">Sirdaryo</option>
+                            <option value="Surxondaryo">Surxondaryo</option>
+                            <option value="Toshkent viloyati">Toshkent viloyati</option>
+                            <option value="Xorazm">Xorazm</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Buyurtma berish</button>
+            </form>
+            <div class="guarantee">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                </svg>
+                <span>100% xavfsiz to'lov va ma'lumotlar himoyasi kafolatlanadi</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script defer>const phoneInput=document.getElementById("phone"),form=document.getElementById("orderForm");let hasTrackedCheckout=!1,observerInstance=null;function trackFacebookEvent(e,t={}){if("InitiateCheckout"!==e||!hasTrackedCheckout){let n={content_ids:["dt4xV"],content_type:"product",contents:[{id:"dt4xV",quantity:1}],content_name:"Tag Recede – Bee Venom Treatment Spray",value:5.76,currency:"USD",...t};"InitiateCheckout"===e&&(n.num_items=1,hasTrackedCheckout=!0),fbq("track",e,n)}}function setupVisibilityObserver(){let e=document.querySelector(".header"),t=document.getElementById("form");e&&t&&(observerInstance&&observerInstance.disconnect(),(observerInstance=new IntersectionObserver(t=>{t.forEach(t=>{e.style.opacity=t.isIntersecting?"0":"1",e.style.visibility=t.isIntersecting?"hidden":"visible",t.isIntersecting&&!hasTrackedCheckout&&trackFacebookEvent("InitiateCheckout")})},{threshold:.1})).observe(t))}function updateTimer(){let e={hours:document.getElementById("hours"),minutes:document.getElementById("minutes"),seconds:document.getElementById("seconds")};if(!Object.values(e).every(Boolean))return;let t=new Date,n=new Date(t.getFullYear(),t.getMonth(),t.getDate(),23,59,59,999).getTime()-t.getTime();e.hours.textContent=String(Math.floor(n/36e5)).padStart(2,"0"),e.minutes.textContent=String(Math.floor(n%36e5/6e4)).padStart(2,"0"),e.seconds.textContent=String(Math.floor(n%6e4/1e3)).padStart(2,"0")}function showPhoneError(e){let t=document.getElementById("phone-error");t&&t.remove();let n=document.createElement("div");n.id="phone-error",n.className="error-message",n.textContent=e,phoneInput.parentNode.appendChild(n),phoneInput.classList.add("error")}function formatPhoneNumber(e){let t=e.replace(/\D/g,"").match(/^(\d{0,3})(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})$/);return t?["+998",t[2],t[3],t[4],t[5]].filter(Boolean).join(" "):e}document.addEventListener("DOMContentLoaded",()=>{trackFacebookEvent("ViewContent"),setupVisibilityObserver();let e=setInterval(updateTimer,1e3);window.addEventListener("beforeunload",()=>{clearInterval(e),observerInstance&&observerInstance.disconnect()})}),phoneInput.addEventListener("input",e=>{e.target.classList.remove("error");let t=document.getElementById("phone-error");t&&t.remove(),e.target.value=formatPhoneNumber(e.target.value)}),form.addEventListener("submit",function(e){e.preventDefault();if(!phoneInput.value.replace(/\s/g,"").match(/^\+998\d{9}$/))return showPhoneError("Telefon raqamni to'g'ri kiriting..."),!1;let t={fbp:document.cookie.match(/_fbp=([^;]+)/)?.[1],fbc:document.cookie.match(/_fbc=([^;]+)/)?.[1],fbclid:new URLSearchParams(window.location.search).get("fbclid")};Object.entries(t).forEach(([e,t])=>{if(t){let n=document.createElement("input");n.type="hidden",n.name=e,n.value=t,this.appendChild(n)}}),setTimeout(()=>this.submit(),200)});</script>
+</body>
+</html>
