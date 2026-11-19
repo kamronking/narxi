@@ -1,0 +1,11 @@
+# ISHONCH â https://ecom.ishonchsavdo.uz
+# Vite copies frontend/public/ into dist/ verbatim; nginx serves this before
+# the SPA fallback (see docs/deploy/README.md).
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /static/uploads/_pending/
+
+Sitemap: https://ecom.ishonchsavdo.uz/sitemap.xml
