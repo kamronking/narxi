@@ -545,11 +545,13 @@ function heroCard(D){clearInterval(HERO_T);const L=heroPick(D);if(!L.length)retu
     if(L.length>1)HERO_T=setInterval(()=>{const c=document.getElementById('hcard');if(!c){clearInterval(HERO_T);return}if(document.hidden)return;
       c.classList.add('swap');setTimeout(()=>{HERO_I=(HERO_I+1)%L.length;const p=L[HERO_I];c.dataset.k=p.key;c.innerHTML=heroInner(p);c.classList.remove('swap')},260)},4500)},0);
   const p=L[HERO_I];return `<button class="hcard press" id="hcard" data-k="${esc(p.key)}" aria-label="${esc(p.name)}">${heroInner(p)}</button>`}
+/* total models: category counts from meta, so the hero is right before the full index has loaded */
+const nModels=()=>Math.max(IDX.length,(META.cats||[]).reduce((a,c)=>a+(c.n||0),0));
 function renderHome(){const D=deals();
   LIST=()=>IDX.filter(r=>r[4]>1).sort((a,b)=>b[4]-a[4]||b[5]-a[5]).map(r=>r[0]);
   view.innerHTML=`<div class="greet in-up">${t('hi')}, <b>${esc(USER?USER.name.split(' ')[0]:t('guest'))}</b> 👋</div>
    <section class="hero in-up" style="--i:1"><div class="hl"><h1>${t('h1a')} <em>${t('h1b')}</em></h1>
-    <div class="facts"><button class="live rf" id="rf">${t('upd')} ${updTxt()} ${rfIcon}</button><span>${fmt(IDX.length)} ${tn('models',IDX.length)}</span><span>${Object.keys(DATA.stores).length} ${tn('storesN',Object.keys(DATA.stores).length)}</span></div>${igBtn('sm')}</div>${heroCard(D)}</section>
+    <div class="facts"><button class="live rf" id="rf">${t('upd')} ${updTxt()} ${rfIcon}</button><span>${fmt(nModels())} ${tn('models',nModels())}</span><span>${Object.keys(DATA.stores).length} ${tn('storesN',Object.keys(DATA.stores).length)}</span></div>${igBtn('sm')}</div>${heroCard(D)}</section>
    <div class="chips" role="group" id="hcats">${META.cats.map(c=>`<button data-hc="${c.id}">${esc(LANG==='ru'?c.ru:c.uz)}<span class="n">${fmt(c.n)}</span></button>`).join('')}</div>
    ${D.length?`<section style="display:flex;flex-direction:column;gap:10px"><div class="secthead"><h2>${t('biggest')}</h2><span class="small muted">${t('bigSub')}</span></div><div class="rail">${D.slice(0,8).map(deal).join('')}</div></section>`:''}
    <div class="secthead"><h2>${t('topT')}</h2><button class="btn ghost sm" id="seeAll">${t('seeAll')}</button></div>
