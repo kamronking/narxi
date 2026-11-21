@@ -37,8 +37,13 @@ def allowed(url):
 def get(url, **kw):
     if not allowed(url):
         raise PermissionError('robots.txt disallows ' + url)
-    time.sleep(DELAY)
-    return requests.get(url, headers=H, timeout=30, **kw)
+    # one calm retry on a network hiccup (some stores time out now and then); errors from the site itself are not retried
+    for attempt in (1, 2):
+        time.sleep(DELAY if attempt == 1 else 15)
+        try:
+            return requests.get(url, headers=H, timeout=30, **kw)
+        except (requests.ConnectionError, requests.Timeout):
+            if attempt == 2: raise
 
 # ---------------- model key normalisation ----------------
 COLORS = r'(?<![a-zа-я0-9])(черн\w*|бел\w*|сер\w*|сини\w*|син\w*|голуб\w*|зел\w*|красн\w*|розов\w*|фиолет\w*|золот\w*|желт\w*|оранж\w*|бирюз\w*|graphite|black|white|blue|green|red|pink|purple|gold|silver|gray|grey|titanium|natural|desert|teal|ultramarine|midnight|starlight|space|cosmic|deep|sky|night|star|lavender|mint|cream|coral|navy|violet|yellow|orange|космическ\w*|глубок\w*|небесн\w*|натурал\w*|титан\w*|пустын\w*)(?![a-zа-я0-9])'
@@ -377,12 +382,14 @@ def beeline():
             new = 0
             for card in r.text.split('class="product-card ')[1:]:
                 m_url = re.search(r'<a href="(/[^"]+)" class="absolute inset-0', card)
-                m_nm = re.search(r'product-card__name[^>]*>([^<]+)</h3>', card)
-                m_pr = re.search(r'font-bold[^>]*>([\d\s  ]+)\s*сум', card)
-                if not (m_url and m_nm and m_pr): continue
+                if not m_url: continue
                 u = 'https://market.beeline.uz' + m_url.group(1)
                 if u in seen: continue
+                # a new card counts for paging even without a price: a page full of pre-orders ("Предзаказ") is not the end
                 seen.add(u); new += 1
+                m_nm = re.search(r'product-card__name[^>]*>([^<]+)</h3>', card)
+                m_pr = re.search(r'font-bold[^>]*>([\d\s  ]+)\s*сум', card)
+                if not (m_nm and m_pr): continue
                 m_img = re.search(r'src="(https://[^"]+)"', card)
                 import html as _h
                 items.append({'store': 'beeline', 'title': re.sub(r',\s*[^,\d]+,', ',', _h.unescape(m_nm.group(1)).strip()), 'price': int(re.sub(r'\D', '', m_pr.group(1))),
