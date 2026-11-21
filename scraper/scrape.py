@@ -749,10 +749,44 @@ def khash(k):
         h = (h * 31 + ord(ch)) % 1000003
     return h
 
+# tablets: like phones, the model is its name + storage (+ cellular), not a part number; stores name the same iPad
+# "iPad Air 11” M3 Wi-fi 128GB", "iPad Air 11 M3 (2025) 128GB (WiFi)" and "iPad Air 11-inch M3 Blue 128 GB Wi-Fi"
+TAB_DROP = r'\b(планшет\w*|детский|apple|global|version|ru|eac|nfc|new|новый|20[12]\d|gen|generation|поколени\w*|inch|дюйм\w*|tablet|with|keyboard|клавиатур\w*)\b'
+def tablet_key(title):
+    t = title.lower().replace('ё', 'е')
+    t = re.sub(r'wi[\s-]?fi\s*\+\s*cellular', ' cellular ', t)
+    t = re.sub(r'(?<=[a-z0-9])\s*\+(?=\s|$|[^a-z0-9])', ' plus ', t)          # Galaxy Tab A11+ is not A11
+    t = re.sub(r'(?<=[a-z0-9])\+(?=[a-z])', ' plus ', t)                       # "A11+LTE"
+    # screen size: kept for iPads (Air 11 and Air 13 are different models), dropped elsewhere (stores add it or not)
+    t = re.sub(r'(\d+)[.,](\d)\s*(?:"|”|″|\'\'|-inch|inch|дюйм)', r' sz\1d\2 ', t)
+    t = re.sub(r'(\d{1,2})\s*(?:"|”|″|\'\'|-inch| inch|дюйм\w*)', r' sz\1 ', t)
+    cell = bool(re.search(r'cellular|\blte\b|\b[45]g\b|\bsim\b', t))
+    _, st, _, _ = storage(re.sub(r'[“”"«»(),]', ' ', t))
+    if not st:
+        return None
+    base = re.sub(r'\(.*?\)', ' ', t)
+    base = re.sub(r'\b\d{1,2}\s*/\s*\d{2,4}\s*(gb|tb|гб|тб)?|\b\d{2,4}\s*(gb|tb|гб|тб)\b|\b\d\s*(tb|тб)\b', ' ', base)
+    base = re.sub(r'wi[\s-]?fi|cellular|\blte\b|\b[45]g\b|\be?sim\b', ' ', base)
+    base = re.sub(TAB_DROP, ' ', base)
+    base = re.sub(COLORS, ' ', base)
+    base = re.sub(r'\bgalaxy\b', ' ', base)                                   # "Samsung Tab A11" = "Samsung Galaxy Tab A11"
+    base = re.sub(r'[^a-z0-9. ]', ' ', base)
+    base = re.sub(r'(?<!\d)\.|\.(?!\d)', ' ', base)
+    ipad = 'ipad' in base
+    words = [(w[2:].replace('d', '.') if ipad else '') if re.fullmatch(r'sz\d+(d\d)?', w) else w for w in base.split()]
+    words = [w for w in words if w]
+    if not words:
+        return None
+    return ' '.join(words) + f' {st}gb' + (' cell' if cell else '')
+
 def key_for(it):
     if it['cat'] == 'phones':
         k = model_key(it['title'])
         return ('phones:' + k) if k else None
+    if it['cat'] == 'tablets':
+        k = tablet_key(it['title'])
+        if k:
+            return 'tablets:' + k
     return gen_key(it['cat'], it['title'])
 
 # ---------- cross-store merge (same model, keys differ by brand spelling / regional suffix) ----------
