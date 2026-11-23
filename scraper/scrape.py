@@ -945,7 +945,7 @@ def radius(limit=None):
         if c == 'other' and not re.search(REL, title.lower()): miss['not_tech'] += 1; continue
         img = d.get('image')
         if isinstance(img, list): img = img[0] if img else None
-        m_o = re.search(r'Price__\w+">([\d\s ]+)<!-- --> <!-- -->so.m</p>', t)
+        m_o = re.search(r'Price__\w+">([\d\s ]+)<!-- --> <!-- -->(?:so.m|сум)</p>', t)
         old = int(re.sub(r'\D', '', m_o.group(1))) if m_o and re.sub(r'\D', '', m_o.group(1)) else None
         items.append({'store': 'radius', 'title': title, 'price': price, 'old': old if old and old > price else None,
                       'url': u, 'stock': 'ok' if 'InStock' in str(o.get('availability')) else 'out', 'img': img, 'cat': c})
