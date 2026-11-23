@@ -776,6 +776,8 @@ def castore():
                     if not price: continue
                     c = cat_of_name(title)
                     if c == 'other': c = cid
+                    # CA Store writes memory as "4+128GB" / "4GB+128GB"; the other stores (and model_key) use "4/128GB"
+                    title = re.sub(r'(?<!\d)(\d{1,2})\s*(?:GB|ГБ)?\s*\+\s*(\d{2,4})\s*(GB|TB|ГБ|ТБ)', r'\1/\2\3', title, flags=re.I)
                     if c == 'phones':
                         title = re.sub(r'\s*\bSM-[A-Z0-9]+(?:/[A-Z]+)?', '', title, flags=re.I)
                     m_i = re.search(r'<img[^>]+(?:data-src|src)="([^"]+\.(?:jpe?g|png|webp)[^"]*)"', card)
