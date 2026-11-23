@@ -764,7 +764,6 @@ def castore():
                 body = t[t.find('<body'):]
                 new = 0
                 for card in body.split('itemtype="http://schema.org/Product"')[1:]:
-                    card = card[:6000]
                     m_u = re.search(r'href="(/product/[^"]+)"', card)
                     m_n = re.search(r'itemprop="name" content="([^"]+)"', card)
                     m_p = re.search(r'itemprop="price" content="(\d+)"', card)
