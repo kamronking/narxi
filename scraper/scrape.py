@@ -46,7 +46,7 @@ def get(url, **kw):
             if attempt == 2: raise
 
 # ---------------- model key normalisation ----------------
-COLORS = r'(?<![a-zа-я0-9])(черн\w*|бел\w*|сер\w*|сини\w*|син\w*|голуб\w*|зел\w*|красн\w*|розов\w*|фиолет\w*|золот\w*|желт\w*|оранж\w*|бирюз\w*|graphite|black|white|blue|green|red|pink|purple|gold|silver|gray|grey|titanium|natural|desert|teal|ultramarine|midnight|starlight|space|cosmic|deep|sky|night|star|lavender|mint|cream|coral|navy|violet|yellow|orange|космическ\w*|глубок\w*|небесн\w*|натурал\w*|титан\w*|пустын\w*)(?![a-zа-я0-9])'
+COLORS = r'(?<![a-zа-я0-9])(черн\w*|бел\w*|сер\w*|сини\w*|син\w*|голуб\w*|зел\w*|красн\w*|розов\w*|фиолет\w*|золот\w*|желт\w*|оранж\w*|бирюз\w*|graphite|black|white|blue|green|red|pink|purple|gold|silver|gray|grey|titanium|natural|desert|teal|ultramarine|midnight|starlight|space|cosmic|deep|sky|night|star|lavender|mint|cream|coral|navy|violet|yellow|orange|burgundy|glacier|cobalt|charcoal|shadow|cloud|sunrise|velvet|graygreen|icyblue|icy|iceblue|lilac|awesome|silverblue|whitesilver|mist|sage|golden|lightgray|olive|blueberry|космическ\w*|глубок\w*|небесн\w*|натурал\w*|титан\w*|пустын\w*)(?![a-zа-я0-9])'
 DROP = r'\b(смартфон|телефон|мобильный|сотовый|apple|global|version|ru|eac|esim|sim|dual|nfc|new|новый)\b'
 
 def storage(t):
@@ -73,7 +73,7 @@ def model_key(name):
     base = t[:a] if a >= 0 else t
     base = re.sub(DROP, ' ', base)
     base = re.sub(COLORS, ' ', base)
-    base = re.sub(r'\b5g\b|\b4g\b', ' ', base)
+    base = re.sub(r'\b5g\b|\b4g\b|(?<![a-zа-я0-9])5г(?![a-zа-я0-9])', ' ', base)
     base = re.sub(r'[^a-zа-я0-9+ ]', ' ', base)
     base = re.sub(r'\s+', ' ', base).strip()
     if not base or not st:
