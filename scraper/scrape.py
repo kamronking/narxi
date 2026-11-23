@@ -88,6 +88,9 @@ def cut_name(title):
 def pretty(name):
     n = re.sub(r'\s+', ' ', name).strip()
     n = re.sub(r'(?i)^смартфон\s+', '', n)
+    # the site is in Latin script: "2 ТБ" / "512 Гб" -> "2 TB" / "512 GB"
+    n = re.sub(r'(?i)(\d\s*)гб(?![а-яa-z])', r'\1GB', n)
+    n = re.sub(r'(?i)(\d\s*)тб(?![а-яa-z])', r'\1TB', n)
     return n
 
 # ---------------- categories ----------------
