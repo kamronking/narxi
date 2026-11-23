@@ -923,6 +923,9 @@ def radius(limit=None):
             if re.search(REL, u) and not re.search(RADIUS_SKIP, u)]
     rep['listed'] = len(urls)
     if limit: urls = urls[:limit]
+    # the Russian page names products in Russian, as the other stores do (the Uzbek one mixes in "Aqlli soat", "Toster")
+    urls = [u.replace('https://radius.uz/product/', 'https://radius.uz/ru/product/') for u in urls]
+    miss = rep['skipped'] = {'no_block': 0, 'no_price': 0, 'not_tech': 0}
     for u in urls:
         try:
             r = get(u); rep['pages'] += 1
@@ -931,15 +934,15 @@ def radius(limit=None):
         except Exception as e:
             rep['errors'].append(f'{u}: {e!r}'[:160]); continue
         d = _radius_ld(t)
-        if not d: continue
+        if not d: miss['no_block'] += 1; continue
         o = d.get('offers') or {}
         if isinstance(o, list): o = o[0] if o else {}
         try: price = int(float(o.get('price') or 0))
         except (TypeError, ValueError): price = 0
         title = _html.unescape(d.get('name') or '').strip()
-        if not price or not title: continue
+        if not price or not title: miss['no_price'] += 1; continue
         c = cat_of_name(title)
-        if c == 'other' and not re.search(REL, title.lower()): continue
+        if c == 'other' and not re.search(REL, title.lower()): miss['not_tech'] += 1; continue
         img = d.get('image')
         if isinstance(img, list): img = img[0] if img else None
         m_o = re.search(r'Price__\w+">([\d\s ]+)<!-- --> <!-- -->so.m</p>', t)
