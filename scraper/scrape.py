@@ -783,9 +783,18 @@ def castore():
                     m_i = re.search(r'<img[^>]+(?:data-src|src)="([^"]+\.(?:jpe?g|png|webp)[^"]*)"', card)
                     m_o = re.search(r'ca_price_old[^>]*>\s*([\d\s&nbsp;]+)', card)
                     old = int(re.sub(r'\D', '', m_o.group(1))) if m_o and re.sub(r'\D', '', m_o.group(1)) else None
-                    items.append({'store': 'castore', 'title': title, 'price': price, 'old': old if old and old > price else None, 'url': u,
-                                  'stock': 'out' if 'Нет в наличии' in card[:3000] else 'ok',
-                                  'img': (base + m_i.group(1)) if m_i and m_i.group(1).startswith('/') else (m_i.group(1) if m_i else None), 'cat': c})
+                    it = {'store': 'castore', 'title': title, 'price': price, 'old': old if old and old > price else None, 'url': u,
+                          'stock': 'out' if 'Нет в наличии' in card[:3000] else 'ok',
+                          'img': (base + m_i.group(1)) if m_i and m_i.group(1).startswith('/') else (m_i.group(1) if m_i else None), 'cat': c}
+                    # the card shows the store's own instalment: "Рассрочка 12 мес … 199 333 сум/мес"
+                    m_m = re.search(r'ca_credit_period">\s*(\d{1,2})', card)
+                    m_v = re.search(r'ca_credit_final">\s*<span>([\d\s&nbsp;]+)</span>', card)
+                    if m_m and m_v:
+                        v = int(re.sub(r'\D', '', m_v.group(1)) or 0)
+                        if v and price * 0.9 <= v * int(m_m.group(1)) <= price * 2.5:
+                            it['inst'], it['instm'] = v, int(m_m.group(1))
+                            it['plans'] = [[it['instm'], v]]
+                    items.append(it)
                 if not new: break
                 page += 1
     return _fin(items, rep)
