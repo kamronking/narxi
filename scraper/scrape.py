@@ -790,8 +790,101 @@ def castore():
                 page += 1
     return _fin(items, rep)
 
+# Diskont (diskont.uz, Next.js): product objects (name, price, stock, instalments) sit in the page's __next_f payload.
+# robots.txt closes every URL with "?", so no ?page=: each category's first page plus its brand-filter pages
+# (/categories/<id>/filter/brands=<brand>/, plain paths) are read; a product seen twice is kept once.
+DISKONT_CATS = {'92-smartfony': 'phones', '93-noutbuki': 'laptops', '94-televizory': 'tv', '96-stiralnaya-mashina': 'washers',
+                '110-poluavtomaticheskie-stiralnye-mashiny': 'washers', '97-kondicionery': 'ac', '100-holodilniki': 'fridges',
+                '127-morozilnik': 'fridges', '101-pylesosy': 'home', '132-utyugi': 'home', '133-otparivateli': 'home',
+                '102-mikrovolnovye-pechi': 'kitchen', '134-mini-pechi': 'kitchen', '147-elektrochajniki': 'kitchen', '136-printery': 'printers'}
+def _next_f_text(t):
+    out = []
+    for ch in re.findall(r'self\.__next_f\.push\(\[1,"(.*?)"\]\)</script>', t, re.S):
+        try: out.append(json.loads('"' + ch + '"'))
+        except Exception: pass
+    return ''.join(out)
+def diskont():
+    rep, items, seen = _rep(), [], set()
+    base = 'https://diskont.uz'
+    dec = json.JSONDecoder()
+    for slug, cid in DISKONT_CATS.items():
+        queue, done = [f'/categories/{slug}/'], set()
+        while queue and len(done) < 25:
+            path = queue.pop(0)
+            if path in done: continue
+            done.add(path)
+            try:
+                t = get(base + path).text; rep['pages'] += 1
+            except Exception as e:
+                rep['errors'].append(f'{path}: {e!r}'[:160]); continue
+            if path == f'/categories/{slug}/':
+                queue += sorted(set(re.findall(rf'href="(/categories/{re.escape(slug)}/filter/brands=[a-z0-9\-]+/)"', t)))
+            txt = _next_f_text(t)
+            for m in re.finditer(r'\{"id":\d+,"slug":"', txt):
+                try: o, _ = dec.raw_decode(txt, m.start())
+                except Exception: continue
+                if not isinstance(o, dict) or 'current_price' not in o or not o.get('name'): continue
+                u = o.get('url') or f"{base}/product/{o['id']}-{o['slug']}/"
+                if u in seen: continue
+                seen.add(u)
+                price = int(float(o.get('current_price') or 0))
+                if not price: continue
+                old = int(float(o.get('old_price') or 0))
+                c = cat_of_name(o['name']); c = cid if c == 'other' else c
+                it = {'store': 'diskont', 'title': re.sub(r'^C(?=мартфон)', 'С', o['name'].strip()), 'price': price, 'old': old if old > price else None, 'url': u,
+                      'stock': 'ok' if int(o.get('in_stock') or 0) > 0 else 'out', 'img': o.get('medium_img') or o.get('img'), 'cat': c}
+                parts = o.get('installment_prices') or []
+                own = next((x for x in parts if x.get('code') == 'diskont'), parts[0] if parts else None)
+                plans = sorted([int(x['duration']), int(float(x['price_per_month']))] for x in (own or {}).get('prices') or []
+                               if x.get('duration') and x.get('price_per_month'))
+                if plans:
+                    it['plans'] = plans; it['instm'], it['inst'] = plans[-1]
+                items.append(it)
+    return _fin(items, rep)
+
+# iSpace (ispace.uz, Apple Premium Reseller, Nuxt): category pages with ?page=N (allowed by robots.txt); each card has
+# the name, the price, the old price and "От N сумов /мес. на M мес.".
+ISPACE_CATS = {'iphone': 'phones', 'ipad': 'tablets', 'macbook-air': 'laptops', 'macbook-pro': 'laptops', 'macbook-neo': 'laptops',
+               'imac': 'other', 'mac-mini': 'other', 'apple-watch': 'watches', 'airpods': 'audio'}
+def ispace():
+    rep, items, seen = _rep(), [], set()
+    base = 'https://ispace.uz'
+    n = lambda x: int(re.sub(r'\D', '', x) or 0)
+    for slug, cid in ISPACE_CATS.items():
+        for page in range(1, 40):
+            url = f'{base}/category/{slug}' + (f'?page={page}' if page > 1 else '')
+            try:
+                t = get(url).text; rep['pages'] += 1
+            except Exception as e:
+                rep['errors'].append(f'{url}: {e!r}'[:160]); break
+            new = 0
+            for card in t.split('data-test="carousel-product"')[1:]:
+                m_u = re.search(r'href="(/product/[a-z0-9\-]+)"', card)
+                m_n = re.search(r'entity-card_name-text"[^>]*>([^<]+)<', card)
+                m_p = re.search(r'carousel-product_price-value[^"]*"[^>]*>(?:<!--\[-->)?\s*([\d\s ]+)\s*сум', card)
+                if not (m_u and m_n and m_p): continue
+                u = base + m_u.group(1)
+                if u in seen: continue
+                seen.add(u); new += 1
+                price = n(m_p.group(1))
+                if not price: continue
+                m_o = re.search(r'carousel-product_action-price"[^>]*>(?:<!--\[-->)?\s*([\d\s ]+)\s*сум', card)
+                old = n(m_o.group(1)) if m_o else 0
+                title = _html.unescape(m_n.group(1)).strip()
+                m_i = re.search(r'<img[^>]+src="([^"]+)"', card)
+                it = {'store': 'ispace', 'title': title, 'price': price, 'old': old if old > price else None, 'url': u,
+                      'stock': 'ok', 'img': m_i.group(1) if m_i else None, 'cat': cid}
+                m_c = re.search(r'От\s*([\d\s ]+)\s*сум\w*\s*/\s*мес\.?\s*на\s*(\d{1,2})', card)
+                if m_c:
+                    v, mo = n(m_c.group(1)), int(m_c.group(2))
+                    if v and price * 0.9 <= v * mo <= price * 2.5:
+                        it['inst'], it['instm'], it['plans'] = v, mo, [[mo, v]]
+                items.append(it)
+            if not new: break
+    return _fin(items, rep)
+
 STORES = {'texnomart': texnomart, 'olcha': olcha, 'alif': alif, 'beeline': beeline, 'macbro': macbro,
-          'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'tezz': tezz, 'karcher': karcher, 'openshop': openshop, 'castore': castore}
+          'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'tezz': tezz, 'karcher': karcher, 'openshop': openshop, 'castore': castore, 'diskont': diskont, 'ispace': ispace}
 
 OTHER_CHUNKS = 8
 def khash(k):

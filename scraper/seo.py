@@ -17,7 +17,7 @@ SITE = 'https://narxi.site'
 
 STORES = {'texnomart': 'Texnomart', 'olcha': 'Olcha', 'alif': 'Alif Shop', 'beeline': 'Beeline Market', 'macbro': 'Macbro',
           'idea': 'Idea', 'maxcom': 'Maxcom', 'woot': 'Woot', 'avtech': 'Avtech', 'mionline': 'Mi Online', 'tezz': 'Tezz',
-          'karcher': 'Kärcher', 'openshop': 'OpenShop', 'castore': 'CA Store'}
+          'karcher': 'Kärcher', 'openshop': 'OpenShop', 'castore': 'CA Store', 'diskont': 'Diskont', 'ispace': 'iSpace'}
 ALWAYS = {'phones', 'tablets'}          # people search these by model even when one store sells it
 MAX_SIMILAR = 8
 
