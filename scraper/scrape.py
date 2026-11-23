@@ -844,13 +844,14 @@ def diskont():
 
 # iSpace (ispace.uz, Apple Premium Reseller, Nuxt): category pages with ?page=N (allowed by robots.txt); each card has
 # the name, the price, the old price and "От N сумов /мес. на M мес.".
-ISPACE_CATS = {'iphone': 'phones', 'ipad': 'tablets', 'macbook-air': 'laptops', 'macbook-pro': 'laptops', 'macbook-neo': 'laptops',
-               'imac': 'other', 'mac-mini': 'other', 'apple-watch': 'watches', 'airpods': 'audio'}
+ISPACE_CATS = {'iphone': 'phones', 'ipad-pro': 'tablets', 'ipad-air': 'tablets', 'ipad-mini': 'tablets', 'ipad-10': 'tablets',
+               'macbook-air': 'laptops', 'macbook-pro': 'laptops', 'macbook-neo': 'laptops', 'apple-watch': 'watches', 'airpods': 'audio'}
 def ispace():
     rep, items, seen = _rep(), [], set()
     base = 'https://ispace.uz'
     n = lambda x: int(re.sub(r'\D', '', x) or 0)
     for slug, cid in ISPACE_CATS.items():
+        empty = 0
         for page in range(1, 40):
             url = f'{base}/category/{slug}' + (f'?page={page}' if page > 1 else '')
             try:
@@ -872,15 +873,21 @@ def ispace():
                 old = n(m_o.group(1)) if m_o else 0
                 title = _html.unescape(m_n.group(1)).strip()
                 m_i = re.search(r'<img[^>]+src="([^"]+)"', card)
+                # pages also carry carousels of other Apple lines, so the category comes from the name, not from the page
+                low = title.lower()
+                c = ('phones' if low.startswith('iphone') else 'tablets' if low.startswith('ipad') else 'laptops' if low.startswith('macbook')
+                     else 'watches' if 'watch' in low else 'audio' if low.startswith('airpods') else None)
+                if not c: continue
                 it = {'store': 'ispace', 'title': title, 'price': price, 'old': old if old > price else None, 'url': u,
-                      'stock': 'ok', 'img': m_i.group(1) if m_i else None, 'cat': cid}
+                      'stock': 'ok', 'img': m_i.group(1) if m_i else None, 'cat': c}
                 m_c = re.search(r'От\s*([\d\s ]+)\s*сум\w*\s*/\s*мес\.?\s*на\s*(\d{1,2})', card)
                 if m_c:
                     v, mo = n(m_c.group(1)), int(m_c.group(2))
                     if v and price * 0.9 <= v * mo <= price * 2.5:
                         it['inst'], it['instm'], it['plans'] = v, mo, [[mo, v]]
                 items.append(it)
-            if not new: break
+            empty = 0 if new else empty + 1
+            if empty >= 2: break
     return _fin(items, rep)
 
 STORES = {'texnomart': texnomart, 'olcha': olcha, 'alif': alif, 'beeline': beeline, 'macbro': macbro,
