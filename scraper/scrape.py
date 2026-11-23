@@ -442,7 +442,7 @@ def num(s):
     s = re.sub(r'[^\d]', '', str(s or ''))
     return int(s) if s else 0
 def _rep(): return {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}}
-BUNDLE = re.compile(r'\+\s*(?:toner|тонер|запр)|тонер в комплекте', re.I)
+BUNDLE = re.compile(r'\+\s*(?:toner|тонер|запр|чехол|защитн|стекл|наушник)|тонер в комплекте', re.I)
 def _fin(items, rep):
     # an offer bundled with toner/refill is not the same product as the bare model: keep it out of comparisons
     items = [it for it in items if not BUNDLE.search(it.get('title') or '')]
@@ -739,8 +739,59 @@ def openshop():
 
 # mionline: since Nov 2026 the whole site sits behind a Cloudflare bot challenge (403 "Just a moment..."),
 # so it is switched off; mionline() stays here to re-enable if they open access or give us a feed.
+# CA Store (castore.uz, Bitrix): category listings carry schema.org Product microdata per card
+# (name, price in UZS, link). robots.txt allows the catalog; paging is ?PAGEN_<n>=<page>.
+CASTORE_CATS = {'phones': ['vse-smartfony'], 'laptops': ['vse-noutbuki'], 'tablets': ['planshety'], 'tv': ['vse-televizory'],
+                'monitors': ['monitory'], 'audio': ['naushniki-i-garnitury'], 'watches': ['smart-chasy'], 'fridges': ['kholodilniki'],
+                'washers': ['stiralnye-mashiny'], 'ac': ['konditsionery'], 'home': ['pylesosy'], 'kitchen': ['mikrovolnovye-pechi'],
+                'stoves': ['plity-elektricheskie', 'plity-gazovye', 'plity-kombinirovannye'], 'printers': ['printery-mfu']}
+def castore():
+    rep, items, seen = _rep(), [], set()
+    base = 'https://castore.uz'
+    for cid, slugs in CASTORE_CATS.items():
+        for slug in slugs:
+            param, last, page = None, 1, 1
+            while page <= last and page <= 40:
+                url = f'{base}/{slug}/' + (f'?{param}={page}' if page > 1 else '')
+                try:
+                    t = get(url).text; rep['pages'] += 1
+                except Exception as e:
+                    rep['errors'].append(f'{url}: {e!r}'[:160]); break
+                if page == 1:
+                    pg = re.findall(rf'href="/{re.escape(slug)}/\?(PAGEN_\d+)=(\d+)"', t)
+                    if pg:
+                        param = pg[0][0]; last = max(int(n) for k, n in pg if k == param)
+                body = t[t.find('<body'):]
+                new = 0
+                for card in body.split('itemtype="http://schema.org/Product"')[1:]:
+                    m_u = re.search(r'href="(/product/[^"]+)"', card)
+                    m_n = re.search(r'itemprop="name" content="([^"]+)"', card)
+                    m_p = re.search(r'itemprop="price" content="(\d+)"', card)
+                    if not (m_u and m_n and m_p): continue
+                    u = base + m_u.group(1)
+                    if u in seen: continue
+                    seen.add(u); new += 1
+                    title = _html.unescape(m_n.group(1)).strip()
+                    price = int(m_p.group(1))
+                    if not price: continue
+                    c = cat_of_name(title)
+                    if c == 'other': c = cid
+                    # CA Store writes memory as "4+128GB" / "4GB+128GB"; the other stores (and model_key) use "4/128GB"
+                    title = re.sub(r'(?<!\d)(\d{1,2})\s*(?:GB|ГБ)?\s*\+\s*(\d{2,4})\s*(GB|TB|ГБ|ТБ)', r'\1/\2\3', title, flags=re.I)
+                    if c == 'phones':
+                        title = re.sub(r'\s*\bSM-[A-Z0-9]+(?:/[A-Z]+)?', '', title, flags=re.I)
+                    m_i = re.search(r'<img[^>]+(?:data-src|src)="([^"]+\.(?:jpe?g|png|webp)[^"]*)"', card)
+                    m_o = re.search(r'ca_price_old[^>]*>\s*([\d\s&nbsp;]+)', card)
+                    old = int(re.sub(r'\D', '', m_o.group(1))) if m_o and re.sub(r'\D', '', m_o.group(1)) else None
+                    items.append({'store': 'castore', 'title': title, 'price': price, 'old': old if old and old > price else None, 'url': u,
+                                  'stock': 'out' if 'Нет в наличии' in card[:3000] else 'ok',
+                                  'img': (base + m_i.group(1)) if m_i and m_i.group(1).startswith('/') else (m_i.group(1) if m_i else None), 'cat': c})
+                if not new: break
+                page += 1
+    return _fin(items, rep)
+
 STORES = {'texnomart': texnomart, 'olcha': olcha, 'alif': alif, 'beeline': beeline, 'macbro': macbro,
-          'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'tezz': tezz, 'karcher': karcher, 'openshop': openshop}
+          'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'tezz': tezz, 'karcher': karcher, 'openshop': openshop, 'castore': castore}
 
 OTHER_CHUNKS = 8
 def khash(k):
