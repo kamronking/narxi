@@ -899,8 +899,60 @@ def ispace():
             if empty >= 2: break
     return _fin(items, rep)
 
+RADIUS_SKIP = r'podderzhan|b-u-|aksessuar|chekhol|chehol|zashchitn|steklo|plenk|kabel|zariad|zaryad|derzhatel|remesh|sumk|filtr|nasadk|avto|shina|kovrik'
+def _radius_ld(t):
+    i = t.find('"@type":"Product"')
+    if i < 0: return None
+    j = t.rfind('{', 0, i)
+    while j >= 0:
+        try:
+            d, _ = json.JSONDecoder().raw_decode(t[j:])
+            if d.get('@type') == 'Product': return d
+        except Exception: pass
+        j = t.rfind('{', 0, j)
+    return None
+def radius(limit=None):
+    # radius.uz loads its catalogue in the browser (GraphQL), but each product page carries a schema.org Product
+    # block with name, price and availability, and robots.txt allows /product/: list them from the sitemap
+    rep, items = _rep(), []
+    try:
+        sm = get('https://radius.uz/sitemap-products-1.xml').text
+    except Exception as e:
+        rep['errors'].append(f'sitemap: {e!r}'[:160]); return _fin(items, rep)
+    urls = [u for u in re.findall(r'<loc>(https://radius\.uz/product/[^<]+)</loc>', sm)
+            if re.search(REL, u) and not re.search(RADIUS_SKIP, u)]
+    rep['listed'] = len(urls)
+    if limit: urls = urls[:limit]
+    # the Russian page names products in Russian, as the other stores do (the Uzbek one mixes in "Aqlli soat", "Toster")
+    urls = [u.replace('https://radius.uz/product/', 'https://radius.uz/ru/product/') for u in urls]
+    miss = rep['skipped'] = {'no_block': 0, 'no_price': 0, 'not_tech': 0}
+    for u in urls:
+        try:
+            r = get(u); rep['pages'] += 1
+            if r.status_code != 200: continue
+            t = r.text
+        except Exception as e:
+            rep['errors'].append(f'{u}: {e!r}'[:160]); continue
+        d = _radius_ld(t)
+        if not d: miss['no_block'] += 1; continue
+        o = d.get('offers') or {}
+        if isinstance(o, list): o = o[0] if o else {}
+        try: price = int(float(o.get('price') or 0))
+        except (TypeError, ValueError): price = 0
+        title = _html.unescape(d.get('name') or '').strip()
+        if not price or not title: miss['no_price'] += 1; continue
+        c = cat_of_name(title)
+        if c == 'other' and not re.search(REL, title.lower()): miss['not_tech'] += 1; continue
+        img = d.get('image')
+        if isinstance(img, list): img = img[0] if img else None
+        m_o = re.search(r'Price__\w+">([\d\s ]+)<!-- --> <!-- -->(?:so.m|сум)</p>', t)
+        old = int(re.sub(r'\D', '', m_o.group(1))) if m_o and re.sub(r'\D', '', m_o.group(1)) else None
+        items.append({'store': 'radius', 'title': title, 'price': price, 'old': old if old and old > price else None,
+                      'url': u, 'stock': 'ok' if 'InStock' in str(o.get('availability')) else 'out', 'img': img, 'cat': c})
+    return _fin(items, rep)
+
 STORES = {'texnomart': texnomart, 'olcha': olcha, 'alif': alif, 'beeline': beeline, 'macbro': macbro,
-          'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'tezz': tezz, 'karcher': karcher, 'openshop': openshop, 'castore': castore, 'diskont': diskont, 'ispace': ispace}
+          'idea': idea, 'maxcom': maxcom, 'woot': woot, 'avtech': avtech, 'tezz': tezz, 'karcher': karcher, 'openshop': openshop, 'castore': castore, 'diskont': diskont, 'ispace': ispace, 'radius': radius}
 
 OTHER_CHUNKS = 8
 def khash(k):
