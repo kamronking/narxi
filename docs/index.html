@@ -242,12 +242,14 @@ svg.chart path.ln{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 1.
 .itr{display:grid;grid-template-columns:52px 1fr auto;grid-template-areas:"m s v" "m tt tt";gap:2px 10px;padding:9px 0;border-top:1px solid var(--line);align-items:center}
 .itr .m{grid-area:m;font-weight:800;font-size:15px}.itr .s{grid-area:s;display:flex;align-items:center;gap:6px;font-weight:600;font-size:14px}.itr .v{grid-area:v;font-weight:700;font-size:14px;text-align:right}.itr .v small{font-weight:500;color:var(--muted)}
 .itr .tt{grid-area:tt;font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;gap:8px}.itr .tt b{color:var(--ink)}.itr .tt em{font-style:normal;font-weight:700}.itr .tt em.bad{color:var(--bad)}
-.mq{display:flex;flex-direction:column;gap:8px}.mq-h{padding:0 2px}
-.mq-w{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.mq-t{display:flex;gap:10px;width:max-content;animation:mqmove var(--d,40s) linear infinite}.mq-w:hover .mq-t{animation-play-state:paused}.mq-t.rev{animation-direction:reverse}.mq-b{cursor:pointer;font:inherit;font-weight:800;font-size:15px;letter-spacing:.2px}.mq-b:active{transform:scale(.96)}
-.mq-i{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:9px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font-weight:700;font-size:14px}
-.mq-d{width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px var(--line)}
-@keyframes mqmove{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 5px))}}
+.mq{display:flex;flex-direction:column;gap:0;margin:-4px 0}.mq-h{display:none}
+.mq-w{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.mq-t{display:flex;width:max-content;animation:mqmove var(--d,60s) linear infinite}.mq-w:hover .mq-t{animation-play-state:paused}.mq-t.rev{animation-direction:reverse}
+.mq-i{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:6px 0;margin-right:22px;background:none;border:0;color:var(--muted);font:500 13px/1.2 var(--ui);opacity:.85}
+.mq-i::after{content:'';width:3px;height:3px;border-radius:50%;background:var(--line);margin-left:22px}
+.mq-b{cursor:pointer;color:var(--muted)}.mq-b:hover{color:var(--ink)}
+.mq-d{width:6px;height:6px;border-radius:50%;opacity:.9}
+@keyframes mqmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.mq-t{animation:none;flex-wrap:wrap;width:auto}}
 .irow{display:flex;flex-direction:column;gap:4px;padding:8px 0;border-top:1px solid var(--line)}.irow:first-of-type{border-top:0}
 .irow .h{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:600;font-size:14px}.irow .h span:first-child{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -560,10 +562,10 @@ function heroCard(D){clearInterval(HERO_T);const L=heroPick(D);if(!L.length)retu
 const nModels=()=>Math.max(IDX.length,(META.cats||[]).reduce((a,c)=>a+(c.n||0),0));
 const RIB_BRANDS=['Apple','Samsung','Xiaomi','Honor','Huawei','Lenovo','HP','Acer','Asus','Dell','LG','Artel','Tecno','Infinix','Realme','Vivo','OPPO','Google','Sony','JBL','Philips','Bosch','Midea','Hofmann','Shivaki','Kärcher','Dyson','Canon'];
 function brandRibbon(){const one=RIB_BRANDS.map(b=>`<button class="mq-i mq-b" data-rb="${esc(b)}">${esc(b)}</button>`).join('');
-  return `<section class="mq in-up" style="--i:2"><div class="mq-h small muted">${t('brandsT')}</div><div class="mq-w"><div class="mq-t rev" style="--d:${Math.round(RIB_BRANDS.length*2.4)}s">${one}${one}</div></div></section>`}
+  return `<section class="mq in-up" style="--i:2"><div class="mq-h small muted">${t('brandsT')}</div><div class="mq-w"><div class="mq-t rev" style="--d:${Math.round(RIB_BRANDS.length*3.6)}s">${one}${one}</div></div></section>`}
 function storeMarquee(){const ks=Object.entries(DATA.stores||{}).filter(([k,v])=>STORES[k]&&(!v||v.ok!==false)).map(([k])=>k);if(!ks.length)return '';
   const one=ks.map(k=>`<span class="mq-i"><span class="mq-d" style="background:${STORES[k].color}"></span>${esc(STORES[k].name)}</span>`).join('');
-  return `<section class="mq in-up" style="--i:2" aria-label="${t('mqT',{n:ks.length})}"><div class="mq-h small muted">${t('mqT',{n:ks.length})}</div><div class="mq-w"><div class="mq-t" style="--d:${Math.max(20,ks.length*2.6)}s">${one}${one}</div></div></section>`}
+  return `<section class="mq in-up" style="--i:2" aria-label="${t('mqT',{n:ks.length})}"><div class="mq-h small muted">${t('mqT',{n:ks.length})}</div><div class="mq-w"><div class="mq-t" style="--d:${Math.max(40,ks.length*4.5)}s">${one}${one}</div></div></section>`}
 function renderHome(){const D=deals();
   LIST=()=>IDX.filter(r=>r[4]>1).sort((a,b)=>b[4]-a[4]||b[5]-a[5]).map(r=>r[0]);
   view.innerHTML=`<div class="greet in-up">${t('hi')}, <b>${esc(USER?USER.name.split(' ')[0]:t('guest'))}</b> 👋</div>
