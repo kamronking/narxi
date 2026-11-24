@@ -9,6 +9,7 @@ Outputs (served by GitHub Pages):
 """
 import json, re, time, unicodedata, datetime as dt, pathlib, urllib.robotparser as rp
 import requests
+from laptopkey import laptop_key
 
 UA = 'NarxiBot/0.1 (+https://github.com/kamronking/narxi; price comparison)'
 H = {'User-Agent': UA, 'Accept-Language': 'ru-RU,ru;q=0.9'}
@@ -1071,6 +1072,13 @@ def key_for(it):
         k = tablet_key(it['title'])
         if k:
             return 'tablets:' + k
+    if it['cat'] == 'laptops':
+        try:
+            k = laptop_key(it['title'])
+        except Exception:
+            k = None
+        if k:
+            return 'laptops:' + k
     return gen_key(it['cat'], it['title'])
 
 # ---------- cross-store merge (same model, keys differ by brand spelling / regional suffix) ----------
