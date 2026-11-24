@@ -253,6 +253,9 @@ svg.chart path.ln{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 1.
 @media (prefers-reduced-motion:reduce){.mq-t{animation:none;flex-wrap:wrap;width:auto}}
 .us .lead{margin:0;font-size:16.5px;line-height:1.5}.usn{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}.usn div{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:14px;background:var(--surface2);border:1px solid var(--line)}.usn b{font-size:20px}.usn span{font-size:12px;color:var(--muted)}
 .usl{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}.usc{display:flex;flex-wrap:wrap;gap:8px}
+.rv-wait{animation-play-state:paused!important}
+.pc{transition:transform .25s var(--ease),box-shadow .25s var(--ease)}@media (hover:hover){.pc:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.18)}.card.in-up:hover{border-color:color-mix(in srgb,var(--line) 60%,var(--lime) 40%)}}
+.bestcard .p{display:inline-block;animation:popIn .6s var(--ease) .15s both}@keyframes popIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
 .irow{display:flex;flex-direction:column;gap:4px;padding:8px 0;border-top:1px solid var(--line)}.irow:first-of-type{border-top:0}
 .irow .h{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:600;font-size:14px}.irow .h span:first-child{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .irow .meta{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--muted)}.irow .bad{color:var(--bad)}
@@ -936,6 +939,12 @@ if(!window.__resetting&&!store.get('reg_ok',false)&&firstVisitOfSession){try{ses
   if(store.get('reg_id',null)){regStatus().then(ok=>{if(ok){toast(t('rgOk'));render()}else softStart()})}else softStart()}
 setTimeout(function waitNX(n){if(!window.NX&&n<20)return setTimeout(()=>waitNX(n+1),500);regStatus().then(ok=>{if(ok&&!ob.hidden&&!regFromProfile){ob.hidden=true;render()}})},1500,0);
 const nxBoot=async()=>{if(USER){if(!store.get('synced',0)){const ok=await NX.saveUser(USER,WATCH,LANG);if(ok){store.set('synced',1);toast('☁️ '+t('saved'))}}return}const d=await NX.load();if(d&&d.name){USER={name:d.name,phone:d.phone,city:d.city,brands:d.brands||[],since:d.since||Date.now()};store.set('user',USER);if(d.watch){WATCH={...d.watch,...WATCH};store.set('watch',WATCH)}store.set('seen',1);if(!ob.hidden)ob.hidden=true;render()}};const nxLater=()=>setTimeout(nxBoot,USER?2500:4000);if(window.NX_READY)nxLater();else addEventListener('nx-ready',nxLater);
+
+/* ===== reveal on scroll: blocks below the fold animate when they come into view ===== */
+(function(){if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const io=new IntersectionObserver(es=>{let n=0;for(const e of es){if(!e.isIntersecting)continue;const el=e.target;io.unobserve(el);el.style.animationDelay=(n++*60)+'ms';el.classList.remove('rv-wait')}},{rootMargin:'0px 0px -8% 0px'});
+  const arm=()=>{const h=innerHeight;document.querySelectorAll('#view .in-up:not([data-rv])').forEach(el=>{el.dataset.rv=1;if(el.getBoundingClientRect().top>h*0.98){el.classList.add('rv-wait');io.observe(el)}})};
+  const v=document.getElementById('view');if(v)new MutationObserver(()=>requestAnimationFrame(arm)).observe(v,{childList:true,subtree:true});addEventListener('load',arm)})();
 </script>
 </body>
 </html>
