@@ -368,6 +368,54 @@ def alif():
 # ---------- Beeline Market (SSR HTML cards) ----------
 BEE = {'smartfony': 'phones', 'tablets': 'tablets', 'smart-watches': 'watches', 'laptops': 'laptops', 'headphones': 'audio',
        'smart-speakers': 'audio', 'air-purifiers-and-humidifiers': 'climate', 'heaters': 'climate', 'aerogrills-fryers': 'kitchen'}
+def _devalue(arr):
+    """Resolve a Nuxt 3 payload (devalue format: a flat array where values point to other indices)."""
+    memo = {}
+    WRAP = {'ShallowReactive', 'Reactive', 'Ref', 'ShallowRef', 'EmptyRef', 'EmptyShallowRef', 'NuxtError'}
+    def r(i, depth=0):
+        if not isinstance(i, int) or i < 0 or i >= len(arr) or depth > 60: return None
+        if i in memo: return memo[i]
+        v = arr[i]
+        if isinstance(v, list):
+            if v and isinstance(v[0], str) and v[0] in WRAP:
+                out = r(v[1], depth + 1) if len(v) > 1 else None
+            elif v and isinstance(v[0], str) and v[0] in ('Set', 'Map', 'Date', 'BigInt', 'RegExp'):
+                out = None
+            else:
+                out = []; memo[i] = out; out.extend(r(x, depth + 1) for x in v); return out
+        elif isinstance(v, dict):
+            out = {}; memo[i] = out
+            for k, x in v.items(): out[k] = r(x, depth + 1)
+            return out
+        else:
+            out = v
+        memo[i] = out
+        return out
+    return r(0)
+
+def beeline_rates(url):
+    """Beeline shows instalment partners (Alif nasiya, TBC Nasiya...) with a mark-up per term on product pages only.
+    The table is store-wide, so read it from one page: {months: lowest mark-up %}."""
+    t = get(url).text
+    m = re.search(r'<script[^>]*id="__NUXT_DATA__"[^>]*>(.*?)</script>', t, re.S)
+    if not m:
+        scripts = re.findall(r'<script[^>]*>(\[\["ShallowReactive".*?)</script>', t, re.S)
+        if not scripts: return {}
+        raw = scripts[0]
+    else:
+        raw = m.group(1)
+    root = _devalue(json.loads(raw)) or {}
+    data = (root.get('data') or {}) if isinstance(root, dict) else {}
+    best = {}
+    for k, v in data.items():
+        if not k.startswith('installments-product-') or not isinstance(v, dict): continue
+        for prov in v.get('data') or []:
+            for tm in (prov or {}).get('times') or []:
+                try: mo, pc = int(tm.get('month')), float(tm.get('percantage'))
+                except (TypeError, ValueError, AttributeError): continue
+                if mo > 1 and pc >= 0 and (mo not in best or pc < best[mo]): best[mo] = pc
+    return best
+
 def beeline():
     rep = {'pages': 0, 'items': 0, 'errors': [], 'per_cat': {}}
     items, seen = [], set()
@@ -396,6 +444,17 @@ def beeline():
                               'old': None, 'url': u, 'stock': 'ok', 'img': m_img.group(1) if m_img else None, 'cat': cid})
             if not new: break
         rep['per_cat'][cid] = rep['per_cat'].get(cid, 0) + len(items) - n0
+    # instalment: one rate table for the whole store, applied to every item (shown on the site as an estimate)
+    try:
+        rates = beeline_rates(items[0]['url']) if items else {}
+    except Exception as e:
+        rates = {}; rep['errors'].append(f'rates: {e!r}'[:160])
+    rep['inst_rates'] = rates
+    if rates:
+        for it in items:
+            it['plans'] = sorted([mo, int(round(it['price'] * (1 + pc / 100) / mo))] for mo, pc in rates.items())
+            it['instm'], it['inst'] = it['plans'][-1]
+            it['inst_est'] = True
     rep['items'] = len(items); rep['errors'] = rep['errors'][:20]
     return items, rep
 
