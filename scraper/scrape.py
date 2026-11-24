@@ -730,8 +730,21 @@ def openshop():
                 if u in seen or not title or price <= 0 or o.get('is_published') is False: continue
                 if re.search(r'\bб/у\b|\bb/u\b|бывш|refurbished', title, re.I): continue
                 seen.add(u); new += 1
-                items.append({'store': 'openshop', 'title': title, 'price': price, 'old': old if old > price else None, 'url': u,
-                              'stock': 'ok' if o.get('is_stock') else 'out', 'img': o.get('thumbnail_img'), 'cat': cat_of_name(title)})
+                it = {'store': 'openshop', 'title': title, 'price': price, 'old': old if old > price else None, 'url': u,
+                      'stock': 'ok' if o.get('is_stock') else 'out', 'img': o.get('thumbnail_img'), 'cat': cat_of_name(title)}
+                # instalment: listing objects carry installment.by_month (Open Nasiya etc.), monthly payment per term
+                best = {}
+                for b in ((o.get('installment') or {}).get('by_month') or []):
+                    try:
+                        m, v = int(b.get('months') or 0), int(round(float(b.get('price_in_month_with_percent') or 0)))
+                    except (TypeError, ValueError):
+                        continue
+                    if m > 0 and v > 0 and (m not in best or v < best[m]):
+                        best[m] = v
+                if best:
+                    it['plans'] = sorted([m, v] for m, v in best.items())
+                    it['instm'], it['inst'] = it['plans'][-1]
+                items.append(it)
             rep['per_cat'][c] = rep['per_cat'].get(c, 0) + new
             if not new or (total and page * 24 >= total): break
     rep['budget_left'] = budget
