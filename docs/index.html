@@ -244,7 +244,7 @@ svg.chart path.ln{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 1.
 .itr .tt{grid-area:tt;font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;gap:8px}.itr .tt b{color:var(--ink)}.itr .tt em{font-style:normal;font-weight:700}.itr .tt em.bad{color:var(--bad)}
 .mq{display:flex;flex-direction:column;gap:8px}.mq-h{padding:0 2px}
 .mq-w{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.mq-t{display:flex;gap:10px;width:max-content;animation:mqmove var(--d,40s) linear infinite}.mq-w:hover .mq-t{animation-play-state:paused}
+.mq-t{display:flex;gap:10px;width:max-content;animation:mqmove var(--d,40s) linear infinite}.mq-w:hover .mq-t{animation-play-state:paused}.mq-t.rev{animation-direction:reverse}.mq-b{cursor:pointer;font:inherit;font-weight:800;font-size:15px;letter-spacing:.2px}.mq-b:active{transform:scale(.96)}
 .mq-i{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:9px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font-weight:700;font-size:14px}
 .mq-d{width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px var(--line)}
 @keyframes mqmove{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 5px))}}
@@ -558,6 +558,9 @@ function heroCard(D){clearInterval(HERO_T);const L=heroPick(D);if(!L.length)retu
   const p=L[HERO_I];return `<button class="hcard press" id="hcard" data-k="${esc(p.key)}" aria-label="${esc(p.name)}">${heroInner(p)}</button>`}
 /* total models: category counts from meta, so the hero is right before the full index has loaded */
 const nModels=()=>Math.max(IDX.length,(META.cats||[]).reduce((a,c)=>a+(c.n||0),0));
+const RIB_BRANDS=['Apple','Samsung','Xiaomi','Honor','Huawei','Lenovo','HP','Acer','Asus','Dell','LG','Artel','Tecno','Infinix','Realme','Vivo','OPPO','Google','Sony','JBL','Philips','Bosch','Midea','Hofmann','Shivaki','Kärcher','Dyson','Canon'];
+function brandRibbon(){const one=RIB_BRANDS.map(b=>`<button class="mq-i mq-b" data-rb="${esc(b)}">${esc(b)}</button>`).join('');
+  return `<section class="mq in-up" style="--i:2"><div class="mq-h small muted">${t('brandsT')}</div><div class="mq-w"><div class="mq-t rev" style="--d:${Math.round(RIB_BRANDS.length*2.4)}s">${one}${one}</div></div></section>`}
 function storeMarquee(){const ks=Object.entries(DATA.stores||{}).filter(([k,v])=>STORES[k]&&(!v||v.ok!==false)).map(([k])=>k);if(!ks.length)return '';
   const one=ks.map(k=>`<span class="mq-i"><span class="mq-d" style="background:${STORES[k].color}"></span>${esc(STORES[k].name)}</span>`).join('');
   return `<section class="mq in-up" style="--i:2" aria-label="${t('mqT',{n:ks.length})}"><div class="mq-h small muted">${t('mqT',{n:ks.length})}</div><div class="mq-w"><div class="mq-t" style="--d:${Math.max(20,ks.length*2.6)}s">${one}${one}</div></div></section>`}
@@ -567,6 +570,7 @@ function renderHome(){const D=deals();
    <section class="hero in-up" style="--i:1"><div class="hl"><h1>${t('h1a')} <em>${t('h1b')}</em></h1>
     <div class="facts"><button class="live rf" id="rf">${t('upd')} ${updTxt()} ${rfIcon}</button><span>${fmt(nModels())} ${tn('models',nModels())}</span><span>${Object.keys(DATA.stores).length} ${tn('storesN',Object.keys(DATA.stores).length)}</span></div>${igBtn('sm')}</div>${heroCard(D)}</section>
    ${storeMarquee()}
+   ${brandRibbon()}
    <div class="chips" role="group" id="hcats">${META.cats.map(c=>`<button data-hc="${c.id}">${esc(LANG==='ru'?c.ru:c.uz)}<span class="n">${fmt(c.n)}</span></button>`).join('')}</div>
    ${D.length?`<section style="display:flex;flex-direction:column;gap:10px"><div class="secthead"><h2>${t('biggest')}</h2><span class="small muted">${t('bigSub')}</span></div><div class="rail">${D.slice(0,8).map(deal).join('')}</div></section>`:''}
    <div class="secthead"><h2>${t('topT')}</h2><button class="btn ghost sm" id="seeAll">${t('seeAll')}</button></div>
@@ -574,6 +578,7 @@ function renderHome(){const D=deals();
   drawGrid(true);
   document.getElementById('seeAll').onclick=()=>{Object.assign(S,{q:'',cat:'all',brand:'all',sort:'gap',both:true,limit:24});go('find')};document.getElementById('rf').onclick=()=>refresh(true);
   view.querySelectorAll('[data-hc]').forEach(b=>b.onclick=()=>{Object.assign(S,{q:'',cat:b.dataset.hc,brand:'all',limit:24});go('find')});
+  view.querySelectorAll('[data-rb]').forEach(b=>b.onclick=()=>{window.NX&&NX.ev('brand_ribbon',{brand:b.dataset.rb});Object.assign(S,{q:b.dataset.rb,cat:'all',brand:'all',limit:24});go('find')});
   bind(view.querySelector('.rail')||document.createElement('div'));
   countUp()}
 function renderFind(){LIST=null;
