@@ -1,20 +1,16 @@
-name: probe stores
+name: probe
 on:
   push:
-    paths: ['scraper/probe_stores.py','scraper/probe3.py']
-  workflow_dispatch:
+    branches: [probe]
+    paths: ['probe/urls.json']
 permissions:
   contents: write
 jobs:
-  probe:
+  dl:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: {python-version: '3.12'}
-      - run: pip install requests cryptography certifi
-      - run: python scraper/probe3.py
+      - run: pip install requests && python probe/dl.py
       - run: |
-          git config user.name "narxi-bot"; git config user.email "narxi-bot@users.noreply.github.com"
-          git add docs/data/probe17; git commit -m "store probe" || exit 0
-          git pull --rebase origin main && git push
+          git config user.name narxi-bot; git config user.email narxi-bot@users.noreply.github.com
+          git add probe/img && git commit -qm "probe imgs" && git push -q origin HEAD:probe
