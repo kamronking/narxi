@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // A visitor's own profile: name, phone, city, brands, watched items.
+    // Written from the browser via Firebase ANONYMOUS auth (signInAnonymously).
+    // Only that same anonymous session may read/write ITS OWN document,
+    // so no visitor can read anyone else's phone number.
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Everything else is closed to all browser/client access.
+    // The Cloudflare Worker (api.narxi.site) uses the Admin service account,
+    // which BYPASSES these rules, so bot registrations in `site_reg` still work.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
